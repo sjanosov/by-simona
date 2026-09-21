@@ -4,7 +4,7 @@ $cream: #fbfaf7;
 $paper: #f6f4ef;
 $ink: #202e29;
 $forest: #205741;
-$bgButton: #60a58a;
+$bgButton: #366351;
 $muted: #526158;
 $line: #dedfd8;
 $white: #fff;
@@ -37,7 +37,7 @@ html {
 body {
   margin: 0;
   color: $ink;
-  background: $cream;
+  //background: $cream;
   font:
     500 clamp(1rem, 0.94rem + 0.26vw, 1.125rem)/1.6 "DM Sans",
     Arial,

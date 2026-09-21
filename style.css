@@ -19,7 +19,6 @@ html {
 body {
   margin: 0;
   color: #202e29;
-  background: #fbfaf7;
   font: 500 clamp(1rem, 0.94rem + 0.26vw, 1.125rem)/1.6 "DM Sans", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -168,7 +167,7 @@ h3 {
   border: 1px solid #20372e;
   border-radius: 100px;
   padding: 0.85rem 1.35rem;
-  background: #60a58a;
+  background: #366351;
   color: #fff;
   font-size: clamp(0.8rem, 0.78rem + 0.12vw, 0.92rem);
   font-weight: 700;
