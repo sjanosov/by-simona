@@ -1,49 +1,52 @@
-const menu=document.querySelector('.menu-toggle');const nav=document.querySelector('.navlinks');menu?.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Zavrieť navigáciu':'Otvoriť navigáciu')});nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu?.setAttribute('aria-expanded','false')}));document.getElementById('year').textContent=new Date().getFullYear();
-
-
-// Progressive enhancement: no observer or reduced motion = all content visible.
-(() => {
-  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (motionPreference.matches || !('IntersectionObserver' in window)) return;
-
-  const targets = document.querySelectorAll('.motion-stagger, .motion-timeline');
-  if (!targets.length) return;
-
-  // Only hide items shortly before observation starts, avoiding no-JS blank content.
-  document.documentElement.classList.add('motion-enabled');
-  const observer = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target); // play only once
-    }
-  }, { threshold: 0.12, rootMargin: '0px 0px 40px 0px' });
-
-  targets.forEach((target) => observer.observe(target));
-  motionPreference.addEventListener?.('change', (event) => {
-    if (!event.matches) return;
-    observer.disconnect();
-    document.documentElement.classList.remove('motion-enabled');
-    targets.forEach((target) => target.classList.add('is-visible'));
+const menu = document.querySelector('.menu-toggle');
+const navigation = document.querySelector('.navlinks');
+menu?.addEventListener('click', () => {
+  const open = navigation.classList.toggle('open');
+  menu.setAttribute('aria-expanded', String(open));
+  menu.setAttribute('aria-label', open ? 'Zavrieť menu' : 'Otvoriť menu');
+});
+navigation?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  navigation.classList.remove('open');
+  menu?.setAttribute('aria-expanded', 'false');
+}));
+const year = document.querySelector('#year');
+if (year) year.textContent = String(new Date().getFullYear());
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const reveals = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window && !reducedMotion) {
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+  }), { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+  reveals.forEach(element => observer.observe(element));
+} else reveals.forEach(element => element.classList.add('is-visible'));
+const email = document.querySelector('[data-copy-email]');
+const tooltip = document.querySelector('#email-tooltip-text');
+if (email && tooltip) {
+  const reset = () => { tooltip.textContent = 'Kliknite pre skopírovanie'; };
+  email.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(email.dataset.copyEmail); tooltip.textContent = 'Adresa je skopírovaná'; }
+    catch { tooltip.textContent = 'Kopírovanie sa nepodarilo'; }
   });
-})();
+  email.addEventListener('mouseleave', reset);
+  email.addEventListener('blur', reset);
+}
 
-// Copy the displayed address; feedback is shown in the same tooltip.
-(() => {
-  const button = document.querySelector('[data-copy-email]');
-  const tooltip = document.getElementById('email-tooltip-text');
-  if (!button || !tooltip) return;
-  const initialText = 'Kliknite pre skopírovanie';
-  const reset = () => { tooltip.textContent = initialText; };
-  button.addEventListener('click', async () => {
-    try {
-      if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable');
-      await navigator.clipboard.writeText(button.dataset.copyEmail);
-      tooltip.textContent = 'Adresa je skopírovaná';
-    } catch (error) {
-      tooltip.textContent = 'Kopírovanie sa nepodarilo';
-    }
-  });
-  button.addEventListener('mouseleave', reset);
-  button.addEventListener('blur', reset);
-})();
+// Animate the four process steps in order as the timeline enters the viewport.
+const timeline = document.querySelector('.timeline');
+if (timeline) {
+  const steps = [...timeline.querySelectorAll('li')];
+  const activate = () => {
+    steps.forEach((step, index) => {
+      if (reducedMotion) step.classList.add('step-active');
+      else window.setTimeout(() => step.classList.add('step-active'), index * 420);
+    });
+    if (reducedMotion) timeline.classList.add('timeline-active');
+    else window.setTimeout(() => timeline.classList.add('timeline-active'), 120);
+  };
+  if ('IntersectionObserver' in window && !reducedMotion) {
+    const timelineObserver = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) { activate(); timelineObserver.disconnect(); }
+    }, { threshold: 0.22 });
+    timelineObserver.observe(timeline);
+  } else activate();
+}
