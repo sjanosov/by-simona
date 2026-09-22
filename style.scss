@@ -7,6 +7,9 @@ $forest: #205741;
 $bgButton: #366351;
 $muted: #526158;
 $line: #dedfd8;
+// Jednotny polomer: karty (projekty, cennik, formular) a mensi pre polia vnutri.
+$radius: 12px;
+$radius-sm: 8px;
 $white: #fff;
 $font: "DM Sans", Arial, sans-serif;
 $body-size: clamp(1rem, 0.94rem + 0.26vw, 1.125rem);
@@ -464,7 +467,7 @@ h3 {
 .project {
   min-width: 0;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: $radius;
   background: rgba(255, 255, 255, 0.72);
   box-shadow: 0 18px 45px rgba(36, 55, 47, 0.08);
   transition:
@@ -709,7 +712,7 @@ h3 {
   align-self: end;
   justify-self: end;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: $radius;
   img {
     display: block;
     width: 100%;
@@ -985,7 +988,7 @@ h3 {
   flex-direction: column;
   padding: clamp(1.6rem, 2.6vw, 2.4rem);
   border: 1px solid $line;
-  border-radius: 8px;
+  border-radius: $radius;
   background: $white;
   box-shadow: 0 18px 45px rgba(36, 55, 47, 0.06);
   transition:
@@ -1155,7 +1158,7 @@ h3 {
   gap: 0.9rem 1rem;
   padding: clamp(1.4rem, 2.5vw, 2rem);
   border: 1px solid $line;
-  border-radius: 14px;
+  border-radius: $radius;
   background: $white;
 }
 
@@ -1176,7 +1179,7 @@ h3 {
   textarea {
     width: 100%;
     border: 1px solid $line;
-    border-radius: 8px;
+    border-radius: $radius-sm;
     padding: 0.62rem 0.7rem;
     background: $cream;
     color: $ink;
