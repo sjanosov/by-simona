@@ -18,7 +18,23 @@ $section-gap: clamp(5.5rem, 8.5vw, 9rem);
 $gutter: clamp(2.5rem, 9vw, 9rem);
 $gutter-sm: 2.5rem;
 
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("fonts/dm-sans-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("fonts/dm-sans-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 // by simona. — editable design tokens. SCSS source; CSS compiled-equivalent is included.
 
@@ -114,6 +130,15 @@ h3 {
   font-size: clamp(1.1rem, 1rem + 0.42vw, 1.4rem);
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .skip {
   position: absolute;
   left: 1rem;
@@ -173,6 +198,7 @@ h3 {
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.035em;
+    text-transform: uppercase;
     transition: color 0.2s;
   }
   a:hover {
@@ -184,8 +210,17 @@ h3 {
   // Na desktope skryté, zapína sa v breakpointe 1100px nižšie.
   display: none;
 
+  svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
   // Ikonu prepína aria-expanded, ktoré nastavuje script.js – žiadna extra trieda.
-  .fa-xmark {
+  .icon-close {
     display: none;
   }
 
@@ -194,11 +229,11 @@ h3 {
     background: $bgButton;
     color: $white;
 
-    .fa-bars {
+    .icon-open {
       display: none;
     }
 
-    .fa-xmark {
+    .icon-close {
       display: block;
       animation: menu-icon-in 0.25s ease both;
     }
@@ -614,7 +649,7 @@ h3 {
     padding: 0.3rem clamp(1rem, 2.3vw, 2.5rem);
     border-left: 1px solid #a2a398;
   }
-  article:first-child {
+  article:first-of-type {
     padding-left: 0;
     border: 0;
   }
@@ -626,7 +661,7 @@ h3 {
     stroke-width: 2.65px;
     margin-bottom: 1.2rem;
   }
-  h2 {
+  h3 {
     font-size: clamp(1.12rem, 1rem + 0.42vw, 1.4rem);
     margin-bottom: 0.7rem;
   }
@@ -684,7 +719,7 @@ h3 {
   }
 
   // Foto dosedá na hranu sekcie, posun zdola by pretekal do ďalšej sekcie.
-  &.reveal {
+  .js &.reveal {
     transform: none;
   }
 }
@@ -730,8 +765,7 @@ h3 {
 
 .process {
   position: relative;
-  background:
-    radial-gradient(ellipse at 0 100%, #e5e7dc, transparent 27%), #fbfaf7;
+  background: $paper;
   overflow: hidden;
   h2 {
     max-width: 15ch;
@@ -921,6 +955,151 @@ h3 {
   z-index: 1;
 }
 
+.pricing {
+  background: $cream;
+}
+
+.pricing-intro {
+  max-width: 44rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+  h2 {
+    margin-bottom: 1.2rem;
+    text-wrap: balance;
+  }
+  p:not(.eyebrow) {
+    color: $muted;
+    margin: 0;
+  }
+}
+
+.pricing-grid {
+  display: grid;
+  // auto-fit: 3 stĺpce na desktope, pod ~900px jeden stĺpec bez extra breakpointu.
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: clamp(1rem, 1.8vw, 1.6rem);
+  align-items: stretch;
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.6rem, 2.6vw, 2.4rem);
+  border: 1px solid $line;
+  border-radius: 8px;
+  background: $white;
+  box-shadow: 0 18px 45px rgba(36, 55, 47, 0.06);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 24px 55px rgba(36, 55, 47, 0.12);
+  }
+
+  h3 {
+    margin-bottom: 0.9rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0 0 2rem;
+    padding: 1.4rem 0 0;
+    border-top: 1px solid $line;
+  }
+
+  li {
+    position: relative;
+    padding: 0.3rem 0 0.3rem 2rem;
+    font-size: 0.95rem;
+  }
+
+  li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0.45rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 1px solid #b8c7bb;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 0.7rem;
+    color: $forest;
+  }
+
+  .button {
+    margin-top: auto;
+  }
+}
+
+.plan-price {
+  margin-bottom: 0.9rem;
+  font-size: clamp(2rem, 1.7rem + 1.2vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: $forest;
+  small {
+    font-size: 0.4em;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: $muted;
+  }
+}
+
+.plan-desc {
+  color: $muted;
+  margin-bottom: 1.4rem;
+}
+
+.plan-featured {
+  position: relative;
+  border-color: $forest;
+  background: #f1f4ef;
+  box-shadow: 0 24px 55px rgba(36, 55, 47, 0.12);
+}
+
+// Sedí na hornej hrane karty, aby ceny všetkých balíčkov ostali v jednej rovine.
+.plan-badge {
+  position: absolute;
+  top: 0;
+  left: clamp(1.6rem, 2.6vw, 2.4rem);
+  transform: translateY(-50%);
+  margin: 0;
+  padding: 0.35rem 0.8rem;
+  border-radius: 100px;
+  background: $forest;
+  color: $white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.pricing-notes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+  max-width: 68ch;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  font-size: 0.92rem;
+  color: $muted;
+  p {
+    margin: 0;
+  }
+  strong {
+    color: $ink;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plan {
+    transition: none;
+  }
+}
+
 .footer {
   position: relative;
   overflow: hidden;
@@ -948,42 +1127,102 @@ h3 {
   z-index: 1;
 }
 
+// Pätička = zároveň kontaktná sekcia (#kontakt), preto CTA blok nad odkazmi.
+.footer-cta {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: clamp(2rem, 4vw, 4.5rem);
+  align-items: end;
+  padding-bottom: clamp(2.8rem, 4.5vw, 4rem);
+  h2 {
+    font-size: clamp(1.9rem, 1.5rem + 1.6vw, 3rem);
+    margin-bottom: 1rem;
+    max-width: 18ch;
+  }
+}
+
+.footer-cta-lead {
+  margin: 0;
+  max-width: 46ch;
+  font-size: 0.97rem;
+  color: $muted;
+}
+
+.footer-cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.footer-cta-note {
+  margin: 0.4rem 0 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $muted;
+}
+
 .footer-main {
   display: grid;
-  grid-template-columns: 1.15fr 1fr 1.4fr 0.7fr;
-  gap: 2rem;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
   align-items: start;
-  padding-bottom: 3.2rem;
+  border-top: 1px solid $line;
+  padding-block: clamp(2.5rem, 4vw, 3.5rem);
 }
 
-.footer-main > p {
-  letter-spacing: 0.1em;
-  font-size: 0.83rem;
-  font-weight: 700;
+.footer-brand > p {
+  margin: 1.25rem 0 0;
+  max-width: 32ch;
+  font-size: 0.92rem;
+  color: $muted;
 }
 
-.footer-email > span,
-.footer-social > span {
+.footer-col-title {
   display: block;
+  margin-bottom: 1.05rem;
   font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  margin-bottom: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
 }
 
-.footer-social a {
-  display: block;
-  font-size: 0.86rem;
-  margin: 0.2rem 0;
+.footer-col {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  a,
+  li {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-size: 0.92rem;
+    color: $muted;
+  }
+  a {
+    width: max-content;
+    transition: color 0.2s;
+    &:hover {
+      color: $forest;
+    }
+  }
 }
 
 .footer-bottom {
-  border-top: 1px solid #dedfd8;
+  border-top: 1px solid $line;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 1rem;
   padding-block: 1.6rem;
   font-size: 0.78rem;
   color: $muted;
+  a:hover {
+    color: $forest;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
 }
 
 .contact-email {
@@ -1036,7 +1275,8 @@ h3 {
   transform: translate(-50%, 0);
 }
 
-.reveal {
+// Skrývame len keď beží JS (trieda .js z <head>), inak by obsah ostal neviditeľný.
+.js .reveal {
   opacity: 0;
   transform: translateY(18px);
   transition:
@@ -1044,9 +1284,28 @@ h3 {
     transform 0.65s ease;
 }
 
-.reveal.is-visible {
+.js .reveal.is-visible {
   opacity: 1;
   transform: none;
+}
+
+.legal {
+  max-width: 50rem;
+  h1 {
+    font-size: $h2-size;
+  }
+  h2 {
+    font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.8rem);
+    margin: 2.5rem 0 0.8rem;
+  }
+  p,
+  li {
+    color: $muted;
+  }
+  a {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
 }
 
 .logo-word {
@@ -1236,7 +1495,7 @@ h3 {
     article {
       padding-inline: 1.1rem;
     }
-    article:nth-child(odd) {
+    article:nth-of-type(odd) {
       border: 0;
       padding-left: 0;
     }
@@ -1289,8 +1548,17 @@ h3 {
     display: none;
   }
 
+  .footer-cta {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
   .footer-main {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
   }
 
   .header::before {
@@ -1340,11 +1608,12 @@ h3 {
 
   .footer-main {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
   .footer-bottom {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   .header::before {
@@ -1368,7 +1637,7 @@ h3 {
     transition-duration: 0.01ms !important;
   }
 
-  .reveal {
+  .js .reveal {
     opacity: 1;
     transform: none;
   }
