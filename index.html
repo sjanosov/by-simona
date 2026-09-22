@@ -24,7 +24,10 @@
       property="og:description"
       content="Moderné a responzívne weby pre malých podnikateľov. Dizajn, funkčnosť a základné SEO od návrhu po spustenie."
     />
-    <meta property="og:image" content="https://by-simona.eu/assets/og-image.jpg" />
+    <meta
+      property="og:image"
+      content="https://by-simona.eu/assets/og-image.jpg"
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="800" />
     <meta
@@ -64,7 +67,11 @@
           "jobTitle": "Webová dizajnérka"
         },
         "knowsLanguage": ["sk", "cs"],
-        "serviceType": ["Tvorba webových stránok", "Web dizajn", "SEO optimalizácia"],
+        "serviceType": [
+          "Tvorba webových stránok",
+          "Web dizajn",
+          "SEO optimalizácia"
+        ],
         "priceRange": "od 390 €",
         "makesOffer": [
           {
@@ -234,7 +241,8 @@
                 >
                   <img
                     src="assets/shades-lounge-bar.webp"
-                    width="1600" height="769"
+                    width="1600"
+                    height="769"
                     alt="Náhľad webovej stránky Shades Lounge Bar"
                     loading="lazy"
                   />
@@ -249,7 +257,7 @@
                   <a
                     href="https://sjanosov.github.io/shades-lounge-bar/"
                     target="_blank"
-                  rel="noopener"
+                    rel="noopener"
                     aria-label="Zobraziť projekt Shades Lounge Bar"
                   ></a>
                 </div>
@@ -265,7 +273,8 @@
                 >
                   <img
                     src="assets/ubytovanie-solosnica.webp"
-                    width="1600" height="760"
+                    width="1600"
+                    height="760"
                     alt="Náhľad webovej stránky Ubytovanie Sološnica"
                     loading="lazy"
                   />
@@ -280,7 +289,7 @@
                   <a
                     href="https://ubytovanie-solosnica.sk/"
                     target="_blank"
-                  rel="noopener"
+                    rel="noopener"
                     aria-label="Zobraziť projekt Ubytovanie Sološnica"
                   ></a>
                 </div>
@@ -296,7 +305,8 @@
                 >
                   <img
                     src="assets/astrokareta.webp"
-                    width="1600" height="770"
+                    width="1600"
+                    height="770"
                     alt="Náhľad webovej stránky Astrokareta"
                     loading="lazy"
                   />
@@ -311,7 +321,7 @@
                   <a
                     href="https://astrokareta.cz/"
                     target="_blank"
-                  rel="noopener"
+                    rel="noopener"
                     aria-label="Zobraziť projekt Astrokareta"
                   ></a>
                 </div>
@@ -321,7 +331,8 @@
                 <div class="project-visual">
                   <img
                     src="assets/hair-salon-demo.webp"
-                    width="1536" height="1024"
+                    width="1536"
+                    height="1024"
                     alt="Náhľad webovej stránky Hair Salon Demo"
                     loading="lazy"
                   />
@@ -467,8 +478,8 @@
               <h3>Štandard</h3>
               <p class="plan-price"><small>od</small> 790 €</p>
               <p class="plan-desc">
-                Pre firmy, ktoré chcú plnohodnotnú prezentáciu a viac
-                zákazníkov z vyhľadávania.
+                Pre firmy, ktoré chcú plnohodnotnú prezentáciu a viac zákazníkov
+                z vyhľadávania.
               </p>
               <ul>
                 <li>Web do 5 podstránok</li>
@@ -523,22 +534,13 @@
     <footer class="footer" id="kontakt">
       <div class="container">
         <div class="footer-cta reveal">
-          <div>
+          <div class="footer-cta-copy">
             <p class="eyebrow">KONTAKT</p>
             <h2>Povedzte mi o svojom projekte.</h2>
             <p class="footer-cta-lead">
               Stačí pár riadkov o tom, čo robíte a čo od webu očakávate. Ozvem
               sa do 24 hodín s návrhom ďalšieho postupu.
             </p>
-          </div>
-          <div class="footer-cta-actions">
-            <a
-              class="button"
-              href="mailto:hello@by-simona.eu?subject=Nov%C3%BD%20projekt%20%E2%80%93%20by%20simona"
-            >
-              ZAČAŤ SPOLUPRÁCU
-              <span aria-hidden="true"> ↗ </span>
-            </a>
             <p class="footer-cta-note">alebo napíšte priamo na</p>
             <div class="email-tooltip">
               <button
@@ -558,6 +560,105 @@
               </span>
             </div>
           </div>
+          <!-- Odoslanie beží cez Web3Forms (statický web nemá backend).
+               access_key nahraď kľúčom, ktorý ti príde na hello@by-simona.eu. -->
+          <form
+            action="https://api.web3forms.com/submit"
+            class="contact-form"
+            id="kontaktny-formular"
+            method="POST"
+          >
+            <input
+              name="access_key"
+              type="hidden"
+              value="12629a1a-82ec-4872-847e-479985a27a0f"
+            />
+            <input
+              name="subject"
+              type="hidden"
+              value="Nový dopyt z webu by-simona.eu"
+            />
+            <input name="from_name" type="hidden" value="by-simona.eu" />
+            <!-- Pasca na roboty: človek toto pole nevidí, vyplní ho len bot. -->
+            <input
+              autocomplete="off"
+              class="form-honeypot"
+              name="botcheck"
+              tabindex="-1"
+              type="checkbox"
+            />
+
+            <p class="form-field">
+              <label for="pole-meno">Meno a priezvisko *</label>
+              <input
+                autocomplete="name"
+                id="pole-meno"
+                name="meno"
+                required
+                type="text"
+              />
+            </p>
+            <p class="form-field">
+              <label for="pole-email">E-mail *</label>
+              <input
+                autocomplete="email"
+                id="pole-email"
+                name="email"
+                required
+                type="email"
+              />
+            </p>
+            <p class="form-field">
+              <label for="pole-projekt">Typ projektu</label>
+              <select id="pole-projekt" name="typ_projektu">
+                <option value="Neviem posúdiť">Zatiaľ neviem</option>
+                <option value="Štart – jednostránkový web">
+                  Štart – jednostránkový web
+                </option>
+                <option value="Štandard – web do 5 podstránok">
+                  Štandard – web do 5 podstránok
+                </option>
+                <option value="Riešenie na mieru">Riešenie na mieru</option>
+                <option value="Správa existujúceho webu">
+                  Správa existujúceho webu
+                </option>
+              </select>
+            </p>
+            <p class="form-field">
+              <label for="pole-rozpocet">Orientačný rozpočet</label>
+              <select id="pole-rozpocet" name="rozpocet">
+                <option value="Neuvedený">Zatiaľ neviem</option>
+                <option value="do 500 €">do 500 €</option>
+                <option value="500 – 1 000 €">500 – 1 000 €</option>
+                <option value="1 000 – 2 000 €">1 000 – 2 000 €</option>
+                <option value="nad 2 000 €">nad 2 000 €</option>
+              </select>
+            </p>
+            <p class="form-field form-field-wide">
+              <label for="pole-sprava">Čo potrebujete? *</label>
+              <textarea
+                id="pole-sprava"
+                name="sprava"
+                required
+                rows="4"
+              ></textarea>
+            </p>
+            <label class="form-consent" for="pole-suhlas">
+              <input id="pole-suhlas" name="suhlas" required type="checkbox" />
+              <span>
+                Súhlasím so spracovaním uvedených údajov na účel odpovede na môj
+                dopyt. Podrobnosti v
+                <a href="ochrana-osobnych-udajov.html">
+                  ochrane osobných údajov </a
+                >.
+              </span>
+            </label>
+            <button class="button form-submit" type="submit">
+              ODOSLAŤ DOPYT
+              <span aria-hidden="true"> ↗ </span>
+            </button>
+            <p aria-live="polite" class="form-status" role="status"></p>
+          </form>
         </div>
         <div class="footer-main">
           <div class="footer-brand">
@@ -566,8 +667,8 @@
               ><small> WEB DESIGN STUDIO </small></a
             >
             <p>
-              Moderné weby na mieru pre malé firmy a podnikateľov na Slovensku
-              a v Česku.
+              Moderné weby na mieru pre malé firmy a podnikateľov na Slovensku a
+              v Česku.
             </p>
           </div>
           <nav aria-label="Odkazy v pätičke" class="footer-col">

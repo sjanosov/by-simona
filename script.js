@@ -86,3 +86,46 @@ if (timeline) {
     timelineObserver.observe(timeline);
   } else activate();
 }
+
+// Kontaktný formulár – odosielame cez fetch, aby návštevník neodišiel zo stránky.
+const contactForm = document.querySelector("#kontaktny-formular");
+if (contactForm) {
+  const status = contactForm.querySelector(".form-status");
+  const submit = contactForm.querySelector(".form-submit");
+  const accessKey = contactForm.querySelector("[name=access_key]");
+  const setStatus = (text, state) => {
+    status.textContent = text;
+    status.classList.toggle("is-error", state === "error");
+    status.classList.toggle("is-success", state === "success");
+  };
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    // Poistka, aby formulár po nasadení nezlyhal ticho s nevyplneným kľúčom.
+    if (accessKey?.value.startsWith("SEM-VLOZ")) {
+      setStatus(
+        "Formulár zatiaľ nie je aktívny. Napíšte mi prosím na hello@by-simona.eu.",
+        "error",
+      );
+      return;
+    }
+    submit.disabled = true;
+    setStatus("Odosielam…");
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(contactForm),
+      });
+      if (!response.ok) throw new Error(String(response.status));
+      setStatus("Ďakujem, správa odišla. Ozvem sa do 24 hodín.", "success");
+      contactForm.reset();
+    } catch {
+      setStatus(
+        "Odoslanie sa nepodarilo. Napíšte mi prosím priamo na hello@by-simona.eu.",
+        "error",
+      );
+    } finally {
+      submit.disabled = false;
+    }
+  });
+}
