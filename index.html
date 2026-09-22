@@ -11,6 +11,13 @@
     <title>by simona – Premyslené weby, ktoré pracujú pre vás</title>
     <link href="favicon.svg" rel="icon" type="image/svg+xml" />
     <link href="style.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="projects-section.css" /> -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script defer="" src="script.js"></script>
     <link href="https://by-simona.eu/" rel="canonical" />
   </head>
@@ -29,7 +36,8 @@
           class="menu-toggle"
           type="button"
         >
-          ☰
+          <i aria-hidden="true" class="fa-solid fa-bars"></i>
+          <i aria-hidden="true" class="fa-solid fa-xmark"></i>
         </button>
         <nav aria-label="Hlavná navigácia" class="navlinks" id="navigation">
           <a href="#uvod"> DOMOV </a>
@@ -120,115 +128,151 @@
           <p>Spolupráca, v ktorej záleží na vašich cieľoch.</p>
         </article>
       </section>
-      <section class="portfolio section" id="portfolio">
+
+      <section
+        class="portfolio section reveal"
+        id="portfolio"
+        aria-labelledby="projects-title"
+      >
         <div class="container">
-          <div class="section-heading reveal">
-            <div>
-              <p class="eyebrow">VYBRANÉ PROJEKTY</p>
-              <h2>Skutočné príbehy, reálne výsledky.</h2>
+          <div class="eyebrow">Vybrané projekty</div>
+
+          <div class="portfolio-layout">
+            <div class="portfolio-intro reveal">
+              <h2 id="projects-title">Moja práca v praxi.</h2>
+
+              <p>
+                Každý projekt vzniká s dôrazom na detail, funkčnosť a jedinečný
+                príbeh značky.
+              </p>
             </div>
-            <p>
-              Každý projekt vzniká s dôrazom na detail, funkčnosť a jedinečný
-              príbeh značky.
-            </p>
-          </div>
-          <div class="project-grid">
-            <article class="project reveal">
-              <div class="project-image">
-                <img
-                  alt="Náhľad webu Shades Lounge Bar"
-                  height="1024"
-                  loading="lazy"
-                  src="assets/shades-lounge-bar.webp"
-                  width="1536"
-                />
-              </div>
-              <div class="project-title">
-                <h3>Shades Lounge Bar</h3>
-              </div>
-              <p>WEB DIZAJN</p>
-            </article>
-            <article class="project reveal">
-              <a
-                aria-label="Otvoriť web Ubytovanie Sološnica"
-                class="project-image"
-                href="https://ubytovanie-solosnica.sk/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <img
-                  alt="Náhľad skutočnej stránky Ubytovanie Sološnica"
-                  height="760"
-                  loading="lazy"
-                  src="assets/ubytovanie-solosnica.webp"
-                  width="1600"
-                />
-              </a>
-              <div class="project-title">
-                <h3>
+
+            <div class="project-grid">
+              <article class="project reveal">
+                <a
+                  class="project-visual"
+                  href="https://sjanosov.github.io/shades-lounge-bar/"
+                  target="_blank"
+                  aria-label="Zobraziť projekt Shades Lounge Bar"
+                >
+                  <img
+                    src="assets/shades-lounge-bar.webp"
+                    alt="Náhľad webovej stránky Shades Lounge Bar"
+                    loading="lazy"
+                  />
+                </a>
+
+                <div class="project-info">
+                  <div>
+                    <h3>Shades Lounge Bar</h3>
+                    <p class="project-type">Web dizajn</p>
+                  </div>
+
+                  <a
+                    href="https://sjanosov.github.io/shades-lounge-bar/"
+                    target="_blank"
+                    aria-label="Zobraziť projekt Shades Lounge Bar"
+                  ></a>
+                </div>
+              </article>
+
+              <article class="project reveal">
+                <a
+                  class="project-visual"
+                  href="https://ubytovanie-solosnica.sk/"
+                  target="_blank"
+                  aria-label="Zobraziť projekt Ubytovanie Sološnica"
+                >
+                  <img
+                    src="assets/ubytovanie-solosnica.webp"
+                    alt="Náhľad webovej stránky Ubytovanie Sološnica"
+                    loading="lazy"
+                  />
+                </a>
+
+                <div class="project-info">
+                  <div>
+                    <h3>Ubytovanie Sološnica</h3>
+                    <p class="project-type">Web dizajn · Prezentačný web</p>
+                  </div>
+
                   <a
                     href="https://ubytovanie-solosnica.sk/"
-                    rel="noopener noreferrer"
                     target="_blank"
-                  >
-                    Ubytovanie Sološnica
-                  </a>
-                </h3>
-                <span aria-hidden="true"> ↗ </span>
-              </div>
-              <p>WEB DIZAJN · PREZENTAČNÝ WEB</p>
-            </article>
-            <article class="project reveal">
-              <a
-                aria-label="Otvoriť web Astrokareta"
-                class="project-image"
-                href="https://astrokareta.cz/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <img
-                  alt="Náhľad skutočnej stránky Astrokareta"
-                  height="770"
-                  loading="lazy"
-                  src="assets/astrokareta.webp"
-                  width="1600"
-                />
-              </a>
-              <div class="project-title">
-                <h3>
+                    aria-label="Zobraziť projekt Ubytovanie Sološnica"
+                  ></a>
+                </div>
+              </article>
+
+              <article class="project reveal">
+                <a
+                  class="project-visual"
+                  href="https://astrokareta.cz/"
+                  target="_blank"
+                  aria-label="Zobraziť projekt Astrokareta"
+                >
+                  <img
+                    src="assets/astrokareta.webp"
+                    alt="Náhľad webovej stránky Astrokareta"
+                    loading="lazy"
+                  />
+                </a>
+
+                <div class="project-info">
+                  <div>
+                    <h3>Astrokareta</h3>
+                    <p class="project-type">Web dizajn · Prezentačný web</p>
+                  </div>
+
                   <a
                     href="https://astrokareta.cz/"
-                    rel="noopener noreferrer"
                     target="_blank"
-                  >
-                    Astrokareta
-                  </a>
-                </h3>
-                <span aria-hidden="true"> ↗ </span>
-              </div>
-              <p>WEB DIZAJN · PREZENTAČNÝ WEB</p>
-            </article>
-            <article class="project reveal">
-              <div class="project-image">
-                <img
-                  alt="Demo projekt Hair Salon – ukážka webu na notebooku a telefóne"
-                  height="904"
-                  loading="lazy"
-                  src="assets/hair-salon-demo.webp"
-                  width="1405"
-                />
-              </div>
-              <div class="project-title">
-                <h3>Hair Salon</h3>
-                <span aria-hidden="true"> DEMO </span>
-              </div>
-              <p>DEMO PROJEKT · WEB DIZAJN</p>
-            </article>
+                    aria-label="Zobraziť projekt Astrokareta"
+                  ></a>
+                </div>
+              </article>
+
+              <article class="project reveal">
+                <a
+                  class="project-visual"
+                  href="#"
+                  target="_blank"
+                  aria-label="Zobraziť projekt Hair Salon Demo"
+                >
+                  <img
+                    src="assets/hair-salon-demo.webp"
+                    alt="Náhľad webovej stránky Hair Salon Demo"
+                    loading="lazy"
+                  />
+                </a>
+
+                <div class="project-info">
+                  <div>
+                    <h3>Hair Salon</h3>
+                    <p class="project-type">Vo vývoji</p>
+                  </div>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
       </section>
       <section class="about section" id="omne">
         <div class="container about-grid">
+          <div class="about-copy reveal">
+            <p class="eyebrow">O MNE</p>
+            <h2>Ahoj, som Simona.</h2>
+            <p>
+              Baví ma premieňať nápady na weby, ktoré sú pekné, prehľadné a majú
+              jasný účel. Každý návrh tvorím s citom pre detail a s ohľadom na
+              ľudí, ktorí ho budú používať.
+            </p>
+            <p>
+              Za značkou by simona. stojím ja. Pomáham malým podnikateľom
+              vytvoriť profesionálnu online prezentáciu s dôrazom na jednoduché
+              používanie a základnú SEO optimalizáciu.
+            </p>
+          </div>
           <div class="about-photo reveal">
             <img
               alt="Simona – autorka webového štúdia by simona"
@@ -238,23 +282,7 @@
               width="512"
             />
           </div>
-          <div class="about-copy reveal">
-            <p class="eyebrow">O MNE</p>
-            <h2>Ahoj, som Simona.</h2>
-            <p>
-              Tvorím weby, pretože ma baví spájať kreativitu s praktickými
-              riešeniami. Verím, že dobrý web nie je len o tom, ako vyzerá, ale
-              o tom, čo prináša – reálnu hodnotu, nových zákazníkov a priestor
-              pre rast.
-            </p>
-            <p>
-              Za značkou by simona. stojím ja. Spájam cit pre web dizajn,
-              používateľskú skúsenosť a základnú SEO optimalizáciu.
-              Spolupracujem s malými podnikateľmi, ktorí chcú profesionálnu a
-              dostupnú prezentáciu bez zbytočných komplikácií.
-            </p>
-          </div>
-          <div class="about-values reveal">
+          <!-- <div class="about-values reveal">
             <div>
               <strong> DIZAJN </strong>
               <span> S CITOM PRE DETAIL </span>
@@ -267,7 +295,7 @@
               <strong> SPOLUPRÁCA </strong>
               <span> BEZ ZBYTOČNÝCH KOMPLIKÁCIÍ </span>
             </div>
-          </div>
+          </div> -->
         </div>
       </section>
       <section class="process section" id="proces">
