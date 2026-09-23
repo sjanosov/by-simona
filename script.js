@@ -92,7 +92,6 @@ const contactForm = document.querySelector("#kontaktny-formular");
 if (contactForm) {
   const status = contactForm.querySelector(".form-status");
   const submit = contactForm.querySelector(".form-submit");
-  const accessKey = contactForm.querySelector("[name=access_key]");
   const setStatus = (text, state) => {
     status.textContent = text;
     status.classList.toggle("is-error", state === "error");
@@ -100,14 +99,6 @@ if (contactForm) {
   };
   contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    // Poistka, aby formulár po nasadení nezlyhal ticho s nevyplneným kľúčom.
-    if (accessKey?.value.startsWith("SEM-VLOZ")) {
-      setStatus(
-        "Formulár zatiaľ nie je aktívny. Napíšte mi prosím na hello@by-simona.eu.",
-        "error",
-      );
-      return;
-    }
     submit.disabled = true;
     setStatus("Odosielam…");
     try {

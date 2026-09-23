@@ -1,0 +1,6 @@
+# Sass build artefakt – style.css sa commituje, mapa nie.
+style.css.map
+
+# OS
+.DS_Store
+Thumbs.db
