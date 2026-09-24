@@ -1133,7 +1133,7 @@ h3 {
   animation: faq-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-@for $i from 1 through 7 {
+@for $i from 1 through 8 {
   .js .faq-list.reveal.is-visible .faq-item:nth-child(#{$i}) {
     animation-delay: #{($i - 1) * 70}ms;
   }
@@ -1253,6 +1253,75 @@ h3 {
   border-color: $forest;
   background: #f1f4ef;
   box-shadow: 0 24px 55px rgba(36, 55, 47, 0.12);
+}
+
+.pricing-addons {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding: clamp(1.4rem, 2.4vw, 2rem);
+  border: 1px solid $line;
+  border-radius: $radius;
+  background: $white;
+
+  h3 {
+    margin-bottom: 0.45rem;
+  }
+
+  ul {
+    list-style: none;
+    display: grid;
+    gap: 1.1rem;
+    margin: 1.4rem 0 0;
+    padding: 0;
+  }
+}
+
+.addons-head p {
+  margin: 0;
+  max-width: 52ch;
+  font-size: 0.95rem;
+  color: $muted;
+}
+
+.addon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem clamp(1rem, 3vw, 2.5rem);
+  padding-top: 1.15rem;
+  border-top: 1px solid $line;
+}
+
+.addon-copy {
+  flex: 1 1 18rem;
+  strong {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 1.02rem;
+  }
+  p {
+    margin: 0;
+    max-width: 58ch;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: $muted;
+  }
+}
+
+.addon-price {
+  flex: 0 0 auto;
+  margin: 0;
+  font-size: clamp(1.3rem, 1.1rem + 0.6vw, 1.65rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  color: $forest;
+}
+
+.addons-note {
+  max-width: 62ch;
+  margin: 1.4rem 0 0;
+  font-size: 0.9rem;
+  color: $muted;
 }
 
 .pricing-notes {
