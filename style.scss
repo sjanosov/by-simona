@@ -1,5 +1,3 @@
-// by simona. — single source of truth. Edit this file, then compile with Sass.
-// One base rule per selector; breakpoint overrides are grouped by media query.
 $cream: #fbfaf7;
 $paper: #f6f4ef;
 $ink: #202e29;
@@ -7,7 +5,6 @@ $forest: #205741;
 $bgButton: #366351;
 $muted: #526158;
 $line: #dedfd8;
-// Jednotny polomer: karty (projekty, cennik, formular) a mensi pre polia vnutri.
 $radius: 12px;
 $radius-sm: 8px;
 $white: #fff;
@@ -16,8 +13,6 @@ $body-size: clamp(1rem, 0.94rem + 0.26vw, 1.125rem);
 $h1-size: clamp(2.6rem, 2rem + 2.5vw, 4.55rem);
 $h2-size: clamp(2rem, 1.65rem + 1.65vw, 3.2rem);
 $section-gap: clamp(5.5rem, 8.5vw, 9rem);
-// Celkové bočné odsadenie .container – polovica na každú stranu.
-// Mobilné menu ho ruší negatívnym odsadením, aby bolo full-bleed ako lišta.
 $gutter: clamp(2.5rem, 9vw, 9rem);
 $gutter-sm: 2.5rem;
 
@@ -39,10 +34,7 @@ $gutter-sm: 2.5rem;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-// by simona. — editable design tokens. SCSS source; CSS compiled-equivalent is included.
-
 :root {
-  // Interpolácia je povinná – bez #{} by sa do CSS dostal doslovný text "$cream".
   --cream: #{$cream};
   --forest: #{$forest};
   --ink: #{$ink};
@@ -53,6 +45,11 @@ $gutter-sm: 2.5rem;
   box-sizing: border-box;
 }
 
+::selection {
+  background: $forest;
+  color: $white;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
@@ -61,7 +58,6 @@ html {
 body {
   margin: 0;
   color: $ink;
-  //background: $cream;
   font:
     500 clamp(1rem, 0.94rem + 0.26vw, 1.125rem)/1.6 "DM Sans",
     Arial,
@@ -202,9 +198,6 @@ h3 {
     font-weight: 500;
     letter-spacing: 0.01em;
     color: $muted;
-    // Globálne `a { text-decoration: none }` tu zámerne prebíjame:
-    // trvalé jemné podčiarknutie hovorí, že ide o odkaz, aj bez hoveru.
-    // text-underline-offset drží linku pod diakritikou (č, í, ť).
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-decoration-color: rgba($ink, 0.26);
@@ -223,7 +216,6 @@ h3 {
 }
 
 .menu-toggle {
-  // Na desktope skryté, zapína sa v breakpointe 1100px nižšie.
   display: none;
 
   svg {
@@ -235,7 +227,6 @@ h3 {
     stroke-linecap: round;
   }
 
-  // Ikonu prepína aria-expanded, ktoré nastavuje script.js – žiadna extra trieda.
   .icon-close {
     display: none;
   }
@@ -418,8 +409,6 @@ h3 {
   }
 }
 
-// PORTFÓLIO / VYBRANÉ PROJEKTY
-
 .portfolio {
   overflow: hidden;
   background: $paper;
@@ -592,17 +581,6 @@ h3 {
 }
 
 @media (max-width: 1050px) {
-  .faq-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .faq-intro {
-    position: static;
-    p:not(.eyebrow) {
-      max-width: 52ch;
-    }
-  }
-
   .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 28px 20px;
@@ -666,8 +644,6 @@ h3 {
 .features {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  // Rovnaký rytmus ako ostatné sekcie – .features nemá triedu .section,
-  // preto si odsadenie musí nastaviť sama.
   padding-block: $section-gap;
   gap: 0;
   article {
@@ -716,21 +692,16 @@ h3 {
 
 .about-grid {
   display: grid;
-  // Text berie zvyšok šírky; foto nikdy nepresiahne svoju natívnu veľkosť
-  // (simona.png má 512 px), inak sa škáluje nahoru a rozmazáva.
   grid-template-columns: 1fr minmax(0, 32rem);
   align-items: center;
   gap: clamp(2rem, 4vw, 5rem);
 }
 
 .about.section {
-  // Foto dosedá na spodnú hranu sekcie, preto tu spodný padding nie je.
   padding-bottom: 0;
 }
 
 .about-photo {
-  // Foto je výrez bez pozadia – drží sa spodnej hrany riadku aj sekcie,
-  // nech je text akokoľvek vysoký.
   align-self: end;
   justify-self: end;
   overflow: hidden;
@@ -743,14 +714,12 @@ h3 {
     object-position: bottom;
   }
 
-  // Foto dosedá na hranu sekcie, posun zdola by pretekal do ďalšej sekcie.
   .js &.reveal {
     transform: none;
   }
 }
 
 .about-copy {
-  // Sekcia nemá spodný padding, text si ho preto nesie sám.
   padding-block: clamp(1.5rem, 4vw, 3.5rem);
   padding-inline-end: clamp(0rem, 1.5vw, 1.5rem);
 }
@@ -947,6 +916,12 @@ h3 {
   }
 }
 
+.seo ::selection,
+.seo::selection {
+  background: #dce5d9;
+  color: $forest;
+}
+
 .seo::before {
   content: "";
   position: absolute;
@@ -981,20 +956,19 @@ h3 {
 }
 
 .faq {
-  // Paper, nie biela: cenník aj pätička sú krémové (takmer biele), takže
-  // biela FAQ medzi nimi vytvárala tri svetlé pásy za sebou.
   background: $paper;
 }
 
 .faq-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   gap: clamp(2rem, 5vw, 5.5rem);
   align-items: start;
 }
 
 .faq-intro {
-  // Nadpis drží pri sebe, kým čitateľ prechádza dlhším zoznamom otázok.
+  grid-column: 2;
+  grid-row: 1;
   position: sticky;
   top: 7.5rem;
   h2 {
@@ -1009,10 +983,10 @@ h3 {
 }
 
 .faq-list {
+  grid-column: 1;
+  grid-row: 1;
   display: grid;
   gap: 0.6rem;
-  // Povolí animovať prechod na automatickú výšku pri rozbaľovaní odpovede.
-  // Dedí sa, takže stačí raz tu – mimo FAQ sa nič nemení.
   interpolate-size: allow-keywords;
 }
 
@@ -1020,7 +994,6 @@ h3 {
   border: 1px solid $line;
   border-radius: $radius;
   background: $white;
-  // Radius musí strihať aj krémové pozadie otvorenej položky.
   overflow: hidden;
   transition:
     border-color 0.25s,
@@ -1051,7 +1024,6 @@ h3 {
   font-weight: 600;
   line-height: 1.4;
   cursor: pointer;
-  // Skryje predvolený trojuholník – vlastnú ikonu rieši .faq-marker.
   list-style: none;
   transition: color 0.2s;
 }
@@ -1064,13 +1036,11 @@ h3 {
   color: $forest;
 }
 
-// Globálny focus-visible pokrýva len a a button, summary si ho musí pridať samo.
 .faq-item summary:focus-visible {
   outline: 3px solid #8ca695;
   outline-offset: -3px;
 }
 
-// Krúžok so znamienkom +, ktoré sa otvorením preklopí na −.
 .faq-marker {
   position: relative;
   flex: 0 0 auto;
@@ -1091,7 +1061,6 @@ h3 {
   left: 50%;
   width: 0.72rem;
   height: 2px;
-  // Centrovanie cez margin, aby transform zostal voľný pre rotáciu.
   margin: -1px 0 0 -0.36rem;
   border-radius: 2px;
   background: $forest;
@@ -1122,8 +1091,6 @@ h3 {
   transform: rotate(0deg);
 }
 
-// Plynulé rozbalenie. Prehliadače bez ::details-content pravidlo ignorujú
-// a odpoveď sa jednoducho objaví naraz – nič sa nerozbije.
 .faq-item::details-content {
   block-size: 0;
   overflow: hidden;
@@ -1153,8 +1120,6 @@ h3 {
   }
 }
 
-// Otázky nabiehajú postupne za sebou. Kontejner sám sa nehýbe, pohyb
-// preberajú položky – inak by sa obe animácie sčítali.
 .js .faq-list.reveal {
   opacity: 1;
   transform: none;
@@ -1165,8 +1130,6 @@ h3 {
 }
 
 .js .faq-list.reveal.is-visible .faq-item {
-  // Zámerne animation, nie transition: animation-delay nezdrží
-  // hover ani otváranie, ktoré na .faq-item bežia cez transition.
   animation: faq-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
@@ -1206,7 +1169,6 @@ h3 {
 
 .pricing-grid {
   display: grid;
-  // auto-fit: 3 stĺpce na desktope, pod ~900px jeden stĺpec bez extra breakpointu.
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
   gap: clamp(1rem, 1.8vw, 1.6rem);
   align-items: stretch;
@@ -1342,7 +1304,6 @@ h3 {
   z-index: 1;
 }
 
-// Pätička = zároveň kontaktná sekcia (#kontakt), preto CTA blok nad odkazmi.
 .footer-cta {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
@@ -1363,7 +1324,6 @@ h3 {
   color: $muted;
 }
 
-// Formulár beží cez Web3Forms, takže tu je len vzhľad – žiadny backend.
 .contact-form {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1421,7 +1381,6 @@ h3 {
   grid-column: 1 / -1;
 }
 
-// Honeypot musí ostať v DOM a dostupný robotom, len neviditeľný pre človeka.
 .form-honeypot {
   position: absolute;
   left: -9999px;
@@ -1513,13 +1472,10 @@ h3 {
   li {
     display: block;
     margin-bottom: 0.6rem;
-    // Rovnaká veľkosť ako v navigácii, aby si oba stĺpce pätičky sedeli.
     font-size: 0.9rem;
     color: $muted;
   }
   a {
-    // Rovnaké podčiarknutie ako .navlinks a – odkaz je rozpoznateľný
-    // aj bez hoveru. width: max-content drží linku na dĺžke textu.
     width: max-content;
     font-weight: 500;
     letter-spacing: 0.01em;
@@ -1606,7 +1562,6 @@ h3 {
   transform: translate(-50%, 0);
 }
 
-// Skrývame len keď beží JS (trieda .js z <head>), inak by obsah ostal neviditeľný.
 .js .reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -1646,20 +1601,6 @@ h3 {
   line-height: 1.08;
   word-break: keep-all;
 }
-
-// .header::before {
-//   content: "";
-//   position: absolute;
-//   z-index: -1;
-//   top: 0;
-//   right: -5%;
-//   width: 53%;
-//   height: 175%;
-//   background: #eee8de;
-//   border-radius: 0 0 0 100%;
-//   opacity: 0.7;
-//   pointer-events: none;
-// }
 
 .hero::before {
   content: "";
@@ -1718,14 +1659,11 @@ h3 {
 
 @media (max-width: 1100px) {
   .header {
-    // Lišta dostane farbu explicitne (doteraz presvitalo biele pozadie stránky),
-    // aby ju vysúvací panel mohol presne zdediť a splynúť s ňou.
     background: $white;
   }
 
   .header .nav {
     min-height: 5rem;
-    // Dropdown je mimo toku, takže riadok už netreba zalamovať.
     flex-wrap: nowrap;
   }
 
@@ -1749,25 +1687,17 @@ h3 {
   }
 
   .navlinks {
-    // position: absolute vyberá menu z toku – prekrýva obsah, neodsúva ho.
-    // Kotví sa o .nav, ktorá má position: relative.
     position: absolute;
     top: 100%;
-    // Negatívne odsadenie ruší gutter kontejnera, takže panel je rovnako
-    // široký ako lišta – pôsobí ako jej predĺženie, nie ako plávajúca karta.
     inset-inline: calc(#{$gutter} / -2);
     z-index: 30;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    // Vodorovný padding zarovná odkazy s logom v lište.
     padding: 0 calc(#{$gutter} / 2) 0.75rem;
     background: $white;
     border-bottom: 1px solid $line;
 
-    // Vysúvanie: clip-path odkrýva panel zhora nadol. Obsah ani panel sa
-    // nehýbu, posúva sa len spodná hrana – vyzerá to, že sa lišta predlžuje.
-    // (visibility navyše drží odkazy mimo tab orderu, kým je menu zavreté.)
     clip-path: inset(0 0 100% 0);
     visibility: hidden;
     transition:
@@ -1778,8 +1708,6 @@ h3 {
       padding-block: 0.95rem;
       font-size: 0.95rem;
       color: $ink;
-      // V rozbalenom paneli odkaz označuje celý riadok s oddeľovačom,
-      // podčiarknutie z desktopu tu preto vypíname.
       text-decoration: none;
       transition: color 0.2s ease;
     }
@@ -1801,15 +1729,11 @@ h3 {
   .hero {
     grid-template-columns: 1fr;
     min-height: 0;
-    // Desktopová height: 90vh tu stláčala text aj obrázok do jednej obrazovky
-    // a overflow: hidden obrázok odsekol. Na mobile nech hero rastie s obsahom.
     height: auto;
     overflow: hidden;
   }
 
   .hero-copy {
-    // Menší spodný padding – hnedý tvar zdola podteká pod text a nadväzuje
-    // priamo na obrázok, takže medzera medzi nimi nie je potrebná.
     padding: 3.8rem max(1.25rem, 5vw) 1.4rem;
     h1 {
       font-size: clamp(2.35rem, 8vw, 3.7rem);
@@ -1818,13 +1742,11 @@ h3 {
 
   .hero-art {
     min-height: 0;
-    // Obrázok posunutý nižšie, aby mal nad sebou vzduch a nelepil sa na text.
     padding: 2.75rem 0 0 6%;
   }
 
   .hero-photo-frame {
     width: 100%;
-    // Pomer blízko originálu (1536×1024 = 1,5), takže object-fit nemá čo odrezať.
     aspect-ratio: 1.45;
     border-radius: 55% 0 0 0 / 60% 0 0 0;
     max-height: none;
@@ -1855,8 +1777,6 @@ h3 {
   }
 
   .about-copy {
-    // V jednom stĺpci text nikdy nedosahuje spodnú hranu sekcie,
-    // odsadenie od foto rieši gap v gride.
     padding-block: 0;
     padding-inline-end: 0;
   }
@@ -1879,9 +1799,81 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .faq-layout {
+    grid-template-columns: 1fr;
+    gap: clamp(1.75rem, 4vw, 2.75rem);
+  }
+
+  .faq-intro {
+    grid-column: auto;
+    grid-row: auto;
+    position: static;
+    h2 {
+      max-width: 20ch;
+    }
+    p:not(.eyebrow) {
+      max-width: 52ch;
+    }
+  }
+
+  .faq-list {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
   .steps {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem 0;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .steps li {
+    display: grid;
+    grid-template-columns: 3.75rem 1fr;
+    column-gap: 1.15rem;
+    padding: 0 0 2.4rem;
+  }
+
+  .steps li:last-child {
+    padding-bottom: 0;
+  }
+
+  .step-icon {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    margin: 0;
+  }
+
+  .steps li::before,
+  .steps li::after {
+    content: "";
+    position: absolute;
+    left: calc(1.875rem - 1px);
+    top: 3.4rem;
+    width: 2px;
+  }
+
+  .steps li::before {
+    bottom: 0;
+    background: repeating-linear-gradient(
+      180deg,
+      #b8c2b8 0 3px,
+      transparent 3px 7px
+    );
+  }
+
+  .steps li::after {
+    height: 0;
+    background: #567762;
+    transition: height 0.6s cubic-bezier(0.18, 0.7, 0.2, 1);
+  }
+
+  .steps li.step-active::after {
+    height: calc(100% - 3.4rem);
+  }
+
+  .steps li:last-child::before,
+  .steps li:last-child::after {
+    display: none;
   }
 
   .timeline::before,
@@ -1913,8 +1905,6 @@ h3 {
   }
 
   .hero::before {
-    // Hnedá plocha začína vyššie a je na celú šírku, takže podteká
-    // pod spodok textu (leadu a tlačidiel) a plynulo prechádza do obrázka.
     inset: 26% -12% 0 0;
     clip-path: ellipse(104% 76% at 66% 88%);
   }
@@ -1925,7 +1915,6 @@ h3 {
     width: calc(100% - #{$gutter-sm});
   }
 
-  // Kontejner tu má iný gutter, panel ho musí kopírovať, aby ostal full-bleed.
   .navlinks {
     inset-inline: calc(#{$gutter-sm} / -2);
     padding-inline: calc(#{$gutter-sm} / 2);
@@ -1948,9 +1937,13 @@ h3 {
     padding-block: 1rem;
   }
 
-  .steps {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .faq-item summary {
+    gap: 0.85rem;
+  }
+
+  .faq-marker {
+    width: 1.85rem;
+    height: 1.85rem;
   }
 
   .contact-form {

@@ -11,7 +11,6 @@ menu?.addEventListener("click", () =>
 navigation
   ?.querySelectorAll("a")
   .forEach((link) => link.addEventListener("click", () => setMenu(false)));
-// Menu prekrýva obsah, takže klik mimo neho aj Escape ho musia zavrieť.
 document.addEventListener("click", (event) => {
   if (!navigation?.classList.contains("open")) return;
   if (!navigation.contains(event.target) && !menu?.contains(event.target))
@@ -59,35 +58,64 @@ if (email && tooltip) {
   email.addEventListener("blur", reset);
 }
 
-// Animate the four process steps in order as the timeline enters the viewport.
 const timeline = document.querySelector(".timeline");
 if (timeline) {
   const steps = [...timeline.querySelectorAll("li")];
-  const activate = () => {
-    steps.forEach((step, index) => {
-      if (reducedMotion) step.classList.add("step-active");
-      else
-        window.setTimeout(() => step.classList.add("step-active"), index * 420);
-    });
-    if (reducedMotion) timeline.classList.add("timeline-active");
-    else
-      window.setTimeout(() => timeline.classList.add("timeline-active"), 120);
+  const showAll = () => {
+    steps.forEach((step) => step.classList.add("step-active"));
+    timeline.classList.add("timeline-active");
   };
-  if ("IntersectionObserver" in window && !reducedMotion) {
+  const runSequence = () => {
+    steps.forEach((step, index) =>
+      window.setTimeout(() => step.classList.add("step-active"), index * 420),
+    );
+    window.setTimeout(() => timeline.classList.add("timeline-active"), 120);
+  };
+  const observeWhole = () => {
     const timelineObserver = new IntersectionObserver(
       (entries) => {
         if (entries.some((entry) => entry.isIntersecting)) {
-          activate();
+          runSequence();
           timelineObserver.disconnect();
         }
       },
       { threshold: 0.22 },
     );
     timelineObserver.observe(timeline);
-  } else activate();
+  };
+  const observeSteps = () => {
+    const stepObserver = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("step-active");
+          stepObserver.unobserve(entry.target);
+        }),
+      { threshold: 0.35, rootMargin: "0px 0px -8% 0px" },
+    );
+    steps.forEach((step) => stepObserver.observe(step));
+  };
+  if (!("IntersectionObserver" in window) || reducedMotion) showAll();
+  else if (window.matchMedia("(max-width: 1100px)").matches) observeSteps();
+  else observeWhole();
 }
 
-// Kontaktný formulár – odosielame cez fetch, aby návštevník neodišiel zo stránky.
+const projectSelect = document.querySelector("#pole-projekt");
+const nameField = document.querySelector("#pole-meno");
+if (projectSelect) {
+  document.querySelectorAll("[data-plan]").forEach((link) =>
+    link.addEventListener("click", () => {
+      const match = [...projectSelect.options].find(
+        (option) => option.value === link.dataset.plan,
+      );
+      if (!match) return;
+      projectSelect.value = match.value;
+      if (window.matchMedia("(pointer: fine)").matches)
+        nameField?.focus({ preventScroll: true });
+    }),
+  );
+}
+
 const contactForm = document.querySelector("#kontaktny-formular");
 if (contactForm) {
   const status = contactForm.querySelector(".form-status");
