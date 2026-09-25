@@ -1,0 +1,1136 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>Autoservis Búchal — ukážkový web | by simona</title>
+    <meta content="noindex, nofollow" name="robots" />
+    <meta
+      content="Ukážkový web pre autoservis. Nezáväzný koncept od by simona."
+      name="description"
+    />
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Roboto+Mono:wght@500;600&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <svg
+      aria-hidden="true"
+      style="display: none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <symbol
+        id="i-olej"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M12 2.5c0 0-6.5 7.4-6.5 11.4a6.5 6.5 0 0 0 13 0C18.5 9.9 12 2.5 12 2.5Z"
+        />
+        <path d="M9 14.2a3 3 0 0 0 3 3" />
+      </symbol>
+      <symbol
+        id="i-brzdy"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="12" cy="12" r="3.5" />
+        <path d="M12 3v2.6M12 18.4V21M3 12h2.6M18.4 12H21" />
+        <path d="M17.5 5.5 19 4M5 19l1.5-1.5" />
+      </symbol>
+      <symbol
+        id="i-rozvody"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="8" cy="9" r="4" />
+        <circle cx="17" cy="15" r="2.8" />
+        <path d="M8 3.2C13.6 3.2 21 6.4 21 12s-5 8.8-9.6 8.8S3 18 3 13.6" />
+      </symbol>
+      <symbol
+        id="i-klima"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M12 2.5v19M3.8 7.2l16.4 9.6M20.2 7.2 3.8 16.8" />
+        <path d="M12 6.4 9.6 4.4M12 6.4l2.4-2M12 17.6l-2.4 2M12 17.6l2.4 2" />
+        <path
+          d="m7.1 9.3-3.2-.5M7.1 14.7l-3.2.5M16.9 9.3l3.2-.5M16.9 14.7l3.2.5"
+        />
+      </symbol>
+      <symbol
+        id="i-diagnostika"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <rect height="13" rx="2" width="18" x="3" y="3.5" />
+        <path d="M6.5 10.5h2.2l1.5-3 2 6 1.6-3h3.7" />
+        <path d="M9 20.5h6M12 16.5v4" />
+      </symbol>
+      <symbol
+        id="i-stk"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M8 4.5H6.5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-13a2 2 0 0 0-2-2H16"
+        />
+        <rect height="3.6" rx="1.2" width="8" x="8" y="2.5" />
+        <path d="m8.8 13.4 2.2 2.2 4.2-4.6" />
+      </symbol>
+      <symbol
+        id="i-pneu"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="12" cy="12" r="3.6" />
+        <path d="M12 3v3.2M12 17.8V21M3 12h3.2M17.8 12H21" />
+      </symbol>
+      <symbol
+        id="i-geometria"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="7.5" />
+        <path d="M12 1.8v4M12 18.2v4M1.8 12h4M18.2 12h4" />
+        <circle cx="12" cy="12" r="1.4" />
+      </symbol>
+      <symbol
+        id="i-sklad"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M3 8.6 12 3.5l9 5.1v9.8L12 23.5 3 18.4Z" />
+        <path d="M3 8.6 12 13.7l9-5.1M12 13.7v9.8" />
+      </symbol>
+      <symbol
+        id="i-stit"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M12 2.5 4.5 5.6v6c0 4.6 3.1 8.6 7.5 9.9 4.4-1.3 7.5-5.3 7.5-9.9v-6Z"
+        />
+        <path d="m8.8 11.8 2.3 2.3 4.1-4.5" />
+      </symbol>
+      <symbol
+        id="i-hodiny"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 6.8V12l3.4 2" />
+      </symbol>
+      <symbol
+        id="i-cena"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M16.5 7.2a5.6 5.6 0 0 0-4.1-1.7c-3.3 0-5.6 2.9-5.6 6.5s2.3 6.5 5.6 6.5a5.6 5.6 0 0 0 4.1-1.7"
+        />
+        <path d="M4.5 10.3h7M4.5 13.7h7" />
+      </symbol>
+      <symbol
+        id="i-telefon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M6.2 3.5h3l1.6 4-2 1.4a12 12 0 0 0 5.6 5.6l1.4-2 4 1.6v3a1.8 1.8 0 0 1-2 1.8C10.4 18.2 5.8 13.6 4.4 5.5a1.8 1.8 0 0 1 1.8-2Z"
+        />
+      </symbol>
+      <symbol
+        id="i-miesto"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M12 21.5s7-5.8 7-11a7 7 0 1 0-14 0c0 5.2 7 11 7 11Z" />
+        <circle cx="12" cy="10.2" r="2.8" />
+      </symbol>
+      <symbol
+        id="i-mail"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <rect height="14" rx="2" width="18" x="3" y="5" />
+        <path d="m3.5 6.5 8.5 6 8.5-6" />
+      </symbol>
+      <symbol
+        id="i-info"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 11v5.5M12 7.8h.01" />
+      </symbol>
+      <symbol
+        id="i-sipka"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="m6 9.5 6 6 6-6" />
+      </symbol>
+      <symbol
+        id="i-fajka"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <path d="m8.2 12.2 2.6 2.6 5-5.4" />
+      </symbol>
+      <symbol
+        id="i-menu"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+      >
+        <path d="M3.5 7h17M3.5 12h17M3.5 17h17" />
+      </symbol>
+      <symbol
+        id="i-zavriet"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+      >
+        <path d="m5.5 5.5 13 13M18.5 5.5l-13 13" />
+      </symbol>
+    </svg>
+
+    <div class="notice-bar">
+      <div class="container">
+        <span><b>Ukážkový web.</b> Autoservis Búchal je vymyslený podnik.</span>
+        <span
+          >Návrh a realizácia:
+          <a href="https://by-simona.eu">by-simona.eu</a></span
+        >
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="header-utility">
+        <div class="container">
+          <span class="utility-item">
+            <svg class="icon" aria-hidden="true"><use href="#i-hodiny" /></svg>
+            <span class="hours">Po – Pi 7.00 – 17.00 · So 8.00 – 12.00</span>
+          </span>
+          <a class="utility-item" href="mailto:servis@buchal.sk">
+            <svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg>
+            servis@buchal.sk
+          </a>
+          <a class="utility-item" href="tel:+421905000000">
+            <svg class="icon" aria-hidden="true"><use href="#i-telefon" /></svg>
+            0905 000 000
+          </a>
+        </div>
+      </div>
+
+      <div class="header-main">
+        <div class="container">
+          <a class="logo" href="#">AUTOSERVIS <em>BÚCHAL</em></a>
+          <nav class="main-nav" aria-label="Hlavné menu">
+            <a class="nav-link" data-text="Služby" href="#sluzby">Služby</a>
+            <a class="nav-link" data-text="Cenník" href="#cennik">Cenník</a>
+            <a class="nav-link" data-text="Ako to prebieha" href="#postup"
+              >Ako to prebieha</a
+            >
+            <a class="nav-link" data-text="Otázky" href="#otazky">Otázky</a>
+          </nav>
+          <a class="btn btn-primary" href="#objednanie">Objednať sa</a>
+          <button
+            aria-controls="mobilne-menu"
+            aria-expanded="false"
+            aria-label="Otvoriť menu"
+            class="nav-toggle"
+            id="otvorit-menu"
+            type="button"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div
+      aria-label="Mobilné menu"
+      class="nav-panel"
+      id="mobilne-menu"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="nav-panel-head">
+        <span class="logo">AUTOSERVIS <em>BÚCHAL</em></span>
+        <button
+          aria-label="Zavrieť menu"
+          class="nav-close"
+          id="zavriet-menu"
+          type="button"
+        >
+          <svg class="icon" aria-hidden="true"><use href="#i-zavriet" /></svg>
+        </button>
+      </div>
+      <nav aria-label="Menu">
+        <ul>
+          <li>
+            <a class="nav-link" data-text="Služby" href="#sluzby">Služby</a>
+          </li>
+          <li>
+            <a class="nav-link" data-text="Cenník" href="#cennik">Cenník</a>
+          </li>
+          <li>
+            <a class="nav-link" data-text="Ako to prebieha" href="#postup"
+              >Ako to prebieha</a
+            >
+          </li>
+          <li>
+            <a class="nav-link" data-text="Otázky" href="#otazky">Otázky</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="nav-panel-foot">
+        <span class="utility-item">
+          <svg class="icon" aria-hidden="true"><use href="#i-hodiny" /></svg>
+          <span class="hours">Po – Pi 7.00 – 17.00 · So 8.00 – 12.00</span>
+        </span>
+        <a class="utility-item" href="mailto:servis@buchal.sk">
+          <svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg>
+          servis@buchal.sk
+        </a>
+        <a class="header-phone" href="tel:+421905000000">
+          <svg class="icon" aria-hidden="true"><use href="#i-telefon" /></svg>
+          0905 000 000
+        </a>
+        <a class="btn btn-primary" href="#objednanie">Objednať sa</a>
+      </div>
+    </div>
+
+    <main>
+      <div class="hero">
+        <svg
+          aria-hidden="true"
+          class="hero-art"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 320 320"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g class="disc" stroke-width="3.5">
+            <circle cx="160" cy="160" r="150" />
+            <circle cx="160" cy="160" r="138" />
+            <circle cx="160" cy="160" r="96" />
+            <circle cx="160" cy="160" r="58" />
+            <circle cx="280" cy="160" r="6" />
+            <circle cx="263.9" cy="220" r="6" />
+            <circle cx="220" cy="263.9" r="6" />
+            <circle cx="160" cy="280" r="6" />
+            <circle cx="100" cy="263.9" r="6" />
+            <circle cx="56.1" cy="220" r="6" />
+            <circle cx="40" cy="160" r="6" />
+            <circle cx="56.1" cy="100" r="6" />
+            <circle cx="100" cy="56.1" r="6" />
+            <circle cx="160" cy="40" r="6" />
+            <circle cx="220" cy="56.1" r="6" />
+            <circle cx="263.9" cy="100" r="6" />
+            <circle cx="160" cy="205" r="7" />
+            <circle cx="117.2" cy="173.9" r="7" />
+            <circle cx="133.6" cy="123.6" r="7" />
+            <circle cx="186.4" cy="123.6" r="7" />
+            <circle cx="202.8" cy="173.9" r="7" />
+          </g>
+          <g class="disc disc-small" stroke-width="4">
+            <circle cx="52" cy="264" r="46" />
+            <circle cx="52" cy="264" r="18" />
+            <path d="M52 218v12M52 298v12M6 264h12M86 264h12" />
+          </g>
+        </svg>
+
+        <div class="container">
+          <div class="hero-content">
+            <h1>Servis, ktorý vám povie <span class="accent">cenu dopredu.</span></h1>
+            <p class="hero-lead">
+              Značkový servis pre autá po záruke v Bratislave — Novom Meste.
+              Hodinová sadzba 39 €. Rozpočet dostanete pred začiatkom práce a
+              bez vášho odsúhlasenia nerobíme nič navyše.
+            </p>
+            <div class="actions">
+              <a class="btn btn-primary" href="#objednanie"
+                >Objednať na termín</a
+              >
+              <a class="btn btn-secondary" href="#cennik">Pozrieť cenník</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="trust-bar">
+        <div class="container">
+          <div class="trust-item">
+            <svg class="icon" aria-hidden="true"><use href="#i-cena" /></svg>
+            <span
+              ><strong>Cena dopredu</strong>Odhad pred začiatkom práce. Dlhší
+              čas nedoplácate.</span
+            >
+          </div>
+          <div class="trust-item">
+            <svg class="icon" aria-hidden="true"><use href="#i-stit" /></svg>
+            <span
+              ><strong>Záruka 24 mesiacov</strong>Na vykonanú prácu, na diely
+              podľa výrobcu.</span
+            >
+          </div>
+          <div class="trust-item">
+            <svg class="icon" aria-hidden="true"><use href="#i-sklad" /></svg>
+            <span
+              ><strong>Staré diely vrátime</strong>Ukážeme vám všetko, čo sme
+              vymenili.</span
+            >
+          </div>
+          <div class="trust-item">
+            <svg class="icon" aria-hidden="true"><use href="#i-hodiny" /></svg>
+            <span
+              ><strong>Termín do 3 dní</strong>Nepojazdné auto berieme
+              prednostne.</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <section id="sluzby">
+        <div class="container">
+          <div class="section-head">
+            <h2>Čo pre vás urobíme</h2>
+            <p>
+              Bežný servis aj väčšie opravy osobných áut po záruke. Koľko čo
+              stojí, nájdete nižšie v cenníku vrátane orientačných cien dielov.
+            </p>
+          </div>
+
+          <div class="services">
+            <article class="service-card">
+              <div class="service-icon">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-olej" />
+                </svg>
+              </div>
+              <h3>Servisná prehliadka</h3>
+              <p>
+                Výmena oleja a filtra, kontrola 24 bodov a zápis do servisnej
+                knižky.
+              </p>
+            </article>
+            <article class="service-card">
+              <div class="service-icon">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-brzdy" />
+                </svg>
+              </div>
+              <h3>Brzdy</h3>
+              <p>
+                Platničky, kotúče aj brzdová kvapalina. Stav bŕzd vám ukážeme na
+                aute.
+              </p>
+            </article>
+            <article class="service-card">
+              <div class="service-icon">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-rozvody" />
+                </svg>
+              </div>
+              <h3>Rozvody</h3>
+              <p>
+                Kompletná sada vrátane kladiek a vodného čerpadla, podľa
+                predpisu výrobcu.
+              </p>
+            </article>
+            <article class="service-card">
+              <div class="service-icon">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-klima" />
+                </svg>
+              </div>
+              <h3>Klimatizácia</h3>
+              <p>
+                Plnenie R134a aj R1234yf, kontrola tesnosti a dezinfekcia
+                systému.
+              </p>
+            </article>
+            <article class="service-card">
+              <div class="service-icon">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-diagnostika" />
+                </svg>
+              </div>
+              <h3>Diagnostika</h3>
+              <p>
+                Svieti kontrolka? Načítame chyby a vysvetlíme, čo znamenajú.
+              </p>
+            </article>
+            <article class="service-card">
+              <div class="service-icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-stk" /></svg>
+              </div>
+              <h3>Príprava na STK a EK</h3>
+              <p>
+                Prehliadka, nastavenie aj odvoz na stanicu. Vybavíme to za vás.
+              </p>
+            </article>
+            <article class="service-card">
+              <div class="service-icon">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-pneu" />
+                </svg>
+              </div>
+              <h3>Pneuservis</h3>
+              <p>Prezutie, vyváženie a oprava defektu. Kolesá do 17 palcov.</p>
+            </article>
+            <article class="service-card">
+              <div class="service-icon">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-geometria" />
+                </svg>
+              </div>
+              <h3>Geometria náprav</h3>
+              <p>3D meranie s protokolom pred nastavením aj po ňom.</p>
+            </article>
+            <article class="service-card">
+              <div class="service-icon">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-sklad" />
+                </svg>
+              </div>
+              <h3>Uskladnenie pneumatík</h3>
+              <p>Za sezónu vrátane umytia. Na jar vám pripomenieme prezutie.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-alt" id="cennik">
+        <div class="container">
+          <div class="section-head">
+            <h2>Čo koľko stojí</h2>
+            <p>
+              Okrem ceny práce uvádzame aj to, čo zvyčajne stoja diely — aby ste
+              vedeli, s akou sumou celkovo rátať. Platné od 1. 1. 2026.
+            </p>
+          </div>
+
+          <div class="price-switch" role="group" aria-label="Čo zobraziť v cenníku">
+            <button aria-pressed="true" data-show="price" type="button">Cena práce</button>
+            <button aria-pressed="false" data-show="parts" type="button">Diely</button>
+          </div>
+
+          <div class="price-table-wrap" data-show="price" id="cennik-tabulka">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Úkon</th>
+                  <th class="duration" scope="col">Čas</th>
+                  <th class="parts" scope="col">Diely orientačne</th>
+                  <th class="price" scope="col">Cena práce</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    Servisná prehliadka a výmena oleja<small
+                      >Olej, filter, kontrola 24 bodov</small
+                    >
+                  </th>
+                  <td class="duration">1,5 h</td>
+                  <td class="parts">45 – 80 €</td>
+                  <td class="price">od 59 €</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Výmena brzdových platničiek<small
+                      >Predná alebo zadná náprava</small
+                    >
+                  </th>
+                  <td class="duration">1,5 h</td>
+                  <td class="parts">35 – 90 €</td>
+                  <td class="price">od 59 €</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Výmena rozvodovej sady<small
+                      >Remeň, kladky, vodné čerpadlo</small
+                    >
+                  </th>
+                  <td class="duration">5 – 8 h</td>
+                  <td class="parts">120 – 320 €</td>
+                  <td class="price">od 195 €</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Plnenie klimatizácie R134a<small
+                      >Vrátane kontroly tesnosti</small
+                    >
+                  </th>
+                  <td class="duration">1 h</td>
+                  <td class="parts">chladivo v cene</td>
+                  <td class="price">59 €</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Plnenie klimatizácie R1234yf<small>Autá od roku 2017</small>
+                  </th>
+                  <td class="duration">1 h</td>
+                  <td class="parts">chladivo v cene</td>
+                  <td class="price">129 €</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Diagnostika riadiacej jednotky<small
+                      >Pri následnej oprave odrátame z ceny</small
+                    >
+                  </th>
+                  <td class="duration">0,5 h</td>
+                  <td class="parts">bez dielov</td>
+                  <td class="price">29 €</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Príprava na STK a EK<small
+                      >Kontrola, nastavenie aj vybavenie na stanici</small
+                    >
+                  </th>
+                  <td class="duration">2 h</td>
+                  <td class="parts">poplatok stanici 60 – 80 €</td>
+                  <td class="price">45 €</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Prezutie kolies<small
+                      >4 kusy do 17", vyváženie v cene</small
+                    >
+                  </th>
+                  <td class="duration">0,75 h</td>
+                  <td class="parts">ventily 12 €</td>
+                  <td class="price">40 €</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Geometria náprav<small
+                      >3D meranie, protokol pred a po</small
+                    >
+                  </th>
+                  <td class="duration">1,5 h</td>
+                  <td class="parts">bez dielov</td>
+                  <td class="price">69 €</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Uskladnenie pneumatík<small
+                      >Za sezónu, vrátane umytia</small
+                    >
+                  </th>
+                  <td class="duration">—</td>
+                  <td class="parts">bez dielov</td>
+                  <td class="price">35 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="price-note">
+            <svg class="icon" aria-hidden="true"><use href="#i-info" /></svg>
+            <span>
+              Ceny dielov sú orientačné a líšia sa podľa značky a motorizácie —
+              presnú sumu vám povieme pri objednaní, keď poznáme vaše auto, a
+              montujeme až po vašom súhlase. Ak práca trvá dlhšie, než sme
+              odhadli, rozdiel neplatíte.
+            </span>
+          </p>
+        </div>
+      </section>
+
+      <section id="postup">
+        <div class="container">
+          <div class="section-head">
+            <h2>Od objednania po vyzdvihnutie</h2>
+            <p>
+              Najčastejšia obava nie je cena, ale že auto odovzdáte a týždeň
+              neviete, čo sa s ním deje. U nás viete.
+            </p>
+          </div>
+
+          <div class="steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <h3>Objednanie</h3>
+              <p>
+                Napíšete EČV a čo autu je. Ozveme sa do jedného pracovného dňa s
+                termínom a odhadom ceny.
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <h3>Odovzdanie</h3>
+              <p>
+                Auto necháte ráno od 7.00. Ak sa vám to nehodí, kľúče viete
+                odovzdať aj deň vopred do 17.00.
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <h3>Rozpočet</h3>
+              <p>
+                Ak nájdeme niečo navyše, zavoláme vám s cenou. Bez vášho súhlasu
+                nepokračujeme.
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-number">4</div>
+              <h3>Vyzdvihnutie</h3>
+              <p>
+                Pošleme SMS, keď je auto hotové. Vymenené diely vám ukážeme a na
+                požiadanie odovzdáme.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-blue">
+        <div class="container workshop-grid">
+          <figure class="workshop-figure">
+            <img
+              alt="Osobné auto vyzdvihnuté na dvojstĺpovom zdviháku s otvorenou kapotou, pod ním odsávačka oleja"
+              decoding="async"
+              height="1334"
+              loading="lazy"
+              sizes="(min-width: 900px) 46vw, 100vw"
+              src="/assets/auto-dielna-1000.webp"
+              srcset="
+                /assets/auto-dielna-600.webp   600w,
+                /assets/auto-dielna-1000.webp 1000w
+              "
+              width="1000"
+            />
+          </figure>
+          <div class="workshop-text">
+            <h2>Dielňa na Vajnorskej</h2>
+            <p>
+              Štyri zdviháky, vlastná 3D geometria a diagnostika pre koncern VW
+              aj ázijské značky. Robíme tu od roku 2011 a väčšina zákazníkov sa
+              k nám vracia aj po tom, čo im skončila záruka u predajcu.
+            </p>
+            <ul class="workshop-facts">
+              <li>
+                <strong data-count="4" data-from="0">4</strong
+                ><span>zdviháky v dielni</span>
+              </li>
+              <li>
+                <strong data-count="2011" data-from="2000">2011</strong
+                ><span>od tohto roku na Vajnorskej</span>
+              </li>
+              <li>
+                <strong data-count="3" data-from="0">3</strong
+                ><span>mechanici s certifikátom</span>
+              </li>
+              <li>
+                <strong data-count="24" data-from="12" data-suffix=" mes."
+                  >24 mes.</strong
+                ><span>záruka na prácu</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>Čo bežne opravujeme</h2>
+            <p>
+              Máme diagnostiku pre koncern VW aj pre ázijské značky. Ak vaša
+              značka v zozname nie je, zavolajte — povieme vám rovno, či to
+              zvládneme.
+            </p>
+          </div>
+        </div>
+        <div class="brand-marquee">
+          <div class="brand-track">
+            <ul class="brands">
+              <li>Škoda</li>
+              <li>Volkswagen</li>
+              <li>SEAT</li>
+              <li>Audi</li>
+              <li>Ford</li>
+              <li>Opel</li>
+              <li>Renault</li>
+              <li>Peugeot</li>
+              <li>Citroën</li>
+              <li>Hyundai</li>
+              <li>Kia</li>
+              <li>Toyota</li>
+              <li>Mazda</li>
+              <li>Dacia</li>
+            </ul>
+            <ul aria-hidden="true" class="brands">
+              <li>Škoda</li>
+              <li>Volkswagen</li>
+              <li>SEAT</li>
+              <li>Audi</li>
+              <li>Ford</li>
+              <li>Opel</li>
+              <li>Renault</li>
+              <li>Peugeot</li>
+              <li>Citroën</li>
+              <li>Hyundai</li>
+              <li>Kia</li>
+              <li>Toyota</li>
+              <li>Mazda</li>
+              <li>Dacia</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-alt" id="objednanie">
+        <div class="container booking-grid">
+          <div class="booking-info">
+            <div class="section-head" style="margin-bottom: 2rem">
+              <h2>Objednajte sa na termín</h2>
+              <p>
+                Vyplňte EČV a napíšte, čo sa deje. Ozveme sa do jedného
+                pracovného dňa s termínom aj odhadom ceny.
+              </p>
+            </div>
+
+            <ul class="contact-list">
+              <li>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-miesto" />
+                </svg>
+                <span
+                  ><strong>Adresa</strong>Vajnorská 138, 831 04 Bratislava —
+                  Nové Mesto<br />Parkovanie priamo pred dielňou</span
+                >
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-telefon" />
+                </svg>
+                <span
+                  ><strong>Telefón</strong
+                  ><a href="tel:+421905000000">0905 000 000</a></span
+                >
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-mail" />
+                </svg>
+                <span
+                  ><strong>E-mail</strong
+                  ><a href="mailto:servis@buchal.sk">servis@buchal.sk</a></span
+                >
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-hodiny" />
+                </svg>
+                <span class="hours"
+                  ><strong>Otváracie hodiny</strong>Po – Pi 7.00 – 17.00<br />So
+                  8.00 – 12.00<br />Ne zatvorené</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <form id="objednavkovy-formular">
+            <div class="field-row">
+              <p class="field">
+                <label for="ecv">EČV *</label>
+                <input
+                  id="ecv"
+                  maxlength="10"
+                  name="ecv"
+                  placeholder="BL123AB"
+                  required
+                  type="text"
+                />
+              </p>
+              <p class="field">
+                <label for="telefon">Telefón *</label>
+                <input
+                  autocomplete="tel"
+                  id="telefon"
+                  name="telefon"
+                  placeholder="0905 123 456"
+                  required
+                  type="tel"
+                />
+              </p>
+            </div>
+
+            <div class="field-row">
+              <p class="field">
+                <label for="vozidlo">Značka a model *</label>
+                <input
+                  id="vozidlo"
+                  name="vozidlo"
+                  placeholder="Škoda Octavia 1.6 TDI"
+                  required
+                  type="text"
+                />
+              </p>
+              <p class="field">
+                <label for="rok">Rok výroby</label>
+                <input
+                  id="rok"
+                  max="2026"
+                  min="1980"
+                  name="rok"
+                  placeholder="2014"
+                  type="number"
+                />
+              </p>
+            </div>
+
+            <p class="field">
+              <label for="ukon">Čo potrebujete *</label>
+              <select id="ukon" name="ukon" required>
+                <option value="">Vyberte —</option>
+                <option>Servisná prehliadka a olej</option>
+                <option>Brzdy</option>
+                <option>Rozvody</option>
+                <option>Klimatizácia</option>
+                <option>Diagnostika — svieti kontrolka</option>
+                <option>Príprava na STK a EK</option>
+                <option>Prezutie alebo pneumatiky</option>
+                <option>Geometria náprav</option>
+                <option>Neviem, auto sa správa divne</option>
+              </select>
+            </p>
+
+            <p class="field">
+              <label for="popis">Popíšte, čo sa deje</label>
+              <span class="field-hint"
+                >Kedy to nastáva, pri akej rýchlosti, aký zvuk. Čím
+                konkrétnejšie, tým presnejší odhad ceny.</span
+              >
+              <textarea
+                id="popis"
+                name="popis"
+                placeholder="Pri brzdení z vyššej rýchlosti to vpredu vibruje do volantu. Začalo to asi pred mesiacom."
+                rows="4"
+              ></textarea>
+            </p>
+
+            <p class="field">
+              <label for="termin">Kedy by sa vám hodilo</label>
+              <input id="termin" name="termin" type="date" />
+            </p>
+
+            <button class="btn btn-primary" id="odoslat" type="submit">
+              Odoslať požiadavku
+            </button>
+            <p
+              aria-live="polite"
+              class="form-status"
+              id="stav"
+              role="status"
+            ></p>
+          </form>
+        </div>
+      </section>
+
+      <section id="otazky">
+        <div class="container">
+          <div class="section-head">
+            <h2>Na čo sa pýtate najviac</h2>
+          </div>
+
+          <div class="faq">
+            <details open>
+              <summary>
+                Môžem doniesť vlastné diely?<svg
+                  class="icon"
+                  aria-hidden="true"
+                >
+                  <use href="#i-sipka" />
+                </svg>
+              </summary>
+              <div class="faq-body"><p>
+                Áno. Záruka sa potom vzťahuje len na našu prácu, nie na diel —
+                preto vám pri objednávke povieme, čo by sme použili my a za
+                koľko, aby ste vedeli porovnať.
+              </p></div>
+            </details>
+            <details>
+              <summary>
+                Prídem o záruku na nové auto?<svg
+                  class="icon"
+                  aria-hidden="true"
+                >
+                  <use href="#i-sipka" />
+                </svg>
+              </summary>
+              <div class="faq-body"><p>
+                Nie. Pri autách v záruke stačí, aby sa servis robil podľa
+                predpisu výrobcu a s predpísanými náplňami — to dodržiavame a
+                zapisujeme do servisnej knižky.
+              </p></div>
+            </details>
+            <details>
+              <summary>
+                Ako dlho dopredu sa treba objednať?<svg
+                  class="icon"
+                  aria-hidden="true"
+                >
+                  <use href="#i-sipka" />
+                </svg>
+              </summary>
+              <div class="faq-body"><p>
+                Bežný servis dva až tri dni. Ak auto nie je pojazdné alebo
+                svieti kontrolka motora, zavolajte — také prípady berieme
+                prednostne.
+              </p></div>
+            </details>
+            <details>
+              <summary>
+                Čo si mám priniesť?<svg class="icon" aria-hidden="true">
+                  <use href="#i-sipka" />
+                </svg>
+              </summary>
+              <div class="faq-body"><p>
+                Veľký technický preukaz a servisnú knižku, ak ju máte. Pri
+                príprave na STK aj doklad o poistení.
+              </p></div>
+            </details>
+            <details>
+              <summary>
+                Dostanem náhradné auto?<svg class="icon" aria-hidden="true">
+                  <use href="#i-sipka" />
+                </svg>
+              </summary>
+              <div class="faq-body"><p>
+                Náhradné auto nepožičiavame. Pri opravách nad jeden deň vám však
+                pomôžeme dohodnúť požičovňu v okolí.
+              </p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>
+          <div class="footer-logo">AUTOSERVIS <em>BÚCHAL</em></div>
+          <p>
+            Značkový servis pre autá po záruke.<br />
+            Vajnorská 138, Bratislava — Nové Mesto.
+          </p>
+        </div>
+        <div>
+          <h3>Kontakt</h3>
+          <ul>
+            <li><a href="tel:+421905000000">0905 000 000</a></li>
+            <li><a href="mailto:servis@buchal.sk">servis@buchal.sk</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Otváracie hodiny</h3>
+          <ul class="hours">
+            <li>Po – Pi 7.00 – 17.00</li>
+            <li>So 8.00 – 12.00</li>
+            <li>Ne zatvorené</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <p class="credit">
+      Ukážkový web — podnik aj údaje sú vymyslené. Návrh a realizácia
+      <a href="https://by-simona.eu">by simona</a>.
+    </p>
+
+    <script src="script.js"></script>
+  </body>
+</html>
