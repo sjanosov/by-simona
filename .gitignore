@@ -4,3 +4,7 @@ style.css.map
 # OS
 .DS_Store
 Thumbs.db
+
+# API kluce a vystupy z tools/
+tools/.env
+tools/*.csv
