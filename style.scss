@@ -492,19 +492,13 @@ h3 {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 1.38 / 1;
+  aspect-ratio: 2 / 1;
   padding: 0;
   overflow: hidden;
   border: 0;
   border-radius: 0;
   background: $paper;
   text-decoration: none;
-
-  &.sol,
-  &.astro,
-  &.beauty {
-    background: $paper;
-  }
 
   img {
     display: block;
