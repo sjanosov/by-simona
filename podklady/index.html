@@ -1,0 +1,1018 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="#20352c" name="theme-color" />
+    <title>Podklady na web | by simona</title>
+    <meta content="noindex, nofollow" name="robots" />
+    <meta content="Formulár na podklady k tvorbe webovej stránky." name="description" />
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="/fonts/dm-sans-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <style>
+      @font-face {
+        font-family: "DM Sans";
+        font-style: normal;
+        font-weight: 400 700;
+        font-display: swap;
+        src: url("/fonts/dm-sans-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+          U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "DM Sans";
+        font-style: normal;
+        font-weight: 400 700;
+        font-display: swap;
+        src: url("/fonts/dm-sans-latin-ext.woff2") format("woff2");
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+          U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+
+      :root {
+        --cream: #fbfaf7;
+        --paper: #f6f4ef;
+        --ink: #202e29;
+        --forest: #205741;
+        --btn: #366351;
+        --muted: #526158;
+        --line: #dedfd8;
+        --white: #fff;
+        --radius: 12px;
+        --radius-sm: 8px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      ::selection {
+        background: var(--forest);
+        color: var(--white);
+      }
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font: 500 1rem/1.6 "DM Sans", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      .container {
+        width: min(100% - 2rem, 680px);
+        margin-inline: auto;
+        padding-block: 2rem 4rem;
+      }
+
+      .page-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.5rem 0.75rem;
+        margin-bottom: 2rem;
+      }
+      .brand {
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--forest);
+        text-decoration: none;
+      }
+      .brand small {
+        display: block;
+        font-size: 0.62rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        color: var(--muted);
+        margin-top: 0.2rem;
+      }
+
+      h1 {
+        font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);
+        line-height: 1.15;
+        letter-spacing: -0.025em;
+        text-wrap: balance;
+        margin: 0 0 0.85rem;
+      }
+
+      .intro {
+        color: var(--muted);
+        margin: 0 0 1.25rem;
+        max-width: 56ch;
+      }
+
+      .reassurance {
+        background: var(--paper);
+        border-left: 3px solid var(--forest);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        padding: 0.9rem 1.1rem;
+        margin: 0 0 1.5rem;
+        font-size: 0.95rem;
+      }
+      .reassurance strong {
+        color: var(--forest);
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 1.25rem;
+        font-size: 0.83rem;
+        color: var(--muted);
+        margin: 0 0 2rem;
+        padding: 0;
+        list-style: none;
+      }
+      .meta li::before {
+        content: "— ";
+      }
+
+      .progress {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        background: var(--cream);
+        padding-block: 0.85rem;
+        margin-bottom: 1.25rem;
+      }
+      .progress-label {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1rem;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 0.55rem;
+      }
+      .progress-track {
+        height: 4px;
+        background: var(--line);
+        border-radius: 99px;
+        overflow: hidden;
+      }
+      .progress-fill {
+        height: 100%;
+        width: 20%;
+        background: var(--forest);
+        border-radius: 99px;
+        transition: width 0.3s ease;
+      }
+
+      .step {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: clamp(1.25rem, 4vw, 2rem);
+      }
+      .step h2 {
+        font-size: 1.3rem;
+        letter-spacing: -0.015em;
+        margin: 0 0 0.4rem;
+      }
+      .step h2:focus {
+        outline: none;
+      }
+      .step-intro {
+        color: var(--muted);
+        font-size: 0.92rem;
+        margin: 0 0 1.75rem;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        margin: 0 0 1.4rem;
+      }
+      .field > label,
+      .segments legend {
+        font-size: 0.88rem;
+        font-weight: 600;
+      }
+      .hint {
+        font-size: 0.83rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      .optional {
+        font-weight: 500;
+        color: var(--muted);
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select,
+      textarea {
+        width: 100%;
+        font: inherit;
+        font-size: 1rem;
+        color: var(--ink);
+        background: var(--cream);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        padding: 0.7rem 0.85rem;
+      }
+      textarea {
+        resize: vertical;
+        min-height: 5.5rem;
+        line-height: 1.55;
+      }
+      input:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible,
+      button:focus-visible,
+      a:focus-visible {
+        outline: 3px solid #8ca695;
+        outline-offset: 2px;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        color: #9aa79f;
+      }
+
+      .segments {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 0.65rem;
+        border: 0;
+        padding: 0;
+        margin: 0 0 1.4rem;
+      }
+      .segments legend {
+        grid-column: 1 / -1;
+        padding: 0;
+        margin-bottom: 0.65rem;
+      }
+      .segment {
+        position: relative;
+        display: block;
+      }
+      .segment input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .segment span {
+        display: block;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        padding: 0.8rem 0.9rem;
+        background: var(--cream);
+        font-size: 0.92rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .segment small {
+        display: block;
+        font-weight: 500;
+        font-size: 0.78rem;
+        color: var(--muted);
+        margin-top: 0.15rem;
+      }
+      .segment input:checked + span {
+        border-color: var(--forest);
+        background: var(--paper);
+        box-shadow: inset 0 0 0 1px var(--forest);
+      }
+      .segment input:focus-visible + span {
+        outline: 3px solid #8ca695;
+        outline-offset: 2px;
+      }
+
+      .consent {
+        display: flex;
+        gap: 0.7rem;
+        align-items: flex-start;
+        font-size: 0.87rem;
+        color: var(--muted);
+        line-height: 1.55;
+        margin-top: 1.5rem;
+      }
+      .consent input {
+        margin-top: 0.2rem;
+        flex-shrink: 0;
+        width: 1.05rem;
+        height: 1.05rem;
+        accent-color: var(--forest);
+      }
+      .consent a {
+        color: var(--forest);
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+        margin-top: 1.75rem;
+      }
+      .btn {
+        font: inherit;
+        font-weight: 600;
+        font-size: 0.95rem;
+        letter-spacing: 0.04em;
+        border-radius: 99px;
+        padding: 0.8rem 1.5rem;
+        cursor: pointer;
+        border: 1px solid transparent;
+      }
+      .btn-primary {
+        background: var(--btn);
+        color: var(--white);
+      }
+      .btn-primary:hover {
+        background: var(--forest);
+      }
+      .btn-primary[disabled] {
+        opacity: 0.55;
+        cursor: progress;
+      }
+      .btn-secondary {
+        background: transparent;
+        color: var(--muted);
+        border-color: var(--line);
+      }
+      .btn-secondary:hover {
+        color: var(--ink);
+        border-color: var(--muted);
+      }
+
+      .form-status {
+        font-size: 0.88rem;
+        margin: 1rem 0 0;
+        min-height: 1.4em;
+      }
+      .form-status.is-error {
+        color: #9d3427;
+      }
+
+      .done {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: clamp(1.5rem, 5vw, 2.5rem);
+        text-align: center;
+      }
+      .done h2 {
+        font-size: 1.5rem;
+        margin: 0 0 0.6rem;
+        letter-spacing: -0.02em;
+      }
+      .done p {
+        color: var(--muted);
+        margin: 0 auto;
+        max-width: 42ch;
+      }
+
+      .saved-note {
+        font-size: 0.8rem;
+        color: var(--muted);
+        text-align: center;
+        margin-top: 1.25rem;
+        min-height: 1.3em;
+      }
+
+      .page-footer {
+        margin-top: 2.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--line);
+        font-size: 0.85rem;
+        color: var(--muted);
+        text-align: center;
+      }
+      .page-footer a {
+        color: var(--forest);
+      }
+
+      .honeypot {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="page-header">
+        <a class="brand" href="/">by simona.<small>WEB DESIGN STUDIO</small></a>
+      </header>
+
+      <h1>Podklady na váš web</h1>
+      <p class="intro">
+        Aby som vám web navrhla, potrebujem pár faktov o tom, čo robíte a pre
+        koho.
+      </p>
+
+      <p class="reassurance">
+        <strong>Texty na web píšem ja.</strong> Tu mi stačia odrážky,
+        nedokončené vety a poznámky. Nič neprepisujte načisto — z toho, čo
+        napíšete, spíšem stránku a pošlem vám ju na schválenie.
+      </p>
+
+      <ul class="meta">
+        <li>Vyplnenie trvá asi 8 minút</li>
+        <li>Odpovede sa priebežne ukladajú vo vašom prehliadači</li>
+        <li>Môžete to zavrieť a vrátiť sa neskôr</li>
+      </ul>
+
+      <div class="progress" id="priebeh">
+        <div class="progress-label">
+          <span id="priebeh-text">Krok 1 z 5</span>
+          <span id="priebeh-nazov">Firma</span>
+        </div>
+        <div
+          aria-labelledby="priebeh-text"
+          aria-valuemax="5"
+          aria-valuemin="1"
+          aria-valuenow="1"
+          class="progress-track"
+          role="progressbar"
+        >
+          <div class="progress-fill" id="priebeh-vypln"></div>
+        </div>
+      </div>
+
+      <form action="https://api.web3forms.com/submit" id="formular-podklady" method="POST">
+        <input
+          name="access_key"
+          type="hidden"
+          value="12629a1a-82ec-4872-847e-479985a27a0f"
+        />
+        <input id="predmet" name="subject" type="hidden" value="Podklady na web" />
+        <input name="from_name" type="hidden" value="Podklady – by-simona.eu" />
+        <div class="honeypot" aria-hidden="true">
+          <input autocomplete="off" name="botcheck" tabindex="-1" type="checkbox" />
+        </div>
+
+        <section class="step" data-nazov="Firma" id="krok-1">
+          <h2 tabindex="-1">O firme</h2>
+          <p class="step-intro">Základné údaje, aby som vedela, s kým hovorím.</p>
+
+          <fieldset class="segments">
+            <legend>Čo prevádzkujete?</legend>
+            <label class="segment">
+              <input
+                checked
+                id="seg-salon"
+                name="Segment"
+                type="radio"
+                value="Salón / kaderníctvo / masáže"
+              />
+              <span
+                >Salón alebo štúdio<small>Vlasy, nechty, kozmetika, masáže</small></span
+              >
+            </label>
+            <label class="segment">
+              <input
+                id="seg-auto"
+                name="Segment"
+                type="radio"
+                value="Autoservis / pneuservis"
+              />
+              <span>Autoservis<small>Servis, pneuservis, diagnostika</small></span>
+            </label>
+            <label class="segment">
+              <input
+                id="seg-gastro"
+                name="Segment"
+                type="radio"
+                value="Bar / reštaurácia / kaviareň"
+              />
+              <span>Gastro<small>Bar, reštaurácia, kaviareň</small></span>
+            </label>
+            <label class="segment">
+              <input id="seg-ine" name="Segment" type="radio" value="Iné" />
+              <span>Niečo iné<small>Popíšete nižšie</small></span>
+            </label>
+          </fieldset>
+
+          <p class="field">
+            <label for="nazov">Názov podniku *</label>
+            <input id="nazov" name="Názov podniku" required type="text" />
+          </p>
+          <p class="field">
+            <label for="osoba">Kontaktná osoba *</label>
+            <input autocomplete="name" id="osoba" name="Kontaktná osoba" required type="text" />
+          </p>
+          <p class="field">
+            <label for="email">E-mail *</label>
+            <span class="hint">Sem vám pošlem návrh na schválenie.</span>
+            <input autocomplete="email" id="email" name="E-mail" required type="email" />
+          </p>
+          <p class="field">
+            <label for="telefon">Telefón <span class="optional">(nepovinné)</span></label>
+            <input autocomplete="tel" id="telefon" name="Telefón" type="tel" />
+          </p>
+          <p class="field">
+            <label for="fakturacne"
+              >Fakturačné údaje
+              <span class="optional">(nepovinné, doplníte neskôr)</span></label
+            >
+            <span class="hint"
+              >Presný názov, IČO, DIČ a adresa — patria do pätičky webu.</span
+            >
+            <textarea id="fakturacne" name="Fakturačné údaje" rows="3"></textarea>
+          </p>
+
+          <div class="controls">
+            <button class="btn btn-primary" data-dalej type="button">
+              Pokračovať
+            </button>
+          </div>
+        </section>
+
+        <section class="step" data-nazov="Služby" hidden id="krok-2">
+          <h2 tabindex="-1">Čo robíte</h2>
+          <p class="step-intro">
+            Stačia odrážky. Toto sa na webe stane zoznamom služieb.
+          </p>
+
+          <p class="field">
+            <label for="sluzby">Vypíšte svoje služby *</label>
+            <span class="hint" id="napoveda-sluzby"></span>
+            <textarea id="sluzby" name="Služby" required rows="6"></textarea>
+          </p>
+          <p class="field">
+            <label for="najziadanejsie">Čo chcú ľudia najčastejšie a čo je najdrahšie? *</label>
+            <span class="hint"
+              >Podľa tohto sa rozhodnem, čo bude na webe hore a čo dole.</span
+            >
+            <textarea
+              id="najziadanejsie"
+              name="Najžiadanejšie a najdrahšie"
+              required
+              rows="3"
+            ></textarea>
+          </p>
+          <p class="field">
+            <label for="specializacia">Špecializácia</label>
+            <span class="hint" id="napoveda-specializacia"></span>
+            <textarea id="specializacia" name="Špecializácia" rows="3"></textarea>
+          </p>
+          <p class="field">
+            <label for="nerobime"
+              >Čo naopak nerobíte? <span class="optional">(nepovinné)</span></label
+            >
+            <span class="hint"
+              >Ušetrí vám to telefonáty od ľudí, ktorých aj tak pošlete inam.</span
+            >
+            <textarea id="nerobime" name="Čo nerobíme" rows="2"></textarea>
+          </p>
+
+          <div class="controls">
+            <button class="btn btn-secondary" data-spat type="button">Späť</button>
+            <button class="btn btn-primary" data-dalej type="button">
+              Pokračovať
+            </button>
+          </div>
+        </section>
+
+        <section class="step" data-nazov="Zákazníci" hidden id="krok-3">
+          <h2 tabindex="-1">Vaši zákazníci</h2>
+          <p class="step-intro">
+            Toto je najcennejšia časť. Píšte tak, ako by ste to povedali nahlas —
+            gramatiku aj štylistiku doriešim ja.
+          </p>
+
+          <p class="field">
+            <label for="preco-vy">Prečo k vám chodia namiesto konkurencie? *</label>
+            <span class="hint"
+              >Pokojne aj banalita: parkovanie pred dverami, otvorené v sobotu,
+              robíte to dvadsať rokov.</span
+            >
+            <textarea id="preco-vy" name="Prečo k vám" required rows="4"></textarea>
+          </p>
+          <p class="field">
+            <label for="otazky">Na čo sa vás ľudia pýtajú stále dokola? *</label>
+            <span class="hint"
+              >Z tohto vznikne sekcia otázok a odpovedí, ktorú ľudia na webe čítajú
+              najviac.</span
+            >
+            <textarea id="otazky" name="Časté otázky" required rows="4"></textarea>
+          </p>
+          <p class="field">
+            <label for="kto-je-zakaznik"
+              >Kto k vám chodí? <span class="optional">(nepovinné)</span></label
+            >
+            <span class="hint" id="napoveda-zakaznik"></span>
+            <textarea id="kto-je-zakaznik" name="Kto je zákazník" rows="3"></textarea>
+          </p>
+          <p class="field">
+            <label for="konkurencia"
+              >Páči sa vám niečí web? <span class="optional">(nepovinné)</span></label
+            >
+            <span class="hint"
+              >Odkaz alebo názov. Nemusí byť z vášho odboru — zaujíma ma, čo sa vám
+              páči.</span
+            >
+            <textarea id="konkurencia" name="Weby, ktoré sa páčia" rows="2"></textarea>
+          </p>
+
+          <div class="controls">
+            <button class="btn btn-secondary" data-spat type="button">Späť</button>
+            <button class="btn btn-primary" data-dalej type="button">
+              Pokračovať
+            </button>
+          </div>
+        </section>
+
+        <section class="step" data-nazov="Prevádzka" hidden id="krok-4">
+          <h2 tabindex="-1">Prevádzka a ceny</h2>
+          <p class="step-intro">Praktické údaje, ktoré ľudia na webe hľadajú ako prvé.</p>
+
+          <p class="field">
+            <label for="adresa">Adresa prevádzky *</label>
+            <input id="adresa" name="Adresa prevádzky" required type="text" />
+          </p>
+          <p class="field">
+            <label for="hodiny">Otváracie hodiny *</label>
+            <textarea id="hodiny" name="Otváracie hodiny" required rows="3"></textarea>
+          </p>
+          <p class="field">
+            <label for="cennik">Cenník *</label>
+            <span class="hint" id="napoveda-cennik"></span>
+            <textarea id="cennik" name="Cenník" required rows="6"></textarea>
+          </p>
+          <p class="field">
+            <label for="objednavanie">Ako si u vás ľudia objednávajú? *</label>
+            <span class="hint" id="napoveda-objednavanie"></span>
+            <textarea id="objednavanie" name="Objednávanie" required rows="3"></textarea>
+          </p>
+
+          <div class="controls">
+            <button class="btn btn-secondary" data-spat type="button">Späť</button>
+            <button class="btn btn-primary" data-dalej type="button">
+              Pokračovať
+            </button>
+          </div>
+        </section>
+
+        <section class="step" data-nazov="Technika" hidden id="krok-5">
+          <h2 tabindex="-1">Doména a fotky</h2>
+          <p class="step-intro">
+            Posledný krok. Ak niečo neviete, napíšte „neviem“ — zistím to za vás.
+          </p>
+
+          <p class="field">
+            <label for="domena">Máte už doménu? *</label>
+            <span class="hint"
+              >Adresa typu vasafirma.sk. Ak ju kedysi registroval niekto za vás,
+              napíšte to — budem potrebovať prístup a vieme to vyriešiť aj bez
+              neho.</span
+            >
+            <textarea id="domena" name="Doména" required rows="2"></textarea>
+          </p>
+          <p class="field">
+            <label for="hosting"
+              >Beží vám niekde starý web alebo hosting?
+              <span class="optional">(nepovinné)</span></label
+            >
+            <textarea id="hosting" name="Hosting a starý web" rows="2"></textarea>
+          </p>
+          <p class="field">
+            <label for="siete">Instagram alebo Facebook</label>
+            <span class="hint"
+              >Odkazy alebo mená profilov. Ak tam máte fotky, vezmem ich odtiaľ.</span
+            >
+            <textarea id="siete" name="Sociálne siete" rows="2"></textarea>
+          </p>
+          <p class="field">
+            <label for="fotky">Fotky prevádzky *</label>
+            <span class="hint" id="napoveda-fotky"></span>
+            <select id="fotky" name="Fotky">
+              <option value="Mám vlastné fotky a pošlem ich">
+                Mám vlastné fotky a pošlem ich
+              </option>
+              <option value="Fotky sú na Instagrame alebo Facebooku">
+                Fotky sú na Instagrame alebo Facebooku
+              </option>
+              <option value="Mám len fotky v Google profile">
+                Mám len fotky v Google profile
+              </option>
+              <option value="Fotky nemám, potrebujem pomôcť">
+                Fotky nemám, potrebujem pomôcť
+              </option>
+            </select>
+          </p>
+          <p class="field">
+            <label for="termin"
+              >Dokedy by ste chceli web spustený?
+              <span class="optional">(nepovinné)</span></label
+            >
+            <input id="termin" name="Želaný termín" type="text" />
+          </p>
+          <p class="field">
+            <label for="poznamka"
+              >Čokoľvek ďalšie <span class="optional">(nepovinné)</span></label
+            >
+            <textarea id="poznamka" name="Poznámka" rows="3"></textarea>
+          </p>
+
+          <label class="consent" for="suhlas">
+            <input id="suhlas" name="Súhlas" required type="checkbox" value="áno" />
+            <span>
+              Súhlasím so spracovaním uvedených údajov na účel prípravy webovej
+              stránky. Podrobnosti v
+              <a href="/ochrana-osobnych-udajov.html" rel="noopener" target="_blank"
+                >ochrane osobných údajov</a
+              >.
+            </span>
+          </label>
+
+          <div class="controls">
+            <button class="btn btn-secondary" data-spat type="button">Späť</button>
+            <button class="btn btn-primary" id="odoslat" type="submit">
+              Odoslať podklady
+            </button>
+          </div>
+          <p aria-live="polite" class="form-status" id="stav" role="status"></p>
+        </section>
+      </form>
+
+      <div class="done" hidden id="hotovo">
+        <h2>Podklady dorazili</h2>
+        <p>
+          Ďakujem. Prejdem si ich a ozvem sa vám do dvoch pracovných dní — buď s
+          návrhom, alebo s doplňujúcimi otázkami.
+        </p>
+      </div>
+
+      <p class="saved-note" id="ulozene"></p>
+
+      <footer class="page-footer">
+        Niečo nefunguje alebo si neviete rady?
+        <a href="mailto:hello@by-simona.eu">hello@by-simona.eu</a>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        "use strict";
+
+        var formular = document.getElementById("formular-podklady");
+        var kroky = Array.prototype.slice.call(formular.querySelectorAll(".step"));
+        var priebeh = document.getElementById("priebeh");
+        var priebehText = document.getElementById("priebeh-text");
+        var priebehNazov = document.getElementById("priebeh-nazov");
+        var priebehVypln = document.getElementById("priebeh-vypln");
+        var priebehLista = priebehVypln.parentElement;
+        var stav = document.getElementById("stav");
+        var ulozene = document.getElementById("ulozene");
+        var tlacidloOdoslat = document.getElementById("odoslat");
+        var KLUC = "podklady-by-simona";
+        var aktualny = 0;
+
+        var TEXTY = {
+          "Salón / kaderníctvo / masáže": {
+            sluzby:
+              "Napríklad: dámske strihanie, farbenie, melír, regenerácia, spoločenské účesy…",
+            specializacia:
+              "Pracujete s konkrétnou kozmetikou alebo technikou? Máte kurz či certifikát, ktorý inde nemajú?",
+            zakaznik: "Vekovo, odkiaľ chodia, či sú to stáli zákazníci alebo noví.",
+            cennik:
+              "Aspoň rozsahy, napríklad „strih od 25 €“. Ak sa ceny líšia podľa dĺžky vlasov, napíšte to tak.",
+            objednavanie:
+              "Telefón, Messenger, Instagram, objednávkový systém? A ako ďaleko dopredu býva plno?",
+            fotky: "Ak máte Instagram s prácami, fotky si viem vybrať odtiaľ.",
+          },
+          "Autoservis / pneuservis": {
+            sluzby:
+              "Napríklad: servisná prehliadka, výmena rozvodov, brzdy, klimatizácia, diagnostika, príprava na STK…",
+            specializacia:
+              "Aké značky áut robíte? Máte diagnostiku alebo vybavenie, ktoré bežný servis nemá?",
+            zakaznik: "Súkromné osoby alebo firmy? Staršie autá alebo novšie v záruke?",
+            cennik:
+              "Aspoň hodinová sadzba a ceny pár najčastejších úkonov. Ľudia to hľadajú ako prvé.",
+            objednavanie:
+              "Telefón, osobne, formulár? Ako dlho dopredu treba objednať?",
+            fotky:
+              "Ak fotky nemáte, prídem to odfotiť — pri servisoch je to bežné a rátam s tým.",
+          },
+          "Bar / reštaurácia / kaviareň": {
+            sluzby: "Napríklad: denné menu, čapované pivo, káva, rozvoz, súkromné akcie…",
+            specializacia:
+              "Máte niečo, čo inde nedostanú? Vlastný pivovar, konkrétnu kuchyňu, koncerty?",
+            zakaznik: "Obedy pre okolité firmy, večerní štamgasti, rodiny cez víkend?",
+            cennik: "Stačí rozsah cien alebo odkaz na aktuálne menu.",
+            objednavanie: "Berete rezervácie? Ako — telefón, formulár, len osobne?",
+            fotky:
+              "Fotky interiéru a jedla sú pri gastre najdôležitejšie — napíšte, čo máte.",
+          },
+          Iné: {
+            sluzby: "Vypíšte, čo ponúkate. Stačia odrážky.",
+            specializacia: "Máte niečo, čím sa líšite od ostatných?",
+            zakaznik: "Komu predávate?",
+            cennik: "Aspoň orientačné ceny alebo rozsahy.",
+            objednavanie: "Ako sa k vám zákazník dostane?",
+            fotky: "Napíšte, aké fotky máte k dispozícii.",
+          },
+        };
+
+        var NAPOVEDY = {
+          "napoveda-sluzby": "sluzby",
+          "napoveda-specializacia": "specializacia",
+          "napoveda-zakaznik": "zakaznik",
+          "napoveda-cennik": "cennik",
+          "napoveda-objednavanie": "objednavanie",
+          "napoveda-fotky": "fotky",
+        };
+
+        function prisposobSegmentu() {
+          var zvoleny = formular.querySelector('input[name="Segment"]:checked');
+          var sada = TEXTY[zvoleny ? zvoleny.value : "Iné"] || TEXTY["Iné"];
+          Object.keys(NAPOVEDY).forEach(function (id) {
+            var prvok = document.getElementById(id);
+            if (prvok) prvok.textContent = sada[NAPOVEDY[id]];
+          });
+          document.getElementById("sluzby").placeholder = sada.sluzby;
+        }
+
+        Array.prototype.forEach.call(
+          formular.querySelectorAll('input[name="Segment"]'),
+          function (prepinac) {
+            prepinac.addEventListener("change", function () {
+              prisposobSegmentu();
+              uloz();
+            });
+          },
+        );
+
+        function zobraz(index, posunut) {
+          aktualny = index;
+          kroky.forEach(function (krok, i) {
+            krok.hidden = i !== index;
+          });
+          var cislo = index + 1;
+          priebehText.textContent = "Krok " + cislo + " z " + kroky.length;
+          priebehNazov.textContent = kroky[index].dataset.nazov;
+          priebehVypln.style.width = (cislo / kroky.length) * 100 + "%";
+          priebehLista.setAttribute("aria-valuenow", String(cislo));
+          if (posunut) {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            kroky[index].querySelector("h2").focus({ preventScroll: true });
+          }
+        }
+
+        function krokJePlatny(index) {
+          var polia = kroky[index].querySelectorAll(
+            "input[required], textarea[required], select[required]",
+          );
+          for (var i = 0; i < polia.length; i++) {
+            if (!polia[i].checkValidity()) {
+              polia[i].reportValidity();
+              return false;
+            }
+          }
+          return true;
+        }
+
+        formular.addEventListener("click", function (udalost) {
+          var ciel = udalost.target;
+          if (ciel.hasAttribute("data-dalej")) {
+            if (!krokJePlatny(aktualny)) return;
+            uloz();
+            zobraz(Math.min(aktualny + 1, kroky.length - 1), true);
+          } else if (ciel.hasAttribute("data-spat")) {
+            zobraz(Math.max(aktualny - 1, 0), true);
+          }
+        });
+
+        formular.addEventListener("keydown", function (udalost) {
+          if (udalost.key !== "Enter") return;
+          if (udalost.target.tagName === "TEXTAREA") return;
+          if (aktualny === kroky.length - 1) return;
+          udalost.preventDefault();
+          if (krokJePlatny(aktualny)) {
+            uloz();
+            zobraz(aktualny + 1, true);
+          }
+        });
+
+        function uloz() {
+          try {
+            var data = {};
+            new FormData(formular).forEach(function (hodnota, kluc) {
+              if (kluc !== "access_key" && kluc !== "botcheck") data[kluc] = hodnota;
+            });
+            data.__krok = aktualny;
+            localStorage.setItem(KLUC, JSON.stringify(data));
+            ulozene.textContent = "Rozpísané odpovede sú uložené vo vašom prehliadači.";
+          } catch (chyba) {
+          }
+        }
+
+        function obnov() {
+          var text;
+          try {
+            text = localStorage.getItem(KLUC);
+          } catch (chyba) {
+            return;
+          }
+          if (!text) return;
+          var data;
+          try {
+            data = JSON.parse(text);
+          } catch (chyba) {
+            return;
+          }
+          Object.keys(data).forEach(function (kluc) {
+            if (kluc === "__krok") return;
+            Array.prototype.forEach.call(
+              formular.querySelectorAll('[name="' + kluc + '"]'),
+              function (prvok) {
+                if (prvok.type === "radio") {
+                  prvok.checked = prvok.value === data[kluc];
+                } else if (prvok.type === "checkbox") {
+                  prvok.checked = Boolean(data[kluc]);
+                } else {
+                  prvok.value = data[kluc];
+                }
+              },
+            );
+          });
+          prisposobSegmentu();
+          if (typeof data.__krok === "number") {
+            aktualny = Math.min(data.__krok, kroky.length - 1);
+          }
+          ulozene.textContent = "Obnovili sme vaše rozpísané odpovede.";
+        }
+
+        var casovac;
+        formular.addEventListener("input", function () {
+          clearTimeout(casovac);
+          casovac = setTimeout(uloz, 600);
+        });
+
+        formular.addEventListener("submit", function (udalost) {
+          udalost.preventDefault();
+          if (!formular.checkValidity()) {
+            formular.reportValidity();
+            return;
+          }
+          tlacidloOdoslat.disabled = true;
+          stav.className = "form-status";
+          stav.textContent = "Odosielam…";
+
+          var nazov = document.getElementById("nazov").value.trim();
+          document.getElementById("predmet").value = nazov
+            ? "Podklady na web – " + nazov
+            : "Podklady na web";
+
+          fetch(formular.action, {
+            method: "POST",
+            headers: { Accept: "application/json" },
+            body: new FormData(formular),
+          })
+            .then(function (odpoved) {
+              if (!odpoved.ok) throw new Error(String(odpoved.status));
+              try {
+                localStorage.removeItem(KLUC);
+              } catch (chyba) {
+              }
+              formular.hidden = true;
+              priebeh.hidden = true;
+              ulozene.textContent = "";
+              document.getElementById("hotovo").hidden = false;
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            })
+            .catch(function () {
+              stav.className = "form-status is-error";
+              stav.textContent =
+                "Odoslanie sa nepodarilo. Skúste to prosím znova, alebo mi podklady pošlite na hello@by-simona.eu — nič sa nestratilo.";
+              tlacidloOdoslat.disabled = false;
+            });
+        });
+
+        prisposobSegmentu();
+        obnov();
+        zobraz(aktualny, false);
+      })();
+    </script>
+  </body>
+</html>
