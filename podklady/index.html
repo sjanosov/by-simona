@@ -6,7 +6,10 @@
     <meta content="#20352c" name="theme-color" />
     <title>Podklady na web | by simona</title>
     <meta content="noindex, nofollow" name="robots" />
-    <meta content="Formulár na podklady k tvorbe webovej stránky." name="description" />
+    <meta
+      content="Formulár na podklady k tvorbe webovej stránky."
+      name="description"
+    />
     <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
     <link
       rel="preload"
@@ -22,9 +25,10 @@
         font-weight: 400 700;
         font-display: swap;
         src: url("/fonts/dm-sans-latin.woff2") format("woff2");
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
-          U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        unicode-range:
+          U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
       }
       @font-face {
         font-family: "DM Sans";
@@ -32,10 +36,10 @@
         font-weight: 400 700;
         font-display: swap;
         src: url("/fonts/dm-sans-latin-ext.woff2") format("woff2");
-        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
-          U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
+        unicode-range:
+          U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+          U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+          U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
       }
 
       :root {
@@ -65,7 +69,10 @@
         margin: 0;
         background: var(--cream);
         color: var(--ink);
-        font: 500 1rem/1.6 "DM Sans", Arial, sans-serif;
+        font:
+          500 1rem/1.6 "DM Sans",
+          Arial,
+          sans-serif;
         -webkit-font-smoothing: antialiased;
         overflow-x: hidden;
       }
@@ -127,7 +134,7 @@
 
       .meta {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
         gap: 0.4rem 1.25rem;
         font-size: 0.83rem;
         color: var(--muted);
@@ -458,21 +465,37 @@
         </div>
       </div>
 
-      <form action="https://api.web3forms.com/submit" id="formular-podklady" method="POST">
+      <form
+        action="https://api.web3forms.com/submit"
+        id="formular-podklady"
+        method="POST"
+      >
         <input
           name="access_key"
           type="hidden"
           value="12629a1a-82ec-4872-847e-479985a27a0f"
         />
-        <input id="predmet" name="subject" type="hidden" value="Podklady na web" />
+        <input
+          id="predmet"
+          name="subject"
+          type="hidden"
+          value="Podklady na web"
+        />
         <input name="from_name" type="hidden" value="Podklady – by-simona.eu" />
         <div class="honeypot" aria-hidden="true">
-          <input autocomplete="off" name="botcheck" tabindex="-1" type="checkbox" />
+          <input
+            autocomplete="off"
+            name="botcheck"
+            tabindex="-1"
+            type="checkbox"
+          />
         </div>
 
         <section class="step" data-nazov="Firma" id="krok-1">
           <h2 tabindex="-1">O firme</h2>
-          <p class="step-intro">Základné údaje, aby som vedela, s kým hovorím.</p>
+          <p class="step-intro">
+            Základné údaje, aby som vedela, s kým hovorím.
+          </p>
 
           <fieldset class="segments">
             <legend>Čo prevádzkujete?</legend>
@@ -485,7 +508,9 @@
                 value="Salón / kaderníctvo / masáže"
               />
               <span
-                >Salón alebo štúdio<small>Vlasy, nechty, kozmetika, masáže</small></span
+                >Salón alebo štúdio<small
+                  >Vlasy, nechty, kozmetika, masáže</small
+                ></span
               >
             </label>
             <label class="segment">
@@ -495,7 +520,9 @@
                 type="radio"
                 value="Autoservis / pneuservis"
               />
-              <span>Autoservis<small>Servis, pneuservis, diagnostika</small></span>
+              <span
+                >Autoservis<small>Servis, pneuservis, diagnostika</small></span
+              >
             </label>
             <label class="segment">
               <input
@@ -512,21 +539,69 @@
             </label>
           </fieldset>
 
+          <fieldset class="segments">
+            <legend>Ktorý balík máte na mysli?</legend>
+            <label class="segment">
+              <input
+                id="bal-start"
+                name="Balík"
+                type="radio"
+                value="Štart – jednostránkový web, od 390 €"
+              />
+              <span>Štart<small>Jednostránkový web, od 390 €</small></span>
+            </label>
+            <label class="segment">
+              <input
+                id="bal-standard"
+                name="Balík"
+                type="radio"
+                value="Štandard – web do 5 podstránok, od 790 €"
+              />
+              <span>Štandard<small>Web do 5 podstránok, od 790 €</small></span>
+            </label>
+            <label class="segment">
+              <input
+                checked
+                id="bal-neviem"
+                name="Balík"
+                type="radio"
+                value="Neviem posúdiť – odporučí Simona"
+              />
+              <span
+                >Neviem posúdiť<small>Odporučím podľa podkladov</small></span
+              >
+            </label>
+          </fieldset>
+
           <p class="field">
             <label for="nazov">Názov podniku *</label>
             <input id="nazov" name="Názov podniku" required type="text" />
           </p>
           <p class="field">
             <label for="osoba">Kontaktná osoba *</label>
-            <input autocomplete="name" id="osoba" name="Kontaktná osoba" required type="text" />
+            <input
+              autocomplete="name"
+              id="osoba"
+              name="Kontaktná osoba"
+              required
+              type="text"
+            />
           </p>
           <p class="field">
             <label for="email">E-mail *</label>
             <span class="hint">Sem vám pošlem návrh na schválenie.</span>
-            <input autocomplete="email" id="email" name="E-mail" required type="email" />
+            <input
+              autocomplete="email"
+              id="email"
+              name="E-mail"
+              required
+              type="email"
+            />
           </p>
           <p class="field">
-            <label for="telefon">Telefón <span class="optional">(nepovinné)</span></label>
+            <label for="telefon"
+              >Telefón <span class="optional">(nepovinné)</span></label
+            >
             <input autocomplete="tel" id="telefon" name="Telefón" type="tel" />
           </p>
           <p class="field">
@@ -537,7 +612,11 @@
             <span class="hint"
               >Presný názov, IČO, DIČ a adresa — patria do pätičky webu.</span
             >
-            <textarea id="fakturacne" name="Fakturačné údaje" rows="3"></textarea>
+            <textarea
+              id="fakturacne"
+              name="Fakturačné údaje"
+              rows="3"
+            ></textarea>
           </p>
 
           <div class="controls">
@@ -559,7 +638,9 @@
             <textarea id="sluzby" name="Služby" required rows="6"></textarea>
           </p>
           <p class="field">
-            <label for="najziadanejsie">Čo chcú ľudia najčastejšie a čo je najdrahšie? *</label>
+            <label for="najziadanejsie"
+              >Čo chcú ľudia najčastejšie a čo je najdrahšie? *</label
+            >
             <span class="hint"
               >Podľa tohto sa rozhodnem, čo bude na webe hore a čo dole.</span
             >
@@ -573,20 +654,28 @@
           <p class="field">
             <label for="specializacia">Špecializácia</label>
             <span class="hint" id="napoveda-specializacia"></span>
-            <textarea id="specializacia" name="Špecializácia" rows="3"></textarea>
+            <textarea
+              id="specializacia"
+              name="Špecializácia"
+              rows="3"
+            ></textarea>
           </p>
           <p class="field">
             <label for="nerobime"
-              >Čo naopak nerobíte? <span class="optional">(nepovinné)</span></label
+              >Čo naopak nerobíte?
+              <span class="optional">(nepovinné)</span></label
             >
             <span class="hint"
-              >Ušetrí vám to telefonáty od ľudí, ktorých aj tak pošlete inam.</span
+              >Ušetrí vám to telefonáty od ľudí, ktorých aj tak pošlete
+              inam.</span
             >
             <textarea id="nerobime" name="Čo nerobíme" rows="2"></textarea>
           </p>
 
           <div class="controls">
-            <button class="btn btn-secondary" data-spat type="button">Späť</button>
+            <button class="btn btn-secondary" data-spat type="button">
+              Späť
+            </button>
             <button class="btn btn-primary" data-dalej type="button">
               Pokračovať
             </button>
@@ -596,46 +685,71 @@
         <section class="step" data-nazov="Zákazníci" hidden id="krok-3">
           <h2 tabindex="-1">Vaši zákazníci</h2>
           <p class="step-intro">
-            Toto je najcennejšia časť. Píšte tak, ako by ste to povedali nahlas —
-            gramatiku aj štylistiku doriešim ja.
+            Toto je najcennejšia časť. Píšte tak, ako by ste to povedali nahlas
+            — gramatiku aj štylistiku doriešim ja.
           </p>
 
           <p class="field">
-            <label for="preco-vy">Prečo k vám chodia namiesto konkurencie? *</label>
+            <label for="preco-vy"
+              >Prečo k vám chodia namiesto konkurencie? *</label
+            >
             <span class="hint"
               >Pokojne aj banalita: parkovanie pred dverami, otvorené v sobotu,
               robíte to dvadsať rokov.</span
             >
-            <textarea id="preco-vy" name="Prečo k vám" required rows="4"></textarea>
+            <textarea
+              id="preco-vy"
+              name="Prečo k vám"
+              required
+              rows="4"
+            ></textarea>
           </p>
           <p class="field">
-            <label for="otazky">Na čo sa vás ľudia pýtajú stále dokola? *</label>
-            <span class="hint"
-              >Z tohto vznikne sekcia otázok a odpovedí, ktorú ľudia na webe čítajú
-              najviac.</span
+            <label for="otazky"
+              >Na čo sa vás ľudia pýtajú stále dokola? *</label
             >
-            <textarea id="otazky" name="Časté otázky" required rows="4"></textarea>
+            <span class="hint"
+              >Z tohto vznikne sekcia otázok a odpovedí, ktorú ľudia na webe
+              čítajú najviac.</span
+            >
+            <textarea
+              id="otazky"
+              name="Časté otázky"
+              required
+              rows="4"
+            ></textarea>
           </p>
           <p class="field">
             <label for="kto-je-zakaznik"
               >Kto k vám chodí? <span class="optional">(nepovinné)</span></label
             >
             <span class="hint" id="napoveda-zakaznik"></span>
-            <textarea id="kto-je-zakaznik" name="Kto je zákazník" rows="3"></textarea>
+            <textarea
+              id="kto-je-zakaznik"
+              name="Kto je zákazník"
+              rows="3"
+            ></textarea>
           </p>
           <p class="field">
             <label for="konkurencia"
-              >Páči sa vám niečí web? <span class="optional">(nepovinné)</span></label
+              >Páči sa vám niečí web?
+              <span class="optional">(nepovinné)</span></label
             >
             <span class="hint"
-              >Odkaz alebo názov. Nemusí byť z vášho odboru — zaujíma ma, čo sa vám
-              páči.</span
+              >Odkaz alebo názov. Nemusí byť z vášho odboru — zaujíma ma, čo sa
+              vám páči.</span
             >
-            <textarea id="konkurencia" name="Weby, ktoré sa páčia" rows="2"></textarea>
+            <textarea
+              id="konkurencia"
+              name="Weby, ktoré sa páčia"
+              rows="2"
+            ></textarea>
           </p>
 
           <div class="controls">
-            <button class="btn btn-secondary" data-spat type="button">Späť</button>
+            <button class="btn btn-secondary" data-spat type="button">
+              Späť
+            </button>
             <button class="btn btn-primary" data-dalej type="button">
               Pokračovať
             </button>
@@ -644,7 +758,9 @@
 
         <section class="step" data-nazov="Prevádzka" hidden id="krok-4">
           <h2 tabindex="-1">Prevádzka a ceny</h2>
-          <p class="step-intro">Praktické údaje, ktoré ľudia na webe hľadajú ako prvé.</p>
+          <p class="step-intro">
+            Praktické údaje, ktoré ľudia na webe hľadajú ako prvé.
+          </p>
 
           <p class="field">
             <label for="adresa">Adresa prevádzky *</label>
@@ -652,7 +768,12 @@
           </p>
           <p class="field">
             <label for="hodiny">Otváracie hodiny *</label>
-            <textarea id="hodiny" name="Otváracie hodiny" required rows="3"></textarea>
+            <textarea
+              id="hodiny"
+              name="Otváracie hodiny"
+              required
+              rows="3"
+            ></textarea>
           </p>
           <p class="field">
             <label for="cennik">Cenník *</label>
@@ -662,11 +783,40 @@
           <p class="field">
             <label for="objednavanie">Ako si u vás ľudia objednávajú? *</label>
             <span class="hint" id="napoveda-objednavanie"></span>
-            <textarea id="objednavanie" name="Objednávanie" required rows="3"></textarea>
+            <textarea
+              id="objednavanie"
+              name="Objednávanie"
+              required
+              rows="3"
+            ></textarea>
+          </p>
+          <p class="field">
+            <label for="rezervacie">Chceli by ste objednávanie priamo na webe?</label>
+            <span class="hint"
+              >Zákazník si sám vyberie voľný termín a vám príde potvrdenie —
+              odpadne dopisovanie v správach. Web to predraží, preto sa pýtam
+              hneď teraz a nie až v ponuke.</span
+            >
+            <select id="rezervacie" name="Rezervačný systém">
+              <option value="Neviem, čo to obnáša – vysvetliť">
+                Neviem, čo to obnáša – vysvetlite mi to
+              </option>
+              <option value="Áno, to je hlavný dôvod, prečo web chcem">
+                Áno, to je hlavný dôvod, prečo web chcem
+              </option>
+              <option value="Áno, ak to cenu nezdvihne výrazne">
+                Áno, ak to cenu nezdvihne výrazne
+              </option>
+              <option value="Nie, stačí telefón a správy">
+                Nie, stačí telefón a správy
+              </option>
+            </select>
           </p>
 
           <div class="controls">
-            <button class="btn btn-secondary" data-spat type="button">Späť</button>
+            <button class="btn btn-secondary" data-spat type="button">
+              Späť
+            </button>
             <button class="btn btn-primary" data-dalej type="button">
               Pokračovať
             </button>
@@ -676,7 +826,8 @@
         <section class="step" data-nazov="Technika" hidden id="krok-5">
           <h2 tabindex="-1">Doména a fotky</h2>
           <p class="step-intro">
-            Posledný krok. Ak niečo neviete, napíšte „neviem“ — zistím to za vás.
+            Posledný krok. Ak niečo neviete, napíšte „neviem“ — zistím to za
+            vás.
           </p>
 
           <p class="field">
@@ -693,14 +844,38 @@
               >Beží vám niekde starý web alebo hosting?
               <span class="optional">(nepovinné)</span></label
             >
-            <textarea id="hosting" name="Hosting a starý web" rows="2"></textarea>
+            <textarea
+              id="hosting"
+              name="Hosting a starý web"
+              rows="2"
+            ></textarea>
           </p>
           <p class="field">
             <label for="siete">Instagram alebo Facebook</label>
             <span class="hint"
-              >Odkazy alebo mená profilov. Ak tam máte fotky, vezmem ich odtiaľ.</span
+              >Odkazy alebo mená profilov. Ak tam máte fotky, vezmem ich
+              odtiaľ.</span
             >
             <textarea id="siete" name="Sociálne siete" rows="2"></textarea>
+          </p>
+          <p class="field">
+            <label for="google-profil">Google profil firmy</label>
+            <span class="hint"
+              >Zápis, ktorý sa vám zobrazuje v Google Mapách. Rozhoduje o tom,
+              či vás ľudia nájdu skôr než konkurenciu.</span
+            >
+            <select id="google-profil" name="Google profil">
+              <option value="Mám ho a spravujem si ho sám">
+                Mám ho a spravujem si ho sám
+              </option>
+              <option value="Mám ho, ale nikto sa oň nestará">
+                Mám ho, ale nikto sa oň nestará
+              </option>
+              <option value="Neviem, či ho mám">Neviem, či ho mám</option>
+              <option value="Nemám ho a chcel by som">
+                Nemám ho a chcel by som
+              </option>
+            </select>
           </p>
           <p class="field">
             <label for="fotky">Fotky prevádzky *</label>
@@ -735,18 +910,29 @@
           </p>
 
           <label class="consent" for="suhlas">
-            <input id="suhlas" name="Súhlas" required type="checkbox" value="áno" />
+            <input
+              id="suhlas"
+              name="Súhlas"
+              required
+              type="checkbox"
+              value="áno"
+            />
             <span>
               Súhlasím so spracovaním uvedených údajov na účel prípravy webovej
               stránky. Podrobnosti v
-              <a href="/ochrana-osobnych-udajov.html" rel="noopener" target="_blank"
+              <a
+                href="/ochrana-osobnych-udajov.html"
+                rel="noopener"
+                target="_blank"
                 >ochrane osobných údajov</a
               >.
             </span>
           </label>
 
           <div class="controls">
-            <button class="btn btn-secondary" data-spat type="button">Späť</button>
+            <button class="btn btn-secondary" data-spat type="button">
+              Späť
+            </button>
             <button class="btn btn-primary" id="odoslat" type="submit">
               Odoslať podklady
             </button>
@@ -776,7 +962,9 @@
         "use strict";
 
         var formular = document.getElementById("formular-podklady");
-        var kroky = Array.prototype.slice.call(formular.querySelectorAll(".step"));
+        var kroky = Array.prototype.slice.call(
+          formular.querySelectorAll(".step"),
+        );
         var priebeh = document.getElementById("priebeh");
         var priebehText = document.getElementById("priebeh-text");
         var priebehNazov = document.getElementById("priebeh-nazov");
@@ -794,7 +982,8 @@
               "Napríklad: dámske strihanie, farbenie, melír, regenerácia, spoločenské účesy…",
             specializacia:
               "Pracujete s konkrétnou kozmetikou alebo technikou? Máte kurz či certifikát, ktorý inde nemajú?",
-            zakaznik: "Vekovo, odkiaľ chodia, či sú to stáli zákazníci alebo noví.",
+            zakaznik:
+              "Vekovo, odkiaľ chodia, či sú to stáli zákazníci alebo noví.",
             cennik:
               "Aspoň rozsahy, napríklad „strih od 25 €“. Ak sa ceny líšia podľa dĺžky vlasov, napíšte to tak.",
             objednavanie:
@@ -806,7 +995,8 @@
               "Napríklad: servisná prehliadka, výmena rozvodov, brzdy, klimatizácia, diagnostika, príprava na STK…",
             specializacia:
               "Aké značky áut robíte? Máte diagnostiku alebo vybavenie, ktoré bežný servis nemá?",
-            zakaznik: "Súkromné osoby alebo firmy? Staršie autá alebo novšie v záruke?",
+            zakaznik:
+              "Súkromné osoby alebo firmy? Staršie autá alebo novšie v záruke?",
             cennik:
               "Aspoň hodinová sadzba a ceny pár najčastejších úkonov. Ľudia to hľadajú ako prvé.",
             objednavanie:
@@ -815,12 +1005,15 @@
               "Ak fotky nemáte, prídem to odfotiť — pri servisoch je to bežné a rátam s tým.",
           },
           "Bar / reštaurácia / kaviareň": {
-            sluzby: "Napríklad: denné menu, čapované pivo, káva, rozvoz, súkromné akcie…",
+            sluzby:
+              "Napríklad: denné menu, čapované pivo, káva, rozvoz, súkromné akcie…",
             specializacia:
               "Máte niečo, čo inde nedostanú? Vlastný pivovar, konkrétnu kuchyňu, koncerty?",
-            zakaznik: "Obedy pre okolité firmy, večerní štamgasti, rodiny cez víkend?",
+            zakaznik:
+              "Obedy pre okolité firmy, večerní štamgasti, rodiny cez víkend?",
             cennik: "Stačí rozsah cien alebo odkaz na aktuálne menu.",
-            objednavanie: "Berete rezervácie? Ako — telefón, formulár, len osobne?",
+            objednavanie:
+              "Berete rezervácie? Ako — telefón, formulár, len osobne?",
             fotky:
               "Fotky interiéru a jedla sú pri gastre najdôležitejšie — napíšte, čo máte.",
           },
@@ -918,13 +1111,14 @@
           try {
             var data = {};
             new FormData(formular).forEach(function (hodnota, kluc) {
-              if (kluc !== "access_key" && kluc !== "botcheck") data[kluc] = hodnota;
+              if (kluc !== "access_key" && kluc !== "botcheck")
+                data[kluc] = hodnota;
             });
             data.__krok = aktualny;
             localStorage.setItem(KLUC, JSON.stringify(data));
-            ulozene.textContent = "Rozpísané odpovede sú uložené vo vašom prehliadači.";
-          } catch (chyba) {
-          }
+            ulozene.textContent =
+              "Rozpísané odpovede sú uložené vo vašom prehliadači.";
+          } catch (chyba) {}
         }
 
         function obnov() {
@@ -984,17 +1178,24 @@
             ? "Podklady na web – " + nazov
             : "Podklady na web";
 
+          var data = {};
+          new FormData(formular).forEach(function (hodnota, kluc) {
+            data[kluc] = hodnota;
+          });
+
           fetch(formular.action, {
             method: "POST",
-            headers: { Accept: "application/json" },
-            body: new FormData(formular),
+            headers: {
+              "Content-Type": "application/json; charset=utf-8",
+              Accept: "application/json",
+            },
+            body: JSON.stringify(data),
           })
             .then(function (odpoved) {
               if (!odpoved.ok) throw new Error(String(odpoved.status));
               try {
                 localStorage.removeItem(KLUC);
-              } catch (chyba) {
-              }
+              } catch (chyba) {}
               formular.hidden = true;
               priebeh.hidden = true;
               ulozene.textContent = "";
