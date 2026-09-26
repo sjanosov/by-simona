@@ -154,6 +154,9 @@
         padding-block: 0.85rem;
         margin-bottom: 1.25rem;
       }
+      .progress-label:focus {
+        outline: none;
+      }
       .progress-label {
         display: flex;
         justify-content: space-between;
@@ -190,9 +193,6 @@
         font-size: 1.3rem;
         letter-spacing: -0.015em;
         margin: 0 0 0.4rem;
-      }
-      .step h2:focus {
-        outline: none;
       }
       .step-intro {
         color: var(--ink);
@@ -272,10 +272,12 @@
         grid-template-rows: 0fr;
         opacity: 0;
         margin-bottom: 0;
+        visibility: hidden;
         transition:
           grid-template-rows 0.35s ease,
           opacity 0.35s ease,
-          margin-bottom 0.35s ease;
+          margin-bottom 0.35s ease,
+          visibility 0s linear 0.35s;
       }
       .reveal-field > div {
         overflow: hidden;
@@ -285,6 +287,12 @@
         grid-template-rows: 1fr;
         opacity: 1;
         margin-bottom: 1.4rem;
+        visibility: visible;
+        transition:
+          grid-template-rows 0.35s ease,
+          opacity 0.35s ease,
+          margin-bottom 0.35s ease,
+          visibility 0s;
       }
       .reveal-field .field {
         margin-bottom: 0;
@@ -472,7 +480,7 @@
       </ul>
 
       <div class="progress" id="priebeh">
-        <div class="progress-label">
+        <div class="progress-label" tabindex="-1">
           <span id="priebeh-text">Krok 1 z 5</span>
           <span id="priebeh-nazov">Firma</span>
         </div>
@@ -515,7 +523,7 @@
         </div>
 
         <section class="step" data-nazov="Firma" id="krok-1">
-          <h2 tabindex="-1">O firme</h2>
+          <h2>O firme</h2>
           <p class="step-intro">
             Základné údaje, aby som vedela, s kým hovorím.
           </p>
@@ -667,14 +675,13 @@
         </section>
 
         <section class="step" data-nazov="Služby" hidden id="krok-2">
-          <h2 tabindex="-1">Čo robíte</h2>
+          <h2>Čo robíte</h2>
           <p class="step-intro">
             Stačia odrážky. Toto sa na webe stane zoznamom služieb.
           </p>
 
           <p class="field">
             <label for="sluzby">Vypíšte svoje služby *</label>
-            <span class="hint">Stačia odrážky, nemusia byť celé vety.</span>
             <textarea id="sluzby" name="Služby" required rows="6"></textarea>
           </p>
           <p class="field">
@@ -723,7 +730,7 @@
         </section>
 
         <section class="step" data-nazov="Zákazníci" hidden id="krok-3">
-          <h2 tabindex="-1">Vaši zákazníci</h2>
+          <h2>Vaši zákazníci</h2>
           <p class="step-intro">
             Toto je najcennejšia časť. Píšte tak, ako by ste to povedali nahlas
             — gramatiku aj štylistiku doriešim ja.
@@ -797,7 +804,7 @@
         </section>
 
         <section class="step" data-nazov="Prevádzka" hidden id="krok-4">
-          <h2 tabindex="-1">Prevádzka a ceny</h2>
+          <h2>Prevádzka a ceny</h2>
           <p class="step-intro">
             Praktické údaje, ktoré ľudia na webe hľadajú ako prvé.
           </p>
@@ -864,7 +871,7 @@
         </section>
 
         <section class="step" data-nazov="Technika" hidden id="krok-5">
-          <h2 tabindex="-1">Doména a fotky</h2>
+          <h2>Doména a fotky</h2>
           <p class="step-intro">
             Posledný krok. Ak niečo neviete, napíšte „neviem“ — zistím to za
             vás.
@@ -1001,6 +1008,7 @@
         );
         var priebeh = document.getElementById("priebeh");
         var priebehText = document.getElementById("priebeh-text");
+        var priebehPopis = priebeh.querySelector(".progress-label");
         var priebehNazov = document.getElementById("priebeh-nazov");
         var priebehVypln = document.getElementById("priebeh-vypln");
         var priebehLista = priebehVypln.parentElement;
@@ -1053,7 +1061,7 @@
               "Fotky interiéru a jedla sú pri gastre najdôležitejšie. Potrebujem originály, nie snímky z Instagramu.",
           },
           Iné: {
-            sluzby: "Vypíšte, čo ponúkate. Stačia odrážky.",
+            sluzby: "Vypíšte, čo ponúkate.",
             specializacia: "Máte niečo, čím sa líšite od ostatných?",
             zakaznik: "Komu predávate?",
             cennik: "Aspoň orientačné ceny alebo rozsahy.",
@@ -1109,8 +1117,13 @@
           priebehVypln.style.width = (cislo / kroky.length) * 100 + "%";
           priebehLista.setAttribute("aria-valuenow", String(cislo));
           if (posunut) {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-            kroky[index].querySelector("h2").focus({ preventScroll: true });
+            var vrchFormulara =
+              window.pageYOffset + formular.getBoundingClientRect().top;
+            window.scrollTo({
+              top: Math.max(vrchFormulara - priebeh.offsetHeight - 8, 0),
+              behavior: "smooth",
+            });
+            priebehPopis.focus({ preventScroll: true });
           }
         }
 
