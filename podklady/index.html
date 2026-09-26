@@ -608,40 +608,6 @@
             </div>
           </div>
 
-          <fieldset class="segments">
-            <legend>Ktorý balík máte na mysli?</legend>
-            <label class="segment">
-              <input
-                id="bal-start"
-                name="Balík"
-                type="radio"
-                value="Štart – jednostránkový web, od 390 €"
-              />
-              <span>Štart<small>Jednostránkový web, od 390 €</small></span>
-            </label>
-            <label class="segment">
-              <input
-                id="bal-standard"
-                name="Balík"
-                type="radio"
-                value="Štandard – web do 5 podstránok, od 790 €"
-              />
-              <span>Štandard<small>Web do 5 podstránok, od 790 €</small></span>
-            </label>
-            <label class="segment">
-              <input
-                checked
-                id="bal-neviem"
-                name="Balík"
-                type="radio"
-                value="Neviem posúdiť – odporučí Simona"
-              />
-              <span
-                >Neviem posúdiť<small>Odporučím podľa podkladov</small></span
-              >
-            </label>
-          </fieldset>
-
           <p class="confirmed" hidden id="potvrdeny-balik">
             <span>Dohodnutý balík</span>
             <strong></strong>
@@ -863,33 +829,6 @@
               rows="3"
             ></textarea>
           </p>
-          <p class="confirmed" hidden id="potvrdene-rezervacie">
-            <span>Objednávanie na webe</span>
-            <strong></strong>
-          </p>
-
-          <p class="field">
-            <label for="rezervacie">Chceli by ste objednávanie priamo na webe?</label>
-            <span class="hint"
-              >Zákazník si sám vyberie voľný termín a vám príde potvrdenie —
-              odpadne dopisovanie v správach. Web to predraží, preto sa pýtam
-              hneď teraz a nie až v ponuke.</span
-            >
-            <select id="rezervacie" name="Rezervačný systém">
-              <option value="Neviem, čo to obnáša – vysvetliť">
-                Neviem, čo to obnáša – vysvetlite mi to
-              </option>
-              <option value="Áno, to je hlavný dôvod, prečo web chcem">
-                Áno, to je hlavný dôvod, prečo web chcem
-              </option>
-              <option value="Áno, ale až v druhej fáze – naceniť zvlášť">
-                Áno, ale až neskôr – zatiaľ mi to naceňte zvlášť
-              </option>
-              <option value="Nie, stačí telefón a správy">
-                Nie, stačí telefón a správy
-              </option>
-            </select>
-          </p>
 
           <div class="controls">
             <button class="btn btn-secondary" data-spat type="button">
@@ -935,25 +874,6 @@
               odtiaľ.</span
             >
             <textarea id="siete" name="Sociálne siete" rows="2"></textarea>
-          </p>
-          <p class="field">
-            <label for="google-profil">Google profil firmy</label>
-            <span class="hint" id="napoveda-google"
-              >Zápis, ktorý sa vám zobrazuje v Google Mapách. Rozhoduje o tom,
-              či vás ľudia nájdu skôr než konkurenciu.</span
-            >
-            <select id="google-profil" name="Google profil">
-              <option value="Mám ho a spravujem si ho sám">
-                Mám ho a spravujem si ho sám
-              </option>
-              <option value="Mám ho, ale nikto sa oň nestará">
-                Mám ho, ale nikto sa oň nestará
-              </option>
-              <option value="Neviem, či ho mám">Neviem, či ho mám</option>
-              <option value="Nemám ho a chcel by som">
-                Nemám ho a chcel by som
-              </option>
-            </select>
           </p>
           <p class="field">
             <label for="fotky">Fotky prevádzky *</label>
@@ -1114,22 +1034,6 @@
           standard: "Štandard – web do 5 podstránok",
           namieru: "Riešenie na mieru",
         };
-        var REZERVACIE = {
-          ano: "Áno – dohodnuté v ponuke",
-          nie: "Nie – dohodnuté v ponuke",
-        };
-
-        function zoZoznamu(zoznam, kluc) {
-          return Object.prototype.hasOwnProperty.call(zoznam, kluc)
-            ? zoznam[kluc]
-            : null;
-        }
-
-        function dohodnutaCena() {
-          var cena = parameter("cena");
-          if (!cena || !/^\d{2,6}$/.test(cena)) return "";
-          return " · dohodnutá cena " + cena.replace(/\B(?=(\d{3})+$)/g, " ") + " €";
-        }
 
         function parameter(nazov) {
           try {
@@ -1139,63 +1043,31 @@
           }
         }
 
-        function skryPole(prvok) {
-          var pole = prvok.closest(".field") || prvok;
-          pole.hidden = true;
+        function dohodnutaCena() {
+          var cena = parameter("cena");
+          if (!cena || !/^\d{2,6}$/.test(cena)) return "";
+          return (
+            " · dohodnutá cena " +
+            cena.replace(/\B(?=(\d{3})+$)/g, " ") +
+            " €"
+          );
         }
 
         function dohodnute() {
           var balik = parameter("balik");
-          var rezervacie = parameter("rezervacie");
+          if (!Object.prototype.hasOwnProperty.call(BALIKY, balik)) return;
 
-          var nazovBalika = zoZoznamu(BALIKY, balik);
-          var nazovRezervacii = zoZoznamu(REZERVACIE, rezervacie);
+          var dohoda = BALIKY[balik] + dohodnutaCena();
 
-          if (nazovBalika) {
-            var dohoda = nazovBalika + dohodnutaCena();
-            var vyber = document.querySelector("#bal-start").closest("fieldset");
-            if (vyber) {
-              Array.prototype.forEach.call(
-                vyber.querySelectorAll("input"),
-                function (prepinac) {
-                  prepinac.checked = false;
-                  prepinac.disabled = true;
-                },
-              );
-              vyber.hidden = true;
-            }
-            var skryteBalik = document.createElement("input");
-            skryteBalik.type = "hidden";
-            skryteBalik.name = "Balík";
-            skryteBalik.value = dohoda;
-            formular.appendChild(skryteBalik);
-            var potvrdenie = document.getElementById("potvrdeny-balik");
-            potvrdenie.querySelector("strong").textContent = dohoda;
-            potvrdenie.hidden = false;
-          }
+          var skryte = document.createElement("input");
+          skryte.type = "hidden";
+          skryte.name = "Balík";
+          skryte.value = dohoda;
+          formular.appendChild(skryte);
 
-          if (nazovRezervacii) {
-            var zoznam = document.getElementById("rezervacie");
-            zoznam.disabled = true;
-            skryPole(zoznam);
-            var skryte = document.createElement("input");
-            skryte.type = "hidden";
-            skryte.name = "Rezervačný systém";
-            skryte.value = nazovRezervacii;
-            formular.appendChild(skryte);
-            var potvrdenieR = document.getElementById("potvrdene-rezervacie");
-            potvrdenieR.querySelector("strong").textContent = nazovRezervacii;
-            potvrdenieR.hidden = false;
-          }
-
-          var napovedaGoogle = document.getElementById("napoveda-google");
-          if (balik === "standard") {
-            napovedaGoogle.textContent =
-              "Založenie a nastavenie profilu máte v balíku Štandard. Potrebujem len vedieť, ako na tom ste.";
-          } else if (balik === "start") {
-            napovedaGoogle.textContent =
-              "Zápis v Google Mapách rozhoduje o tom, či vás ľudia nájdu skôr než konkurenciu. Založenie a nastavenie viem doplniť za 120 €.";
-          }
+          var potvrdenie = document.getElementById("potvrdeny-balik");
+          potvrdenie.querySelector("strong").textContent = dohoda;
+          potvrdenie.hidden = false;
         }
 
         function prisposobSegmentu() {
