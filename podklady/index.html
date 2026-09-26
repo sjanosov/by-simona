@@ -1110,8 +1110,9 @@
         };
 
         var BALIKY = {
-          start: "Štart – jednostránkový web, od 390 €",
-          standard: "Štandard – web do 5 podstránok, od 790 €",
+          start: "Štart – jednostránkový web",
+          standard: "Štandard – web do 5 podstránok",
+          namieru: "Riešenie na mieru",
         };
         var REZERVACIE = {
           ano: "Áno – dohodnuté v ponuke",
@@ -1122,6 +1123,12 @@
           return Object.prototype.hasOwnProperty.call(zoznam, kluc)
             ? zoznam[kluc]
             : null;
+        }
+
+        function dohodnutaCena() {
+          var cena = parameter("cena");
+          if (!cena || !/^\d{2,6}$/.test(cena)) return "";
+          return " · dohodnutá cena " + cena.replace(/\B(?=(\d{3})+$)/g, " ") + " €";
         }
 
         function parameter(nazov) {
@@ -1145,12 +1152,25 @@
           var nazovRezervacii = zoZoznamu(REZERVACIE, rezervacie);
 
           if (nazovBalika) {
-            var prepinac = document.getElementById("bal-" + balik);
-            if (prepinac) prepinac.checked = true;
+            var dohoda = nazovBalika + dohodnutaCena();
             var vyber = document.querySelector("#bal-start").closest("fieldset");
-            if (vyber) vyber.hidden = true;
+            if (vyber) {
+              Array.prototype.forEach.call(
+                vyber.querySelectorAll("input"),
+                function (prepinac) {
+                  prepinac.checked = false;
+                  prepinac.disabled = true;
+                },
+              );
+              vyber.hidden = true;
+            }
+            var skryteBalik = document.createElement("input");
+            skryteBalik.type = "hidden";
+            skryteBalik.name = "Balík";
+            skryteBalik.value = dohoda;
+            formular.appendChild(skryteBalik);
             var potvrdenie = document.getElementById("potvrdeny-balik");
-            potvrdenie.querySelector("strong").textContent = nazovBalika;
+            potvrdenie.querySelector("strong").textContent = dohoda;
             potvrdenie.hidden = false;
           }
 
