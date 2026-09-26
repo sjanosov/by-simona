@@ -48,7 +48,6 @@
         --ink: #202e29;
         --forest: #205741;
         --btn: #366351;
-        --muted: #526158;
         --line: #dedfd8;
         --white: #fff;
         --radius: 12px;
@@ -63,6 +62,7 @@
         color: var(--white);
       }
       html {
+        font-size: 116%;
         -webkit-text-size-adjust: 100%;
       }
       body {
@@ -102,7 +102,7 @@
         font-size: 0.62rem;
         font-weight: 600;
         letter-spacing: 0.16em;
-        color: var(--muted);
+        color: var(--ink);
         margin-top: 0.2rem;
       }
 
@@ -115,7 +115,7 @@
       }
 
       .intro {
-        color: var(--muted);
+        color: var(--ink);
         margin: 0 0 1.25rem;
         max-width: 56ch;
       }
@@ -137,7 +137,7 @@
         flex-direction: column;
         gap: 0.4rem 1.25rem;
         font-size: 0.83rem;
-        color: var(--muted);
+        color: var(--ink);
         margin: 0 0 2rem;
         padding: 0;
         list-style: none;
@@ -163,7 +163,7 @@
         font-weight: 600;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: var(--muted);
+        color: var(--ink);
         margin-bottom: 0.55rem;
       }
       .progress-track {
@@ -195,7 +195,7 @@
         outline: none;
       }
       .step-intro {
-        color: var(--muted);
+        color: var(--ink);
         font-size: 0.92rem;
         margin: 0 0 1.75rem;
       }
@@ -213,12 +213,12 @@
       }
       .hint {
         font-size: 0.83rem;
-        color: var(--muted);
+        color: var(--ink);
         line-height: 1.5;
       }
       .optional {
         font-weight: 500;
-        color: var(--muted);
+        color: var(--ink);
       }
 
       input[type="text"],
@@ -266,6 +266,29 @@
         padding: 0;
         margin-bottom: 0.65rem;
       }
+
+      .reveal-field {
+        display: grid;
+        grid-template-rows: 0fr;
+        opacity: 0;
+        margin-bottom: 0;
+        transition:
+          grid-template-rows 0.35s ease,
+          opacity 0.35s ease,
+          margin-bottom 0.35s ease;
+      }
+      .reveal-field > div {
+        overflow: hidden;
+        min-height: 0;
+      }
+      .reveal-field.is-open {
+        grid-template-rows: 1fr;
+        opacity: 1;
+        margin-bottom: 1.4rem;
+      }
+      .reveal-field .field {
+        margin-bottom: 0;
+      }
       .segment {
         position: relative;
         display: block;
@@ -290,7 +313,7 @@
         display: block;
         font-weight: 500;
         font-size: 0.78rem;
-        color: var(--muted);
+        color: var(--ink);
         margin-top: 0.15rem;
       }
       .segment input:checked + span {
@@ -308,7 +331,7 @@
         gap: 0.7rem;
         align-items: flex-start;
         font-size: 0.87rem;
-        color: var(--muted);
+        color: var(--ink);
         line-height: 1.55;
         margin-top: 1.5rem;
       }
@@ -353,12 +376,12 @@
       }
       .btn-secondary {
         background: transparent;
-        color: var(--muted);
+        color: var(--ink);
         border-color: var(--line);
       }
       .btn-secondary:hover {
         color: var(--ink);
-        border-color: var(--muted);
+        border-color: var(--ink);
       }
 
       .form-status {
@@ -383,14 +406,14 @@
         letter-spacing: -0.02em;
       }
       .done p {
-        color: var(--muted);
+        color: var(--ink);
         margin: 0 auto;
         max-width: 42ch;
       }
 
       .saved-note {
         font-size: 0.8rem;
-        color: var(--muted);
+        color: var(--ink);
         text-align: center;
         margin-top: 1.25rem;
         min-height: 1.3em;
@@ -401,7 +424,7 @@
         padding-top: 1.5rem;
         border-top: 1px solid var(--line);
         font-size: 0.85rem;
-        color: var(--muted);
+        color: var(--ink);
         text-align: center;
       }
       .page-footer a {
@@ -539,6 +562,23 @@
             </label>
           </fieldset>
 
+          <div class="reveal-field" id="obal-iny">
+            <div>
+              <p class="field">
+                <label for="iny-popis">Čím sa teda zaoberáte?</label>
+                <span class="hint"
+                  >Jedna-dve vety stačia. Podľa toho viem, aké príklady vám
+                  ukázať v ďalších krokoch.</span
+                >
+                <textarea
+                  id="iny-popis"
+                  name="Iný odbor – popis"
+                  rows="3"
+                ></textarea>
+              </p>
+            </div>
+          </div>
+
           <fieldset class="segments">
             <legend>Ktorý balík máte na mysli?</legend>
             <label class="segment">
@@ -634,7 +674,7 @@
 
           <p class="field">
             <label for="sluzby">Vypíšte svoje služby *</label>
-            <span class="hint" id="napoveda-sluzby"></span>
+            <span class="hint">Stačia odrážky, nemusia byť celé vety.</span>
             <textarea id="sluzby" name="Služby" required rows="6"></textarea>
           </p>
           <p class="field">
@@ -804,8 +844,8 @@
               <option value="Áno, to je hlavný dôvod, prečo web chcem">
                 Áno, to je hlavný dôvod, prečo web chcem
               </option>
-              <option value="Áno, ak to cenu nezdvihne výrazne">
-                Áno, ak to cenu nezdvihne výrazne
+              <option value="Áno, ale až v druhej fáze – naceniť zvlášť">
+                Áno, ale až neskôr – zatiaľ mi to naceňte zvlášť
               </option>
               <option value="Nie, stačí telefón a správy">
                 Nie, stačí telefón a správy
@@ -881,17 +921,11 @@
             <label for="fotky">Fotky prevádzky *</label>
             <span class="hint" id="napoveda-fotky"></span>
             <select id="fotky" name="Fotky">
-              <option value="Mám vlastné fotky a pošlem ich">
-                Mám vlastné fotky a pošlem ich
+              <option value="Mám originály a pošlem ich">
+                Mám originály a pošlem ich
               </option>
-              <option value="Fotky sú na Instagrame alebo Facebooku">
-                Fotky sú na Instagrame alebo Facebooku
-              </option>
-              <option value="Mám len fotky v Google profile">
-                Mám len fotky v Google profile
-              </option>
-              <option value="Fotky nemám, potrebujem pomôcť">
-                Fotky nemám, potrebujem pomôcť
+              <option value="Fotky nemám, potrebujem poradiť">
+                Fotky nemám, potrebujem poradiť
               </option>
             </select>
           </p>
@@ -988,7 +1022,8 @@
               "Aspoň rozsahy, napríklad „strih od 25 €“. Ak sa ceny líšia podľa dĺžky vlasov, napíšte to tak.",
             objednavanie:
               "Telefón, Messenger, Instagram, objednávkový systém? A ako ďaleko dopredu býva plno?",
-            fotky: "Ak máte Instagram s prácami, fotky si viem vybrať odtiaľ.",
+            fotky:
+              "Z Instagramu sa fotky v použiteľnej kvalite stiahnuť nedajú — potrebujem originály z mobilu.",
           },
           "Autoservis / pneuservis": {
             sluzby:
@@ -1002,7 +1037,7 @@
             objednavanie:
               "Telefón, osobne, formulár? Ako dlho dopredu treba objednať?",
             fotky:
-              "Ak fotky nemáte, prídem to odfotiť — pri servisoch je to bežné a rátam s tým.",
+              "Pri servisoch sú fotky zriedka. Ak ich nemáte, poviem vám, ako to vyriešiť.",
           },
           "Bar / reštaurácia / kaviareň": {
             sluzby:
@@ -1015,7 +1050,7 @@
             objednavanie:
               "Berete rezervácie? Ako — telefón, formulár, len osobne?",
             fotky:
-              "Fotky interiéru a jedla sú pri gastre najdôležitejšie — napíšte, čo máte.",
+              "Fotky interiéru a jedla sú pri gastre najdôležitejšie. Potrebujem originály, nie snímky z Instagramu.",
           },
           Iné: {
             sluzby: "Vypíšte, čo ponúkate. Stačia odrážky.",
@@ -1023,12 +1058,11 @@
             zakaznik: "Komu predávate?",
             cennik: "Aspoň orientačné ceny alebo rozsahy.",
             objednavanie: "Ako sa k vám zákazník dostane?",
-            fotky: "Napíšte, aké fotky máte k dispozícii.",
+            fotky: "Potrebujem originály v plnej veľkosti, nie stiahnuté zo sociálnych sietí.",
           },
         };
 
         var NAPOVEDY = {
-          "napoveda-sluzby": "sluzby",
           "napoveda-specializacia": "specializacia",
           "napoveda-zakaznik": "zakaznik",
           "napoveda-cennik": "cennik",
@@ -1044,6 +1078,14 @@
             if (prvok) prvok.textContent = sada[NAPOVEDY[id]];
           });
           document.getElementById("sluzby").placeholder = sada.sluzby;
+
+          var obalIny = document.getElementById("obal-iny");
+          if (obalIny) {
+            obalIny.classList.toggle(
+              "is-open",
+              Boolean(zvoleny) && zvoleny.value === "Iné",
+            );
+          }
         }
 
         Array.prototype.forEach.call(
