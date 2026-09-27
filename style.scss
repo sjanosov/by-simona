@@ -1,6 +1,6 @@
 $cream: #fbfaf7;
 $paper: #f6f4ef;
-$ink: #202e29;
+$ink: #000;
 $forest: #205741;
 $bgButton: #366351;
 $muted: #526158;
@@ -197,7 +197,7 @@ h3 {
     font-size: 0.9rem;
     font-weight: 500;
     letter-spacing: 0.01em;
-    color: $muted;
+    color: $ink;
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-decoration-color: rgba($ink, 0.26);
@@ -526,7 +526,7 @@ h3 {
   h3 {
     margin: 0;
     color: $ink;
-    font-size: clamp(16px, 1.25vw, 20px);
+    font-size: clamp(18px, 1.5vw, 22px);
     font-weight: 600;
     line-height: 1.25;
     letter-spacing: -0.4px;
@@ -567,7 +567,7 @@ h3 {
 .project-type {
   margin: 8px 0 0;
   color: $muted;
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 700;
   line-height: 1.45;
   letter-spacing: 1.25px;
@@ -582,6 +582,10 @@ h3 {
 
   .project-visual {
     aspect-ratio: 1.5 / 1;
+
+    img[src*="shades-lounge-bar"] {
+      object-position: left center;
+    }
   }
 }
 
@@ -1383,7 +1387,7 @@ h3 {
 .footer-cta-lead {
   margin: 0;
   max-width: 46ch;
-  font-size: 0.97rem;
+  font-size: $body-size;
   color: $muted;
 }
 

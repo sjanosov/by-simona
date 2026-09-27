@@ -18,7 +18,7 @@
 :root {
   --cream: #fbfaf7;
   --forest: #205741;
-  --ink: #202e29;
+  --ink: #000;
   --line: #dedfd8;
 }
 
@@ -43,7 +43,7 @@ html {
 
 body {
   margin: 0;
-  color: #202e29;
+  color: #000;
   font: 500 clamp(1rem, 0.94rem + 0.26vw, 1.125rem)/1.6 "DM Sans", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -183,10 +183,10 @@ h3 {
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.01em;
-  color: #526158;
+  color: #000;
   text-decoration: underline;
   text-decoration-thickness: 1px;
-  text-decoration-color: rgba(32, 46, 41, 0.26);
+  text-decoration-color: rgba(0, 0, 0, 0.26);
   text-underline-offset: 0.32em;
   transition: color 0.2s, text-decoration-color 0.2s, text-decoration-thickness 0.2s;
 }
@@ -490,8 +490,8 @@ h3 {
 }
 .project-info h3 {
   margin: 0;
-  color: #202e29;
-  font-size: clamp(16px, 1.25vw, 20px);
+  color: #000;
+  font-size: clamp(18px, 1.5vw, 22px);
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: -0.4px;
@@ -525,7 +525,7 @@ h3 {
 .project-type {
   margin: 8px 0 0;
   color: #526158;
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 700;
   line-height: 1.45;
   letter-spacing: 1.25px;
@@ -539,6 +539,10 @@ h3 {
   }
   .project-visual {
     aspect-ratio: 1.5/1;
+  }
+  .project-visual img[src*=shades-lounge-bar] {
+    -o-object-position: left center;
+       object-position: left center;
   }
 }
 @media (max-width: 720px) {
@@ -1273,7 +1277,7 @@ h3 {
   margin: 0;
 }
 .pricing-notes strong {
-  color: #202e29;
+  color: #000;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1324,7 +1328,7 @@ h3 {
 .footer-cta-lead {
   margin: 0;
   max-width: 46ch;
-  font-size: 0.97rem;
+  font-size: clamp(1rem, 0.94rem + 0.26vw, 1.125rem);
   color: #526158;
 }
 
@@ -1359,7 +1363,7 @@ h3 {
   border-radius: 8px;
   padding: 0.62rem 0.7rem;
   background: #fbfaf7;
-  color: #202e29;
+  color: #000;
   font: inherit;
   font-size: 0.92rem;
   transition: border-color 0.2s, background 0.2s;
@@ -1483,7 +1487,7 @@ h3 {
   letter-spacing: 0.01em;
   text-decoration: underline;
   text-decoration-thickness: 1px;
-  text-decoration-color: rgba(32, 46, 41, 0.26);
+  text-decoration-color: rgba(0, 0, 0, 0.26);
   text-underline-offset: 0.32em;
   transition: color 0.2s, text-decoration-color 0.2s, text-decoration-thickness 0.2s;
 }
@@ -1514,7 +1518,7 @@ h3 {
   background: none;
   padding: 0;
   box-shadow: none;
-  color: #202e29;
+  color: #000;
   font-weight: 600;
   font-size: clamp(0.98rem, 1.2vw, 1.25rem);
   cursor: pointer;
@@ -1658,7 +1662,7 @@ h3 {
     border: 1px solid #dedfd8;
     border-radius: 50%;
     background: #fff;
-    color: #202e29;
+    color: #000;
     font-size: 1.15rem;
     line-height: 1;
     cursor: pointer;
@@ -1682,7 +1686,7 @@ h3 {
   .navlinks a {
     padding-block: 0.95rem;
     font-size: 0.95rem;
-    color: #202e29;
+    color: #000;
     text-decoration: none;
     transition: color 0.2s ease;
   }
@@ -1931,4 +1935,4 @@ h3 {
   .hero-copy h1 {
     font-size: clamp(2.1rem, 8vw, 2.5rem);
   }
-}
+}/*# sourceMappingURL=style.css.map */
