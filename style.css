@@ -190,6 +190,10 @@ h3 {
   text-underline-offset: 0.32em;
   transition: color 0.2s, text-decoration-color 0.2s, text-decoration-thickness 0.2s;
 }
+.navlinks a.nav-cta-mobile {
+  display: none;
+}
+
 .navlinks a:hover,
 .navlinks a:focus-visible {
   color: #205741;
@@ -423,7 +427,7 @@ h3 {
 .portfolio-intro p {
   max-width: 520px;
   margin: 28px 0 0;
-  font-size: clamp(15px, 1.3vw, 18px);
+  font-size: clamp(1rem, 0.94rem + 0.26vw, 1.125rem);
   line-height: 1.7;
 }
 
@@ -569,6 +573,9 @@ h3 {
   .project-info {
     min-height: 88px;
     padding: 16px;
+  }
+  .project-type {
+    font-size: 13px;
   }
 }
 @media (max-width: 390px) {
@@ -915,7 +922,7 @@ h3 {
 .faq-intro p:not(.eyebrow) {
   max-width: 30ch;
   margin: 0;
-  color: #526158;
+  color: #000;
 }
 
 .faq-list {
@@ -1113,7 +1120,7 @@ h3 {
   text-wrap: balance;
 }
 .pricing-intro p:not(.eyebrow) {
-  color: #526158;
+  color: #000;
   margin: 0;
 }
 
@@ -1329,7 +1336,7 @@ h3 {
   margin: 0;
   max-width: 46ch;
   font-size: clamp(1rem, 0.94rem + 0.26vw, 1.125rem);
-  color: #526158;
+  color: #000;
 }
 
 .contact-form {
@@ -1692,6 +1699,12 @@ h3 {
   }
   .navlinks a:not(:last-child) {
     border-bottom: 1px solid rgba(222, 223, 216, 0.85);
+  }
+  .navlinks a.nav-cta-mobile {
+    display: inline-flex;
+    margin-block: 0.9rem 0.3rem;
+    padding-block: 0.85rem;
+    color: #fff;
   }
   .navlinks.open {
     visibility: visible;

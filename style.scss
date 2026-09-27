@@ -207,6 +207,9 @@ h3 {
       text-decoration-color 0.2s,
       text-decoration-thickness 0.2s;
   }
+  a.nav-cta-mobile {
+    display: none;
+  }
   a:hover,
   a:focus-visible {
     color: $forest;
@@ -451,7 +454,7 @@ h3 {
   p {
     max-width: 520px;
     margin: 28px 0 0;
-    font-size: clamp(15px, 1.3vw, 18px);
+    font-size: $body-size;
     line-height: 1.7;
   }
 }
@@ -621,6 +624,10 @@ h3 {
   .project-info {
     min-height: 88px;
     padding: 16px;
+  }
+
+  .project-type {
+    font-size: 13px;
   }
 }
 
@@ -976,7 +983,7 @@ h3 {
   p:not(.eyebrow) {
     max-width: 30ch;
     margin: 0;
-    color: $muted;
+    color: $ink;
   }
 }
 
@@ -1160,7 +1167,7 @@ h3 {
     text-wrap: balance;
   }
   p:not(.eyebrow) {
-    color: $muted;
+    color: $ink;
     margin: 0;
   }
 }
@@ -1388,7 +1395,7 @@ h3 {
   margin: 0;
   max-width: 46ch;
   font-size: $body-size;
-  color: $muted;
+  color: $ink;
 }
 
 .contact-form {
@@ -1781,6 +1788,13 @@ h3 {
 
     a:not(:last-child) {
       border-bottom: 1px solid rgba($line, 0.85);
+    }
+
+    a.nav-cta-mobile {
+      display: inline-flex;
+      margin-block: 0.9rem 0.3rem;
+      padding-block: 0.85rem;
+      color: $white;
     }
   }
 
