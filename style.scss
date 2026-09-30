@@ -1313,9 +1313,19 @@ h3 {
   }
 }
 
+.price-czk {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: $muted;
+}
+
 .addon-price {
   flex: 0 0 auto;
   margin: 0;
+  text-align: right;
   font-size: clamp(1.3rem, 1.1rem + 0.6vw, 1.65rem);
   font-weight: 600;
   letter-spacing: -0.035em;
