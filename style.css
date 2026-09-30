@@ -1519,6 +1519,89 @@ h3 {
   text-underline-offset: 3px;
 }
 
+.cookie-banner {
+  position: fixed;
+  inset-inline: 1rem;
+  bottom: 1rem;
+  z-index: 90;
+  margin-inline: auto;
+  max-width: 44rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem 1.75rem;
+  border: 1px solid #dedfd8;
+  border-radius: 12px;
+  padding: 1.15rem 1.35rem;
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(32, 55, 46, 0.16);
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.cookie-banner p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #526158;
+}
+.cookie-banner a {
+  color: #205741;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cookie-banner-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #20372e;
+  border-radius: 100px;
+  padding: 0.7rem 1.15rem;
+  background: #366351;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+
+.cookie-banner-btn:hover {
+  background: #355646;
+}
+
+.cookie-banner-btn-ghost {
+  background: transparent;
+  color: #205741;
+}
+
+.cookie-banner-btn-ghost:hover {
+  background: #366351;
+  color: #f6f4ef;
+}
+
+.cookie-banner.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.6rem;
+}
+
+@media (max-width: 620px) {
+  .cookie-banner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cookie-banner-actions .cookie-banner-btn {
+    flex: 1;
+  }
+}
 .contact-email {
   border: 0;
   background: none;
@@ -1594,6 +1677,11 @@ h3 {
 .legal a {
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+.legal-updated {
+  margin-top: 2.5rem;
+  font-size: 0.8rem;
 }
 
 .logo-word {
