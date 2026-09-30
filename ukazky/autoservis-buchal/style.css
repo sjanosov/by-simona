@@ -35,6 +35,11 @@ body {
   overflow-x: hidden;
 }
 
+::-moz-selection {
+  background: var(--blue);
+  color: #fff;
+}
+
 ::selection {
   background: var(--blue);
   color: #fff;
@@ -748,8 +753,10 @@ th.parts {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 42%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center 42%;
+     object-position: center 42%;
 }
 
 .workshop-text {
@@ -868,6 +875,7 @@ th.parts {
 
 .brand-track {
   display: flex;
+  width: -moz-max-content;
   width: max-content;
   animation: brand-scroll 38s linear infinite;
 }
@@ -1195,4 +1203,4 @@ details p {
     animation: none !important;
     transition: none !important;
   }
-}
+}/*# sourceMappingURL=style.css.map */
