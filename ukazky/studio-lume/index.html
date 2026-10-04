@@ -1,0 +1,1237 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="#faf6f2" name="theme-color" />
+    <title>Studio Lumé — ukázkový web kadeřnického salonu | by simona</title>
+    <meta content="noindex, nofollow" name="robots" />
+    <meta
+      content="Ukázkový web pro kadeřnický salon. Nezávazný koncept od by simona."
+      name="description"
+    />
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="fonts/dm-sans-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/outfit-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <svg
+      aria-hidden="true"
+      style="display: none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <symbol
+        id="i-tvar"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M12 3c-4 0-6.6 2.7-6.6 6.4 0 3.2 1 5.5 2.4 7.2C9 18.1 10.5 19 12 19s3-.9 4.2-2.4c1.4-1.7 2.4-4 2.4-7.2C18.6 5.7 16 3 12 3Z"
+        />
+        <path d="M9.4 10h.01M14.6 10h.01" />
+        <path d="M10 14.4c1.2.8 2.8.8 4 0" />
+      </symbol>
+      <symbol
+        id="i-kvapka"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M12 2.8s6.2 6.6 6.2 10.3a6.2 6.2 0 0 1-12.4 0C5.8 9.4 12 2.8 12 2.8Z"
+        />
+        <path d="M9.3 14a2.7 2.7 0 0 0 2.7 2.7" />
+      </symbol>
+      <symbol
+        id="i-vrstvy"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="m12 3 9 4.6-9 4.6-9-4.6L12 3Z" />
+        <path d="m3 12.2 9 4.6 9-4.6" />
+        <path d="m3 16.6 9 4.6 9-4.6" />
+      </symbol>
+      <symbol
+        id="i-ihla"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M16.6 2.6 21.4 7.4 9.2 19.6H4.4v-4.8L16.6 2.6Z" />
+        <path d="m14.2 5 4.8 4.8" />
+        <path d="M3 22h18" />
+      </symbol>
+      <symbol
+        id="i-iskra"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M10.5 2.5c1.4 4.3 2.3 5.2 6.6 6.6-4.3 1.4-5.2 2.3-6.6 6.6-1.4-4.3-2.3-5.2-6.6-6.6 4.3-1.4 5.2-2.3 6.6-6.6Z"
+        />
+        <path
+          d="M18 14.5c.7 2.2 1.2 2.7 3.4 3.4-2.2.7-2.7 1.2-3.4 3.4-.7-2.2-1.2-2.7-3.4-3.4 2.2-.7 2.7-1.2 3.4-3.4Z"
+        />
+      </symbol>
+      <symbol
+        id="i-obocie"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M3.5 10.5C6.2 6.8 9.6 5 13.6 5c2.8 0 5.2.8 7 2.4" />
+        <path d="M4.5 14.6c2.4-2.8 5.3-4.2 8.6-4.2 2.3 0 4.3.6 5.9 1.8" />
+        <path d="M6 19.2c2-1.8 4.3-2.7 6.9-2.7" />
+      </symbol>
+      <symbol
+        id="i-oko"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M2.4 13.2s3.9-6.2 9.6-6.2 9.6 6.2 9.6 6.2" />
+        <path d="M2.4 13.2s3.9 5.4 9.6 5.4 9.6-5.4 9.6-5.4" />
+        <circle cx="12" cy="13.4" r="2.7" />
+        <path d="M5.4 6.4 4 4.2M12 5.6V3.2M18.6 6.4 20 4.2" />
+      </symbol>
+      <symbol
+        id="i-list"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M20.5 3.5c0 8.4-4.6 13-11 13A5.6 5.6 0 0 1 4 10.8c0-5.2 5.2-7.3 16.5-7.3Z"
+        />
+        <path d="M3.5 20.5c2.6-5.4 6.3-8.6 11.5-10.7" />
+      </symbol>
+      <symbol
+        id="i-hodiny"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5.2l3.2 2" />
+      </symbol>
+      <symbol
+        id="i-mail"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <rect height="14" rx="2.4" width="18" x="3" y="5" />
+        <path d="m3.6 7.4 8.4 5.6 8.4-5.6" />
+      </symbol>
+      <symbol
+        id="i-telefon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M6.6 3h2.9l1.5 3.9-2 1.4a12.4 12.4 0 0 0 5.7 5.7l1.4-2 3.9 1.5v2.9a2.2 2.2 0 0 1-2.4 2.2A16.6 16.6 0 0 1 4.4 5.4 2.2 2.2 0 0 1 6.6 3Z"
+        />
+      </symbol>
+      <symbol
+        id="i-miesto"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M12 21.2s7-6.4 7-11.2a7 7 0 1 0-14 0c0 4.8 7 11.2 7 11.2Z" />
+        <circle cx="12" cy="9.8" r="2.7" />
+      </symbol>
+      <symbol
+        id="i-sipka"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M9.5 5.5 16 12l-6.5 6.5" />
+      </symbol>
+      <symbol
+        id="i-menu"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+      >
+        <path d="M3.5 7h17M3.5 12h17M3.5 17h17" />
+      </symbol>
+      <symbol
+        id="i-zavriet"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+      >
+        <path d="m5.5 5.5 13 13M18.5 5.5l-13 13" />
+      </symbol>
+      <symbol
+        id="i-fajka"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="m4.5 12.6 5 5 10-11" />
+      </symbol>
+      <symbol id="i-hviezda" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="m12 3.4 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3.4Z"
+        />
+      </symbol>
+    </svg>
+
+    <div class="notice-bar">
+      <div class="container">
+        <span><b>Ukázkový web.</b> Studio Lumé je vymyšlený salon.</span>
+        <span
+          >Návrh a realizace:
+          <a href="https://by-simona.eu">by-simona.eu</a></span
+        >
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="header-utility">
+        <div class="container">
+          <span class="utility-item">
+            <svg class="icon" aria-hidden="true"><use href="#i-hodiny" /></svg>
+            <span class="hours">Po – Pá 9.00 – 19.00 · So 9.00 – 14.00</span>
+          </span>
+          <a class="utility-item" href="mailto:ahoj@studiolume.cz">
+            <svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg>
+            ahoj@studiolume.cz
+          </a>
+          <a class="utility-item" href="tel:+420777000000">
+            <svg class="icon" aria-hidden="true"><use href="#i-telefon" /></svg>
+            777 000 000
+          </a>
+        </div>
+      </div>
+
+      <div class="header-main">
+        <div class="container">
+          <a class="logo" href="#">
+            <span class="logo-name">LUMÉ</span>
+            <span class="logo-tag">STUDIO</span>
+          </a>
+          <nav class="main-nav" aria-label="Hlavní menu">
+            <a class="nav-link" href="#osetrenia">Služby</a>
+            <a class="nav-link" href="#cennik">Ceník</a>
+            <a class="nav-link" href="#studio">Studio</a>
+            <a class="nav-link" href="#galeria">Galerie</a>
+            <a class="nav-link" href="#recenzie">Recenze</a>
+            <a class="nav-link" href="#otazky">Otázky</a>
+          </nav>
+          <a class="btn btn-primary" href="#objednanie">Objednat se</a>
+          <button
+            aria-controls="mobilne-menu"
+            aria-expanded="false"
+            aria-label="Otevřít menu"
+            class="nav-toggle"
+            id="otvorit-menu"
+            type="button"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div
+      aria-label="Mobilní menu"
+      class="nav-panel"
+      id="mobilne-menu"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="nav-panel-head">
+        <span class="logo">
+          <span class="logo-name">LUMÉ</span>
+          <span class="logo-tag">STUDIO</span>
+        </span>
+        <button
+          aria-label="Zavřít menu"
+          class="nav-close"
+          id="zavriet-menu"
+          type="button"
+        >
+          <svg class="icon" aria-hidden="true"><use href="#i-zavriet" /></svg>
+        </button>
+      </div>
+      <nav aria-label="Menu">
+        <ul>
+          <li><a class="nav-link" href="#osetrenia">Služby</a></li>
+          <li><a class="nav-link" href="#cennik">Ceník</a></li>
+          <li><a class="nav-link" href="#studio">Studio</a></li>
+          <li><a class="nav-link" href="#galeria">Galerie</a></li>
+          <li><a class="nav-link" href="#recenzie">Recenze</a></li>
+          <li><a class="nav-link" href="#otazky">Otázky</a></li>
+        </ul>
+      </nav>
+      <div class="nav-panel-foot">
+        <span class="utility-item">
+          <svg class="icon" aria-hidden="true"><use href="#i-hodiny" /></svg>
+          <span class="hours">Po – Pá 9.00 – 19.00 · So 9.00 – 14.00</span>
+        </span>
+        <a class="utility-item" href="mailto:ahoj@studiolume.cz">
+          <svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg>
+          ahoj@studiolume.cz
+        </a>
+        <a class="utility-item" href="tel:+420777000000">
+          <svg class="icon" aria-hidden="true"><use href="#i-telefon" /></svg>
+          777 000 000
+        </a>
+        <a class="btn btn-primary" href="#objednanie">Objednat se</a>
+      </div>
+    </div>
+
+    <main>
+      <div class="hero-zona">
+        <div class="hero">
+          <picture class="hero-bg">
+            <source
+              media="(max-width: 700px)"
+              srcset="/assets/kozmetika-hero-mobil.webp"
+            />
+            <source
+              media="(max-width: 1100px)"
+              srcset="/assets/kozmetika-hero-900.webp"
+            />
+            <img
+              alt="Interiér kadeřnického studia Lumé"
+              fetchpriority="high"
+              height="842"
+              src="/assets/kozmetika-hero-1600.webp"
+              width="1600"
+            />
+          </picture>
+
+          <canvas aria-hidden="true" class="hero-platno"></canvas>
+
+          <div aria-hidden="true" class="hero-shader">
+            <span class="shader-vrstva shader-1"></span>
+            <span class="shader-vrstva shader-2"></span>
+            <span class="shader-vrstva shader-3"></span>
+            <span class="shader-zrno"></span>
+          </div>
+
+          <div class="container hero-inner">
+            <h1 class="hero-title">
+              <span class="brand-art">
+                <span class="brand-word">
+                  <span class="brand-ink">Lumé</span>
+                </span>
+              </span>
+
+              <span class="brand-sub">Hair studio</span>
+            </h1>
+          </div>
+        </div>
+
+        <section class="section-prekryv" id="osetrenia">
+          <div class="container">
+            <div class="section-head">
+              <h2>Co pro vaše vlasy uděláme</h2>
+              <p>
+                Tři věci, na kterých stojí každá návštěva. Konkrétní úkony i ceny
+                najdete níž v ceníku.
+              </p>
+            </div>
+
+            <div class="sluzby">
+              <article class="sluzba">
+                <div class="sluzba-foto">
+                  <img
+                    alt="Diagnostika vlasů před střihem ve studiu Lumé"
+                    height="600"
+                    loading="lazy"
+                    src="/assets/kozmetika-detail.webp"
+                    width="600"
+                  />
+                </div>
+
+                <div class="sluzba-text">
+                  <h3>Kompletní diagnostika</h3>
+                  <p>
+                    Než se ostříhá první vlas, podíváme se na to, co máte na
+                    hlavě — strukturu, porozitu, stav pokožky a historii barvení.
+                    Z toho vznikne plán: co uděláme dnes, co počká na další
+                    termín a co by vlasům jen uškodilo.
+                  </p>
+                </div>
+              </article>
+
+              <article class="sluzba">
+                <div class="sluzba-foto">
+                  <img
+                    alt="Práce na střihu v interiéru studia Lumé"
+                    height="474"
+                    loading="lazy"
+                    src="/assets/kozmetika-hero-900.webp"
+                    width="900"
+                  />
+                </div>
+
+                <div class="sluzba-text">
+                  <h3>Moderní střihy</h3>
+                  <p>
+                    Střih, který sedne k tvaru vaší tváře a zvládnete ho i doma,
+                    když na něj máte deset minut. Pracujeme s vaší přirozenou
+                    strukturou, ne proti ní — proto účes drží i ve třetím týdnu,
+                    kdy už se nikdo nefouká do zrcadla.
+                  </p>
+                </div>
+              </article>
+
+              <article class="sluzba">
+                <div class="sluzba-foto sluzba-foto-prazdna">
+                  <span>Fotka služby</span>
+                </div>
+
+                <div class="sluzba-text">
+                  <h3>Péče a regenerace</h3>
+                  <p>
+                    Masky, masáž hlavy a ošetření konců pro vlasy namáhané
+                    barvením, teplem a létem. K tomu dostanete postup na doma —
+                    konkrétní, ne obecné rady z internetu.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="section-alt" id="cennik">
+        <div class="container">
+          <div class="section-head">
+            <h2>Ceník</h2>
+            <p>
+              Ceny platí od 1. ledna 2026. U barvení a melíru řeknu konečnou cenu
+              po konzultaci — podle délky a hustoty vlasů, nikdy ne až u kasy.
+            </p>
+          </div>
+
+          <div class="price-switch" role="group" aria-label="Skupina úkonů">
+            <button aria-pressed="true" data-show="plet" type="button">
+              Střih a foukaná
+            </button>
+            <button aria-pressed="false" data-show="oci" type="button">
+              Barvení a melír
+            </button>
+            <button aria-pressed="false" data-show="telo" type="button">
+              Péče a styling
+            </button>
+          </div>
+
+          <div class="price-table-wrap" data-show="plet" id="cennik-tabulka">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Služba</th>
+                  <th class="duration" scope="col">Trvání</th>
+                  <th class="price" scope="col">Cena</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-skupina="plet">
+                  <th scope="row">
+                    Konzultace a diagnostika vlasů<small
+                      >I bez následné služby</small
+                    >
+                  </th>
+                  <td class="duration">20 min</td>
+                  <td class="price">zdarma</td>
+                </tr>
+                <tr data-skupina="plet">
+                  <th scope="row">
+                    Dámský střih s foukanou<small
+                      >Mytí, střih, foukaná, finish</small
+                    >
+                  </th>
+                  <td class="duration">60 min</td>
+                  <td class="price">790 Kč</td>
+                </tr>
+                <tr data-skupina="plet">
+                  <th scope="row">Dámský střih bez foukané</th>
+                  <td class="duration">45 min</td>
+                  <td class="price">590 Kč</td>
+                </tr>
+                <tr data-skupina="plet">
+                  <th scope="row">
+                    Pánský střih<small
+                      >Strojek i nůžky, úprava kontur</small
+                    >
+                  </th>
+                  <td class="duration">30 min</td>
+                  <td class="price">390 Kč</td>
+                </tr>
+                <tr data-skupina="plet">
+                  <th scope="row">Pánský střih s úpravou bradky</th>
+                  <td class="duration">45 min</td>
+                  <td class="price">490 Kč</td>
+                </tr>
+                <tr data-skupina="plet">
+                  <th scope="row">Dětský střih do 12 let</th>
+                  <td class="duration">30 min</td>
+                  <td class="price">290 Kč</td>
+                </tr>
+                <tr data-skupina="plet">
+                  <th scope="row">
+                    Foukaná a styling<small
+                      >Kulma nebo žehlička podle dohody</small
+                    >
+                  </th>
+                  <td class="duration">45 min</td>
+                  <td class="price">490 Kč</td>
+                </tr>
+                <tr data-skupina="plet">
+                  <th scope="row">
+                    Zastřižení konců<small
+                      >Pro délku, kterou si pěstujete</small
+                    >
+                  </th>
+                  <td class="duration">30 min</td>
+                  <td class="price">390 Kč</td>
+                </tr>
+
+                <tr data-skupina="oci">
+                  <th scope="row">
+                    Barvení odrostů<small
+                      >Do 3 cm, včetně foukané</small
+                    >
+                  </th>
+                  <td class="duration">90 min</td>
+                  <td class="price">od 1 290 Kč</td>
+                </tr>
+                <tr data-skupina="oci">
+                  <th scope="row">Barvení celé délky</th>
+                  <td class="duration">120 min</td>
+                  <td class="price">od 1 690 Kč</td>
+                </tr>
+                <tr data-skupina="oci">
+                  <th scope="row">Tónování a oživení barvy</th>
+                  <td class="duration">60 min</td>
+                  <td class="price">od 890 Kč</td>
+                </tr>
+                <tr data-skupina="oci">
+                  <th scope="row">
+                    Melír fólií<small
+                      >Podle hustoty a délky vlasů</small
+                    >
+                  </th>
+                  <td class="duration">150 min</td>
+                  <td class="price">od 2 490 Kč</td>
+                </tr>
+                <tr data-skupina="oci">
+                  <th scope="row">
+                    AirTouch nebo balayage<small
+                      >Plynulý přechod bez ostré hranice</small
+                    >
+                  </th>
+                  <td class="duration">180 – 240 min</td>
+                  <td class="price">od 3 490 Kč</td>
+                </tr>
+                <tr data-skupina="oci">
+                  <th scope="row">
+                    Korekce barvy po jiném salonu<small
+                      >Dohodneme plán na dva – tři měsíce</small
+                    >
+                  </th>
+                  <td class="duration">30 min</td>
+                  <td class="price">390 Kč</td>
+                </tr>
+
+                <tr data-skupina="telo">
+                  <th scope="row">
+                    Hloubková regenerace<small
+                      >Maska a masáž hlavy</small
+                    >
+                  </th>
+                  <td class="duration">45 min</td>
+                  <td class="price">od 590 Kč</td>
+                </tr>
+                <tr data-skupina="telo">
+                  <th scope="row">
+                    Keratinové vyhlazení<small
+                      >Vydrží 3 – 5 měsíců</small
+                    >
+                  </th>
+                  <td class="duration">120 – 180 min</td>
+                  <td class="price">od 2 490 Kč</td>
+                </tr>
+                <tr data-skupina="telo">
+                  <th scope="row">
+                    Botox na vlasy<small
+                      >Pro jemné a lámavé vlasy</small
+                    >
+                  </th>
+                  <td class="duration">90 min</td>
+                  <td class="price">od 1 890 Kč</td>
+                </tr>
+                <tr data-skupina="telo">
+                  <th scope="row">Masáž hlavy s olejem</th>
+                  <td class="duration">20 min</td>
+                  <td class="price">290 Kč</td>
+                </tr>
+                <tr data-skupina="telo">
+                  <th scope="row">
+                    Svatební účes<small
+                      >Včetně zkoušky předem</small
+                    >
+                  </th>
+                  <td class="duration">90 min</td>
+                  <td class="price">od 1 490 Kč</td>
+                </tr>
+                <tr data-skupina="telo">
+                  <th scope="row">Společenský účes</th>
+                  <td class="duration">60 min</td>
+                  <td class="price">od 990 Kč</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="price-note">
+            Dárkový poukaz vystavíme na libovolnou částku i na konkrétní
+            službu. Platit můžete kartou i v hotovosti.
+          </p>
+        </div>
+      </section>
+
+      <section id="postup">
+        <div class="container">
+          <div class="section-head">
+            <h2>Jak probíhá první návštěva</h2>
+            <p>
+              Abyste věděli, do čeho jdete — i když jste u kadeřnice poprvé v
+              životě.
+            </p>
+          </div>
+
+          <ol class="steps">
+            <li class="step">
+              <span class="step-number">1</span>
+              <h3>Konzultace</h3>
+              <p>
+                Dvacet minut zdarma. Podíváme se na stav vlasů a na barvu,
+                zeptám se, co jste zkoušela doma a co od změny čekáte.
+              </p>
+            </li>
+            <li class="step">
+              <span class="step-number">2</span>
+              <h3>Plán, ne balíček</h3>
+              <p>
+                Řeknu, co má smysl udělat hned, co klidně počká a co by vlasům
+                uškodilo. Cenu znáte před začátkem práce.
+              </p>
+            </li>
+            <li class="step">
+              <span class="step-number">3</span>
+              <h3>Samotná práce</h3>
+              <p>
+                V klidu, bez telefonátů a bez střídání kadeřnic. Při každém
+                kroku víte, co právě dělám a proč.
+              </p>
+            </li>
+            <li class="step">
+              <span class="step-number">4</span>
+              <h3>Domácí péče</h3>
+              <p>
+                Dostanete vzorky a napsaný postup na mytí i styling. Za čtyři
+                týdny se ozvu, jestli barva drží tak, jak jsme čekaly.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section-studio" id="studio">
+        <div class="container studio-grid">
+          <div class="studio-photo">
+            <img
+              alt="Pracoviště v kadeřnickém studiu Lumé"
+              height="600"
+              loading="lazy"
+              src="/assets/kozmetika-detail.webp"
+              width="600"
+            />
+          </div>
+          <div class="studio-copy">
+            <p class="eyebrow">O studiu</p>
+            <h2>Malé studio, ve kterém nikam nespěcháme.</h2>
+            <p>
+              Lumé vedu sama a objednávám si jen tolik klientek, kolik stihnu
+              bez koukání na hodiny. Pracuji s profesionální vlasovou kosmetikou,
+              kterou si můžete doobjednat i domů — ale nikdy vám ji nebudu
+              tlačit k účesu.
+            </p>
+            <p>
+              Pokud nevíte, co si vybrat, přijďte na konzultaci. Je zdarma a
+              nezavazuje vás k ničemu.
+            </p>
+            <dl class="stats">
+              <div>
+                <dt><span data-count="12" data-suffix="">0</span></dt>
+                <dd>let praxe</dd>
+              </div>
+              <div>
+                <dt><span data-count="900" data-suffix="+">0</span></dt>
+                <dd>účesů ročně</dd>
+              </div>
+              <div>
+                <dt>4,9</dt>
+                <dd>hodnocení na Google</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-alt" id="galeria">
+        <div class="container">
+          <div class="section-head">
+            <h2>Galerie</h2>
+            <p>
+              Přepněte si mezi prostorem studia a pracemi, které z něj
+              odcházejí. Fotky se dají potáhnout myší i prstem, případně
+              použijte šipky nebo klávesy.
+            </p>
+          </div>
+
+          <div
+            aria-label="Co zobrazit v galerii"
+            class="galeria-prepinac"
+            role="group"
+          >
+            <button aria-pressed="true" data-galeria="studio" type="button">
+              Studio
+            </button>
+            <button aria-pressed="false" data-galeria="praca" type="button">
+              Naše práce
+            </button>
+          </div>
+        </div>
+
+        <div
+          aria-label="Galerie studia"
+          aria-roledescription="carousel"
+          class="galeria"
+          data-sada="studio"
+          role="region"
+        >
+          <div class="galeria-ramec">
+            <div class="galeria-pas">
+              <figure class="galeria-karta">
+                <img
+                  alt="Zrcadlo s žárovkami a křeslo ve studiu Lumé"
+                  draggable="false"
+                  loading="lazy"
+                  src="/assets/kozmetika-detail.webp"
+                />
+              </figure>
+              <figure class="galeria-karta galeria-karta-prazdna">
+                <span>Fotka 2</span>
+              </figure>
+              <figure class="galeria-karta galeria-karta-prazdna">
+                <span>Fotka 3</span>
+              </figure>
+              <figure class="galeria-karta galeria-karta-prazdna">
+                <span>Fotka 4</span>
+              </figure>
+              <figure class="galeria-karta">
+                <img
+                  alt="Interiér kadeřnického studia Lumé"
+                  draggable="false"
+                  loading="lazy"
+                  src="/assets/kozmetika-hero-900.webp"
+                />
+              </figure>
+              <figure class="galeria-karta galeria-karta-prazdna">
+                <span>Fotka 6</span>
+              </figure>
+              <figure class="galeria-karta galeria-karta-prazdna">
+                <span>Fotka 7</span>
+              </figure>
+              <figure class="galeria-karta galeria-karta-prazdna">
+                <span>Fotka 8</span>
+              </figure>
+            </div>
+          </div>
+
+          <button
+            aria-label="Předchozí fotka"
+            class="galeria-sip galeria-sip-vlavo"
+            type="button"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#i-sipka" /></svg>
+          </button>
+          <button
+            aria-label="Další fotka"
+            class="galeria-sip galeria-sip-vpravo"
+            type="button"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#i-sipka" /></svg>
+          </button>
+
+          <div class="galeria-bodky"></div>
+        </div>
+
+        <div
+          aria-label="Galerie našich prací"
+          aria-roledescription="carousel"
+          class="galeria"
+          data-sada="praca"
+          hidden
+          role="region"
+        >
+          <div class="galeria-ramec">
+            <div class="galeria-pas">
+              <figure class="galeria-karta galeria-karta-prazdna">
+                <span>Práce 1</span>
+              </figure>
+              <figure class="galeria-karta galeria-karta-prazdna">
+                <span>Práce 2</span>
+              </figure>
+              <figure class="galeria-karta galeria-karta-prazdna">
+                <span>Práce 3</span>
+              </figure>
+              <figure class="galeria-karta galeria-karta-prazdna">
+                <span>Práce 4</span>
+              </figure>
+              <figure class="galeria-karta galeria-karta-prazdna">
+                <span>Práce 5</span>
+              </figure>
+              <figure class="galeria-karta galeria-karta-prazdna">
+                <span>Práce 6</span>
+              </figure>
+              <figure class="galeria-karta galeria-karta-prazdna">
+                <span>Práce 7</span>
+              </figure>
+              <figure class="galeria-karta galeria-karta-prazdna">
+                <span>Práce 8</span>
+              </figure>
+            </div>
+          </div>
+
+          <button
+            aria-label="Předchozí fotka"
+            class="galeria-sip galeria-sip-vlavo"
+            type="button"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#i-sipka" /></svg>
+          </button>
+          <button
+            aria-label="Další fotka"
+            class="galeria-sip galeria-sip-vpravo"
+            type="button"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#i-sipka" /></svg>
+          </button>
+
+          <div class="galeria-bodky"></div>
+        </div>
+      </section>
+
+      <section id="recenzie">
+        <div class="container">
+          <div class="section-head">
+            <h2>Co říkají klientky</h2>
+            <p>
+              Tři z hodnocení, která nám nejvíc pomohla — i proto, že jsou
+              konkrétní.
+            </p>
+          </div>
+
+          <div class="reviews">
+            <figure class="review">
+              <span class="stars" aria-label="Pět hvězdiček z pěti">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-hviezda" />
+                </svg>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-hviezda" />
+                </svg>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-hviezda" />
+                </svg>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-hviezda" />
+                </svg>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-hviezda" />
+                </svg>
+              </span>
+              <blockquote>
+                Poprvé mi někdo vysvětlil, proč mám vlasy po barvení suché a
+                lámavé. Polovinu věcí, co jsem používala, jsem po
+                konzultaci odložila — a za měsíc byl pokoj.
+              </blockquote>
+              <figcaption>Kateřina M. · klientka od roku 2024</figcaption>
+            </figure>
+
+            <figure class="review">
+              <span class="stars" aria-label="Pět hvězdiček z pěti">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-hviezda" />
+                </svg>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-hviezda" />
+                </svg>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-hviezda" />
+                </svg>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-hviezda" />
+                </svg>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-hviezda" />
+                </svg>
+              </span>
+              <blockquote>
+                Chodím na melír každé tři měsíce. Cenu jsem znala dopředu, termíny
+                dostávám SMS a nikdy jsem nečekala víc než pět minut.
+              </blockquote>
+              <figcaption>Lucie B. · Žabovřesky</figcaption>
+            </figure>
+
+            <figure class="review">
+              <span class="stars" aria-label="Pět hvězdiček z pěti">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-hviezda" />
+                </svg>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-hviezda" />
+                </svg>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-hviezda" />
+                </svg>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-hviezda" />
+                </svg>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-hviezda" />
+                </svg>
+              </span>
+              <blockquote>
+                Objednala jsem se přes web v jedenáct večer, ráno mi přišlo
+                potvrzení termínu. Přesně tohle jsem u kadeřnice vždy hledala.
+              </blockquote>
+              <figcaption>Zuzana H. · Brno-střed</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-alt" id="objednanie">
+        <div class="container booking-grid">
+          <div class="booking-info">
+            <div class="section-head">
+              <h2>Objednejte se</h2>
+              <p>
+                Napište, co byste chtěli řešit, a ozvu se do jednoho
+                pracovního dne s volnými termíny.
+              </p>
+            </div>
+
+            <ul class="contact-list">
+              <li>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-miesto" />
+                </svg>
+                <span
+                  ><strong>Adresa</strong>Jánská 12, 602 00 Brno-střed<br />Vlastní
+                  vchod ze dvora, druhé podlaží</span
+                >
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-telefon" />
+                </svg>
+                <span
+                  ><strong>Telefon</strong
+                  ><a href="tel:+420777000000">777 000 000</a></span
+                >
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg>
+                <span
+                  ><strong>E-mail</strong
+                  ><a href="mailto:ahoj@studiolume.cz"
+                    >ahoj@studiolume.cz</a
+                  ></span
+                >
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-hodiny" />
+                </svg>
+                <span class="hours"
+                  ><strong>Otevírací hodiny</strong>Po – Pá 9.00 – 19.00<br />So
+                  9.00 – 14.00<br />Ne zavřeno</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <form id="objednavkovy-formular">
+            <div class="field-row">
+              <p class="field">
+                <label for="meno">Jméno a příjmení *</label>
+                <input
+                  autocomplete="name"
+                  id="meno"
+                  name="meno"
+                  placeholder="Kateřina Nováková"
+                  required
+                  type="text"
+                />
+              </p>
+              <p class="field">
+                <label for="telefon">Telefon *</label>
+                <input
+                  autocomplete="tel"
+                  id="telefon"
+                  name="telefon"
+                  placeholder="777 123 456"
+                  required
+                  type="tel"
+                />
+              </p>
+            </div>
+
+            <p class="field">
+              <label for="osetrenie">O co máte zájem *</label>
+                            <select id="osetrenie" name="osetrenie" required>
+                <option value="">Vyberte —</option>
+                <option>Konzultace (zdarma)</option>
+                <option>Dámský střih s foukanou</option>
+                <option>Pánský střih</option>
+                <option>Barvení nebo tónování</option>
+                <option>Melír, AirTouch, balayage</option>
+                <option>Keratinové vyhlazení</option>
+                <option>Svatební nebo společenský účes</option>
+                <option>Péče a regenerace</option>
+                <option>Nevím, poraďte mi</option>
+              </select>
+            </p>
+
+            <div class="field-row">
+              <p class="field">
+                <label for="termin">Kdy by se vám to hodilo</label>
+                <input id="termin" name="termin" type="date" />
+              </p>
+              <p class="field">
+                <label for="cas">Denní doba</label>
+                <select id="cas" name="cas">
+                  <option>Dopoledne</option>
+                  <option>Odpoledne</option>
+                  <option>Podvečer po 17.00</option>
+                </select>
+              </p>
+            </div>
+
+            <p class="field">
+              <label for="poznamka">Co byste chtěli řešit</label>
+              <span class="field-hint"
+                >Klidně i ve dvou větách — jestli vlasy barvíte doma, jestli je máte
+                odbarvené, co jste zkoušeli dosud.</span
+              >
+              <textarea
+                id="poznamka"
+                name="poznamka"
+                placeholder="Mám vlasy po domácím barvení do černa a chtěla bych jít světlejší. Dva roky jsem je nestříhala, konce mám roztřepené."
+                rows="4"
+              ></textarea>
+            </p>
+
+            <button class="btn btn-primary" id="odoslat" type="submit">
+              Odeslat požadavek
+            </button>
+            <p
+              aria-live="polite"
+              class="form-status"
+              id="stav"
+              role="status"
+            ></p>
+          </form>
+        </div>
+      </section>
+
+      <section id="otazky">
+        <div class="container">
+          <div class="section-head">
+            <h2>Časté otázky</h2>
+            <p>Pokud tu něco chybí, napište — doplním to sem.</p>
+          </div>
+
+          <div class="faq">
+            <details>
+              <summary>Mám přijít s umytými vlasy?</summary>
+              <div class="faq-body">
+                <p>
+                  Nemusíte. Před střihem i barvením vlasy stejně myjeme a mytí
+                  je součást ceny. Jen před keratinem a melírem přijďte bez
+                  stylingu — bez laku, suchého šamponu a olejů.
+                </p>
+              </div>
+            </details>
+            <details>
+              <summary>Chci výraznou změnu barvy. Zvládneme to na jeden termín?</summary>
+              <div class="faq-body">
+                <p>
+                  Ne vždy. Z domácí černé na blond se nedostaneme za jedno
+                  odpoledne, aniž by vlasy utrpěly. Na konzultaci vám řeknu
+                  hned, kolik termínů to bude a kolik to dohromady stojí.
+                </p>
+              </div>
+            </details>
+            <details>
+              <summary>Co když se mi termín nehodí nebo onemocním?</summary>
+              <div class="faq-body">
+                <p>
+                  Stačí zavolat nebo napsat aspoň 24 hodin dopředu, termín
+                  přesuneme bez poplatku. Pokud se neozvete a nepřijdete,
+                  účtujeme si polovinu ceny služby.
+                </p>
+              </div>
+            </details>
+            <details>
+              <summary>Barvíte i v těhotenství?</summary>
+              <div class="faq-body">
+                <p>
+                  Ano, s úpravou. Volíme barvy bez amoniaku a melír děláme
+                  s odstupem od hlavy, takže se barva nedostane na pokožku.
+                  Keratin v těhotenství nedělám.
+                </p>
+              </div>
+            </details>
+            <details>
+              <summary>Jak často mám chodit?</summary>
+              <div class="faq-body">
+                <p>
+                  Na střih každých šest až osm týdnů, na odrosty podle toho,
+                  jak rychle vlasy rostou — většinou po pěti až osmi týdnech.
+                  Melír vydrží déle, klidně tři měsíce.
+                </p>
+              </div>
+            </details>
+            <details>
+              <summary>Dá se platit kartou a máte dárkové poukazy?</summary>
+              <div class="faq-body">
+                <p>
+                  Kartou i v hotovosti. Dárkový poukaz vystavíme na částku nebo
+                  na konkrétní službu, platí dvanáct měsíců a pošleme ho
+                  i e-mailem.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>
+          <div class="footer-logo">
+            <span class="logo-name">LUMÉ</span>
+            <span class="logo-tag">STUDIO</span>
+          </div>
+          <p>
+            Kadeřnické studio v centru Brna.<br />
+            Jánská 12, Brno.
+          </p>
+        </div>
+        <div>
+          <h3>Kontakt</h3>
+          <ul>
+            <li><a href="tel:+420777000000">777 000 000</a></li>
+            <li><a href="mailto:ahoj@studiolume.cz">ahoj@studiolume.cz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Otevírací hodiny</h3>
+          <ul class="hours">
+            <li>Po – Pá 9.00 – 19.00</li>
+            <li>So 9.00 – 14.00</li>
+            <li>Ne zavřeno</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <p class="credit">
+      Ukázkový web — salon i údaje jsou vymyšlené. Návrh a realizace
+      <a href="https://by-simona.eu">by simona</a>.
+    </p>
+
+    <script src="script.js"></script>
+    <script defer src="shader.js"></script>
+    <script defer src="galeria.js"></script>
+    <script defer src="/cookies.js"></script>
+  </body>
+</html>
