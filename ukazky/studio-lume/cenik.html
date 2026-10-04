@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="#faf6f2" name="theme-color" />
+    <title>Ceník — Studio Lumé | by simona</title>
+    <meta content="noindex, nofollow" name="robots" />
+    <meta
+      content="Kompletní ceník služeb ukázkového kadeřnického studia Lumé."
+      name="description"
+    />
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="fonts/dm-sans-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/outfit-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <svg
+      aria-hidden="true"
+      style="display: none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <symbol
+        id="i-menu"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+      >
+        <path d="M3.5 7h17M3.5 12h17M3.5 17h17" />
+      </symbol>
+      <symbol
+        id="i-close"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+      >
+        <path d="m5.5 5.5 13 13M18.5 5.5l-13 13" />
+      </symbol>
+      <symbol
+        id="i-phone"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M6.6 3h2.9l1.5 3.9-2 1.4a12.4 12.4 0 0 0 5.7 5.7l1.4-2 3.9 1.5v2.9a2.2 2.2 0 0 1-2.4 2.2A16.6 16.6 0 0 1 4.4 5.4 2.2 2.2 0 0 1 6.6 3Z"
+        />
+      </symbol>
+      <symbol
+        id="i-clock"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5.2l3.2 2" />
+      </symbol>
+      <symbol
+        id="i-mail"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <rect height="14" rx="2.4" width="18" x="3" y="5" />
+        <path d="m3.6 7.4 8.4 5.6 8.4-5.6" />
+      </symbol>
+    </svg>
+
+    <!-- bez hero je hlavička plná hneď, script.js ju v tom stave aj udrží -->
+    <header class="site-header is-scrolled">
+      <div class="header-row">
+        <a class="logo" href="index.html">
+          <span class="logo-name">LUMÉ</span>
+          <span class="logo-tag">STUDIO</span>
+        </a>
+
+        <div class="nav-pill">
+          <nav class="main-nav" aria-label="Hlavní menu">
+            <a class="nav-link" href="index.html#studio">O nás</a>
+            <a class="nav-link" href="index.html#services">Služby</a>
+            <a aria-current="page" class="nav-link" href="cenik.html">Ceník</a>
+            <a class="nav-link" href="index.html#gallery">Galerie</a>
+            <a class="nav-link" href="index.html#booking">Kontakt</a>
+          </nav>
+
+          <button
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            class="nav-toggle"
+            id="open-menu"
+            type="button"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg>
+            Menu
+          </button>
+
+          <a
+            aria-label="Zavolat 777 000 000"
+            class="nav-phone"
+            href="tel:+420777000000"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#i-phone" /></svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div
+      aria-label="Mobilní menu"
+      class="nav-panel"
+      id="mobile-menu"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="nav-panel-head">
+        <span class="logo">
+          <span class="logo-name">LUMÉ</span>
+          <span class="logo-tag">STUDIO</span>
+        </span>
+        <button
+          aria-label="Zavřít menu"
+          class="nav-close"
+          id="close-menu"
+          type="button"
+        >
+          <svg class="icon" aria-hidden="true"><use href="#i-close" /></svg>
+        </button>
+      </div>
+      <nav aria-label="Menu">
+        <ul>
+          <li><a class="nav-link" href="index.html#studio">O nás</a></li>
+          <li><a class="nav-link" href="index.html#services">Služby</a></li>
+          <li>
+            <a aria-current="page" class="nav-link" href="cenik.html">Ceník</a>
+          </li>
+          <li><a class="nav-link" href="index.html#gallery">Galerie</a></li>
+          <li><a class="nav-link" href="index.html#booking">Kontakt</a></li>
+        </ul>
+      </nav>
+      <div class="nav-panel-foot">
+        <span class="utility-item">
+          <svg class="icon" aria-hidden="true"><use href="#i-clock" /></svg>
+          <span class="hours">Po – Pá 9.00 – 19.00 · So 9.00 – 14.00</span>
+        </span>
+        <a class="utility-item" href="mailto:ahoj@studiolume.cz">
+          <svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg>
+          ahoj@studiolume.cz
+        </a>
+        <a class="utility-item" href="tel:+420777000000">
+          <svg class="icon" aria-hidden="true"><use href="#i-phone" /></svg>
+          777 000 000
+        </a>
+        <a class="btn btn-primary" href="index.html#booking">Objednat se</a>
+      </div>
+    </div>
+
+    <main>
+      <section id="cuts">
+        <div class="container">
+          <div class="section-head">
+            <h1>Ceník</h1>
+            <p>
+              Ceny platí od 1. ledna 2026. U barvení a melíru řeknu konečnou
+              cenu po konzultaci — podle délky a hustoty vlasů, nikdy ne až u
+              kasy.
+            </p>
+          </div>
+
+          <h2>Střih a foukaná</h2>
+
+          <div class="price-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Služba</th>
+                  <th class="duration" scope="col">Trvání</th>
+                  <th class="price" scope="col">Cena</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    Konzultace a diagnostika vlasů<small
+                      >I bez následné služby</small
+                    >
+                  </th>
+                  <td class="duration">20 min</td>
+                  <td class="price">zdarma</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Dámský střih s foukanou<small
+                      >Mytí, střih, foukaná, finish</small
+                    >
+                  </th>
+                  <td class="duration">60 min</td>
+                  <td class="price">790 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row">Dámský střih bez foukané</th>
+                  <td class="duration">45 min</td>
+                  <td class="price">590 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Pánský střih<small>Strojek i nůžky, úprava kontur</small>
+                  </th>
+                  <td class="duration">30 min</td>
+                  <td class="price">390 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row">Pánský střih s úpravou bradky</th>
+                  <td class="duration">45 min</td>
+                  <td class="price">490 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row">Dětský střih do 12 let</th>
+                  <td class="duration">30 min</td>
+                  <td class="price">290 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Foukaná a styling<small
+                      >Kulma nebo žehlička podle dohody</small
+                    >
+                  </th>
+                  <td class="duration">45 min</td>
+                  <td class="price">490 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Zastřižení konců<small
+                      >Pro délku, kterou si pěstujete</small
+                    >
+                  </th>
+                  <td class="duration">30 min</td>
+                  <td class="price">390 Kč</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-alt" id="color">
+        <div class="container">
+          <h2>Barvení a melír</h2>
+
+          <div class="price-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Služba</th>
+                  <th class="duration" scope="col">Trvání</th>
+                  <th class="price" scope="col">Cena</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    Barvení odrostů<small>Do 3 cm, včetně foukané</small>
+                  </th>
+                  <td class="duration">90 min</td>
+                  <td class="price">od 1 290 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row">Barvení celé délky</th>
+                  <td class="duration">120 min</td>
+                  <td class="price">od 1 690 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row">Tónování a oživení barvy</th>
+                  <td class="duration">60 min</td>
+                  <td class="price">od 890 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Melír fólií<small>Podle hustoty a délky vlasů</small>
+                  </th>
+                  <td class="duration">150 min</td>
+                  <td class="price">od 2 490 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    AirTouch nebo balayage<small
+                      >Plynulý přechod bez ostré hranice</small
+                    >
+                  </th>
+                  <td class="duration">180 – 240 min</td>
+                  <td class="price">od 3 490 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Korekce barvy po jiném salonu<small
+                      >Dohodneme plán na dva – tři měsíce</small
+                    >
+                  </th>
+                  <td class="duration">30 min</td>
+                  <td class="price">390 Kč</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="care">
+        <div class="container">
+          <h2>Péče a styling</h2>
+
+          <div class="price-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Služba</th>
+                  <th class="duration" scope="col">Trvání</th>
+                  <th class="price" scope="col">Cena</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    Hloubková regenerace<small>Maska a masáž hlavy</small>
+                  </th>
+                  <td class="duration">45 min</td>
+                  <td class="price">od 590 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Keratinové vyhlazení<small>Vydrží 3 – 5 měsíců</small>
+                  </th>
+                  <td class="duration">120 – 180 min</td>
+                  <td class="price">od 2 490 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Botox na vlasy<small>Pro jemné a lámavé vlasy</small>
+                  </th>
+                  <td class="duration">90 min</td>
+                  <td class="price">od 1 890 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row">Masáž hlavy s olejem</th>
+                  <td class="duration">20 min</td>
+                  <td class="price">290 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Svatební účes<small>Včetně zkoušky předem</small>
+                  </th>
+                  <td class="duration">90 min</td>
+                  <td class="price">od 1 490 Kč</td>
+                </tr>
+                <tr>
+                  <th scope="row">Společenský účes</th>
+                  <td class="duration">60 min</td>
+                  <td class="price">od 990 Kč</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="price-note">
+            Dárkový poukaz vystavíme na libovolnou částku i na konkrétní službu.
+            Platit můžete kartou i v hotovosti.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>
+          <div class="footer-logo">
+            <span class="logo-name">LUMÉ</span>
+            <span class="logo-tag">STUDIO</span>
+          </div>
+          <p>
+            Kadeřnické studio v centru Brna.<br />
+            Jánská 12, Brno.
+          </p>
+        </div>
+        <div>
+          <h3>Kontakt</h3>
+          <ul>
+            <li><a href="tel:+420777000000">777 000 000</a></li>
+            <li><a href="mailto:ahoj@studiolume.cz">ahoj@studiolume.cz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Otevírací hodiny</h3>
+          <ul class="hours">
+            <li>Po – Pá 9.00 – 19.00</li>
+            <li>So 9.00 – 14.00</li>
+            <li>Ne zavřeno</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <p class="credit">
+      Ukázkový web — salon i údaje jsou vymyšlené. Návrh a realizace
+      <a href="https://by-simona.eu">by simona</a>.
+    </p>
+
+    <script src="script.js"></script>
+    <script defer src="/cookies.js"></script>
+
+    <!-- DOČASNÉ: skúšanie Google Fonts z konzoly, pred ostrým webom zmazať -->
+    <script defer src="font-test.js"></script>
+  </body>
+</html>
