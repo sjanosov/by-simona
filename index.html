@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1" name="viewport" />
-    <meta content="#20352c" name="theme-color" />
+    <meta content="#ffffff" name="theme-color" />
     <title>Tvorba webových stránok pre malé firmy | by simona</title>
     <meta
       content="Tvorba moderných a responzívnych webových stránok pre malých podnikateľov. Dizajn, funkčnosť a základné SEO od návrhu po spustenie. Weby od 290 € / 7 400 Kč."
@@ -38,16 +38,27 @@
 
     <link
       rel="preload"
+      href="fonts/archivo-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
       href="fonts/dm-sans-latin.woff2"
       as="font"
       type="font/woff2"
       crossorigin
     />
-    <link href="style.css" rel="stylesheet" />
-    <script>
-      document.documentElement.classList.add("js");
-    </script>
-    <script defer src="script.js"></script>
+    <link
+      rel="preload"
+      href="fonts/dm-mono-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link href="styles.css" rel="stylesheet" />
+    <script defer src="main.js"></script>
     <script defer src="cookies.js"></script>
 
     <script type="application/ld+json">
@@ -64,7 +75,7 @@
         "founder": {
           "@type": "Person",
           "name": "Simona",
-          "image": "https://by-simona.eu/assets/simona.webp",
+          "image": "https://by-simona.eu/assets/simona-portret.webp",
           "jobTitle": "Webová dizajnérka"
         },
         "knowsLanguage": ["sk", "cs"],
@@ -116,855 +127,651 @@
     </script>
   </head>
   <body>
-    <a class="skip" href="#obsah"> Preskočiť na obsah </a>
-    <header class="header">
-      <div class="container nav">
-        <a aria-label="by simona – úvod" class="logo" href="#uvod"
-          ><span class="logo-word">by simona.</span
-          ><small> WEB DESIGN STUDIO </small></a
-        >
-        <button
-          aria-controls="navigation"
-          aria-expanded="false"
-          aria-label="Otvoriť menu"
-          class="menu-toggle"
-          type="button"
-        >
-          <svg aria-hidden="true" class="icon-open" viewBox="0 0 24 24">
-            <path d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-          <svg aria-hidden="true" class="icon-close" viewBox="0 0 24 24">
-            <path d="M6 6l12 12M18 6 6 18"></path>
-          </svg>
-        </button>
-        <nav aria-label="Hlavná navigácia" class="navlinks" id="navigation">
-          <a href="#uvod">Domov</a>
-          <a href="#portfolio">Práce</a>
-          <a href="#omne">O mne</a>
-          <a href="#proces">Proces</a>
-          <a href="#cennik">Cenník</a>
-          <a href="#faq">FAQ</a>
-          <a class="button nav-cta-mobile" href="#kontakt">
-            NEZÁVÄZNÁ PONUKA
-            <span aria-hidden="true"> ↓ </span>
-          </a>
+    <a class="skip-link mono" href="#main">Preskočiť na obsah</a>
+
+    <header class="hero" id="top" data-hero>
+      <div class="hero-layer hero-head">
+        <nav class="hero-nav" aria-label="Hlavná">
+          <a class="display hero-logo" href="#top"
+            >By <span class="mark-logo">Simona</span></a
+          >
+          <div class="nav-links">
+            <a class="mono nav-link" href="o-mne.html"
+              ><span class="nav-bracket" aria-hidden="true">[</span
+              ><span class="nav-label">o&nbsp;mne</span
+              ><span class="nav-bracket" aria-hidden="true">]</span></a
+            >
+            <a class="mono nav-link" href="prace.html"
+              ><span class="nav-bracket" aria-hidden="true">[</span
+              ><span class="nav-label">práce</span
+              ><span class="nav-bracket" aria-hidden="true">]</span></a
+            >
+            <a class="mono nav-link" href="cennik.html"
+              ><span class="nav-bracket" aria-hidden="true">[</span
+              ><span class="nav-label">cenník</span
+              ><span class="nav-bracket" aria-hidden="true">]</span></a
+            >
+            <a class="mono nav-link" href="#faq"
+              ><span class="nav-bracket" aria-hidden="true">[</span
+              ><span class="nav-label">časté otázky</span
+              ><span class="nav-bracket" aria-hidden="true">]</span></a
+            >
+            <a class="mono nav-link" href="#kontakt"
+              ><span class="nav-bracket" aria-hidden="true">[</span
+              ><span class="nav-label">kontakt</span
+              ><span class="nav-bracket" aria-hidden="true">]</span></a
+            >
+          </div>
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+            data-nav-toggle
+          >
+            <span class="nav-toggle-box" aria-hidden="true">
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+            </span>
+            <span class="mono nav-toggle-text">menu</span>
+          </button>
         </nav>
-        <a class="button nav-cta" href="#kontakt">
-          NEZÁVÄZNÁ PONUKA
-          <span aria-hidden="true"> ↓ </span>
-        </a>
+      </div>
+
+      <div class="hero-layer hero-stage">
+        <h1 class="display hero-title" aria-label="By Simona">
+          <span aria-hidden="true"
+            >By<span class="hero-space"></span
+            ><span class="hero-word">Simona</span></span
+          >
+        </h1>
+      </div>
+
+      <div class="hero-layer hero-middle">
+        <div class="hero-portrait">
+          <div class="portrait-3d" data-portrait>
+            <div class="portrait-frame" data-pixel-photo>
+              <img
+                src="assets/simona-portret.webp"
+                width="512"
+                height="512"
+                alt="Simona"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-claim">
+          <p class="mono">
+            tvorím weby na mieru pre malé firmy<br />
+            a podnikateľov na Slovensku a Česku.
+          </p>
+        </div>
+      </div>
+
+      <div class="hero-layer hero-foot">
+        <div class="hero-foot-row">
+          <div class="hero-mail">
+            <p class="mono">voľná na spoluprácu</p>
+            <a class="uline" href="#kontakt">hello@by-simona.eu</a>
+          </div>
+          <div class="hero-latest">
+            <p class="mono">posledná práca ↘</p>
+            <a class="display" href="prace.html">Ubytovanie Sološnica</a>
+          </div>
+        </div>
       </div>
     </header>
-    <main id="obsah">
-      <section class="hero" id="uvod">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">PRE MALÉ ZNAČKY S VEĽKÝMI NÁPADMI</p>
-          <h1>Tvorba webových stránok s citom pre detail.</h1>
-          <p class="lead">
-            Tvorím moderné webové stránky, ktoré spájajú dizajn, funkčnosť a
-            stratégiu. Pomáham malým podnikateľom zviditeľniť sa online a získať
-            viac zákazníkov.
-          </p>
-          <div class="hero-actions">
-            <a class="button" href="#kontakt">
-              ZAČAŤ SPOLUPRÁCU
-              <span aria-hidden="true"> ↓ </span>
-            </a>
-            <a class="button button-outline" href="#portfolio">
-              POZRIEŤ PRÁCE
-            </a>
-          </div>
-        </div>
-        <div class="hero-image hero-art">
-          <div class="hero-photo-frame">
-            <img
-              alt="Ukážka responzívneho webu na notebooku a telefóne v prírodne ladenej scéne"
-              fetchpriority="high"
-              height="1024"
-              src="assets/loft-studio-scene.webp"
-              width="1536"
-            />
-          </div>
-        </div>
-      </section>
-      <section
-        aria-labelledby="sluzby-title"
-        class="features container reveal"
-        id="sluzby"
-      >
-        <h2 class="sr-only" id="sluzby-title">Čo ponúkam</h2>
-        <article>
-          <svg aria-hidden="true" viewbox="0 0 32 32">
-            <rect height="18" rx="1" width="26" x="3" y="4"></rect>
-            <path d="M16 22v6M9 28h14"></path>
-          </svg>
-          <h3>Moderný dizajn</h3>
-          <p>Estetické weby, ktoré zaujmú a podporia vašu značku.</p>
-        </article>
-        <article>
-          <svg aria-hidden="true" viewbox="0 0 32 32">
-            <path d="M4 27h6V17H4zM13 27h6V11h-6zM22 27h6V4h-6z"></path>
-          </svg>
-          <h3>Funkčné riešenia</h3>
-          <p>Prehľadná štruktúra, jednoduchá správa a dôraz na používateľov.</p>
-        </article>
-        <article>
-          <svg aria-hidden="true" viewbox="0 0 32 32">
-            <circle cx="13" cy="13" r="9"></circle>
-            <path d="m20 20 9 9"></path>
-          </svg>
-          <h3>Základné SEO</h3>
-          <p>
-            Optimalizácia pre vyhľadávače, lepšia viditeľnosť a viac
-            príležitostí.
-          </p>
-        </article>
-        <article>
-          <svg aria-hidden="true" viewbox="0 0 32 32">
-            <path d="M16 28 4 16C-2 8 8 1 16 10 24 1 34 8 28 16Z"></path>
-          </svg>
-          <h3>Osobný prístup</h3>
-          <p>Spolupráca, v ktorej záleží na vašich cieľoch.</p>
-        </article>
-      </section>
 
-      <section
-        class="portfolio section reveal"
-        id="portfolio"
-        aria-labelledby="projects-title"
-      >
-        <div class="container">
-          <div class="eyebrow">Vybrané projekty</div>
+    <nav
+      class="mobile-nav"
+      id="mobile-nav"
+      aria-label="Mobilná navigácia"
+      data-mobile-nav
+      hidden
+    >
+      <div class="mobile-nav-head">
+        <span class="display mobile-nav-logo">By <span>Simona</span></span>
+        <button class="mobile-nav-close" type="button" data-nav-close>
+          <span class="nav-toggle-box is-close" aria-hidden="true">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </span>
+          <span class="mono">zavrieť</span>
+        </button>
+      </div>
+      <ul class="mobile-nav-list">
+        <li>
+          <a class="mobile-nav-link" href="o-mne.html"
+            ><span class="mono mobile-nav-index">01</span
+            ><span class="display">O&nbsp;mne</span></a
+          >
+        </li>
+        <li>
+          <a class="mobile-nav-link" href="prace.html"
+            ><span class="mono mobile-nav-index">02</span
+            ><span class="display">Práce</span></a
+          >
+        </li>
+        <li>
+          <a class="mobile-nav-link" href="cennik.html"
+            ><span class="mono mobile-nav-index">03</span
+            ><span class="display">Cenník</span></a
+          >
+        </li>
+        <li>
+          <a class="mobile-nav-link" href="#faq"
+            ><span class="mono mobile-nav-index">04</span
+            ><span class="display">Časté otázky</span></a
+          >
+        </li>
+        <li>
+          <a class="mobile-nav-link" href="#kontakt"
+            ><span class="mono mobile-nav-index">05</span
+            ><span class="display">Kontakt</span></a
+          >
+        </li>
+      </ul>
+      <div class="mobile-nav-foot">
+        <p class="mono">voľná na spoluprácu</p>
+        <a class="uline" href="mailto:hello@by-simona.eu">hello@by-simona.eu</a>
+      </div>
+    </nav>
 
-          <div class="portfolio-layout">
-            <div class="portfolio-intro reveal">
-              <h2 id="projects-title">Moja práca v praxi.</h2>
-
-              <p>
-                Každý projekt vzniká s ohľadom na to, čo má web reálne dosiahnuť
-                – a na ľudí, ktorí ho budú používať.
-              </p>
-            </div>
-
-            <div class="project-grid">
-              <!-- DOCASNE SKRYTE: ukazka Studio Lume. Na zobrazenie staci odstranit tento komentar a jeho uzavretie nizsie.
-              <article class="project reveal">
-                <a
-                  class="project-visual"
-                  href="ukazky/studio-lume/"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="Zobraziť ukážku pre kozmetické štúdio Lumé"
-                >
-                  <img
-                    src="assets/studio-lume.webp"
-                    width="1600"
-                    height="900"
-                    alt="Náhľad ukážkového webu pre kozmetické štúdio Lumé"
-                    loading="lazy"
-                  />
-                </a>
-
-                <div class="project-info">
-                  <div>
-                    <h3>Štúdio Lumé</h3>
-                    <p class="project-type">Ukážka · kozmetický salón</p>
-                  </div>
-
-                  <a
-                    href="ukazky/studio-lume/"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Zobraziť ukážku pre kozmetické štúdio Lumé"
-                  ></a>
-                </div>
-              </article>
-              -->
-
-              <article class="project reveal">
-                <a
-                  class="project-visual"
-                  href="ukazky/autoservis-buchal/"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="Zobraziť koncept pre Autoservis Búchal"
-                >
-                  <img
-                    src="assets/autoservis-buchal.webp"
-                    width="1600"
-                    height="722"
-                    alt="Náhľad konceptu webu pre Autoservis Búchal"
-                    loading="lazy"
-                  />
-                </a>
-
-                <div class="project-info">
-                  <div>
-                    <h3>Autoservis Búchal</h3>
-                    <p class="project-type">Koncept · nezáväzný návrh</p>
-                  </div>
-
-                  <a
-                    href="ukazky/autoservis-buchal/"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Zobraziť koncept pre Autoservis Búchal"
-                  ></a>
-                </div>
-              </article>
-
-              <article class="project reveal">
-                <a
-                  class="project-visual"
-                  href="https://sjanosov.github.io/shades-lounge-bar/"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="Zobraziť koncept pre Shades Lounge Bar"
-                >
-                  <img
-                    src="assets/shades-lounge-bar.webp"
-                    width="1600"
-                    height="769"
-                    alt="Náhľad konceptu webu pre Shades Lounge Bar"
-                    loading="lazy"
-                  />
-                </a>
-
-                <div class="project-info">
-                  <div>
-                    <h3>Shades Lounge Bar</h3>
-                    <p class="project-type">Koncept · nezáväzný návrh</p>
-                  </div>
-
-                  <a
-                    href="https://sjanosov.github.io/shades-lounge-bar/"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Zobraziť koncept pre Shades Lounge Bar"
-                  ></a>
-                </div>
-              </article>
-
-              <article class="project reveal">
-                <a
-                  class="project-visual"
-                  href="https://ubytovanie-solosnica.sk/"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="Zobraziť projekt Ubytovanie Sološnica"
-                >
-                  <img
-                    src="assets/ubytovanie-solosnica.webp"
-                    width="1600"
-                    height="760"
-                    alt="Náhľad webovej stránky Ubytovanie Sološnica"
-                    loading="lazy"
-                  />
-                </a>
-
-                <div class="project-info">
-                  <div>
-                    <h3>Ubytovanie Sološnica</h3>
-                    <p class="project-type">Prezentačný web · Ubytovanie</p>
-                  </div>
-
-                  <a
-                    href="https://ubytovanie-solosnica.sk/"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Zobraziť projekt Ubytovanie Sološnica"
-                  ></a>
-                </div>
-              </article>
-
-              <article class="project reveal">
-                <a
-                  class="project-visual"
-                  href="https://astrokareta.cz/"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="Zobraziť projekt Astrokareta"
-                >
-                  <img
-                    src="assets/astrokareta.webp"
-                    width="1600"
-                    height="770"
-                    alt="Náhľad webovej stránky Astrokareta"
-                    loading="lazy"
-                  />
-                </a>
-
-                <div class="project-info">
-                  <div>
-                    <h3>Astrokareta</h3>
-                    <p class="project-type">Prezentačný web · Astrológia</p>
-                  </div>
-
-                  <a
-                    href="https://astrokareta.cz/"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Zobraziť projekt Astrokareta"
-                  ></a>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="about section" id="omne">
-        <div class="container about-grid">
-          <div class="about-copy reveal">
-            <p class="eyebrow">O MNE</p>
-            <h2>Ahoj, som Simona.</h2>
-            <p>
-              V IT sa pohybujem od roku 2017. Začínala som ako dátová analytička
-              na zákazníckej podpore v bankovom sektore – v prostredí, kde musí
-              byť každé číslo dohľadateľné a nič nesmie fungovať „asi“. Postupne
-              ma to ťahalo bližšie k tomu, čo ľudia reálne vidia a používajú: k
-              frontendu a dizajnu. Naučila som sa HTML, CSS a JavaScript a vo
-              voľnom čase začala tvoriť prezentačné weby.
-            </p>
-            <p>
-              Z toho vyrástla značka by simona. Weby píšem ručne, neskladám ich
-              zo šablón, a z analytickej práce mi zostal jeden dobrý zvyk:
-              radšej si overím, než by som hádala. Či sa stránka načíta rýchlo,
-              či sa formulár dá vyplniť jednou rukou v autobuse, či návštevník
-              nájde to, čo hľadá, na prvý pohľad.
-            </p>
-            <p>
-              Referencií mám zatiaľ pár, nie desiatky – a pre vás je to skôr
-              výhoda. Pracujem na diaľku, beriem si naraz málo projektov a
-              píšete priamo mne. Váš web teda nie je dvadsiaty v poradí a mám
-              čas na detaily, ktoré sa pri veľkom objeme odfláknu.
-            </p>
-          </div>
-          <div class="about-photo reveal">
-            <img
-              alt="Simona – autorka webového štúdia by simona"
-              height="512"
-              loading="lazy"
-              src="assets/simona.webp"
-              width="512"
-            />
-          </div>
-        </div>
-      </section>
-      <section class="process section" id="proces">
-        <div class="container process-grid">
-          <div class="reveal">
-            <p class="eyebrow">AKO SPOLUPRACUJEME</p>
-            <h2>
-              Jasný proces.
-              <br />
-              Jednoduchá spolupráca.
+    <main id="main">
+      <div class="shell">
+        <section class="section" id="sluzby" aria-labelledby="services-title">
+          <div class="section-head">
+            <h2 class="display heading-xl" id="services-title">
+              Čo <span class="mark">ponúkam</span>
             </h2>
           </div>
-          <ol class="steps timeline">
-            <li class="reveal">
-              <div aria-hidden="true" class="step-icon">☏</div>
-              <span> 01 </span>
-              <h3>Rozhovor</h3>
-              <p>Spoločne prejdeme vašu víziu, ciele a potreby.</p>
-            </li>
-            <li class="reveal">
-              <div aria-hidden="true" class="step-icon">▤</div>
-              <span> 02 </span>
-              <h3>Návrh</h3>
-              <p>Pripravím návrh riešenia, štruktúru a dizajn.</p>
-            </li>
-            <li class="reveal">
-              <div aria-hidden="true" class="step-icon">⚙</div>
-              <span> 03 </span>
-              <h3>Tvorba</h3>
-              <p>Premením nápady na funkčný web.</p>
-            </li>
-            <li class="reveal">
-              <div aria-hidden="true" class="step-icon">➤</div>
-              <span> 04 </span>
-              <h3>Spustenie</h3>
-              <p>Web spustíme a zostávam vám k dispozícii aj ďalej.</p>
-            </li>
-          </ol>
-        </div>
-      </section>
-      <section class="seo section">
-        <div class="container seo-grid reveal">
-          <div>
-            <p class="eyebrow">VIAC NEŽ LEN KRÁSNY WEB</p>
-            <h2>Web, ktorý vám pomáha rásť.</h2>
+
+          <div class="services-grid">
+            <div class="service">
+              <p class="mono">/ 01</p>
+              <h3 class="display">Moderný<br />dizajn</h3>
+              <p class="service-text">
+                Estetické weby, ktoré zaujmú a&nbsp;podporia vašu značku.
+              </p>
+            </div>
+            <div class="service">
+              <p class="mono">/ 02</p>
+              <h3 class="display">Funkčné<br />riešenia</h3>
+              <p class="service-text">
+                Prehľadná štruktúra, jednoduchá správa a&nbsp;dôraz na
+                používateľov.
+              </p>
+            </div>
+            <div class="service">
+              <p class="mono">/ 03</p>
+              <h3 class="display">Základné<br />SEO</h3>
+              <p class="service-text">
+                Optimalizácia pre vyhľadávače, lepšia viditeľnosť a&nbsp;viac
+                príležitostí.
+              </p>
+            </div>
+            <div class="service">
+              <p class="mono">/ 04</p>
+              <h3 class="display">Osobný<br />prístup</h3>
+              <p class="service-text">
+                Spolupráca, v&nbsp;ktorej záleží na vašich cieľoch.
+              </p>
+            </div>
           </div>
-          <p>
-            Aby vás ľudia našli, nestačí, že web existuje. Nastavím technické
-            základy, prehľadnú štruktúru a poradím vám s obsahom, aby bol váš
-            web zrozumiteľný pre návštevníkov aj vyhľadávače. Konkrétne pozície
-            vo výsledkoch vyhľadávania nesľubujem.
-          </p>
-          <ul>
-            <li>Vaša firma na Google Maps a v lokálnom vyhľadávaní</li>
-            <li>Search Console, aby ste videli, čo ľudia naozaj hľadajú</li>
-            <li>Texty a nadpisy, ktorým rozumie človek aj vyhľadávač</li>
-            <li>Web, ktorý sa načíta rýchlo aj na mobilných dátach</li>
-            <li>Odporúčania, čo robiť ďalej, keď web pobeží</li>
+        </section>
+      </div>
+
+      <section class="band" id="seo" aria-labelledby="seo-title">
+        <div class="band-visual">
+          <div class="tiles" data-tiles aria-hidden="true"></div>
+          <canvas class="grain" data-grain aria-hidden="true"></canvas>
+          <div class="band-title-wrap">
+            <h2 class="display band-title" id="seo-title">
+              <span class="glitch" data-text="Web, ktorý vám"
+                >Web, ktorý vám</span
+              ><br /><span class="glitch" data-text="pomáha rásť"
+                >pomáha rásť</span
+              >
+            </h2>
+          </div>
+        </div>
+
+        <div class="band-body">
+          <div class="band-copy">
+            <p class="band-text">
+              Aby vás ľudia našli, nestačí, že web existuje. Nastavím technické
+              základy, prehľadnú štruktúru a&nbsp;poradím vám s&nbsp;obsahom,
+              aby bol váš web zrozumiteľný pre návštevníkov aj vyhľadávače.
+            </p>
+            <p class="mono">
+              konkrétne pozície vo výsledkoch<br />vyhľadávania nesľubujem.
+            </p>
+          </div>
+
+          <ul class="seo-list">
+            <li>
+              <span class="mono">→ 01</span>Vaša firma na Google Maps
+              a&nbsp;v&nbsp;lokálnom vyhľadávaní
+            </li>
+            <li>
+              <span class="mono">→ 02</span>Search Console, aby ste videli, čo
+              ľudia naozaj hľadajú
+            </li>
+            <li>
+              <span class="mono">→ 03</span>Texty a&nbsp;nadpisy, ktorým rozumie
+              človek aj vyhľadávač
+            </li>
+            <li>
+              <span class="mono">→ 04</span>Web, ktorý sa načíta rýchlo aj na
+              mobilných dátach
+            </li>
+            <li>
+              <span class="mono">→ 05</span>Odporúčania, čo robiť ďalej, keď web
+              pobeží
+            </li>
           </ul>
         </div>
       </section>
-      <section
-        class="pricing section"
-        id="cennik"
-        aria-labelledby="cennik-title"
-      >
-        <div class="container">
-          <div class="pricing-intro reveal">
-            <p class="eyebrow">CENNÍK</p>
-            <h2 id="cennik-title">Koľko stojí tvorba webovej stránky?</h2>
-            <p>
-              Jasné balíčky bez skrytých poplatkov. Presnú cenu vám poviem po
-              krátkom úvodnom rozhovore, keď poznám vaše potreby.
-            </p>
-          </div>
-          <div class="pricing-grid reveal">
-            <article class="plan">
-              <h3>Štart</h3>
-              <p class="plan-price">
-                <small>od</small> 290 €
-                <span class="price-czk">od 7 400 Kč</span>
+
+      <div class="shell">
+        <section class="section-plain" id="faq" aria-labelledby="faq-title">
+          <div class="faq-layout">
+            <div class="faq-intro">
+              <h2 class="display" id="faq-title">
+                Na čo<br />sa ma <span class="mark">pýtate</span>
+              </h2>
+              <p class="mono">
+                nenašli ste odpoveď?<br /><a class="uline" href="#kontakt"
+                  >napíšte mi ↗</a
+                >
               </p>
-              <p class="plan-desc">
-                Pre živnostníkov a malé prevádzky, ktoré chcú rýchlo a pekne
-                začať.
-              </p>
-              <ul>
-                <li>Jednostránkový web</li>
-                <li>Texty na web píšem ja</li>
-                <li>Responzívny dizajn pre mobil aj počítač</li>
-                <li>Základné SEO – titulky, popisy, štruktúra</li>
-                <li>Napojenie na Google Search Console</li>
-                <li>Kontaktná sekcia s mapou</li>
-                <li>1 kolo úprav</li>
-                <li>Spustenie na vašej doméne</li>
-              </ul>
-              <a
-                class="button button-outline"
-                data-plan="Štart – jednostránkový web"
-                href="#kontakt"
-              >
-                MÁM ZÁUJEM
-                <span aria-hidden="true"> ↓ </span>
-              </a>
-            </article>
-            <article class="plan plan-featured">
-              <h3>Štandard</h3>
-              <p class="plan-price">
-                <small>od</small> 690 €
-                <span class="price-czk">od 17 500 Kč</span>
-              </p>
-              <p class="plan-desc">
-                Pre firmy, ktoré chcú plnohodnotnú prezentáciu a viac zákazníkov
-                z vyhľadávania.
-              </p>
-              <ul>
-                <li>Web do 5 podstránok</li>
-                <li>Pomoc so štruktúrou a textami</li>
-                <li>SEO pre lokálne vyhľadávanie</li>
-                <li>Google Business Profile – založenie a nastavenie</li>
-                <li>Napojenie na Google Search Console</li>
-                <li>Úprava a optimalizácia dodaných fotiek</li>
-                <li>2 kolá úprav</li>
-              </ul>
-              <a
-                class="button"
-                data-plan="Štandard – web do 5 podstránok"
-                href="#kontakt"
-              >
-                MÁM ZÁUJEM
-                <span aria-hidden="true"> ↓ </span>
-              </a>
-            </article>
-            <article class="plan">
-              <h3>Na mieru</h3>
-              <p class="plan-price">Na dopyt</p>
-              <p class="plan-desc">
-                Pre projekty, ktoré potrebujú viac než prezentáciu.
-              </p>
-              <ul>
-                <li>Blog alebo vlastná správa obsahu</li>
-                <li>Viacjazyčný web</li>
-                <li>Napojenie na externé služby</li>
-              </ul>
-              <a
-                class="button button-outline"
-                data-plan="Riešenie na mieru"
-                href="#kontakt"
-              >
-                NAPÍSAŤ MI
-                <span aria-hidden="true"> ↓ </span>
-              </a>
-            </article>
-          </div>
-          <div class="pricing-addons reveal">
-            <div class="addons-head">
-              <h3>Doplnky k ľubovoľnému balíku</h3>
-              <p>Nemusíte prejsť na vyšší balík kvôli jednej položke.</p>
             </div>
-            <ul>
-              <li class="addon">
-                <div class="addon-copy">
-                  <strong>Online objednávanie</strong>
+
+            <div class="faq-list">
+              <details class="faq" open>
+                <summary>
+                  <span class="mono faq-index">01</span>
+                  <span class="display faq-question"
+                    >Môžem si obsah webu upravovať sám?</span
+                  >
+                  <span class="faq-toggle" aria-hidden="true">+</span>
+                </summary>
+                <div class="faq-answer">
                   <p>
-                    Napojím overený rezervačný systém, nahrám vaše služby, ceny
-                    a otváracie hodiny a zaškolím vás. Platí pre jedného
-                    pracovníka a do 15 služieb, väčšie prevádzky nacením zvlášť.
-                    Mesačný poplatok službe si platíte sami.
+                    Weby staviam ako statické – priamo v&nbsp;HTML, CSS
+                    a&nbsp;JavaScripte, bez WordPressu. Vďaka tomu sa načítavajú
+                    rýchlo, nemajú sa ako rozbiť pri aktualizáciách pluginov
+                    a&nbsp;nedá sa k&nbsp;nim dostať cez známe bezpečnostné
+                    diery. Daň za to je, že texty a&nbsp;fotky v&nbsp;balíkoch
+                    Štart a&nbsp;Štandard nemeníte vy, ale ja.
+                  </p>
+                  <p>
+                    Presne na to slúži správa webu od 5 € (129 Kč) mesačne –
+                    drobné úpravy vyriešim za vás, zvyčajne do pár dní. Ak
+                    chcete obsah spravovať sami, napríklad pridávať články do
+                    blogu, dá sa to: patrí to do balíka Na mieru, kde web
+                    napojím na redakčný systém.
                   </p>
                 </div>
-                <p class="addon-price">
-                  od 190 €
-                  <span class="price-czk">od 4 900 Kč</span>
-                </p>
-              </li>
-              <li class="addon">
-                <div class="addon-copy">
-                  <strong>Google Business Profile</strong>
+              </details>
+
+              <details class="faq">
+                <summary>
+                  <span class="mono faq-index">02</span>
+                  <span class="display faq-question"
+                    >Ako dlho trvá, kým je web hotový?</span
+                  >
+                  <span class="faq-toggle" aria-hidden="true">+</span>
+                </summary>
+                <div class="faq-answer">
                   <p>
-                    Založenie profilu, kategórie, popis, otváracie hodiny a prvé
-                    fotky. Prevediem vás aj overením prevádzky.
+                    Jednostránkový web zvládnem obvykle za 2 až 3 týždne, web do
+                    piatich podstránok za 4 až 6 týždňov. Najčastejšia príčina
+                    zdržania nie je samotná tvorba, ale čakanie na texty
+                    a&nbsp;fotky. Ak máte fixný termín, povedzte mi ho hneď na
+                    začiatku – poviem vám rovno, či je reálny, nie to, čo chcete
+                    počuť.
                   </p>
                 </div>
-                <p class="addon-price">
-                  120 €
-                  <span class="price-czk">3 000 Kč</span>
-                </p>
-              </li>
-            </ul>
-            <p class="addons-note">
-              Rovnako viem pridať ktorúkoľvek inú položku z vyššieho balíka –
-              cenu poviem v ponuke ešte pred začiatkom.
-            </p>
+              </details>
+
+              <details class="faq">
+                <summary>
+                  <span class="mono faq-index">03</span>
+                  <span class="display faq-question">Od čoho závisí cena?</span>
+                  <span class="faq-toggle" aria-hidden="true">+</span>
+                </summary>
+                <div class="faq-answer">
+                  <p>
+                    Hlavne od počtu podstránok a&nbsp;od toho, čo má web robiť
+                    navyše – rezervácie, viac jazykov, napojenie na externú
+                    službu. Vplyv má aj to, či texty a&nbsp;fotky dodáte hotové,
+                    alebo ich pripravujeme spoločne. Sumu, ktorú vám pošlem
+                    v&nbsp;ponuke, potom držím – nedávam nízky odhad, ktorý sa
+                    počas práce nafúkne.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq">
+                <summary>
+                  <span class="mono faq-index">04</span>
+                  <span class="display faq-question"
+                    >Chcem len jednostránkový web, ale aj Google Business
+                    Profile. Dá sa?</span
+                  >
+                  <span class="faq-toggle" aria-hidden="true">+</span>
+                </summary>
+                <div class="faq-answer">
+                  <p>
+                    Dá. Balíky sú východiskový bod, nie krabica, z&nbsp;ktorej
+                    sa nedá vystúpiť. Google Business Profile nájdete
+                    v&nbsp;cenníku medzi doplnkami a&nbsp;pridám ho
+                    k&nbsp;ľubovoľnému balíku; napojenie na Search Console robím
+                    v&nbsp;každom balíku zdarma.
+                  </p>
+                  <p>
+                    Samotný profil je od Googlu bezplatný – platíte mi za to,
+                    aby bol nastavený tak, že vás ľudia v&nbsp;mapách naozaj
+                    nájdu. Počítajte s&nbsp;tým, že overenie prevádzky robí
+                    Google, nie ja. To môže trvať pár dní a&nbsp;niekedy si
+                    vypýta pohľadnicu na adresu alebo video z&nbsp;prevádzky.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq">
+                <summary>
+                  <span class="mono faq-index">05</span>
+                  <span class="display faq-question"
+                    >Čo ak ešte nemám texty ani fotky?</span
+                  >
+                  <span class="faq-toggle" aria-hidden="true">+</span>
+                </summary>
+                <div class="faq-answer">
+                  <p>
+                    To je úplne bežné. V&nbsp;balíku Štandard pomáham so
+                    štruktúrou aj textami – vy mi vlastnými slovami povedzte, čo
+                    robíte a&nbsp;pre koho, a&nbsp;ja z&nbsp;toho urobím obsah,
+                    ktorý má hlavu a&nbsp;pätu. Fotky, ktoré dodáte, upravím
+                    a&nbsp;zoptimalizujem, aby web nespomaľovali. Ak fotky
+                    nemáte vôbec, odporučím overeného fotografa; jeho prácu si
+                    platíte zvlášť.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq">
+                <summary>
+                  <span class="mono faq-index">06</span>
+                  <span class="display faq-question"
+                    >Postaráte sa o&nbsp;doménu a&nbsp;hosting?</span
+                  >
+                  <span class="faq-toggle" aria-hidden="true">+</span>
+                </summary>
+                <div class="faq-answer">
+                  <p>
+                    Prevediem vás tým a&nbsp;pomôžem s&nbsp;nastavením, ale
+                    kupujete si ich na svoje meno. To je zámer, nie pohodlnosť:
+                    majiteľom domény aj hostingu zostávate vy, takže keď sa
+                    niekedy rozhodnete pokračovať s&nbsp;niekým iným, web aj
+                    adresu si beriete so sebou a&nbsp;nie ste na mne závislí.
+                    Tieto poplatky nie sú v&nbsp;cene webu, bývajú
+                    v&nbsp;desiatkach eur ročne.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq">
+                <summary>
+                  <span class="mono faq-index">07</span>
+                  <span class="display faq-question"
+                    >Kedy sa vyplatí web na mieru a&nbsp;kedy stačí
+                    šablóna?</span
+                  >
+                  <span class="faq-toggle" aria-hidden="true">+</span>
+                </summary>
+                <div class="faq-answer">
+                  <p>
+                    Šablóna aj WordPress sú legitímne riešenia a&nbsp;pri časti
+                    projektov sú rozumnou voľbou – sama som vo WordPresse weby
+                    robila, takže to nehodnotím zvonku. Ak potrebujete web
+                    rýchlo, chcete si obsah spravovať sami a&nbsp;vzhľad
+                    z&nbsp;ponuky šablón vám vyhovuje, povedzme si to hneď, keď
+                    sa mi ozvete. Neprehováram nikoho do riešenia, ktoré
+                    nepotrebuje.
+                  </p>
+                  <p>
+                    Web na mieru má zmysel inde: keď má vyzerať ako vaša značka
+                    a&nbsp;nie ako šablóna, a&nbsp;keď vám záleží na rýchlosti
+                    načítania. Ručne písaná stránka nesie len to, čo naozaj
+                    potrebujete – žiadny kód navyše, ktorý by ju spomaľoval.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq">
+                <summary>
+                  <span class="mono faq-index">08</span>
+                  <span class="display faq-question">Robíte aj e-shopy?</span>
+                  <span class="faq-toggle" aria-hidden="true">+</span>
+                </summary>
+                <div class="faq-answer">
+                  <p>
+                    Nie. Venujem sa prezentačným webom – bary a&nbsp;kaviarne,
+                    ubytovanie, služby, salóny, malé značky. Ak potrebujete
+                    predávať online, radšej vám odporučím niekoho, kto e-shopy
+                    robí dennodenne, než aby som sa to učila na vašom projekte.
+                  </p>
+                </div>
+              </details>
+            </div>
           </div>
-          <div class="pricing-notes reveal">
-            <p>
-              <strong>Správa webu</strong> po spustení od 5 € (129 Kč) mesačne –
-              aktualizácie, drobné úpravy a zálohy.
-            </p>
-            <p>
-              Cena nezahŕňa doménu, hosting a profesionálne fotografie. S ich
-              zabezpečením vám rada pomôžem a odporučím overeného fotografa.
-            </p>
-          </div>
-        </div>
-      </section>
-      <section class="faq section" id="faq" aria-labelledby="faq-title">
-        <div class="container faq-layout">
-          <div class="faq-intro reveal">
-            <p class="eyebrow">ČASTÉ OTÁZKY</p>
-            <h2 id="faq-title">Na čo sa ma pýtate najčastejšie.</h2>
-            <p>
-              Ak tu svoju otázku nenájdete, napíšte mi – odpoviem vám rovnako
-              otvorene ako tu.
-            </p>
-          </div>
-          <div class="faq-list reveal">
-            <details class="faq-item" name="faq">
-              <summary>
-                <span>Môžem si obsah webu upravovať sám?</span>
-                <span aria-hidden="true" class="faq-marker"></span>
-              </summary>
-              <div class="faq-answer">
-                <p>
-                  Weby staviam ako statické – priamo v HTML, CSS a JavaScripte,
-                  bez WordPressu. Vďaka tomu sa načítavajú rýchlo, nemajú sa ako
-                  rozbiť pri aktualizáciách pluginov a nedá sa k nim dostať cez
-                  známe bezpečnostné diery. Daň za to je, že texty a fotky v
-                  balíkoch Štart a Štandard nemeníte vy, ale ja.
-                </p>
-                <p>
-                  Presne na to slúži správa webu od 5 € (129 Kč) mesačne – drobné
-                  úpravy
-                  vyriešim za vás, zvyčajne do pár dní. Ak chcete obsah
-                  spravovať sami, napríklad pridávať články do blogu, dá sa to:
-                  patrí to do balíka Na mieru, kde web napojím na redakčný
-                  systém.
-                </p>
-              </div>
-            </details>
-            <details class="faq-item" name="faq">
-              <summary>
-                <span>Ako dlho trvá, kým je web hotový?</span>
-                <span aria-hidden="true" class="faq-marker"></span>
-              </summary>
-              <div class="faq-answer">
-                <p>
-                  Jednostránkový web zvládnem obvykle za 2 až 3 týždne, web do
-                  piatich podstránok za 4 až 6 týždňov. Najčastejšia príčina
-                  zdržania nie je samotná tvorba, ale čakanie na texty a fotky.
-                  Ak máte fixný termín, povedzte mi ho hneď na začiatku – poviem
-                  vám rovno, či je reálny, nie to, čo chcete počuť.
-                </p>
-              </div>
-            </details>
-            <details class="faq-item" name="faq">
-              <summary>
-                <span>Od čoho závisí cena?</span>
-                <span aria-hidden="true" class="faq-marker"></span>
-              </summary>
-              <div class="faq-answer">
-                <p>
-                  Hlavne od počtu podstránok a od toho, čo má web robiť navyše –
-                  rezervácie, viac jazykov, napojenie na externú službu. Vplyv
-                  má aj to, či texty a fotky dodáte hotové, alebo ich
-                  pripravujeme spoločne. Sumu, ktorú vám pošlem v ponuke, potom
-                  držím – nedávam nízky odhad, ktorý sa počas práce nafúkne.
-                </p>
-              </div>
-            </details>
-            <details class="faq-item" name="faq">
-              <summary>
-                <span>
-                  Chcem len jednostránkový web, ale aj Google Business Profile.
-                  Dá sa?
+        </section>
+
+        <section class="section" id="kontakt" aria-labelledby="contact-title">
+          <h2 class="display heading-xl heading-gap" id="contact-title">
+            Povedzte mi<br />o&nbsp;svojom <span class="mark">projekte</span>
+          </h2>
+
+          <div class="contact-layout">
+            <div class="contact-intro">
+              <p class="contact-text">
+                Stačí pár riadkov o&nbsp;tom, čo robíte a&nbsp;čo od webu
+                očakávate. Ozvem sa do 24 hodín s&nbsp;návrhom ďalšieho postupu.
+              </p>
+              <div>
+                <p class="mono">alebo priamo</p>
+                <span class="copy-mail">
+                  <button
+                    class="copy-mail-button contact-mail"
+                    type="button"
+                    data-copy="hello@by-simona.eu"
+                    aria-describedby="copy-tip-contact"
+                  >
+                    hello@by-simona.eu
+                  </button>
+                  <span
+                    class="mono copy-mail-tip"
+                    id="copy-tip-contact"
+                    role="tooltip"
+                    >Napíšte mi</span
+                  >
+                  <span
+                    class="visually-hidden copy-mail-live"
+                    role="status"
+                    aria-live="polite"
+                  ></span>
                 </span>
-                <span aria-hidden="true" class="faq-marker"></span>
-              </summary>
-              <div class="faq-answer">
-                <p>
-                  Dá. Balíky sú východiskový bod, nie krabica, z ktorej sa nedá
-                  vystúpiť. Google Business Profile nájdete v cenníku medzi
-                  doplnkami a pridám ho k ľubovoľnému balíku; napojenie na
-                  Search Console robím v každom balíku zdarma.
-                </p>
-                <p>
-                  Samotný profil je od Googlu bezplatný – platíte mi za to, aby
-                  bol nastavený tak, že vás ľudia v mapách naozaj nájdu.
-                  Počítajte s tým, že overenie prevádzky robí Google, nie ja. To
-                  môže trvať pár dní a niekedy si vypýta pohľadnicu na adresu
-                  alebo video z prevádzky.
-                </p>
               </div>
-            </details>
-            <details class="faq-item" name="faq">
-              <summary>
-                <span>Čo ak ešte nemám texty ani fotky?</span>
-                <span aria-hidden="true" class="faq-marker"></span>
-              </summary>
-              <div class="faq-answer">
-                <p>
-                  To je úplne bežné. V balíku Štandard pomáham so štruktúrou aj
-                  textami – vy mi vlastnými slovami povedzte, čo robíte a pre
-                  koho, a ja z toho urobím obsah, ktorý má hlavu a pätu. Fotky,
-                  ktoré dodáte, upravím a zoptimalizujem, aby web nespomaľovali.
-                  Ak fotky nemáte vôbec, odporučím overeného fotografa; jeho
-                  prácu si platíte zvlášť.
-                </p>
+            </div>
+
+            <form
+              class="contact-form"
+              id="contact-form"
+              action="https://api.web3forms.com/submit"
+              method="POST"
+            >
+              <input
+                name="access_key"
+                type="hidden"
+                value="12629a1a-82ec-4872-847e-479985a27a0f"
+              />
+              <input
+                name="subject"
+                type="hidden"
+                value="Nový dopyt z webu by-simona.eu"
+              />
+              <input name="from_name" type="hidden" value="by-simona.eu" />
+              <input
+                class="honeypot"
+                name="botcheck"
+                type="checkbox"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+              />
+
+              <p class="field">
+                <label class="mono" for="field-name"
+                  >meno a&nbsp;priezvisko *</label
+                >
+                <input
+                  id="field-name"
+                  name="meno"
+                  type="text"
+                  autocomplete="name"
+                  required
+                />
+              </p>
+              <p class="field">
+                <label class="mono" for="field-mail">e-mail *</label>
+                <input
+                  id="field-mail"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                />
+              </p>
+              <p class="field field-wide">
+                <label class="mono" for="field-type">typ projektu</label>
+                <select id="field-type" name="typ_projektu">
+                  <option value="Neviem posúdiť">Zatiaľ neviem</option>
+                  <option value="Štart – jednostránkový web">Štart</option>
+                  <option value="Štandard – web do 5 podstránok">
+                    Štandard
+                  </option>
+                  <option value="Riešenie na mieru">Na mieru</option>
+                  <option value="Správa existujúceho webu">
+                    Správa existujúceho webu
+                  </option>
+                </select>
+              </p>
+              <p class="field field-wide">
+                <label class="mono" for="field-message"
+                  >čo potrebujete? *</label
+                >
+                <textarea
+                  id="field-message"
+                  name="sprava"
+                  rows="4"
+                  required
+                ></textarea>
+              </p>
+
+              <div class="form-foot">
+                <label class="consent" for="field-consent">
+                  <input
+                    id="field-consent"
+                    name="suhlas"
+                    type="checkbox"
+                    required
+                  />
+                  <span>
+                    Súhlasím so spracovaním uvedených údajov na účel odpovede na
+                    môj dopyt. Podrobnosti v
+                    <a href="ochrana-osobnych-udajov.html"
+                      >ochrane osobných údajov</a
+                    >.
+                  </span>
+                </label>
+                <button class="send" type="submit">odoslať dopyt ↗</button>
               </div>
-            </details>
-            <details class="faq-item" name="faq">
-              <summary>
-                <span>Postaráte sa o doménu a hosting?</span>
-                <span aria-hidden="true" class="faq-marker"></span>
-              </summary>
-              <div class="faq-answer">
-                <p>
-                  Prevediem vás tým a pomôžem s nastavením, ale kupujete si ich
-                  na svoje meno. To je zámer, nie pohodlnosť: majiteľom domény
-                  aj hostingu zostávate vy, takže keď sa niekedy rozhodnete
-                  pokračovať s niekým iným, web aj adresu si beriete so sebou a
-                  nie ste na mne závislí. Tieto poplatky nie sú v cene webu,
-                  bývajú v desiatkach eur ročne.
-                </p>
-              </div>
-            </details>
-            <details class="faq-item" name="faq">
-              <summary>
-                <span>Kedy sa vyplatí web na mieru a kedy stačí šablóna?</span>
-                <span aria-hidden="true" class="faq-marker"></span>
-              </summary>
-              <div class="faq-answer">
-                <p>
-                  Šablóna aj WordPress sú legitímne riešenia a pri časti
-                  projektov sú rozumnou voľbou – sama som vo WordPresse weby
-                  robila, takže to nehodnotím zvonku. Ak potrebujete web rýchlo,
-                  chcete si obsah spravovať sami a vzhľad z ponuky šablón vám
-                  vyhovuje, povedzme si to hneď, keď sa mi ozvete. Neprehováram
-                  nikoho do riešenia, ktoré nepotrebuje.
-                </p>
-                <p>
-                  Web na mieru má zmysel inde: keď má vyzerať ako vaša značka a
-                  nie ako šablóna, a keď vám záleží na rýchlosti načítania.
-                  Ručne písaná stránka nesie len to, čo naozaj potrebujete –
-                  žiadny kód navyše, ktorý by ju spomaľoval.
-                </p>
-              </div>
-            </details>
-            <details class="faq-item" name="faq">
-              <summary>
-                <span>Robíte aj e-shopy?</span>
-                <span aria-hidden="true" class="faq-marker"></span>
-              </summary>
-              <div class="faq-answer">
-                <p>
-                  Nie. Venujem sa prezentačným webom – bary a kaviarne,
-                  ubytovanie, služby, salóny, malé značky. Ak potrebujete
-                  predávať online, radšej vám odporučím niekoho, kto e-shopy
-                  robí dennodenne, než aby som sa to učila na vašom projekte.
-                </p>
-              </div>
-            </details>
+
+              <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
-    <footer class="footer" id="kontakt">
-      <div class="container">
-        <div class="footer-cta reveal">
-          <div class="footer-cta-copy">
-            <p class="eyebrow">KONTAKT</p>
-            <h2>Povedzte mi o svojom projekte.</h2>
-            <p class="footer-cta-lead">
-              Stačí pár riadkov o tom, čo robíte a čo od webu očakávate. Ozvem
-              sa do 24 hodín s návrhom ďalšieho postupu.
+
+    <footer class="footer">
+      <canvas class="dither" data-dither aria-hidden="true"></canvas>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-about">
+            <p class="mono">web design studio</p>
+            <p>
+              Moderné weby na mieru pre malé firmy a&nbsp;podnikateľov na
+              Slovensku a&nbsp;v&nbsp;Česku.
             </p>
-            <p class="footer-cta-note">alebo napíšte priamo na</p>
-            <div class="email-tooltip">
+            <span class="copy-mail">
               <button
-                aria-describedby="email-tooltip-text"
-                class="contact-email"
-                data-copy-email="hello@by-simona.eu"
+                class="copy-mail-button"
                 type="button"
+                data-copy="hello@by-simona.eu"
+                aria-describedby="copy-tip-footer"
               >
                 hello@by-simona.eu
               </button>
               <span
-                class="email-tooltip__text"
-                id="email-tooltip-text"
+                class="mono copy-mail-tip"
+                id="copy-tip-footer"
                 role="tooltip"
+                >Napíšte mi</span
               >
-                Kliknite pre skopírovanie
-              </span>
-            </div>
+              <span
+                class="visually-hidden copy-mail-live"
+                role="status"
+                aria-live="polite"
+              ></span>
+            </span>
           </div>
-          <form
-            action="https://api.web3forms.com/submit"
-            class="contact-form"
-            id="kontaktny-formular"
-            method="POST"
-          >
-            <input
-              name="access_key"
-              type="hidden"
-              value="12629a1a-82ec-4872-847e-479985a27a0f"
-            />
-            <input
-              name="subject"
-              type="hidden"
-              value="Nový dopyt z webu by-simona.eu"
-            />
-            <input name="from_name" type="hidden" value="by-simona.eu" />
-            <input
-              autocomplete="off"
-              class="form-honeypot"
-              name="botcheck"
-              tabindex="-1"
-              type="checkbox"
-            />
 
-            <p class="form-field">
-              <label for="pole-meno">Meno a priezvisko *</label>
-              <input
-                autocomplete="name"
-                id="pole-meno"
-                name="meno"
-                required
-                type="text"
-              />
-            </p>
-            <p class="form-field">
-              <label for="pole-email">E-mail *</label>
-              <input
-                autocomplete="email"
-                id="pole-email"
-                name="email"
-                required
-                type="email"
-              />
-            </p>
-            <p class="form-field form-field-wide">
-              <label for="pole-projekt">Typ projektu</label>
-              <select id="pole-projekt" name="typ_projektu">
-                <option value="Neviem posúdiť">Zatiaľ neviem</option>
-                <option value="Štart – jednostránkový web">
-                  Štart – jednostránkový web
-                </option>
-                <option value="Štandard – web do 5 podstránok">
-                  Štandard – web do 5 podstránok
-                </option>
-                <option value="Riešenie na mieru">Riešenie na mieru</option>
-                <option value="Správa existujúceho webu">
-                  Správa existujúceho webu
-                </option>
-              </select>
-            </p>
-            <p class="form-field form-field-wide">
-              <label for="pole-sprava">Čo potrebujete? *</label>
-              <textarea
-                id="pole-sprava"
-                name="sprava"
-                required
-                rows="4"
-              ></textarea>
-            </p>
-            <label class="form-consent" for="pole-suhlas">
-              <input id="pole-suhlas" name="suhlas" required type="checkbox" />
-              <span>
-                Súhlasím so spracovaním uvedených údajov na účel odpovede na môj
-                dopyt. Podrobnosti v
-                <a href="ochrana-osobnych-udajov.html">
-                  ochrane osobných údajov </a
-                >.
-              </span>
-            </label>
-            <button class="button form-submit" type="submit">
-              ODOSLAŤ DOPYT
-              <span aria-hidden="true"> ↗ </span>
-            </button>
-            <p aria-live="polite" class="form-status" role="status"></p>
-          </form>
-        </div>
-        <div class="footer-main">
-          <div class="footer-brand">
-            <a aria-label="by simona – späť na úvod" class="logo" href="#uvod"
-              ><span class="logo-word">by simona.</span
-              ><small> WEB DESIGN STUDIO </small></a
-            >
-            <p>
-              Moderné weby na mieru pre malé firmy a podnikateľov na Slovensku a
-              v Česku.
-            </p>
-          </div>
-          <nav aria-label="Odkazy v pätičke" class="footer-col">
-            <span class="footer-col-title">ODKAZY</span>
-            <a href="#uvod">Domov</a>
-            <a href="#portfolio">Práce</a>
-            <a href="#omne">O mne</a>
-            <a href="#proces">Proces</a>
-            <a href="#cennik">Cenník</a>
-            <a href="#faq">Časté otázky</a>
+          <nav class="footer-nav" aria-label="Pätička">
+            <p class="mono footer-label">[ odkazy ]</p>
+            <a class="footer-link" href="o-mne.html">O&nbsp;mne</a>
+            <a class="footer-link" href="prace.html">Práce</a>
+            <a class="footer-link" href="cennik.html">Cenník</a>
+            <a class="footer-link" href="#kontakt">Kontakt</a>
+            <a class="footer-link" href="#faq">Časté otázky</a>
           </nav>
-          <div class="footer-col">
-            <span class="footer-col-title">SLUŽBY</span>
-            <ul>
-              <li>Tvorba webových stránok</li>
-              <li>Základné SEO a Google Business Profile</li>
-              <li>Správa webu od 5 € (129 Kč) mesačne</li>
-              <li>Riešenia na mieru</li>
-            </ul>
+
+          <div class="footer-services">
+            <p class="mono footer-label">[ služby ]</p>
+            <span>Tvorba webových stránok</span>
+            <span>Základné SEO a&nbsp;Google Business Profile</span>
+            <span>Správa webu od 5 € (129 Kč) mesačne</span>
+            <span>Riešenia na mieru</span>
           </div>
         </div>
+
+        <p class="display footer-word">By <span>Simona</span></p>
+
         <div class="footer-bottom">
-          <span>
-            © <span id="year">2026</span> by simona. Všetky práva vyhradené.
-          </span>
-          <a href="ochrana-osobnych-udajov.html">Ochrana osobných údajov</a>
+          <span class="mono"
+            >© <span data-year>2026</span> by simona. všetky práva
+            vyhradené.</span
+          >
+          <div class="footer-bottom-side">
+            <a
+              class="mono uline footer-privacy"
+              href="ochrana-osobnych-udajov.html"
+              >ochrana osobných údajov</a
+            >
+          </div>
         </div>
       </div>
     </footer>

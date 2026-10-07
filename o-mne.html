@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>Ahoj, som Simona | by simona</title>
+    <meta content="V IT od roku 2017, od dátovej analytiky k frontendu. Pracujem na diaľku, beriem si naraz málo projektov a píšete priamo mne." name="description" />
+    <link href="https://by-simona.eu/o-mne.html" rel="canonical" />
+    <link href="favicon.svg" rel="icon" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sk_SK" />
+    <meta property="og:site_name" content="by simona." />
+    <meta property="og:url" content="https://by-simona.eu/o-mne.html" />
+    <meta property="og:title" content="Ahoj, som Simona | by simona" />
+    <meta property="og:description" content="V IT od roku 2017, od dátovej analytiky k frontendu. Pracujem na diaľku, beriem si naraz málo projektov a píšete priamo mne." />
+    <meta
+      property="og:image"
+      content="https://by-simona.eu/assets/og-image.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="800" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link
+      rel="preload"
+      href="fonts/archivo-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/dm-sans-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/dm-mono-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link href="styles.css" rel="stylesheet" />
+    <script defer src="main.js"></script>
+    <script defer src="cookies.js"></script>
+  </head>
+  <body>
+    <a class="skip-link mono" href="#main">Preskočiť na obsah</a>
+
+    <header class="topbar">
+      <nav class="nav" aria-label="Hlavná">
+        <a class="display nav-logo" href="index.html"
+          >By <span class="mark-logo">Simona</span></a
+        >
+        <div class="nav-links">
+            <a class="mono nav-link" href="o-mne.html" aria-current="page"
+              ><span class="nav-bracket" aria-hidden="true">[</span
+              ><span class="nav-label">o mne</span
+              ><span class="nav-bracket" aria-hidden="true">]</span></a
+            >
+            <a class="mono nav-link" href="prace.html"
+              ><span class="nav-bracket" aria-hidden="true">[</span
+              ><span class="nav-label">práce</span
+              ><span class="nav-bracket" aria-hidden="true">]</span></a
+            >
+            <a class="mono nav-link" href="cennik.html"
+              ><span class="nav-bracket" aria-hidden="true">[</span
+              ><span class="nav-label">cenník</span
+              ><span class="nav-bracket" aria-hidden="true">]</span></a
+            >
+            <a class="mono nav-link" href="index.html#faq"
+              ><span class="nav-bracket" aria-hidden="true">[</span
+              ><span class="nav-label">časté otázky</span
+              ><span class="nav-bracket" aria-hidden="true">]</span></a
+            >
+            <a class="mono nav-link" href="#kontakt"
+              ><span class="nav-bracket" aria-hidden="true">[</span
+              ><span class="nav-label">kontakt</span
+              ><span class="nav-bracket" aria-hidden="true">]</span></a
+            >
+        </div>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          data-nav-toggle
+        >
+          <span class="nav-toggle-box" aria-hidden="true">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </span>
+          <span class="mono nav-toggle-text">menu</span>
+        </button>
+      </nav>
+    </header>
+
+    <nav
+      class="mobile-nav"
+      id="mobile-nav"
+      aria-label="Mobilná navigácia"
+      data-mobile-nav
+      hidden
+    >
+      <div class="mobile-nav-head">
+        <span class="display mobile-nav-logo">By <span>Simona</span></span>
+        <button class="mobile-nav-close" type="button" data-nav-close>
+          <span class="nav-toggle-box is-close" aria-hidden="true">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </span>
+          <span class="mono">zavrieť</span>
+        </button>
+      </div>
+      <ul class="mobile-nav-list">
+          <li>
+            <a class="mobile-nav-link" href="o-mne.html" aria-current="page"
+              ><span class="mono mobile-nav-index">01</span
+              ><span class="display">O mne</span></a
+            >
+          </li>
+          <li>
+            <a class="mobile-nav-link" href="prace.html"
+              ><span class="mono mobile-nav-index">02</span
+              ><span class="display">Práce</span></a
+            >
+          </li>
+          <li>
+            <a class="mobile-nav-link" href="cennik.html"
+              ><span class="mono mobile-nav-index">03</span
+              ><span class="display">Cenník</span></a
+            >
+          </li>
+          <li>
+            <a class="mobile-nav-link" href="index.html#faq"
+              ><span class="mono mobile-nav-index">04</span
+              ><span class="display">Časté otázky</span></a
+            >
+          </li>
+          <li>
+            <a class="mobile-nav-link" href="#kontakt"
+              ><span class="mono mobile-nav-index">05</span
+              ><span class="display">Kontakt</span></a
+            >
+          </li>
+      </ul>
+      <div class="mobile-nav-foot">
+        <p class="mono">voľná na spoluprácu</p>
+        <a class="uline" href="mailto:hello@by-simona.eu">hello@by-simona.eu</a>
+      </div>
+    </nav>
+
+    <main id="main">
+      <div class="shell">
+        <section class="section-plain" id="omne" aria-labelledby="about-title">
+          <h1 class="display heading-xl heading-gap" id="about-title">
+            Ahoj, som <span class="mark">Simona</span>
+          </h1>
+
+          <div class="about-layout">
+            <div class="about-side">
+              <p class="display about-quote">
+                „Radšej si overím,<br />než by som hádala.“
+              </p>
+              <div class="tags">
+                <span class="mono tag">v&nbsp;it od 2017</span>
+                <span class="mono tag">málo projektov naraz</span>
+                <span class="mono tag">pracujem na diaľku</span>
+                <span class="mono tag-accent">píšete priamo mne</span>
+              </div>
+            </div>
+
+            <div class="about-text">
+              <p>
+                V&nbsp;IT sa pohybujem od roku 2017. Začínala som ako dátová
+                analytička na zákazníckej podpore v&nbsp;bankovom sektore –
+                v&nbsp;prostredí, kde musí byť každé číslo dohľadateľné
+                a&nbsp;nič nesmie fungovať „asi“.
+              </p>
+              <p>
+                Postupne ma to ťahalo bližšie k&nbsp;tomu, čo ľudia reálne
+                vidia a&nbsp;používajú: k&nbsp;frontendu a&nbsp;dizajnu. Naučila som sa
+                HTML, CSS a&nbsp;JavaScript a&nbsp;vo voľnom čase začala tvoriť
+                prezentačné weby.
+              </p>
+              <p>
+                Z&nbsp;toho vyrástla značka by simona. Z&nbsp;analytickej práce mi
+                zostal jeden dobrý zvyk: radšej si overím, než by som hádala.
+              </p>
+              <p>
+                Referencií mám zatiaľ pár, nie desiatky – a&nbsp;pre vás je to
+                skôr výhoda. Pracujem na diaľku, beriem si naraz málo projektov
+                a&nbsp;píšete priamo mne. Váš web teda nie je dvadsiaty
+                v&nbsp;poradí a&nbsp;mám čas na detaily, ktoré sa pri veľkom
+                objeme odfláknu.
+              </p>
+              <a class="mono uline" href="#kontakt">napísať mi ↗</a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="shell">
+      <section class="section" id="kontakt" aria-labelledby="contact-title">
+          <h2 class="display heading-xl heading-gap" id="contact-title">
+            Povedzte mi<br />o&nbsp;svojom <span class="mark">projekte</span>
+          </h2>
+
+          <div class="contact-layout">
+            <div class="contact-intro">
+              <p class="contact-text">
+                Stačí pár riadkov o&nbsp;tom, čo robíte a&nbsp;čo od webu očakávate. Ozvem
+                sa do 24 hodín s&nbsp;návrhom ďalšieho postupu.
+              </p>
+              <div>
+                <p class="mono">alebo priamo</p>
+                <span class="copy-mail">
+                  <button
+                    class="copy-mail-button contact-mail"
+                    type="button"
+                    data-copy="hello@by-simona.eu"
+                    aria-describedby="copy-tip-contact"
+                  >
+                    hello@by-simona.eu
+                  </button>
+                  <span
+                    class="mono copy-mail-tip"
+                    id="copy-tip-contact"
+                    role="tooltip"
+                    >Napíšte mi</span
+                  >
+                  <span
+                    class="visually-hidden copy-mail-live"
+                    role="status"
+                    aria-live="polite"
+                  ></span>
+                </span>
+              </div>
+            </div>
+
+            <form
+              class="contact-form"
+              id="contact-form"
+              action="https://api.web3forms.com/submit"
+              method="POST"
+            >
+              <input
+                name="access_key"
+                type="hidden"
+                value="12629a1a-82ec-4872-847e-479985a27a0f"
+              />
+              <input
+                name="subject"
+                type="hidden"
+                value="Nový dopyt z webu by-simona.eu"
+              />
+              <input name="from_name" type="hidden" value="by-simona.eu" />
+              <input
+                class="honeypot"
+                name="botcheck"
+                type="checkbox"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+              />
+
+              <p class="field">
+                <label class="mono" for="field-name">meno a&nbsp;priezvisko *</label>
+                <input
+                  id="field-name"
+                  name="meno"
+                  type="text"
+                  autocomplete="name"
+                  required
+                />
+              </p>
+              <p class="field">
+                <label class="mono" for="field-mail">e-mail *</label>
+                <input
+                  id="field-mail"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                />
+              </p>
+              <p class="field field-wide">
+                <label class="mono" for="field-type">typ projektu</label>
+                <select id="field-type" name="typ_projektu">
+                  <option value="Neviem posúdiť">Zatiaľ neviem</option>
+                  <option value="Štart – jednostránkový web">Štart</option>
+                  <option value="Štandard – web do 5 podstránok">
+                    Štandard
+                  </option>
+                  <option value="Riešenie na mieru">Na mieru</option>
+                  <option value="Správa existujúceho webu">
+                    Správa existujúceho webu
+                  </option>
+                </select>
+              </p>
+              <p class="field field-wide">
+                <label class="mono" for="field-message"
+                  >čo potrebujete? *</label
+                >
+                <textarea
+                  id="field-message"
+                  name="sprava"
+                  rows="4"
+                  required
+                ></textarea>
+              </p>
+
+              <div class="form-foot">
+                <label class="consent" for="field-consent">
+                  <input
+                    id="field-consent"
+                    name="suhlas"
+                    type="checkbox"
+                    required
+                  />
+                  <span>
+                    Súhlasím so spracovaním uvedených údajov na účel odpovede na
+                    môj dopyt. Podrobnosti v
+                    <a href="ochrana-osobnych-udajov.html"
+                      >ochrane osobných údajov</a
+                    >.
+                  </span>
+                </label>
+                <button class="send" type="submit">odoslať dopyt ↗</button>
+              </div>
+
+              <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <canvas class="dither" data-dither aria-hidden="true"></canvas>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-about">
+            <p class="mono">web design studio</p>
+            <p>
+              Moderné weby na mieru pre malé firmy a&nbsp;podnikateľov na Slovensku a&nbsp;v&nbsp;Česku.
+            </p>
+            <span class="copy-mail">
+              <button
+                class="copy-mail-button"
+                type="button"
+                data-copy="hello@by-simona.eu"
+                aria-describedby="copy-tip-footer"
+              >
+                hello@by-simona.eu
+              </button>
+              <span
+                class="mono copy-mail-tip"
+                id="copy-tip-footer"
+                role="tooltip"
+                >Napíšte mi</span
+              >
+              <span
+                class="visually-hidden copy-mail-live"
+                role="status"
+                aria-live="polite"
+              ></span>
+            </span>
+          </div>
+
+          <nav class="footer-nav" aria-label="Pätička">
+            <p class="mono footer-label">[ odkazy ]</p>
+            <a class="footer-link" href="o-mne.html">O&nbsp;mne</a>
+            <a class="footer-link" href="prace.html">Práce</a>
+            <a class="footer-link" href="cennik.html">Cenník</a>
+            <a class="footer-link" href="#kontakt">Kontakt</a>
+            <a class="footer-link" href="index.html#faq">Časté otázky</a>
+          </nav>
+
+          <div class="footer-services">
+            <p class="mono footer-label">[ služby ]</p>
+            <span>Tvorba webových stránok</span>
+            <span>Základné SEO a&nbsp;Google Business Profile</span>
+            <span>Správa webu od 5 € (129 Kč) mesačne</span>
+            <span>Riešenia na mieru</span>
+          </div>
+        </div>
+
+        <p class="display footer-word">By <span>Simona</span></p>
+
+        <div class="footer-bottom">
+          <span class="mono"
+            >© <span data-year>2026</span> by simona. všetky práva
+            vyhradené.</span
+          >
+          <div class="footer-bottom-side">
+            <a
+              class="mono uline footer-privacy"
+              href="ochrana-osobnych-udajov.html"
+              >ochrana osobných údajov</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

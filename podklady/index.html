@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1" name="viewport" />
-    <meta content="#20352c" name="theme-color" />
+    <meta content="#ffffff" name="theme-color" />
     <title>Podklady na web | by simona</title>
     <meta content="noindex, nofollow" name="robots" />
     <meta
@@ -13,12 +13,65 @@
     <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
     <link
       rel="preload"
+      href="/fonts/archivo-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
       href="/fonts/dm-sans-latin.woff2"
       as="font"
       type="font/woff2"
       crossorigin
     />
     <style>
+      @font-face {
+        font-family: "Archivo";
+        font-style: normal;
+        font-weight: 400 900;
+        font-stretch: 62% 125%;
+        font-display: swap;
+        src: url("/fonts/archivo-latin.woff2") format("woff2");
+        unicode-range:
+          U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Archivo";
+        font-style: normal;
+        font-weight: 400 900;
+        font-stretch: 62% 125%;
+        font-display: swap;
+        src: url("/fonts/archivo-latin-ext.woff2") format("woff2");
+        unicode-range:
+          U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+          U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+          U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: "DM Mono";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/fonts/dm-mono-latin.woff2") format("woff2");
+        unicode-range:
+          U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "DM Mono";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/fonts/dm-mono-latin-ext.woff2") format("woff2");
+        unicode-range:
+          U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+          U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+          U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
       @font-face {
         font-family: "DM Sans";
         font-style: normal;
@@ -43,15 +96,17 @@
       }
 
       :root {
-        --cream: #fbfaf7;
-        --paper: #f6f4ef;
-        --ink: #202e29;
-        --forest: #205741;
-        --btn: #366351;
-        --line: #dedfd8;
-        --white: #fff;
-        --radius: 12px;
-        --radius-sm: 8px;
+        --ink: #1a1a18;
+        --panel: #ffffff;
+        --paper: #eeeae2;
+        --accent: #4c1d95;
+        --accent-soft: #c3b2ec;
+        --wine: #8c2f39;
+        --grey: #5d5a53;
+        --grey-text: #3d3a34;
+        --light: #f4f2ec;
+        --rule-soft: #d9d5cc;
+        --field: #f7f6f1;
       }
 
       * {
@@ -61,101 +116,141 @@
         display: none !important;
       }
       ::selection {
-        background: var(--forest);
-        color: var(--white);
+        background: var(--accent);
+        color: var(--light);
       }
       html {
-        font-size: 116%;
         -webkit-text-size-adjust: 100%;
+        background: var(--paper);
       }
       body {
         margin: 0;
-        background: var(--cream);
+        background: var(--paper);
         color: var(--ink);
         font:
-          500 1rem/1.6 "DM Sans",
+          400 17px/1.65 "DM Sans",
           Arial,
           sans-serif;
         -webkit-font-smoothing: antialiased;
         overflow-x: hidden;
       }
+      a {
+        color: var(--accent);
+      }
+      a:hover {
+        color: var(--ink);
+      }
+      :focus-visible {
+        outline: 2px solid var(--ink);
+        outline-offset: 3px;
+      }
+
+      .display {
+        font-family: "Archivo", "Arial Narrow", sans-serif;
+        font-variation-settings:
+          "wdth" 64,
+          "wght" 800;
+        font-weight: 800;
+        letter-spacing: -0.015em;
+        line-height: 0.86;
+        text-transform: uppercase;
+      }
+      .mono {
+        font-family: "DM Mono", ui-monospace, monospace;
+        font-variation-settings: normal;
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--grey);
+      }
 
       .container {
-        width: min(100% - 2rem, 680px);
+        width: min(100%, 760px);
         margin-inline: auto;
-        padding-block: 2rem 4rem;
+        padding: clamp(28px, 5vw, 56px) clamp(20px, 2.6vw, 38px)
+          clamp(56px, 8vw, 96px);
+        background: var(--panel);
       }
 
       .page-header {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        gap: 0.5rem 0.75rem;
-        margin-bottom: 2rem;
+        margin-bottom: clamp(40px, 6vw, 72px);
       }
       .brand {
-        font-size: 1.35rem;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        color: var(--forest);
+        display: inline-block;
+        font-family: "Archivo", "Arial Narrow", sans-serif;
+        font-variation-settings:
+          "wdth" 64,
+          "wght" 800;
+        font-weight: 800;
+        font-size: clamp(26px, 3vw, 34px);
+        line-height: 1;
+        letter-spacing: -0.015em;
+        text-transform: uppercase;
+        color: var(--ink);
         text-decoration: none;
       }
-      .brand small {
-        display: block;
-        font-size: 0.62rem;
-        font-weight: 600;
-        letter-spacing: 0.16em;
-        color: var(--ink);
-        margin-top: 0.2rem;
+      .brand span {
+        background: var(--accent);
+        color: var(--panel);
+        padding: 0 0.06em;
       }
 
       h1 {
-        font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);
-        line-height: 1.15;
-        letter-spacing: -0.025em;
-        text-wrap: balance;
-        margin: 0 0 0.85rem;
+        margin: 0 0 20px;
+        font-family: "Archivo", "Arial Narrow", sans-serif;
+        font-variation-settings:
+          "wdth" 64,
+          "wght" 800;
+        font-weight: 800;
+        font-size: clamp(38px, 7vw, 76px);
+        line-height: 0.86;
+        letter-spacing: -0.015em;
+        text-transform: uppercase;
       }
 
       .intro {
-        color: var(--ink);
-        margin: 0 0 1.25rem;
-        max-width: 56ch;
+        margin: 0 0 28px;
+        color: var(--grey-text);
       }
 
       .reassurance {
+        margin: 0 0 28px;
+        padding: 18px 22px;
         background: var(--paper);
-        border-left: 3px solid var(--forest);
-        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-        padding: 0.9rem 1.1rem;
-        margin: 0 0 1.5rem;
-        font-size: 0.95rem;
+        border-left: 2px solid var(--accent);
+        font-size: 16px;
+        line-height: 1.6;
       }
       .reassurance strong {
-        color: var(--forest);
+        color: var(--accent);
       }
 
       .meta {
         display: flex;
         flex-direction: column;
-        gap: 0.4rem 1.25rem;
-        font-size: 0.83rem;
-        color: var(--ink);
-        margin: 0 0 2rem;
+        gap: 8px;
+        margin: 0 0 clamp(40px, 6vw, 64px);
         padding: 0;
         list-style: none;
+        font-family: "DM Mono", ui-monospace, monospace;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        line-height: 1.7;
+        text-transform: uppercase;
+        color: var(--grey);
       }
       .meta li::before {
-        content: "— ";
+        content: "/ ";
       }
 
       .progress {
         position: sticky;
         top: 0;
         z-index: 5;
-        background: var(--cream);
-        padding-block: 0.85rem;
-        margin-bottom: 1.25rem;
+        background: var(--panel);
+        padding-block: 16px;
+        margin-bottom: 8px;
       }
       .progress-label:focus {
         outline: none;
@@ -164,64 +259,68 @@
         display: flex;
         justify-content: space-between;
         align-items: baseline;
-        gap: 1rem;
-        font-size: 0.78rem;
-        font-weight: 600;
-        letter-spacing: 0.1em;
+        gap: 16px;
+        margin-bottom: 10px;
+        font-family: "DM Mono", ui-monospace, monospace;
+        font-size: 12px;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
-        color: var(--ink);
-        margin-bottom: 0.55rem;
+        color: var(--grey);
       }
       .progress-track {
-        height: 4px;
-        background: var(--line);
-        border-radius: 99px;
+        height: 2px;
+        background: var(--rule-soft);
         overflow: hidden;
       }
       .progress-fill {
         height: 100%;
         width: 20%;
-        background: var(--forest);
-        border-radius: 99px;
+        background: var(--accent);
         transition: width 0.3s ease;
       }
 
       .step {
-        background: var(--white);
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        padding: clamp(1.25rem, 4vw, 2rem);
+        padding: clamp(28px, 4vw, 40px) 0 0;
+        border-top: 1px solid var(--ink);
       }
       .step h2 {
-        font-size: 1.3rem;
+        margin: 0 0 12px;
+        font-family: "Archivo", "Arial Narrow", sans-serif;
+        font-variation-settings:
+          "wdth" 64,
+          "wght" 800;
+        font-weight: 800;
+        font-size: clamp(28px, 3.4vw, 44px);
+        line-height: 0.9;
         letter-spacing: -0.015em;
-        margin: 0 0 0.4rem;
+        text-transform: uppercase;
       }
       .step-intro {
-        color: var(--ink);
-        font-size: 0.92rem;
-        margin: 0 0 1.75rem;
+        margin: 0 0 clamp(28px, 4vw, 40px);
+        color: var(--grey-text);
       }
 
       .field {
         display: flex;
         flex-direction: column;
-        gap: 0.4rem;
-        margin: 0 0 1.4rem;
+        gap: 10px;
+        margin: 0 0 28px;
       }
       .field > label,
       .segments legend {
-        font-size: 0.88rem;
-        font-weight: 600;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 1.45;
+        color: var(--ink);
       }
       .hint {
-        font-size: 0.83rem;
-        color: var(--ink);
+        font-size: 14px;
         line-height: 1.5;
+        color: var(--grey-text);
       }
       .optional {
-        font-weight: 500;
-        color: var(--ink);
+        font-weight: 400;
+        color: var(--grey);
       }
 
       input[type="text"],
@@ -231,64 +330,70 @@
       textarea {
         width: 100%;
         font: inherit;
-        font-size: 1rem;
+        font-size: 18px;
         color: var(--ink);
-        background: var(--cream);
-        border: 1px solid var(--line);
-        border-radius: var(--radius-sm);
-        padding: 0.7rem 0.85rem;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid var(--ink);
+        border-radius: 0;
+        padding: 10px 0;
+        min-height: 44px;
+        outline: none;
       }
       textarea {
         resize: vertical;
-        min-height: 5.5rem;
+        min-height: 120px;
         line-height: 1.55;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-bottom: 2px solid var(--ink);
+        background: var(--field);
       }
       input:focus-visible,
       select:focus-visible,
-      textarea:focus-visible,
-      button:focus-visible,
-      a:focus-visible {
-        outline: 3px solid #8ca695;
-        outline-offset: 2px;
+      textarea:focus-visible {
+        outline: none;
       }
       input::placeholder,
       textarea::placeholder {
-        color: #9aa79f;
+        color: var(--grey);
       }
 
       .segments {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 0.65rem;
+        gap: 10px;
         border: 0;
         padding: 0;
-        margin: 0 0 1.4rem;
+        margin: 0 0 28px;
       }
       .segments legend {
         grid-column: 1 / -1;
         padding: 0;
-        margin-bottom: 0.65rem;
+        margin-bottom: 12px;
       }
 
       .confirmed {
         display: flex;
         flex-direction: column;
-        gap: 0.2rem;
+        gap: 6px;
+        margin: 0 0 28px;
+        padding: 16px 20px;
         background: var(--paper);
-        border-left: 3px solid var(--forest);
-        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-        padding: 0.8rem 1.1rem;
-        margin: 0 0 1.4rem;
+        border-left: 2px solid var(--accent);
       }
       .confirmed span {
-        font-size: 0.75rem;
-        font-weight: 600;
-        letter-spacing: 0.09em;
+        font-family: "DM Mono", ui-monospace, monospace;
+        font-size: 12px;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
+        color: var(--grey);
       }
       .confirmed strong {
-        font-size: 1rem;
-        color: var(--forest);
+        font-size: 17px;
+        color: var(--accent);
       }
 
       .reveal-field {
@@ -310,7 +415,7 @@
       .reveal-field.is-open {
         grid-template-rows: 1fr;
         opacity: 1;
-        margin-bottom: 1.4rem;
+        margin-bottom: 28px;
         visibility: visible;
         transition:
           grid-template-rows 0.35s ease,
@@ -321,6 +426,7 @@
       .reveal-field .field {
         margin-bottom: 0;
       }
+
       .segment {
         position: relative;
         display: block;
@@ -333,74 +439,86 @@
       }
       .segment span {
         display: block;
-        border: 1px solid var(--line);
-        border-radius: var(--radius-sm);
-        padding: 0.8rem 0.9rem;
-        background: var(--cream);
-        font-size: 0.92rem;
-        font-weight: 600;
+        padding: 14px 16px;
+        border: 1px solid var(--rule-soft);
+        background: var(--field);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.4;
         cursor: pointer;
+        transition:
+          background 0.2s linear,
+          border-color 0.2s linear,
+          color 0.2s linear;
       }
       .segment small {
         display: block;
-        font-weight: 500;
-        font-size: 0.78rem;
-        color: var(--ink);
-        margin-top: 0.15rem;
+        margin-top: 4px;
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--grey-text);
+      }
+      .segment span:hover {
+        border-color: var(--ink);
       }
       .segment input:checked + span {
-        border-color: var(--forest);
-        background: var(--paper);
-        box-shadow: inset 0 0 0 1px var(--forest);
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--panel);
+      }
+      .segment input:checked + span small {
+        color: var(--accent-soft);
       }
       .segment input:focus-visible + span {
-        outline: 3px solid #8ca695;
-        outline-offset: 2px;
+        outline: 2px solid var(--ink);
+        outline-offset: 3px;
       }
 
       .consent {
         display: flex;
-        gap: 0.7rem;
+        gap: 12px;
         align-items: flex-start;
-        font-size: 0.87rem;
-        color: var(--ink);
-        line-height: 1.55;
-        margin-top: 1.5rem;
+        margin-top: 28px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--grey-text);
+        cursor: pointer;
       }
       .consent input {
-        margin-top: 0.2rem;
         flex-shrink: 0;
-        width: 1.05rem;
-        height: 1.05rem;
-        accent-color: var(--forest);
-      }
-      .consent a {
-        color: var(--forest);
+        width: 20px;
+        height: 20px;
+        margin: 2px 0 0;
+        accent-color: var(--ink);
       }
 
       .controls {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.75rem;
+        gap: 12px;
         align-items: center;
-        margin-top: 1.75rem;
+        margin-top: clamp(28px, 4vw, 40px);
       }
       .btn {
-        font: inherit;
-        font-weight: 600;
-        font-size: 0.95rem;
-        letter-spacing: 0.04em;
-        border-radius: 99px;
-        padding: 0.8rem 1.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "DM Mono", ui-monospace, monospace;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        min-height: 56px;
+        padding: 0 30px;
+        border: 1px solid var(--ink);
+        border-radius: 0;
         cursor: pointer;
-        border: 1px solid transparent;
       }
       .btn-primary {
-        background: var(--btn);
-        color: var(--white);
+        background: var(--accent);
+        color: var(--light);
       }
       .btn-primary:hover {
-        background: var(--forest);
+        background: var(--ink);
       }
       .btn-primary[disabled] {
         opacity: 0.55;
@@ -409,58 +527,63 @@
       .btn-secondary {
         background: transparent;
         color: var(--ink);
-        border-color: var(--line);
       }
       .btn-secondary:hover {
-        color: var(--ink);
-        border-color: var(--ink);
+        background: var(--ink);
+        color: var(--panel);
       }
 
       .form-status {
-        font-size: 0.88rem;
-        margin: 1rem 0 0;
+        margin: 20px 0 0;
         min-height: 1.4em;
+        font-size: 15px;
+        line-height: 1.5;
+        color: var(--grey-text);
       }
       .form-status.is-error {
-        color: #9d3427;
+        color: var(--wine);
       }
 
       .done {
-        background: var(--white);
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        padding: clamp(1.5rem, 5vw, 2.5rem);
+        padding: clamp(32px, 5vw, 56px) 0 0;
+        border-top: 1px solid var(--ink);
         text-align: center;
       }
       .done h2 {
-        font-size: 1.5rem;
-        margin: 0 0 0.6rem;
-        letter-spacing: -0.02em;
+        margin: 0 0 14px;
+        font-family: "Archivo", "Arial Narrow", sans-serif;
+        font-variation-settings:
+          "wdth" 64,
+          "wght" 800;
+        font-weight: 800;
+        font-size: clamp(28px, 3.4vw, 44px);
+        line-height: 0.9;
+        letter-spacing: -0.015em;
+        text-transform: uppercase;
       }
       .done p {
-        color: var(--ink);
-        margin: 0 auto;
-        max-width: 42ch;
+        margin: 0;
+        color: var(--grey-text);
       }
 
       .saved-note {
-        font-size: 0.8rem;
-        color: var(--ink);
-        text-align: center;
-        margin-top: 1.25rem;
+        margin-top: 24px;
         min-height: 1.3em;
+        text-align: center;
+        font-family: "DM Mono", ui-monospace, monospace;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--grey);
       }
 
       .page-footer {
-        margin-top: 2.5rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid var(--line);
-        font-size: 0.85rem;
-        color: var(--ink);
+        margin-top: clamp(48px, 7vw, 80px);
+        padding-top: 24px;
+        border-top: 1px solid var(--rule-soft);
+        font-size: 14px;
+        color: var(--grey-text);
         text-align: center;
-      }
-      .page-footer a {
-        color: var(--forest);
       }
 
       .honeypot {
@@ -482,7 +605,7 @@
   <body>
     <div class="container">
       <header class="page-header">
-        <a class="brand" href="/">by simona.<small>WEB DESIGN STUDIO</small></a>
+        <a class="brand" href="/">by <span>simona.</span></a>
       </header>
 
       <h1>Podklady na váš web</h1>

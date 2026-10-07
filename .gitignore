@@ -1,5 +1,9 @@
 # Sass build artefakt – style.css sa commituje, mapa nie.
 style.css.map
+styles.css.map
+
+# Editor
+.vscode/
 
 # OS
 .DS_Store

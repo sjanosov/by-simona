@@ -3,131 +3,332 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1" name="viewport" />
-    <meta content="#20352c" name="theme-color" />
+    <meta content="#ffffff" name="theme-color" />
     <title>Ochrana osobných údajov | by simona</title>
+    <meta content="Informácie o spracúvaní osobných údajov na webe by simona – kontaktný formulár, cookies a vaše práva." name="description" />
+    <link href="https://by-simona.eu/ochrana-osobnych-udajov.html" rel="canonical" />
+    <link href="favicon.svg" rel="icon" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sk_SK" />
+    <meta property="og:site_name" content="by simona." />
+    <meta property="og:url" content="https://by-simona.eu/ochrana-osobnych-udajov.html" />
+    <meta property="og:title" content="Ochrana osobných údajov | by simona" />
+    <meta property="og:description" content="Informácie o spracúvaní osobných údajov na webe by simona – kontaktný formulár, cookies a vaše práva." />
     <meta
-      content="Informácie o spracúvaní osobných údajov na webe by simona – kontakt e-mailom, cookies a vaše práva."
-      name="description"
+      property="og:image"
+      content="https://by-simona.eu/assets/og-image.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="800" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link
+      rel="preload"
+      href="fonts/archivo-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
     <link
-      href="https://by-simona.eu/ochrana-osobnych-udajov.html"
-      rel="canonical"
+      rel="preload"
+      href="fonts/dm-sans-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
-    <link href="favicon.svg" rel="icon" type="image/svg+xml" />
-    <link href="style.css" rel="stylesheet" />
+    <link
+      rel="preload"
+      href="fonts/dm-mono-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link href="styles.css" rel="stylesheet" />
+    <script defer src="main.js"></script>
     <script defer src="cookies.js"></script>
   </head>
   <body>
-    <header class="header">
-      <div class="container nav">
-        <a aria-label="by simona – úvod" class="logo" href="index.html"
-          ><span class="logo-word">by simona.</span
-          ><small> WEB DESIGN STUDIO </small></a
+    <a class="skip-link mono" href="#main">Preskočiť na obsah</a>
+
+    <header class="topbar">
+      <nav class="nav" aria-label="Hlavná">
+        <a class="display nav-logo" href="index.html"
+          >By <span class="mark-logo">Simona</span></a
         >
-        <a class="button button-outline" href="index.html">← Späť na úvod</a>
-      </div>
-    </header>
-    <main class="container section legal" id="obsah">
-      <p class="eyebrow">INFORMÁCIE</p>
-      <h1>Ochrana osobných údajov</h1>
-
-      <h2>Prevádzkovateľ</h2>
-      <p>
-        <strong>Simona Jánošová</strong><br />
-        E-mail: <a href="mailto:hello@by-simona.eu">hello@by-simona.eu</a>
-      </p>
-
-      <h2>Kontaktný formulár a e-mail</h2>
-      <p>
-        Cez kontaktný formulár spracúvam údaje, ktoré v ňom vyplníte – meno a
-        priezvisko, e-mailovú adresu, typ projektu, orientačný rozpočet a obsah
-        správy. To isté platí, ak mi napíšete e-mail priamo. Údaje používam
-        výhradne na účel odpovede na váš dopyt a prípravy ponuky. Právnym
-        základom je vykonanie opatrení pred uzavretím zmluvy na vašu žiadosť
-        (čl. 6 ods. 1 písm. b) GDPR). Korešpondenciu uchovávam len tak dlho, ako
-        je to potrebné na vybavenie dopytu, prípadne počas trvania spolupráce.
-      </p>
-      <p>
-        Odoslanie formulára technicky zabezpečuje služba
-        <strong>Web3Forms</strong>, ktorá správu doručí na moju e-mailovú adresu
-        a vystupuje ako sprostredkovateľ. Obsah formulára teda prechádza cez jej
-        servery. Prevádzkovateľom služby je Web3Forms; podmienky spracúvania
-        nájdete na
-        <a
-          href="https://web3forms.com/privacy"
-          rel="noopener noreferrer"
-          target="_blank"
+        <div class="nav-links">
+            <a class="mono nav-link" href="o-mne.html"
+              ><span class="nav-bracket" aria-hidden="true">[</span
+              ><span class="nav-label">o mne</span
+              ><span class="nav-bracket" aria-hidden="true">]</span></a
+            >
+            <a class="mono nav-link" href="prace.html"
+              ><span class="nav-bracket" aria-hidden="true">[</span
+              ><span class="nav-label">práce</span
+              ><span class="nav-bracket" aria-hidden="true">]</span></a
+            >
+            <a class="mono nav-link" href="cennik.html"
+              ><span class="nav-bracket" aria-hidden="true">[</span
+              ><span class="nav-label">cenník</span
+              ><span class="nav-bracket" aria-hidden="true">]</span></a
+            >
+            <a class="mono nav-link" href="index.html#faq"
+              ><span class="nav-bracket" aria-hidden="true">[</span
+              ><span class="nav-label">časté otázky</span
+              ><span class="nav-bracket" aria-hidden="true">]</span></a
+            >
+            <a class="mono nav-link" href="index.html#kontakt"
+              ><span class="nav-bracket" aria-hidden="true">[</span
+              ><span class="nav-label">kontakt</span
+              ><span class="nav-bracket" aria-hidden="true">]</span></a
+            >
+        </div>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          data-nav-toggle
         >
-          web3forms.com/privacy</a
-        >. Ak si neželáte údaje odosielať cez túto službu, napíšte mi prosím
-        priamo na <a href="mailto:hello@by-simona.eu">hello@by-simona.eu</a>.
-      </p>
-
-      <h2>Cookies a analytika</h2>
-      <p>
-        Pri bežnej návšteve web neukladá žiadne cookies. Písma sú hosťované
-        priamo na tomto webe, takže sa pri prezeraní stránky neodosielajú údaje
-        tretím stranám. To isté platí aj pre ukážkové weby v sekcii /ukazky/.
-      </p>
-      <p>
-        S vaším súhlasom používam službu <strong>Google Analytics 4</strong>
-        (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Írsko),
-        aby som vedela, koľko ľudí web navštívilo, ktoré stránky si prezerali a
-        odkiaľ prišli. Služba na to ukladá do vášho prehliadača cookies
-        s názvami _ga a _ga_* s platnosťou do dvoch rokov a odosiela Googlu
-        údaje o návšteve – skrátenú IP adresu, typ zariadenia, prehliadač a
-        približnú lokalitu. Údaje vidím len v súhrnnej podobe, nepoužívam ich na
-        reklamu ani na identifikáciu konkrétnych osôb. Google môže údaje
-        spracúvať aj na serveroch v USA na základe štandardných zmluvných
-        klauzúl. Podrobnosti sú v
-        <a
-          href="https://policies.google.com/privacy"
-          rel="noopener noreferrer"
-          target="_blank"
-          >zásadách ochrany súkromia Google</a
-        >.
-      </p>
-      <p>
-        Analytika sa spustí až vtedy, keď pri prvej návšteve kliknete v lište na
-        „Súhlasím“. Ak súhlas odmietnete alebo lištu necháte bez odpovede,
-        neuloží sa žiadne cookie a Googlu sa neodošle nič. Právnym základom je
-        váš súhlas (čl. 6 ods. 1 písm. a) GDPR), ktorý môžete kedykoľvek
-        odvolať bez vplyvu na zákonnosť predchádzajúceho spracúvania.
-      </p>
-      <p>
-        <button class="button button-outline" data-cookie-reset type="button">
-          Zmeniť rozhodnutie o cookies
+          <span class="nav-toggle-box" aria-hidden="true">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </span>
+          <span class="mono nav-toggle-text">menu</span>
         </button>
-      </p>
-      <p>
-        Odoslanie kontaktného formulára je popísané vyššie a s cookies nesúvisí.
-      </p>
-      <p>
-        Poskytovateľ hostingu môže pri zobrazení stránky automaticky
-        zaznamenávať technické údaje (napr. IP adresu a čas prístupu) na účely
-        zabezpečenia a prevádzky služby.
-      </p>
+      </nav>
+    </header>
 
-      <h2>Vaše práva</h2>
-      <p>Za podmienok stanovených GDPR máte právo:</p>
-      <ul>
-        <li>na prístup k svojim osobným údajom,</li>
-        <li>na ich opravu alebo vymazanie,</li>
-        <li>na obmedzenie spracúvania a namietať proti spracúvaniu,</li>
-        <li>na prenosnosť údajov,</li>
-        <li>
-          podať sťažnosť na Úrad na ochranu osobných údajov Slovenskej
-          republiky.
-        </li>
+    <nav
+      class="mobile-nav"
+      id="mobile-nav"
+      aria-label="Mobilná navigácia"
+      data-mobile-nav
+      hidden
+    >
+      <div class="mobile-nav-head">
+        <span class="display mobile-nav-logo">By <span>Simona</span></span>
+        <button class="mobile-nav-close" type="button" data-nav-close>
+          <span class="nav-toggle-box is-close" aria-hidden="true">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </span>
+          <span class="mono">zavrieť</span>
+        </button>
+      </div>
+      <ul class="mobile-nav-list">
+          <li>
+            <a class="mobile-nav-link" href="o-mne.html"
+              ><span class="mono mobile-nav-index">01</span
+              ><span class="display">O mne</span></a
+            >
+          </li>
+          <li>
+            <a class="mobile-nav-link" href="prace.html"
+              ><span class="mono mobile-nav-index">02</span
+              ><span class="display">Práce</span></a
+            >
+          </li>
+          <li>
+            <a class="mobile-nav-link" href="cennik.html"
+              ><span class="mono mobile-nav-index">03</span
+              ><span class="display">Cenník</span></a
+            >
+          </li>
+          <li>
+            <a class="mobile-nav-link" href="index.html#faq"
+              ><span class="mono mobile-nav-index">04</span
+              ><span class="display">Časté otázky</span></a
+            >
+          </li>
+          <li>
+            <a class="mobile-nav-link" href="index.html#kontakt"
+              ><span class="mono mobile-nav-index">05</span
+              ><span class="display">Kontakt</span></a
+            >
+          </li>
       </ul>
-      <p>
-        Svoje práva môžete uplatniť e-mailom na
-        <a href="mailto:hello@by-simona.eu">hello@by-simona.eu</a>.
-      </p>
+      <div class="mobile-nav-foot">
+        <p class="mono">voľná na spoluprácu</p>
+        <a class="uline" href="mailto:hello@by-simona.eu">hello@by-simona.eu</a>
+      </div>
+    </nav>
 
-      <p class="legal-updated">Aktualizované 30. 9. 2026</p>
+    <main id="main">
+      <div class="shell">
+        <section class="section-plain legal" id="sukromie" aria-labelledby="legal-title">
+          <p class="mono">( informácie )</p>
+          <h1 class="display" id="legal-title">Ochrana osobných údajov</h1>
 
-      <p><a href="index.html">← Späť na stránku by simona</a></p>
+          <h2 class="display">Prevádzkovateľ</h2>
+          <p>
+            <strong>Simona Jánošová</strong><br />
+            E-mail: <a href="mailto:hello@by-simona.eu">hello@by-simona.eu</a>
+          </p>
+
+          <h2 class="display">Kontaktný formulár a&nbsp;e-mail</h2>
+          <p>
+            Cez kontaktný formulár spracúvam údaje, ktoré v&nbsp;ňom vyplníte –
+            meno a&nbsp;priezvisko, e-mailovú adresu, typ projektu a&nbsp;obsah
+            správy. To isté platí, ak mi napíšete e-mail priamo. Údaje
+            používam výhradne na účel odpovede na váš dopyt a&nbsp;prípravy
+            ponuky. Právnym základom je vykonanie opatrení pred uzavretím
+            zmluvy na vašu žiadosť (čl. 6 ods. 1 písm. b) GDPR). Korešpondenciu
+            uchovávam len tak dlho, ako je to potrebné na vybavenie dopytu,
+            prípadne počas trvania spolupráce.
+          </p>
+          <p>
+            Odoslanie formulára technicky zabezpečuje služba
+            <strong>Web3Forms</strong>, ktorá správu doručí na moju e-mailovú
+            adresu a&nbsp;vystupuje ako sprostredkovateľ. Obsah formulára teda
+            prechádza cez jej servery. Prevádzkovateľom služby je Web3Forms;
+            podmienky spracúvania nájdete na
+            <a
+              href="https://web3forms.com/privacy"
+              rel="noopener noreferrer"
+              target="_blank"
+              >web3forms.com/privacy</a
+            >. Ak si neželáte údaje odosielať cez túto službu, napíšte mi
+            prosím priamo na <a href="mailto:hello@by-simona.eu">hello@by-simona.eu</a>.
+          </p>
+
+          <h2 class="display">Cookies a&nbsp;analytika</h2>
+          <p>
+            Pri bežnej návšteve web neukladá žiadne cookies. Písma sú
+            hosťované priamo na tomto webe, takže sa pri prezeraní stránky
+            neodosielajú údaje tretím stranám. To isté platí aj pre ukážkové
+            weby v&nbsp;sekcii /ukazky/.
+          </p>
+          <p>
+            S&nbsp;vaším súhlasom používam službu
+            <strong>Google Analytics 4</strong> (Google Ireland Limited,
+            Gordon House, Barrow Street, Dublin 4, Írsko), aby som vedela,
+            koľko ľudí web navštívilo, ktoré stránky si prezerali a&nbsp;odkiaľ
+            prišli. Služba na to ukladá do vášho prehliadača cookies s&nbsp;názvami
+            _ga a&nbsp;_ga_* s&nbsp;platnosťou do dvoch rokov a&nbsp;odosiela Googlu údaje
+            o&nbsp;návšteve – skrátenú IP adresu, typ zariadenia, prehliadač
+            a&nbsp;približnú lokalitu. Údaje vidím len v&nbsp;súhrnnej podobe,
+            nepoužívam ich na reklamu ani na identifikáciu konkrétnych osôb.
+            Google môže údaje spracúvať aj na serveroch v&nbsp;USA na základe
+            štandardných zmluvných klauzúl. Podrobnosti sú v
+            <a
+              href="https://policies.google.com/privacy"
+              rel="noopener noreferrer"
+              target="_blank"
+              >zásadách ochrany súkromia Google</a
+            >.
+          </p>
+          <p>
+            Analytika sa spustí až vtedy, keď pri prvej návšteve kliknete
+            v&nbsp;lište na „Súhlasím“. Ak súhlas odmietnete alebo lištu necháte
+            bez odpovede, neuloží sa žiadne cookie a&nbsp;Googlu sa neodošle nič.
+            Právnym základom je váš súhlas (čl. 6 ods. 1 písm. a) GDPR), ktorý
+            môžete kedykoľvek odvolať bez vplyvu na zákonnosť predchádzajúceho
+            spracúvania.
+          </p>
+          <p>
+            <button class="btn mono" data-cookie-reset type="button">
+              zmeniť rozhodnutie o&nbsp;cookies
+            </button>
+          </p>
+          <p>
+            Odoslanie kontaktného formulára je popísané vyššie a&nbsp;s&nbsp;cookies
+            nesúvisí.
+          </p>
+          <p>
+            Poskytovateľ hostingu môže pri zobrazení stránky automaticky
+            zaznamenávať technické údaje (napr. IP adresu a&nbsp;čas prístupu) na
+            účely zabezpečenia a&nbsp;prevádzky služby.
+          </p>
+
+          <h2 class="display">Vaše práva</h2>
+          <p>Za podmienok stanovených GDPR máte právo:</p>
+          <ul>
+            <li>na prístup k&nbsp;svojim osobným údajom,</li>
+            <li>na ich opravu alebo vymazanie,</li>
+            <li>na obmedzenie spracúvania a&nbsp;namietať proti spracúvaniu,</li>
+            <li>na prenosnosť údajov,</li>
+            <li>
+              podať sťažnosť na Úrad na ochranu osobných údajov Slovenskej
+              republiky.
+            </li>
+          </ul>
+          <p>
+            Svoje práva môžete uplatniť e-mailom na
+            <a href="mailto:hello@by-simona.eu">hello@by-simona.eu</a>.
+          </p>
+
+          <p class="mono">aktualizované 30. 9. 2026</p>
+        </section>
+      </div>
     </main>
+
+    <footer class="footer">
+      <canvas class="dither" data-dither aria-hidden="true"></canvas>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-about">
+            <p class="mono">web design studio</p>
+            <p>
+              Moderné weby na mieru pre malé firmy a&nbsp;podnikateľov na Slovensku a&nbsp;v&nbsp;Česku.
+            </p>
+            <span class="copy-mail">
+              <button
+                class="copy-mail-button"
+                type="button"
+                data-copy="hello@by-simona.eu"
+                aria-describedby="copy-tip-footer"
+              >
+                hello@by-simona.eu
+              </button>
+              <span
+                class="mono copy-mail-tip"
+                id="copy-tip-footer"
+                role="tooltip"
+                >Napíšte mi</span
+              >
+              <span
+                class="visually-hidden copy-mail-live"
+                role="status"
+                aria-live="polite"
+              ></span>
+            </span>
+          </div>
+
+          <nav class="footer-nav" aria-label="Pätička">
+            <p class="mono footer-label">[ odkazy ]</p>
+            <a class="footer-link" href="o-mne.html">O&nbsp;mne</a>
+            <a class="footer-link" href="prace.html">Práce</a>
+            <a class="footer-link" href="cennik.html">Cenník</a>
+            <a class="footer-link" href="index.html#kontakt">Kontakt</a>
+            <a class="footer-link" href="index.html#faq">Časté otázky</a>
+          </nav>
+
+          <div class="footer-services">
+            <p class="mono footer-label">[ služby ]</p>
+            <span>Tvorba webových stránok</span>
+            <span>Základné SEO a&nbsp;Google Business Profile</span>
+            <span>Správa webu od 5 € (129 Kč) mesačne</span>
+            <span>Riešenia na mieru</span>
+          </div>
+        </div>
+
+        <p class="display footer-word">By <span>Simona</span></p>
+
+        <div class="footer-bottom">
+          <span class="mono"
+            >© <span data-year>2026</span> by simona. všetky práva
+            vyhradené.</span
+          >
+          <div class="footer-bottom-side">
+            <a
+              class="mono uline footer-privacy"
+              href="ochrana-osobnych-udajov.html"
+              >ochrana osobných údajov</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
