@@ -5,6 +5,9 @@ styles.css.map
 # Editor
 .vscode/
 
+# Podklady z navrhu – nepatria na verejny web
+redizajn/
+
 # OS
 .DS_Store
 Thumbs.db
