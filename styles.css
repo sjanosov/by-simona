@@ -191,12 +191,16 @@ a:hover {
   padding: var(--section-y) 0;
 }
 
+#kontakt.section {
+  border-top: 0;
+}
+
 .section-head {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 24px;
+  gap: 40px;
   margin-bottom: var(--head-gap);
 }
 
@@ -656,12 +660,15 @@ a:hover {
   color: var(--accent);
   text-decoration: none;
   font-variation-settings: "wdth" 72, "wght" 800;
+  transition: color 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.hero-latest a:hover, .hero-latest a:focus-visible {
+  color: var(--accent-soft);
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: 1fr;
-  border-top: 1px solid var(--ink);
 }
 
 .service {
@@ -1821,9 +1828,6 @@ a:hover {
   .addon:last-child {
     padding: 24px 0;
   }
-  .hero-latest {
-    text-align: left;
-  }
 }
 @media (max-width: 900px) {
   .nav-links {
@@ -1895,4 +1899,5 @@ a:hover {
     animation: none;
   }
 }
+
 /*# sourceMappingURL=styles.css.map */
