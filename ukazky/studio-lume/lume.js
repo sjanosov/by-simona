@@ -1,5 +1,5 @@
 /*
- * Lumé — Vítejte + Ceník
+ * Lumé: Vítejte + Ceník
  *   1) odhaľovanie [data-reveal] pri scrollovaní
  *   2) video v sekcii Vítejte (pauza/prehrávanie, stop mimo obrazovky)
  *   3) prepínače cenníka a galérie s posuvnou čiernou pilulkou
@@ -33,7 +33,7 @@
   const toggle = document.querySelector(".welcome-film-toggle");
 
   if (video && toggle) {
-    // používateľ si video zastavil sám — scroll ho už znova nespustí
+    // používateľ si video zastavil sám, scroll ho už znova nespustí
     let heldByUser = calm;
 
     const sync = () => {
@@ -78,7 +78,7 @@
 /*
  * Jedna posuvná čierna pilulka pre cenník aj galériu. Cenník je tablist a
  * karty si prepína tu, galéria drží stav v aria-pressed a sady si mení sama
- * v gallery.js — tam sa čierna plocha len presunie na nové miesto. Odkazy
+ * v gallery.js, tam sa čierna plocha len presunie na nové miesto. Odkazy
  * pri službách nesú data-price-tab a otvoria rovno svoju kartu cenníka.
  */
 (() => {
@@ -101,7 +101,7 @@
     };
 
     /*
-     * Karta sa vysype riadok po riadku, ale len pri prvom otvorení — kto
+     * Karta sa vysype riadok po riadku, ale len pri prvom otvorení. Kto
      * cenník preklikáva, nemá čakať na to isté druhý raz. Trieda musí byť
      * jeden snímok naozaj vykreslená, inak prehliadač prechod nerozbehne:
      * dovtedy drží panel hidden mimo vykresľovania.
@@ -152,7 +152,7 @@
      * Galéria si aria-pressed prepína sama v gallery.js a to počúva na celej
      * lište. Preto sa aj tu čaká na lištu, nie na tlačidlo: pri kliku na
      * tlačidlo by sme bežali skôr než gallery.js a plocha by zostala pod
-     * starou položkou — s bielym textom na bielom.
+     * starou položkou, s bielym textom na bielom.
      */
     if (!tabs.length) {
       bar.addEventListener("click", place);
@@ -210,7 +210,7 @@
 
   const bump = (s, m, sd) => Math.exp(-Math.pow((s - m) / sd, 2));
 
-  // trochoida: kde sa uhol točí rýchlo, z vlny vzniknú slučky — kučery
+  // trochoida: kde sa uhol točí rýchlo, z vlny vzniknú slučky, čiže kučery
   const strand = (w, h, dx, phase, rk) => {
     let th = phase;
     let d = "";

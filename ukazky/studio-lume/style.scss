@@ -125,7 +125,7 @@ $radius-xl: 42px;
   --rose: #{$rose};
   --rose-dark: #{$rose-dark};
 
-  /* najjemnejšie odlíšenie sekcie — čierna na 5 % cez podklad */
+  /* najjemnejšie odlíšenie sekcie, čierna na 5 % cez podklad */
   --wash: #0000000d;
   --success: #{$success};
 
@@ -142,7 +142,7 @@ $radius-xl: 42px;
   --ease: cubic-bezier(0.68, 0, 0.26, 1);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
-  /* odsadenie od okraja okna — drží hlavičku aj hero na jednej linke */
+  /* odsadenie od okraja okna, drží hlavičku aj hero na jednej linke */
   --gutter: clamp(1.25rem, 3.5vw, 3.5rem);
 
   /* skutočnú výšku dopočíta script.js, toto je len hodnota do prvého vykreslenia */
@@ -234,7 +234,7 @@ h2 {
 }
 
 /*
- * h3 nie je písané ako h1 a h2 — verzálky z Comforter Brush sa nedajú čítať,
+ * h3 nie je písané ako h1 a h2. Verzálky z Comforter Brush sa nedajú čítať,
  * tak ide v Outfite. Hore sedí na 22px a s oknom sa zmenšuje.
  */
 h3 {
@@ -299,7 +299,7 @@ p {
 
   /*
    * Stlačenie musí dať odozvu vždy, aj na dotyku. Nadvihnutie o pixel je
-   * naopak len pre kurzor — po ťuknutí by taký stav zostal visieť.
+   * naopak len pre kurzor, po ťuknutí by taký stav zostal visieť.
    */
   @media (hover: hover) and (pointer: fine) {
     &:hover {
@@ -357,7 +357,7 @@ p {
 
   /*
    * Nad hero je hlavička priehľadná. Keď sa pod ňu dostane zvyšok stránky,
-   * dostane plnú tmavú plochu — rovnakú, akú má sekcia služieb, takže na ňu
+   * dostane plnú tmavú plochu, tú istú, akú má sekcia služieb, takže na ňu
    * nadviaže bez švíku a biela pilulka zostane čitateľná nad svetlými aj
    * tmavými sekciami.
    */
@@ -366,7 +366,7 @@ p {
   }
 }
 
-/* zostal len v mobilnom paneli, ktorý je svetlý — preto tmavé hover a ikony */
+/* zostal len v mobilnom paneli, ktorý je svetlý, preto tmavé hover a ikony */
 .utility-item {
   display: inline-flex;
   align-items: center;
@@ -562,7 +562,7 @@ p {
     gap: 1.25rem;
   }
 
-  /* v paneli je to zoznam, nie pilulka — preto bez vnútorného odsadenia */
+  /* v paneli je to zoznam, nie pilulka, preto bez vnútorného odsadenia */
   .nav-link {
     min-height: auto;
     padding: 0;
@@ -600,7 +600,7 @@ p {
  * a kresbu vlasov vybieli, multiply tóny zachová a vie len stmaviť.
  */
 .hero {
-  /* vzdialenosť, ktorú prejde text — rovnaká ako šírka červenej plochy */
+  /* vzdialenosť, ktorú prejde text, rovnaká ako šírka červenej plochy */
   --shift: 50vw;
 
   /* rozpínanie ružovej plochy pri odchode: 0 = polovica, 1 = celé hero */
@@ -679,7 +679,7 @@ p {
 
 /*
  * Text prejde rovnakú vzdialenosť ako červená plocha, takže počas nábehu
- * vyzerá, že je na nej nalepený. Plocha ide v % vlastnej šírky, text vo vw —
+ * vyzerá, že je na nej nalepený. Plocha ide v % vlastnej šírky, text vo vw,
  * na mobile sa obe prepnú na celú šírku okna.
  */
 .hero-claim {
@@ -687,13 +687,13 @@ p {
   flex-direction: column;
   align-items: flex-end;
   gap: 1.75rem;
-  /* písaný nadpis je širší než verzálky — pri 32rem padalo „drží." samo */
+  /* písaný nadpis je širší než verzálky, pri 32rem padalo „drží." samo */
   max-width: 36rem;
   text-align: right;
   animation: hero-text 1.1s var(--ease) 0.25s both;
 }
 
-/* písmo, veľkosť aj tracking si berie zo základného h1 — písané, bez verzáliek */
+/* písmo, veľkosť aj tracking si berie zo základného h1, písané, bez verzáliek */
 .hero-title {
   margin: 0;
 }
@@ -761,7 +761,7 @@ p {
 }
 
 /*
- * Po dobehnutí nábehu animácie vypneme (triedu dáva script.js) — animácia
+ * Po dobehnutí nábehu animácie vypneme (triedu dáva script.js). Animácia
  * s fill: both ostáva na prvku živá a Chrome ju vie pri prekresľovaní
  * pripnutého hero počas scrollu na okamih nasadiť od začiatku. Koncový stav
  * keyframov je zhodný so základným, takže vypnutie nič neposunie.
@@ -926,7 +926,7 @@ section {
     transition: transform 1.2s var(--ease-out);
   }
 
-  /* ružová plocha, ktorá z videa ustúpi — tá istá kotva ako .hero-tint */
+  /* ružová plocha, ktorá z videa ustúpi, tá istá kotva ako .hero-tint */
   &::after {
     content: "";
     position: absolute;
@@ -983,7 +983,7 @@ section {
     height: 1.1rem;
   }
 
-  /* pauza alebo prehrať — JS prepína cez aria-pressed */
+  /* pauza alebo prehrať, JS prepína cez aria-pressed */
   .icon-play {
     display: none;
   }
@@ -1039,7 +1039,7 @@ section {
   --focus-x: 50%;
   --focus-y: 35%;
 
-  /* zvislá elipsa, nie kruh — kaderník v zábere stojí */
+  /* zvislá elipsa, nie kruh, kaderník v zábere stojí */
   --focus-mask: radial-gradient(
     ellipse 34% 48% at var(--focus-x) var(--focus-y),
     transparent 0%,
@@ -1071,7 +1071,7 @@ section {
     mask-image: var(--focus-mask);
   }
 
-  /* a tu sa berie farba — čistá šeď, takže z fotky zostane len jas */
+  /* a tu sa berie farba: čistá šeď, takže z fotky zostane len jas */
   &::after {
     content: "";
     position: absolute;
@@ -1212,7 +1212,7 @@ section {
     margin-bottom: 0;
   }
 
-  /* do cenníka vedie odkaz, nie tlačidlo — pod popisom služby to stačí */
+  /* do cenníka vedie odkaz, nie tlačidlo, pod popisom služby to stačí */
   .service-link {
     display: inline-block;
     margin-top: 1.15rem;
@@ -1342,12 +1342,12 @@ section {
 
 /*
  * Cenník na domovskej stránke: prepínač kategórií a panely s riadkami.
- * Bloky .price-switch a .price-table-wrap nad tým zostávajú — stavia na nich
+ * Bloky .price-switch a .price-table-wrap nad tým zostávajú. Stavia na nich
  * samostatná stránka cenik.html.
  */
 
 /*
- * Pod cenníkom je fotka pracovného stola. Je to len textúra, nie obraz —
+ * Pod cenníkom je fotka pracovného stola. Je to len textúra, nie obraz,
  * krémový závoj z nej nechá toľko, aby biely panel aj čierny text zostali
  * čitateľné. Záber je prevrátený, takže tmavý kartáč padne vpravo pod
  * prepínač a nadpis vľavo hore sedí na svetlom dreve.
@@ -1387,7 +1387,7 @@ section {
 }
 
 /*
- * Prepínač v sekcii — cenník aj galéria. Je to tá istá pilulka ako navigácia
+ * Prepínač v sekcii: cenník aj galéria. Je to tá istá pilulka ako navigácia
  * v hlavičke: biele pozadie, čierna plocha pod aktívnou položkou, to isté
  * písmo aj preloženie. Len nižšia a s menším rezom, aby v sekcii nekričala.
  * Čiernu plochu posúva lume.js, bez JS ju dostane priamo aktívne tlačidlo.
@@ -1464,7 +1464,7 @@ section {
   border-radius: 999px;
   opacity: 0;
   /*
-   * Pilulka je ovládací prvok, nie efekt — musí stíhať prst. Krátke trvanie
+   * Pilulka je ovládací prvok, nie efekt, musí stíhať prst. Krátke trvanie
    * a ease-out, ktorý sa rozbehne hneď, nie --ease s pomalým nástupom.
    */
   transition:
@@ -1529,7 +1529,7 @@ section {
 /*
  * Výchozí stav riadkov pri prvom otvorení karty. Triedu dáva a hneď zase
  * berie lume.js, takže bez JS je cenník normálne vidieť. Prepínačom sa karta
- * vysype len raz — pri ďalších prepnutiach už riadky sedia na mieste.
+ * vysype len raz, pri ďalších prepnutiach už riadky sedia na mieste.
  */
 .price-list.is-fresh .price-row {
   opacity: 0;
@@ -1553,7 +1553,7 @@ section {
 /* --- galéria ---------------------------------------------------------- */
 
 /*
- * Bez JS je z pásu obyčajný vodorovný scroll so snapom — použiteľná galéria.
+ * Bez JS je z pásu obyčajný vodorovný scroll so snapom, použiteľná galéria.
  * Skript naň dá .is-live a prepne ho na 3D karusel; šípky a bodky dovtedy
  * nemajú čo ovládať, tak sú skryté.
  */
@@ -2030,7 +2030,7 @@ textarea {
     width: min(1180px, 100% - 2.5rem);
   }
 
-  /* trojica na jeden stĺpec — fotka vedľa textu, bez posunutej karty */
+  /* trojica na jeden stĺpec: fotka vedľa textu, bez posunutej karty */
   .team {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -2054,7 +2054,7 @@ textarea {
 }
 
 /*
- * Na úzkom okne sa polovica nevyplatí — stĺpec s textom by zostal na pár
+ * Na úzkom okne sa polovica nevyplatí. Stĺpec s textom by zostal na pár
  * slov. Červená preto zaberie celý rám a nabieha cez celú šírku okna.
  */
 @media (max-width: 760px) {
@@ -2149,7 +2149,7 @@ textarea {
   }
 
   /*
-   * Menej a jemnejšie, nie nič. Prelínanie farieb a opacity ostáva — práve
+   * Menej a jemnejšie, nie nič. Prelínanie farieb a opacity ostáva, práve
    * ono vysvetľuje, čo sa zmenilo, a nevoľnosť nerobí. Von ide pohyb:
    * posuny, zoomy a odkladané poradie.
    */
@@ -2164,7 +2164,7 @@ textarea {
   }
 
   /*
-   * Skryté stavy čakajú na dobehnutie posunu, ktorý sme práve vypli — tu sa
+   * Skryté stavy čakajú na dobehnutie posunu, ktorý sme práve vypli, tu sa
    * teda rušia rovno, nech nič nezostane odstrihnuté alebo odtlačené.
    */
   [data-reveal] .brush-mark {

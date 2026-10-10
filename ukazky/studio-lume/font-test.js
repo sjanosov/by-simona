@@ -1,5 +1,5 @@
 /*
- * DOČASNÉ — len na skúšanie fontov v prehliadači. Pred ostrým nasadením
+ * DOČASNÉ, len na skúšanie fontov v prehliadači. Pred ostrým nasadením
  * zmaž tento súbor aj <script> naň v index.html.
  *
  * Stránka beží na štyroch premenných: --display (navigácia, tlačidlá,
@@ -8,13 +8,13 @@
  * font z Google Fonts a sám si ho dotiahne.
  *
  * V konzole:
- *   fonts("Playfair Display")                 — zmení len --display
- *   fonts("Playfair Display", "Inter")        — --display a --body
- *   fonts({ heading: "Caveat" })              — hociktorú rolu zvlášť
- *   fonts.pair(2)                             — nasadí dvojicu zo zoznamu
- *   fonts.pairs()                             — vypíše pripravené dvojice
- *   fonts.state()                             — čo je práve nasadené
- *   fonts.reset()                             — späť na pôvodné fonty
+ *   fonts("Playfair Display")                 : zmení len --display
+ *   fonts("Playfair Display", "Inter")        : --display a --body
+ *   fonts({ heading: "Caveat" })              : hociktorú rolu zvlášť
+ *   fonts.pair(2)                             : nasadí dvojicu zo zoznamu
+ *   fonts.pairs()                             : vypíše pripravené dvojice
+ *   fonts.state()                             : čo je práve nasadené
+ *   fonts.reset()                             : späť na pôvodné fonty
  *
  * Nastavenie drží len do obnovenia stránky, v súboroch sa nič nemení.
  */
@@ -28,7 +28,7 @@
     script: "--script",
   };
 
-  /* záloha pre fonts.state() — čo je v CSS, kým do toho niekto nesiahne */
+  /* záloha pre fonts.state(), čo je v CSS, kým do toho niekto nesiahne */
   var original = {};
   Object.keys(ROLES).forEach(function (role) {
     original[role] = getComputedStyle(document.documentElement)
@@ -50,7 +50,7 @@
 
   /*
    * Google vráti 400, keď font nemá žiadaný rez. Vtedy ho pýtame ešte raz
-   * bez váh — radšej jeden rez než nič.
+   * bez váh, radšej jeden rez než nič.
    */
   function load(family, withWeights) {
     var key = family + (withWeights ? "" : " (bez váh)");
@@ -73,7 +73,7 @@
         load(family, false);
       } else {
         console.warn(
-          "fonts: " + family + " sa nepodarilo načítať — preklep v názve?",
+          "fonts: " + family + " sa nepodarilo načítať, preklep v názve?",
         );
       }
     });
@@ -161,7 +161,7 @@
   window.fonts = fonts;
 
   console.log(
-    "%cfonts()%c — skúšanie Google Fonts\n" +
+    "%cfonts()%c skúšanie Google Fonts\n" +
       'fonts("Playfair Display", "Inter")   fonts({ heading: "Caveat" })\n' +
       "fonts.pairs()   fonts.pair(1)   fonts.state()   fonts.reset()\n" +
       "role: display (navigácia, nadpisy), body (text), heading (písané), script",

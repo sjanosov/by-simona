@@ -343,7 +343,7 @@
 /*
  * Nábeh hero (ružová plocha sprava, text s ňou) má fill: both, takže
  * animácia ostáva na prvkoch „živá" aj po dobehnutí a prehliadač ju vie pri
- * prekresľovaní na okamih nasadiť od začiatku — plocha potom prebehne sprava
+ * prekresľovaní na okamih nasadiť od začiatku. Plocha potom prebehne sprava
  * doľava. Po dobehnutí ju preto vypneme; koncový stav keyframov je rovnaký
  * ako základný stav prvkov, takže sa nič neposunie.
  */
@@ -372,7 +372,7 @@
 /*
  * Pri odchode z hero sa ružová plocha rozpína doľava, až prekryje celé hero.
  * Podiel už odscrollovanej výšky ide do --tint-shift a CSS si z neho poskladá
- * scaleX — rovnako, ako sa pri službách počíta --zoom.
+ * scaleX, rovnako, ako sa pri službách počíta --zoom.
  */
 (function () {
   "use strict";

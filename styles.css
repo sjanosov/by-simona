@@ -184,7 +184,7 @@ a:hover {
 }
 
 /*
- * Medzi sekciami nie je linka — hranicu drží len odstup, rovnaký na každom
+ * Medzi sekciami nie je linka. Hranicu drží len odstup, rovnaký na každom
  * prechode. Tým .section a .section-plain splynuli do jedného pravidla;
  * v HTML môžu zostať obe triedy, chovajú sa rovnako.
  */
@@ -1138,8 +1138,8 @@ a:hover {
 
 /*
  * Hláška po kliknutí si vie bublinu zobraziť sama. Na dotyku nie je hover ani
- * :focus-visible, takže bez tohto by po ťuknutí na mobile nebolo vidieť nič —
- * triedu is-shown dáva main.js a po 2,5 s ju zase berie. is-done je len farba
+ * :focus-visible, takže bez tohto by po ťuknutí na mobile nebolo vidieť nič.
+ * Triedu is-shown dáva main.js a po 2,5 s ju zase berie. is-done je len farba
  * úspechu, aby sa nepodarené kopírovanie nehlásilo zelenou.
  */
 .copy-mail:hover .copy-mail-tip,
@@ -1238,7 +1238,7 @@ a:hover {
   color: var(--light);
   background: var(--accent);
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.12s cubic-bezier(0.2, 0.7, 0.2, 1);
-  /* odoslanie je jediný nevratný klik na stránke — nech ho cítiš */
+  /* odoslanie je jediný nevratný klik na stránke, nech ho teda cítiš */
 }
 .send:hover {
   background: var(--ink);
@@ -1352,6 +1352,12 @@ a:hover {
   overflow: hidden;
   transform: translateZ(0);
   transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  /*
+   * Náhľady sú široké 16:9 a karta je 16:10, takže orez zoberie z každej
+   * strany asi 11 % šírky. Väčšine to nevadí, majú okolo nadpisu vzduch.
+   * Shades má ale logo aj názov tesne pri ľavom okraji a stredový orez ich
+   * odreže, preto sa táto fotka drží vľavo a uberá sa len sprava.
+   */
 }
 .shot img {
   display: block;
@@ -1359,6 +1365,10 @@ a:hover {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.shot img[src*=shades-lounge-bar] {
+  -o-object-position: left center;
+     object-position: left center;
 }
 
 .glare {

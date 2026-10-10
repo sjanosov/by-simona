@@ -3,11 +3,11 @@
 
   /*
    * Coverflow galéria. Bez JS zostane z pásu obyčajný vodorovný scroll so
-   * snapom — až tento skript z neho spraví 3D karusel a prihodí šípky a bodky.
+   * snapom. Až tento skript z neho spraví 3D karusel a prihodí šípky a bodky.
    *
    * Jediný zdroj pravdy je `position`: zlomkový index karty, ktorá je v
    * strede. Všetko ostatné sa z nej dopočíta. Kreslí sa priamo do DOM, nie cez
-   * stav — šesťdesiat prepočtov za sekundu by inak znamenalo šesťdesiat
+   * stav. Šesťdesiat prepočtov za sekundu by inak znamenalo šesťdesiat
    * prekreslení všetkých kariet kvôli číslam, ktoré nikto nepotrebuje vidieť.
    */
 
@@ -26,7 +26,7 @@
   setupSwitcher();
 
   /*
-   * Prepínač medzi sadami. Skrytý karusel sa pri štarte nameria na nulu —
+   * Prepínač medzi sadami. Skrytý karusel sa pri štarte nameria na nulu,
    * ResizeObserver si ho po odkrytí síce všimne, ale premerať ho rovno je
    * lacnejšie než spoliehať sa na poradie notifikácií.
    */
@@ -86,7 +86,7 @@
     var position = 0;
     /*
      * Kam mieri práve prebiehajúce dosadanie. Keby sa krokovalo z `position`,
-     * stlačenie šípky uprostred letu by sa stratilo — zaokrúhlenie by vrátilo
+     * stlačenie šípky uprostred letu by sa stratilo, zaokrúhlenie by vrátilo
      * tú istú kartu, na ktorej sa už aj tak zastavuje.
      */
     var target = 0;
@@ -111,7 +111,7 @@
       cards.forEach(function (card, i) {
         /*
          * Vzdialenosť sa zloží na kratšiu cestu okolo prstenca. V tomto
-         * jednom riadku je celé zacyklenie — žiadne klonované uzly, žiadne
+         * jednom riadku je celé zacyklenie, žiadne klonované uzly, žiadne
          * presúvanie v DOM.
          */
         var offset = i - position;
@@ -122,7 +122,7 @@
 
         var distance = Math.abs(offset);
         /*
-         * Sklon aj ústup slabnú so vzdialenosťou — dvojnásobná vzdialenosť
+         * Sklon aj ústup slabnú so vzdialenosťou, dvojnásobná vzdialenosť
          * pridá len asi polovicu navyše. Lineárny nábeh by druhú kartu zavrel
          * naplocho; takto zostane čitateľná.
          */
@@ -142,7 +142,7 @@
 
         /*
          * Karta sa cez prstenec prehodí presne v polovici obrátky, takže do
-         * vtedy už musí byť neviditeľná — inak by bolo ten skok vidieť.
+         * vtedy už musí byť neviditeľná, inak by bolo ten skok vidieť.
          */
         var edge = loop ? Math.min(1, Math.max(0, count / 2 - distance)) : 1;
         card.style.opacity = String(Math.max(0, 1 - FADE * distance) * edge);
@@ -178,7 +178,7 @@
           request = null;
           return;
         }
-        /* exponenciálne dobehnutie, nie pružina — dosadnutie nemá prestreliť */
+        /* exponenciálne dobehnutie, nie pružina, dosadnutie nemá prestreliť */
         position += remaining * 0.16;
         render();
         request = requestAnimationFrame(step);
@@ -281,7 +281,7 @@
 
     /*
      * Šírka karty určuje rozostup, hĺbku aj perspektívu, takže je to jediné,
-     * čo sa oplatí merať — a len vtedy, keď sa rámec naozaj zmení.
+     * čo sa oplatí merať, a len vtedy, keď sa rámec naozaj zmení.
      */
     function measure() {
       if (!cards[0]) return;
