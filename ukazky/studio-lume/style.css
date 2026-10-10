@@ -232,10 +232,19 @@ p {
   border: 1px solid transparent;
   border-radius: 999px; /* rovnaká pilulka ako navigácia */
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.16s var(--ease-out);
+  /*
+   * Stlačenie musí dať odozvu vždy, aj na dotyku. Nadvihnutie o pixel je
+   * naopak len pre kurzor — po ťuknutí by taký stav zostal visieť.
+   */
 }
-.btn:hover {
-  transform: translateY(-1px);
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+}
+.btn:active {
+  transform: scale(0.97);
 }
 
 .btn-primary {
@@ -806,7 +815,8 @@ section {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  transition: transform 1.6s var(--ease-out);
+  /* dobehne spolu s ružovou plochou nižšie: 1.1s + 0.1s odklad */
+  transition: transform 1.2s var(--ease-out);
 }
 .welcome-film::after {
   content: "";
@@ -886,8 +896,8 @@ section {
 
 .member {
   min-width: 0;
-  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-  transition-delay: calc(var(--i, 0) * 0.14s);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 0.06s);
   /* stredná karta je posunutá, aby trojica nepôsobila ako tabuľka */
 }
 .member:nth-child(2) {
@@ -983,7 +993,7 @@ section {
 .js-reveal .welcome-head,
 .js-reveal .section-head[data-reveal],
 .js-reveal .pricing-intro {
-  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
 }
 .js-reveal .welcome-head:not(.is-in),
 .js-reveal .section-head[data-reveal]:not(.is-in),
@@ -1273,7 +1283,11 @@ section {
   background: var(--ink);
   border-radius: 999px;
   opacity: 0;
-  transition: transform 0.5s var(--ease), width 0.5s var(--ease);
+  /*
+   * Pilulka je ovládací prvok, nie efekt — musí stíhať prst. Krátke trvanie
+   * a ease-out, ktorý sa rozbehne hneď, nie --ease s pomalým nástupom.
+   */
+  transition: transform 0.22s var(--ease-out), width 0.22s var(--ease-out);
 }
 
 .price-panels {
@@ -1295,8 +1309,8 @@ section {
   align-items: baseline;
   padding: 1.1rem 1.5rem;
   border-bottom: 1px solid var(--rule);
-  animation: price-in 0.55s var(--ease-out) both;
-  animation-delay: calc(var(--n, 0) * 45ms);
+  transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+  transition-delay: calc(var(--n, 0) * 30ms);
 }
 .price-row:last-child {
   border-bottom: 0;
@@ -1326,12 +1340,16 @@ section {
   white-space: nowrap;
 }
 
-@keyframes price-in {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
+/*
+ * Výchozí stav riadkov pri prvom otvorení karty. Triedu dáva a hneď zase
+ * berie lume.js, takže bez JS je cenník normálne vidieť. Prepínačom sa karta
+ * vysype len raz — pri ďalších prepnutiach už riadky sedia na mieste.
+ */
+.price-list.is-fresh .price-row {
+  opacity: 0;
+  transform: translateY(10px);
 }
+
 .pricing-foot {
   display: flex;
   flex-wrap: wrap;
@@ -1866,13 +1884,38 @@ textarea {
     transform: none;
     opacity: 1;
   }
+  /*
+   * Menej a jemnejšie, nie nič. Prelínanie farieb a opacity ostáva — práve
+   * ono vysvetľuje, čo sa zmenilo, a nevoľnosť nerobí. Von ide pohyb:
+   * posuny, zoomy a odkladané poradie.
+   */
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    transition: none !important;
+    transition-property: opacity, color, background-color, border-color !important;
+    transition-duration: 0.2s !important;
+    transition-delay: 0s !important;
+  }
+  /*
+   * Skryté stavy čakajú na dobehnutie posunu, ktorý sme práve vypli — tu sa
+   * teda rušia rovno, nech nič nezostane odstrihnuté alebo odtlačené.
+   */
+  [data-reveal] .brush-mark {
+    clip-path: none !important;
+  }
+  .welcome-head,
+  .section-head[data-reveal],
+  .pricing-intro,
+  .member,
+  .price-row,
+  .welcome-film video {
+    transform: none !important;
+  }
+  /* ružová plocha musí zostať stiahnutá, inak by video zakryla */
+  .welcome-film::after {
+    transform: scaleX(0) !important;
   }
 }
 

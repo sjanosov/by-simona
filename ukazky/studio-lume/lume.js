@@ -82,6 +82,8 @@
  * pri službách nesú data-price-tab a otvoria rovno svoju kartu cenníka.
  */
 (() => {
+  const calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   document.querySelectorAll(".pill-switch").forEach((bar) => {
     const items = Array.from(bar.querySelectorAll("button"));
     const tabs = items.filter((item) => item.getAttribute("role") === "tab");
@@ -98,12 +100,31 @@
       ind.style.transform = `translateX(${on.offsetLeft}px)`;
     };
 
+    /*
+     * Karta sa vysype riadok po riadku, ale len pri prvom otvorení — kto
+     * cenník preklikáva, nemá čakať na to isté druhý raz. Trieda musí byť
+     * jeden snímok naozaj vykreslená, inak prehliadač prechod nerozbehne:
+     * dovtedy drží panel hidden mimo vykresľovania.
+     */
+    const panelOf = (tab) => document.getElementById(tab.getAttribute("aria-controls"));
+
+    const freshen = (panel) => {
+      if (calm || panel.dataset.seen) return;
+      panel.dataset.seen = "1";
+      panel.classList.add("is-fresh");
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => panel.classList.remove("is-fresh"))
+      );
+    };
+
     const select = (tab) => {
       tabs.forEach((t) => {
         const on = t === tab;
         t.setAttribute("aria-selected", String(on));
         t.tabIndex = on ? 0 : -1;
-        document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+        const panel = panelOf(t);
+        panel.hidden = !on;
+        if (on) freshen(panel);
       });
       place();
     };
@@ -136,6 +157,13 @@
     if (!tabs.length) {
       bar.addEventListener("click", place);
     }
+
+    // karta otvorená od začiatku je už videná, tej sa vysypávanie netýka
+    tabs
+      .filter((t) => t.getAttribute("aria-selected") === "true")
+      .forEach((t) => {
+        panelOf(t).dataset.seen = "1";
+      });
 
     bar.classList.add("is-live");
     place();
