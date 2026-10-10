@@ -632,7 +632,7 @@ a {
   min-height: 0;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-start;
   gap: clamp(20px, 3vw, 40px);
   margin-top: clamp(-24px, -1.8vw, 0px);
@@ -686,6 +686,18 @@ a {
 
 .hero-foot {
   z-index: 2;
+  margin: 0 calc(-1 * var(--gutter)) calc(-1 * var(--section-y));
+  padding: clamp(20px, 2.4vw, 32px) var(--gutter) clamp(24px, 3vw, 36px);
+  background: var(--dark);
+  color: var(--light);
+
+  .mono {
+    color: var(--light-soft);
+  }
+
+  :focus-visible {
+    outline-color: var(--accent-soft);
+  }
 }
 
 .hero-foot-row {
@@ -693,7 +705,7 @@ a {
   flex-wrap: wrap;
   align-items: flex-end;
   gap: 24px;
-  margin-top: clamp(24px, 3vw, 40px);
+  margin-top: 0;
 }
 
 .hero-mail {
@@ -709,7 +721,7 @@ a {
     padding: 4px 0;
     font-size: clamp(16px, 1.7vw, 22px);
     font-weight: 500;
-    color: var(--ink);
+    color: var(--light);
   }
 }
 
