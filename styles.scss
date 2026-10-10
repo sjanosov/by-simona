@@ -14,6 +14,7 @@ $light-mute: #b8b4aa;
 $rule-soft: #d9d5cc;
 $rule-faint: #e4e0d7;
 $stone: #c9c6bf;
+$form: #cbc4d1;
 
 $ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
 
@@ -1282,7 +1283,7 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
   gap: 36px 32px;
   padding: clamp(24px, 3vw, 40px);
-  background: $paper;
+  background: $form;
 }
 
 .field {

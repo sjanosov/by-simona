@@ -1165,7 +1165,7 @@ a:hover {
   grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
   gap: 36px 32px;
   padding: clamp(24px, 3vw, 40px);
-  background: #eeeae2;
+  background: #cbc4d1;
 }
 
 .field {

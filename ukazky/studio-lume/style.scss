@@ -1580,6 +1580,12 @@ section {
   margin-bottom: 2rem;
 }
 
+#submit-booking {
+  display: flex;
+  width: fit-content;
+  margin-left: auto;
+}
+
 .contact-list {
   list-style: none;
   margin: 0;
@@ -1929,6 +1935,10 @@ textarea {
   }
 
   .btn {
+    width: 100%;
+  }
+
+  #submit-booking {
     width: 100%;
   }
 
