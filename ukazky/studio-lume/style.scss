@@ -814,24 +814,13 @@ section {
   padding: clamp(3.5rem, 7vw, 6.5rem) 0;
 }
 
-.section-alt,
-.section-wash {
-  border-block: 1px solid var(--rule);
-}
-
+/* hranicu odlíšenej sekcie nesie samotné pozadie, linka k tomu netreba */
 .section-alt {
   background: var(--cream);
 }
 
 .section-wash {
   background: var(--wash);
-}
-
-/* odlíšené sekcie idú za sebou — linka medzi nimi len raz */
-.section-alt + .section-alt,
-.section-alt + .section-wash,
-.section-wash + .section-alt {
-  border-top: 0;
 }
 
 .section-head {
