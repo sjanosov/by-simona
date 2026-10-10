@@ -1846,7 +1846,7 @@ a:hover {
 
 @media (min-width: 760px) {
   .hero-middle {
-    --portrait: min(340px, 24vh);
+    --portrait: min(420px, 28vh);
   }
   .hero-portrait {
     flex: 0 0 auto;
