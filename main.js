@@ -240,7 +240,6 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
       tip.textContent = "Nepodarilo sa skopírovať";
       if (live) live.textContent = "Kopírovanie sa nepodarilo.";
     }
-    // bublinu treba ukázať aj bez kurzora, na dotyku iná cesta nie je
     tip.classList.add("is-shown");
     window.clearTimeout(timer);
     timer = window.setTimeout(reset, 2500);

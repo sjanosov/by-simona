@@ -13,7 +13,6 @@ const writeConsent = (value) => {
   try {
     localStorage.setItem(CONSENT_KEY, value);
   } catch {
-    /* privátny režim alebo zablokované úložisko – súhlas platí len pre túto návštevu */
   }
 };
 

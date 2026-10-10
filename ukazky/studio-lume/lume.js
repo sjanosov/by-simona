@@ -1,13 +1,4 @@
-/*
- * Lumé: Vítejte + Ceník
- *   1) odhaľovanie [data-reveal] pri scrollovaní
- *   2) video v sekcii Vítejte (pauza/prehrávanie, stop mimo obrazovky)
- *   3) prepínače cenníka a galérie s posuvnou čiernou pilulkou
- *   4) vlas cez celú stránku, kreslený podľa scrollu
- * Bez JS je všetko viditeľné a cenník ukáže prvú kartu.
- */
 
-/* --- 1 + 2: odhaľovanie a video ------------------------------------- */
 (() => {
   const calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -33,7 +24,6 @@
   const toggle = document.querySelector(".welcome-film-toggle");
 
   if (video && toggle) {
-    // používateľ si video zastavil sám, scroll ho už znova nespustí
     let heldByUser = calm;
 
     const sync = () => {
@@ -61,7 +51,6 @@
     video.addEventListener("pause", sync);
     sync();
 
-    // mimo obrazovky video nebeží, nech zbytočne nežerie baterku
     if ("IntersectionObserver" in window) {
       new IntersectionObserver(([entry]) => {
         if (entry.isIntersecting && !heldByUser) {
@@ -74,13 +63,6 @@
   }
 })();
 
-/* --- 3: prepínače v sekciách ---------------------------------------- */
-/*
- * Jedna posuvná čierna pilulka pre cenník aj galériu. Cenník je tablist a
- * karty si prepína tu, galéria drží stav v aria-pressed a sady si mení sama
- * v gallery.js, tam sa čierna plocha len presunie na nové miesto. Odkazy
- * pri službách nesú data-price-tab a otvoria rovno svoju kartu cenníka.
- */
 (() => {
   const calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -89,7 +71,6 @@
     const tabs = items.filter((item) => item.getAttribute("role") === "tab");
     const ind = bar.querySelector(".pill-switch-ind");
 
-    // čierna pilulka dostane polohu a šírku aktívnej položky
     const place = () => {
       const on = items.find(
         (item) =>
@@ -100,12 +81,6 @@
       ind.style.transform = `translateX(${on.offsetLeft}px)`;
     };
 
-    /*
-     * Karta sa vysype riadok po riadku, ale len pri prvom otvorení. Kto
-     * cenník preklikáva, nemá čakať na to isté druhý raz. Trieda musí byť
-     * jeden snímok naozaj vykreslená, inak prehliadač prechod nerozbehne:
-     * dovtedy drží panel hidden mimo vykresľovania.
-     */
     const panelOf = (tab) => document.getElementById(tab.getAttribute("aria-controls"));
 
     const freshen = (panel) => {
@@ -132,7 +107,6 @@
     tabs.forEach((tab, i) => {
       tab.addEventListener("click", () => select(tab));
 
-      // šípky medzi kartami, ako pri bežnom tablist
       tab.addEventListener("keydown", (e) => {
         const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
         if (step) {
@@ -142,23 +116,15 @@
         }
       });
 
-      // odkaz pri službe otvorí rovno svoju kartu cenníka
       document
         .querySelectorAll(`[data-price-tab="${tab.id}"]`)
         .forEach((link) => link.addEventListener("click", () => select(tab)));
     });
 
-    /*
-     * Galéria si aria-pressed prepína sama v gallery.js a to počúva na celej
-     * lište. Preto sa aj tu čaká na lištu, nie na tlačidlo: pri kliku na
-     * tlačidlo by sme bežali skôr než gallery.js a plocha by zostala pod
-     * starou položkou, s bielym textom na bielom.
-     */
     if (!tabs.length) {
       bar.addEventListener("click", place);
     }
 
-    // karta otvorená od začiatku je už videná, tej sa vysypávanie netýka
     tabs
       .filter((t) => t.getAttribute("aria-selected") === "true")
       .forEach((t) => {
@@ -172,12 +138,6 @@
   });
 })();
 
-/* --- 4: vlas cez celú stránku --------------------------------------- */
-/*
- * Kreslená točitá čiara: pri scrolle nadol sa predlžuje, nahor zaniká.
- * Siaha tam, kam práve dočítaš (80 % výšky okna). Leží nad sekciami,
- * pod hlavičkou (z-index 30 < 40), a klikom prepadá.
- */
 (() => {
   const NS = "http://www.w3.org/2000/svg";
   const N = 2400;
@@ -191,7 +151,7 @@
 
   const mkPath = (width, opacity) => {
     const p = document.createElementNS(NS, "path");
-    p.setAttribute("stroke", "#96574c");
+    p.setAttribute("stroke", "#51221a");
     p.setAttribute("stroke-width", width);
     p.setAttribute("stroke-opacity", opacity);
     p.setAttribute("stroke-linecap", "round");
@@ -210,7 +170,6 @@
 
   const bump = (s, m, sd) => Math.exp(-Math.pow((s - m) / sd, 2));
 
-  // trochoida: kde sa uhol točí rýchlo, z vlny vzniknú slučky, čiže kučery
   const strand = (w, h, dx, phase, rk) => {
     let th = phase;
     let d = "";
@@ -244,12 +203,6 @@
   let bodyH = 0;
 
   const build = () => {
-    /*
-     * Pred meraním sa svg musí zložiť na nulu. Je síce absolútne, ale svojou
-     * výškou si predlžuje stránku, takže by si tu meralo samo seba: po zúžení
-     * okna by stránka zostala natiahnutá na starú výšku a pod pätičkou by
-     * ostalo prázdne miesto.
-     */
     svg.style.height = "0px";
     const w = document.documentElement.clientWidth;
     const h = document.documentElement.scrollHeight;
@@ -290,7 +243,6 @@
 
   build();
   window.addEventListener("scroll", onScroll, { passive: true });
-  // body si do svojej výšky absolútne svg neráta, preto sa porovnáva ono
   new ResizeObserver(() => {
     if (Math.abs(document.body.offsetHeight - bodyH) > 4) build();
   }).observe(document.body);

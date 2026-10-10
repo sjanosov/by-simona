@@ -1,16 +1,6 @@
 (function () {
   "use strict";
 
-  /*
-   * Coverflow galéria. Bez JS zostane z pásu obyčajný vodorovný scroll so
-   * snapom. Až tento skript z neho spraví 3D karusel a prihodí šípky a bodky.
-   *
-   * Jediný zdroj pravdy je `position`: zlomkový index karty, ktorá je v
-   * strede. Všetko ostatné sa z nej dopočíta. Kreslí sa priamo do DOM, nie cez
-   * stav. Šesťdesiat prepočtov za sekundu by inak znamenalo šesťdesiat
-   * prekreslení všetkých kariet kvôli číslam, ktoré nikto nepotrebuje vidieť.
-   */
-
   var roots = Array.prototype.slice.call(document.querySelectorAll(".gallery"));
   if (!roots.length) return;
 
@@ -18,18 +8,12 @@
     window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* postavené karusely, nech vieme po prepnutí premerať ten odkrytý */
   var instances = [];
 
   roots.forEach(build);
 
   setupSwitcher();
 
-  /*
-   * Prepínač medzi sadami. Skrytý karusel sa pri štarte nameria na nulu,
-   * ResizeObserver si ho po odkrytí síce všimne, ale premerať ho rovno je
-   * lacnejšie než spoliehať sa na poradie notifikácií.
-   */
   function setupSwitcher() {
     var switcher = document.querySelector(".gallery-switch");
     if (!switcher) return;
@@ -59,7 +43,6 @@
       );
     });
 
-    /* bez JS by prepínač nemal čo prepínať, tak sa odkryje až tu */
     switcher.classList.add("is-live");
   }
 
@@ -74,21 +57,15 @@
     var count = cards.length;
     if (!frame || count < 2) return;
 
-    /* pri málo kartách by sa prstenec začal prekrývať sám so sebou */
     var loop = count >= 5;
 
-    var TILT = 44; /* stupne, o ktoré sa nakloní prvá susedná karta */
-    var DEPTH = 0.6; /* ako hlboko ustúpi, v násobkoch šírky karty */
-    var DAMP = 0.56; /* exponent na vzdialenosť; pod 1 sklon vzdialením mäkne */
-    var FADE = 0.1; /* koľko krytia ubudne na každý krok od stredu */
-    var GAP = 0.05; /* rozostup kariet, v násobkoch ich šírky */
+    var TILT = 44;
+    var DEPTH = 0.6;
+    var DAMP = 0.56;
+    var FADE = 0.1;
+    var GAP = 0.05;
 
     var position = 0;
-    /*
-     * Kam mieri práve prebiehajúce dosadanie. Keby sa krokovalo z `position`,
-     * stlačenie šípky uprostred letu by sa stratilo, zaokrúhlenie by vrátilo
-     * tú istú kartu, na ktorej sa už aj tak zastavuje.
-     */
     var target = 0;
     var width = 0;
     var request = null;
@@ -109,11 +86,6 @@
       var spacing = width * (1 + GAP);
 
       cards.forEach(function (card, i) {
-        /*
-         * Vzdialenosť sa zloží na kratšiu cestu okolo prstenca. V tomto
-         * jednom riadku je celé zacyklenie, žiadne klonované uzly, žiadne
-         * presúvanie v DOM.
-         */
         var offset = i - position;
         if (loop) {
           offset = ((offset % count) + count) % count;
@@ -121,14 +93,8 @@
         }
 
         var distance = Math.abs(offset);
-        /*
-         * Sklon aj ústup slabnú so vzdialenosťou, dvojnásobná vzdialenosť
-         * pridá len asi polovicu navyše. Lineárny nábeh by druhú kartu zavrel
-         * naplocho; takto zostane čitateľná.
-         */
         var ramp = Math.pow(distance, DAMP);
         var dir = offset < 0 ? -1 : offset > 0 ? 1 : 0;
-        /* zastropované pred hranou, nech sa vzdialená karta neotočí chrbtom */
         var tilt = Math.min(TILT * ramp, 82) * dir;
 
         card.style.transform =
@@ -140,10 +106,6 @@
           -tilt +
           "deg)";
 
-        /*
-         * Karta sa cez prstenec prehodí presne v polovici obrátky, takže do
-         * vtedy už musí byť neviditeľná, inak by bolo ten skok vidieť.
-         */
         var edge = loop ? Math.min(1, Math.max(0, count / 2 - distance)) : 1;
         card.style.opacity = String(Math.max(0, 1 - FADE * distance) * edge);
         card.style.zIndex = String(100 - Math.round(distance));
@@ -178,7 +140,6 @@
           request = null;
           return;
         }
-        /* exponenciálne dobehnutie, nie pružina, dosadnutie nemá prestreliť */
         position += remaining * 0.16;
         render();
         request = requestAnimationFrame(step);
@@ -187,7 +148,6 @@
     }
 
     function toCard(index) {
-      /* kratšou cestou okolo prstenca, nie odvíjaním celého kola */
       var to = loop
         ? index + Math.round((target - index) / count) * count
         : index;
@@ -222,7 +182,6 @@
       var now = performance.now();
       var previous = position;
       position = clamp(drag.position - (e.clientX - drag.x) / spacing);
-      /* kariet za sekundu, pre dohodenie */
       drag.velocity =
         ((position - previous) / Math.max(now - drag.time, 1)) * 1000;
       drag.time = now;
@@ -235,7 +194,6 @@
       if (!drag || drag.id !== e.pointerId) return;
       var velocity = drag.velocity;
       drag = null;
-      /* švih nech nesie, ale nikdy nie o viac než dve karty */
       var momentum = Math.max(-2, Math.min(2, velocity * 0.18));
       settle(clamp(Math.round(position + momentum)));
     }
@@ -279,10 +237,6 @@
       });
     }
 
-    /*
-     * Šírka karty určuje rozostup, hĺbku aj perspektívu, takže je to jediné,
-     * čo sa oplatí merať, a len vtedy, keď sa rámec naozaj zmení.
-     */
     function measure() {
       if (!cards[0]) return;
       width = cards[0].offsetWidth;
@@ -304,7 +258,6 @@
       });
     }
 
-    /* obrázky sa dolaďujú asynchrónne, prvé meranie môže prísť priskoro */
     window.addEventListener("load", measure);
   }
 })();

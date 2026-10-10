@@ -169,9 +169,6 @@
 
   var pending = false;
 
-  /* Pre kazdy blok spocita podiel 0 - 1: nula znamena, ze je este pod
-   * ohybom obrazovky, jednicka ze doputoval na svoje miesto. CSS si z toho
-   * cez --zoom poskladá scale, takze obrazok aj text rastu. */
   function update() {
     pending = false;
     var viewport = window.innerHeight || document.documentElement.clientHeight;
@@ -297,7 +294,6 @@
   var header = document.querySelector(".site-header");
   if (!header) return;
 
-  /* na podstránkach bez hero nemá byť hlavička nikdy priehľadná */
   var hero = document.querySelector(".hero");
 
   function measure() {
@@ -307,7 +303,6 @@
     );
   }
 
-  /* nad hero je hlavička priehľadná, pod ním dostane plnú tmavú plochu */
   function update() {
     pending = false;
     header.classList.toggle(
@@ -340,13 +335,6 @@
   }
 })();
 
-/*
- * Nábeh hero (ružová plocha sprava, text s ňou) má fill: both, takže
- * animácia ostáva na prvkoch „živá" aj po dobehnutí a prehliadač ju vie pri
- * prekresľovaní na okamih nasadiť od začiatku. Plocha potom prebehne sprava
- * doľava. Po dobehnutí ju preto vypneme; koncový stav keyframov je rovnaký
- * ako základný stav prvkov, takže sa nič neposunie.
- */
 (function () {
   "use strict";
   var hero = document.querySelector(".hero");
@@ -365,15 +353,9 @@
     if (finished >= INTROS.length) disable();
   });
 
-  /* poistka, keď animácie vôbec nebežia (obmedzený pohyb, starý prehliadač) */
   setTimeout(disable, 2500);
 })();
 
-/*
- * Pri odchode z hero sa ružová plocha rozpína doľava, až prekryje celé hero.
- * Podiel už odscrollovanej výšky ide do --tint-shift a CSS si z neho poskladá
- * scaleX, rovnako, ako sa pri službách počíta --zoom.
- */
 (function () {
   "use strict";
   var hero = document.querySelector(".hero");
@@ -385,7 +367,6 @@
 
   if (noMotion) return;
 
-  /* celé hero je červené už po 60 % jeho výšky, nech koniec stihne byť vidieť */
   var BAND = 0.6;
   var pending = false;
 

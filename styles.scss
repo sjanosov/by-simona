@@ -214,11 +214,6 @@ a {
   background: var(--panel);
 }
 
-/*
- * Medzi sekciami nie je linka. Hranicu drží len odstup, rovnaký na každom
- * prechode. Tým .section a .section-plain splynuli do jedného pravidla;
- * v HTML môžu zostať obe triedy, chovajú sa rovnako.
- */
 .section,
 .section-plain {
   padding: var(--section-y) 0;
@@ -297,7 +292,6 @@ a {
     color: var(--light);
   }
 
-  /* hranaté zátvorky sa rozostupujú pod kurzorom; klávesnici ostávajú vždy */
   @media (hover: hover) and (pointer: fine) {
     &:hover .nav-bracket {
       transform: translateX(var(--spread));
@@ -644,7 +638,6 @@ a {
   margin-top: clamp(-24px, -1.8vw, 0px);
 }
 
-
 .hero-portrait {
   flex: 0 1 340px;
   min-width: 200px;
@@ -983,7 +976,6 @@ a {
   }
 }
 
-/* glitch je efekt pre kurzor, na dotyku by ho spustilo samotné scrollovanie */
 @media (hover: hover) and (pointer: fine) {
   .band:hover .glitch::before {
     animation: glitch-a 0.9s steps(1) 1;
@@ -1144,7 +1136,6 @@ a {
   font-size: 20px;
   --turn: 0deg;
   transform: rotate(var(--turn));
-  /* bez krivky by otočenie išlo na slabom prednastavenom ease */
   transition: transform 0.25s $ease-out, background 0.25s ease;
 }
 
@@ -1252,12 +1243,6 @@ a {
   }
 }
 
-/*
- * Hláška po kliknutí si vie bublinu zobraziť sama. Na dotyku nie je hover ani
- * :focus-visible, takže bez tohto by po ťuknutí na mobile nebolo vidieť nič.
- * Triedu is-shown dáva main.js a po 2,5 s ju zase berie. is-done je len farba
- * úspechu, aby sa nepodarené kopírovanie nehlásilo zelenou.
- */
 .copy-mail:hover .copy-mail-tip,
 .copy-mail-button:focus-visible ~ .copy-mail-tip,
 .copy-mail-tip.is-shown {
@@ -1366,7 +1351,6 @@ a {
     color: var(--panel);
   }
 
-  /* odoslanie je jediný nevratný klik na stránke, nech ho teda cítiš */
   &:active:not(:disabled) {
     transform: scale(0.97);
   }
@@ -1449,10 +1433,6 @@ a {
     transition: transform 0.08s linear;
   }
 
-  /*
-   * Rozloženie karty do hĺbky patrí kurzoru. Na dotyku by ťuknutie kartu
-   * rozložilo a nechalo rozloženú, takže tam zostáva plochá.
-   */
   @media (hover: hover) and (pointer: fine) {
     &:hover .plate {
       transform: translate3d(20px, 20px, -70px);
@@ -1496,17 +1476,10 @@ a {
     object-fit: cover;
   }
 
-  /*
-   * Náhľady sú široké 16:9 a karta je 16:10, takže orez zoberie z každej
-   * strany asi 11 % šírky. Väčšine to nevadí, majú okolo nadpisu vzduch.
-   * Shades má ale logo aj názov tesne pri ľavom okraji a stredový orez ich
-   * odreže, preto sa táto fotka drží vľavo a uberá sa len sprava.
-   */
   img[src*="shades-lounge-bar"] {
     object-position: left center;
   }
 
-  /* Lumé to má naopak: nadpis, tlačidlo aj navigácia sedia vpravo */
   img[src*="studio-lume"] {
     object-position: right center;
   }
@@ -2086,10 +2059,6 @@ a {
     scroll-behavior: auto;
   }
 
-  /*
-   * Farby tlačidiel ostávajú, stlačenie sa prestane zmenšovať. Odozva tak
-   * nezmizne, len ju nesie zmena farby namiesto pohybu.
-   */
   .send:active:not(:disabled),
   .copy-mail-button:active,
   .nav-toggle:active,

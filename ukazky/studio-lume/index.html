@@ -28,11 +28,6 @@
     <link href="style.css" rel="stylesheet" />
   </head>
   <body>
-    <!--
-      Zdieľané definície ťahu štetca pre nadpisy Vítejte a Ceník.
-      Nesmie ísť do SVG so symbolmi ikon nižšie. To má display:none a
-      prehliadač by filter ani masku nevykreslil, ťah by stratil štetiny.
-    -->
     <svg class="brush-defs" width="0" height="0" aria-hidden="true" focusable="false"><defs><filter id="brush-rough" x="-4%" y="-30%" width="108%" height="160%"><feTurbulence type="fractalNoise" baseFrequency="0.035 0.6" numOctaves="2" seed="7" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap></filter><mask id="brush-bristles" maskUnits="userSpaceOnUse" x="-10" y="-10" width="330" height="80"><rect x="-10" y="-10" width="330" height="80" fill="#fff"></rect><g fill="none" stroke="#000" stroke-linecap="round"><path d="M118 17.5H296" stroke-width="0.8" stroke-opacity="0.75"></path><path d="M230 21H300" stroke-width="1.1" stroke-opacity="0.9"></path><path d="M60 23.5H240" stroke-width="0.5" stroke-opacity="0.5"></path><path d="M176 27H300" stroke-width="1.3" stroke-opacity="0.85"></path><path d="M8 32H92" stroke-width="0.6" stroke-opacity="0.45"></path><path d="M146 35.5H300" stroke-width="0.9" stroke-opacity="0.8"></path><path d="M36 39.5H204" stroke-width="0.5" stroke-opacity="0.45"></path><path d="M206 43H300" stroke-width="1.5" stroke-opacity="0.95"></path><path d="M88 46.5H262" stroke-width="0.6" stroke-opacity="0.55"></path><path d="M250 31H300" stroke-width="0.8" stroke-opacity="0.9"></path></g></mask></defs></svg>
 
     <svg
@@ -840,7 +835,6 @@
               </p>
             </div>
 
-            <!-- menšia verzia pilulky z hlavičky; čierna plocha (.pill-switch-ind) sa posúva pod aktívnu položku -->
             <div class="pill-switch" role="tablist" aria-label="Kategorie ceníku">
               <span class="pill-switch-ind" aria-hidden="true"></span>
               <button role="tab" type="button" id="tab-damy" aria-controls="panel-damy" aria-selected="true" tabindex="0">Dámy</button>
@@ -1150,7 +1144,6 @@
     <script defer src="lume.js"></script>
     <script defer src="/cookies.js"></script>
 
-    <!-- DOČASNÉ: skúšanie Google Fonts z konzoly, pred ostrým webom zmazať -->
     <script defer src="font-test.js"></script>
   </body>
 </html>
