@@ -1862,6 +1862,7 @@ a:hover {
 @media (max-width: 760px) {
   .hero-claim {
     order: -1;
+    margin-top: clamp(24px, 7vw, 44px);
   }
   .addon {
     padding: 24px 0;
