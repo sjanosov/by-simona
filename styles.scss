@@ -687,9 +687,9 @@ a {
   z-index: 2;
   display: flex;
   align-items: center;
-  height: 226px;
+  min-height: clamp(140px, 18vw, 226px);
   margin: 0 calc(50% - 50vw) calc(-1 * var(--section-y));
-  padding: 0 calc(50vw - 50%);
+  padding: clamp(24px, 3vw, 40px) calc(50vw - 50%);
   background: var(--dark);
   color: var(--light);
 
