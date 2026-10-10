@@ -1394,6 +1394,7 @@ section {
 .gallery-switch {
   display: none;
   margin-bottom: 0;
+  border-color: var(--rule);
 }
 
 .gallery-switch.is-live {
