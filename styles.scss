@@ -300,7 +300,13 @@ a {
     color: var(--light);
   }
 
-  &:hover .nav-bracket,
+  /* hranaté zátvorky sa rozostupujú pod kurzorom; klávesnici ostávajú vždy */
+  @media (hover: hover) and (pointer: fine) {
+    &:hover .nav-bracket {
+      transform: translateX(var(--spread));
+    }
+  }
+
   &:focus-visible .nav-bracket {
     transform: translateX(var(--spread));
   }
@@ -350,6 +356,11 @@ a {
   border-radius: 0;
   color: var(--ink);
   cursor: pointer;
+  transition: transform 0.12s $ease-out;
+
+  &:active {
+    transform: scale(0.97);
+  }
 }
 
 .nav-toggle-box {
@@ -443,10 +454,18 @@ a {
   border-radius: 0;
   color: var(--light);
   cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.12s $ease-out;
 
   &:hover {
     background: var(--light);
     color: var(--dark);
+  }
+
+  &:active {
+    transform: scale(0.97);
   }
 }
 
@@ -967,12 +986,15 @@ a {
   }
 }
 
-.band:hover .glitch::before {
-  animation: glitch-a 0.9s steps(1) 1;
-}
+/* glitch je efekt pre kurzor, na dotyku by ho spustilo samotné scrollovanie */
+@media (hover: hover) and (pointer: fine) {
+  .band:hover .glitch::before {
+    animation: glitch-a 0.9s steps(1) 1;
+  }
 
-.band:hover .glitch::after {
-  animation: glitch-b 0.9s steps(1) 1;
+  .band:hover .glitch::after {
+    animation: glitch-b 0.9s steps(1) 1;
+  }
 }
 
 .band-body {
@@ -1080,8 +1102,10 @@ a {
     color: var(--light);
   }
 
-  summary:hover .faq-toggle {
-    animation: toggle-spin 1.2s ease-in-out 1;
+  @media (hover: hover) and (pointer: fine) {
+    summary:hover .faq-toggle {
+      animation: toggle-spin 1.2s ease-in-out 1;
+    }
   }
 
   &.is-closing .faq-toggle {
@@ -1123,7 +1147,8 @@ a {
   font-size: 20px;
   --turn: 0deg;
   transform: rotate(var(--turn));
-  transition: transform 0.25s, background 0.25s;
+  /* bez krivky by otočenie išlo na slabom prednastavenom ease */
+  transition: transform 0.25s $ease-out, background 0.25s ease;
 }
 
 .faq-answer {
@@ -1204,6 +1229,11 @@ a {
   text-decoration: underline;
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
+  transition: transform 0.12s $ease-out;
+
+  &:active {
+    transform: scale(0.97);
+  }
 }
 
 .copy-mail-tip {
@@ -1225,8 +1255,15 @@ a {
   }
 }
 
+/*
+ * Hláška po kliknutí si vie bublinu zobraziť sama. Na dotyku nie je hover ani
+ * :focus-visible, takže bez tohto by po ťuknutí na mobile nebolo vidieť nič —
+ * triedu is-shown dáva main.js a po 2,5 s ju zase berie. is-done je len farba
+ * úspechu, aby sa nepodarené kopírovanie nehlásilo zelenou.
+ */
 .copy-mail:hover .copy-mail-tip,
-.copy-mail-button:focus-visible ~ .copy-mail-tip {
+.copy-mail-button:focus-visible ~ .copy-mail-tip,
+.copy-mail-tip.is-shown {
   opacity: 1;
   transform: none;
 }
@@ -1322,10 +1359,19 @@ a {
   cursor: pointer;
   color: var(--light);
   background: var(--accent);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.12s $ease-out;
 
   &:hover {
     background: var(--ink);
     color: var(--panel);
+  }
+
+  /* odoslanie je jediný nevratný klik na stránke — nech ho cítiš */
+  &:active:not(:disabled) {
+    transform: scale(0.97);
   }
 
   &:disabled {
@@ -1406,21 +1452,27 @@ a {
     transition: transform 0.08s linear;
   }
 
-  &:hover .plate {
-    transform: translate3d(20px, 20px, -70px);
-  }
+  /*
+   * Rozloženie karty do hĺbky patrí kurzoru. Na dotyku by ťuknutie kartu
+   * rozložilo a nechalo rozloženú, takže tam zostáva plochá.
+   */
+  @media (hover: hover) and (pointer: fine) {
+    &:hover .plate {
+      transform: translate3d(20px, 20px, -70px);
+    }
 
-  &:hover .shot {
-    transform: translateZ(40px);
-  }
+    &:hover .shot {
+      transform: translateZ(40px);
+    }
 
-  &:hover .glare {
-    opacity: 1;
-  }
+    &:hover .glare {
+      opacity: 1;
+    }
 
-  &:hover .badge {
-    opacity: 1;
-    transform: translateZ(90px) scale(1);
+    &:hover .badge {
+      opacity: 1;
+      transform: translateZ(90px) scale(1);
+    }
   }
 }
 
@@ -2020,6 +2072,17 @@ a {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  /*
+   * Farby tlačidiel ostávajú, stlačenie sa prestane zmenšovať. Odozva tak
+   * nezmizne, len ju nesie zmena farby namiesto pohybu.
+   */
+  .send:active:not(:disabled),
+  .copy-mail-button:active,
+  .nav-toggle:active,
+  .mobile-nav-close:active {
+    transform: none;
   }
 
   .mobile-nav,
