@@ -656,7 +656,7 @@ a {
   transform: translateZ(30px);
 
   .pixel-layer {
-    filter: grayscale(1) contrast(1.1);
+    filter: contrast(1.1);
   }
 
   img {
@@ -665,7 +665,7 @@ a {
     height: auto;
     aspect-ratio: 3 / 4;
     object-fit: cover;
-    filter: grayscale(1) contrast(1.1);
+    filter: contrast(1.1);
   }
 }
 

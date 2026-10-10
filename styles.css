@@ -598,7 +598,7 @@ a:hover {
   transform: translateZ(30px);
 }
 .portrait-frame .pixel-layer {
-  filter: grayscale(1) contrast(1.1);
+  filter: contrast(1.1);
 }
 .portrait-frame img {
   display: block;
@@ -607,7 +607,7 @@ a:hover {
   aspect-ratio: 3/4;
   -o-object-fit: cover;
      object-fit: cover;
-  filter: grayscale(1) contrast(1.1);
+  filter: contrast(1.1);
 }
 
 .hero-claim {
