@@ -457,12 +457,11 @@
           <figure class="welcome-film" data-reveal>
             <video
               aria-label="Krátké video z běžného dne ve studiu Lumé"
-              autoplay
               loop
               muted
               playsinline
               poster="img/studio-video.webp"
-              preload="metadata"
+              preload="none"
             >
               <source src="video/studio.mp4" type="video/mp4" />
             </video>
@@ -1139,11 +1138,9 @@
       <a href="https://by-simona.eu">by simona</a>.
     </p>
 
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
     <script defer src="gallery.js"></script>
     <script defer src="lume.js"></script>
     <script defer src="/cookies.js"></script>
-
-    <script defer src="font-test.js"></script>
   </body>
 </html>

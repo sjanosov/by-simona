@@ -32,10 +32,7 @@
       toggle.setAttribute("aria-label", paused ? "Přehrát video" : "Pozastavit video");
     };
 
-    if (calm) {
-      video.removeAttribute("autoplay");
-      video.pause();
-    }
+    if (calm) video.pause();
 
     toggle.addEventListener("click", () => {
       if (video.paused) {
