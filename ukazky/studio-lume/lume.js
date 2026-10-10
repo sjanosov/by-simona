@@ -241,11 +241,20 @@
   let target = 0;
   let current = 0;
   let raf = 0;
+  let bodyH = 0;
 
   const build = () => {
+    /*
+     * Pred meraním sa svg musí zložiť na nulu. Je síce absolútne, ale svojou
+     * výškou si predlžuje stránku, takže by si tu meralo samo seba: po zúžení
+     * okna by stránka zostala natiahnutá na starú výšku a pod pätičkou by
+     * ostalo prázdne miesto.
+     */
+    svg.style.height = "0px";
     const w = document.documentElement.clientWidth;
     const h = document.documentElement.scrollHeight;
     svg.style.height = h + "px";
+    bodyH = document.body.offsetHeight;
     svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
     const a = strand(w, h, 0, 0, 1);
     const b = strand(w, h, 5, 0.35, 0.9);
@@ -281,8 +290,9 @@
 
   build();
   window.addEventListener("scroll", onScroll, { passive: true });
+  // body si do svojej výšky absolútne svg neráta, preto sa porovnáva ono
   new ResizeObserver(() => {
-    if (Math.abs(document.documentElement.scrollHeight - geo.h) > 4) build();
+    if (Math.abs(document.body.offsetHeight - bodyH) > 4) build();
   }).observe(document.body);
   window.addEventListener("resize", build);
 })();

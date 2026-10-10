@@ -1358,6 +1358,7 @@ a:hover {
    * Shades má ale logo aj názov tesne pri ľavom okraji a stredový orez ich
    * odreže, preto sa táto fotka drží vľavo a uberá sa len sprava.
    */
+  /* Lumé to má naopak: nadpis, tlačidlo aj navigácia sedia vpravo */
 }
 .shot img {
   display: block;
@@ -1369,6 +1370,10 @@ a:hover {
 .shot img[src*=shades-lounge-bar] {
   -o-object-position: left center;
      object-position: left center;
+}
+.shot img[src*=studio-lume] {
+  -o-object-position: right center;
+     object-position: right center;
 }
 
 .glare {

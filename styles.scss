@@ -1505,6 +1505,11 @@ a {
   img[src*="shades-lounge-bar"] {
     object-position: left center;
   }
+
+  /* Lumé to má naopak: nadpis, tlačidlo aj navigácia sedia vpravo */
+  img[src*="studio-lume"] {
+    object-position: right center;
+  }
 }
 
 .glare {
