@@ -2021,7 +2021,8 @@ a {
 
 @media (min-width: 760px) {
   .hero-middle {
-    --portrait: min(420px, 28vh);
+    --portrait: min(420px, 28vh, 30cqi);
+    flex-wrap: nowrap;
   }
 
   .hero-portrait {
