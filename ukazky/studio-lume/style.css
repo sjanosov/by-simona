@@ -72,6 +72,8 @@
   --rule: #e6dace;
   --rose: #e15833;
   --rose-dark: #96574c;
+  /* najjemnejšie odlíšenie sekcie — čierna na 5 % cez podklad */
+  --wash: #0000000d;
   --success: #2f6f52;
   --display: Outfit, system-ui, Arial, sans-serif;
   --body: DM Sans, system-ui, Arial, sans-serif;
@@ -79,6 +81,10 @@
   --heading: Comforter Brush, Segoe Script, cursive;
   --radius: 3px;
   --radius-lg: 6px;
+  --radius-xl: 42px;
+  /* jedna krivka pre nábehy, druhá pre odhaľovanie pri scrolle */
+  --ease: cubic-bezier(0.68, 0, 0.26, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   /* odsadenie od okraja okna — drží hlavičku aj hero na jednej linke */
   --gutter: clamp(1.25rem, 3.5vw, 3.5rem);
   /* skutočnú výšku dopočíta script.js, toto je len hodnota do prvého vykreslenia */
@@ -89,6 +95,9 @@
    */
   --nav-item-h: 2.75rem;
   --pill-h: calc(var(--nav-item-h) + 0.7rem + 2px);
+  /* prepínač v sekcii je tá istá pilulka, len o pol centimetra nižšia */
+  --switch-item-h: 2.25rem;
+  --switch-h: calc(var(--switch-item-h) + 0.5rem + 2px);
 }
 
 * {
@@ -472,7 +481,7 @@ p {
   gap: 0.75rem;
   justify-items: start;
   font-size: 0.9rem;
-  color: var(--mute);
+  color: var(--ink);
   border-top: 1px solid var(--rule);
   padding-top: 1.25rem;
 }
@@ -489,7 +498,6 @@ p {
 .hero {
   /* vzdialenosť, ktorú prejde text — rovnaká ako šírka červenej plochy */
   --shift: 50vw;
-  --ease: cubic-bezier(0.68, 0, 0.26, 1);
   /* rozpínanie ružovej plochy pri odchode: 0 = polovica, 1 = celé hero */
   --tint-shift: 0;
   position: relative;
@@ -682,9 +690,24 @@ section {
   padding: clamp(3.5rem, 7vw, 6.5rem) 0;
 }
 
+.section-alt,
+.section-wash {
+  border-block: 1px solid var(--rule);
+}
+
 .section-alt {
   background: var(--cream);
-  border-block: 1px solid var(--rule);
+}
+
+.section-wash {
+  background: var(--wash);
+}
+
+/* odlíšené sekcie idú za sebou — linka medzi nimi len raz */
+.section-alt + .section-alt,
+.section-alt + .section-wash,
+.section-wash + .section-alt {
+  border-top: 0;
 }
 
 .section-head {
@@ -692,8 +715,293 @@ section {
   margin-bottom: clamp(2rem, 4vw, 3.25rem);
 }
 .section-head p {
-  color: var(--mute);
+  color: var(--ink);
   margin-bottom: 0;
+}
+
+/* --- vítejte a tím ---------------------------------------------------- */
+/*
+ * Pohyb berie z hero: tá istá krivka a tá istá ružová plocha, ktorá odhaľuje
+ * obraz. Skryté stavy platia len pod html.js-reveal (triedu dáva lume.js),
+ * takže bez JS je všetko viditeľné a nič nečaká na scroll.
+ */
+/*
+ * Ťah štetca za nadpisom. Podfarbenie sa natiera zľava cez clip-path,
+ * štetiny a strapaté okraje dáva <svg class="brush-defs"> hneď za <body>.
+ */
+.brush-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.brush-title {
+  position: relative;
+  isolation: isolate;
+  display: inline-block;
+  margin-bottom: 0.45em;
+  padding-inline: 0.15em;
+}
+
+.brush-mark {
+  position: absolute;
+  left: -6%;
+  top: 34%;
+  z-index: -1;
+  width: 112%;
+  height: 56%;
+  color: var(--rose);
+  overflow: visible;
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1s var(--ease-out) 0.45s;
+}
+
+/*
+ * Vítejte a tím sú dve sekcie, ale vizuálne jeden blok: prvá nemá spodné a
+ * druhá horné odsadenie, rozostup medzi nimi drží .team-head.
+ */
+.welcome,
+.welcome-team {
+  overflow: hidden;
+}
+
+.welcome {
+  padding-bottom: 0;
+}
+
+.welcome-team {
+  padding-top: 0;
+}
+
+.welcome-intro {
+  max-width: 40rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* oba odseky pod nadpisom majú jeden rez */
+.welcome-head p {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--ink);
+}
+.welcome-head p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- video zo štúdia -------------------------------------------------- */
+.welcome-film {
+  position: relative;
+  isolation: isolate;
+  margin: 0;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: #100d0c;
+  /* ružová plocha, ktorá z videa ustúpi — tá istá kotva ako .hero-tint */
+}
+.welcome-film video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 1.6s var(--ease-out);
+}
+.welcome-film::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--rose-dark);
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform 1.1s var(--ease) 0.1s;
+  pointer-events: none;
+}
+
+.welcome-film-caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  color: #fff;
+  background: linear-gradient(to top, rgba(16, 13, 12, 0.55), transparent);
+}
+
+/* rovnaký krúžok ako sociálne siete v hero */
+.welcome-film-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  color: #fff;
+  background: rgba(16, 13, 12, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  /* pauza alebo prehrať — JS prepína cez aria-pressed */
+}
+.welcome-film-toggle:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--ink);
+}
+.welcome-film-toggle .icon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.welcome-film-toggle .icon-play {
+  display: none;
+}
+.welcome-film-toggle[aria-pressed=true] .icon-pause {
+  display: none;
+}
+.welcome-film-toggle[aria-pressed=true] .icon-play {
+  display: block;
+}
+
+/* --- tím -------------------------------------------------------------- */
+.team-head {
+  margin-top: clamp(3.5rem, 7vw, 6.5rem);
+}
+
+.team {
+  list-style: none;
+  margin: 0;
+  /* spodné odsadenie drží posunutú strednú kartu v sekcii */
+  padding: 0 0 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.member {
+  min-width: 0;
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 0.14s);
+  /* stredná karta je posunutá, aby trojica nepôsobila ako tabuľka */
+}
+.member:nth-child(2) {
+  translate: 0 3rem;
+}
+
+/*
+ * Fotka je zašedená a dopredu vystupuje len kaderník. Ohnisko --focus-x a
+ * --focus-y sedí na jeho postave, maska odtiaľ nechá šeď narásť do okrajov.
+ * Sú to dve vrstvy: jedna berie fotke farbu, druhá okolie jemne stmaví.
+ * Konkrétne hodnoty ohniska sú pri fotkách v index.html, každý záber má iné.
+ */
+.member-photo {
+  --focus-x: 50%;
+  --focus-y: 35%;
+  /* zvislá elipsa, nie kruh — kaderník v zábere stojí */
+  --focus-mask: radial-gradient(
+    ellipse 34% 48% at var(--focus-x) var(--focus-y),
+    transparent 0%,
+    transparent 34%,
+    #000 100%
+  );
+  position: relative;
+  isolation: isolate;
+  margin: 0 0 1.4rem;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: var(--sand);
+  /* okolie ohniska stmavne, nech postava vystúpi dopredu */
+  /* a tu sa berie farba — čistá šeď, takže z fotky zostane len jas */
+}
+.member-photo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.member-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 25, 23, 0.22);
+  mix-blend-mode: multiply;
+  -webkit-mask-image: var(--focus-mask);
+          mask-image: var(--focus-mask);
+}
+.member-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #808080;
+  mix-blend-mode: color;
+  -webkit-mask-image: var(--focus-mask);
+          mask-image: var(--focus-mask);
+}
+
+.member-years {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1;
+  padding: 0.4rem 0.8rem;
+  background: var(--shell);
+  border-radius: 999px;
+  font-family: var(--display);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.member-body h3 {
+  margin-bottom: 0.6rem;
+}
+.member-body p:not([class]) {
+  color: var(--ink);
+  font-size: 0.97rem;
+  margin-bottom: 0.4rem;
+}
+
+.member-role {
+  margin: -0.35rem 0 0.6rem;
+  font-size: 0.97rem;
+  color: var(--ink);
+}
+
+/* --- skryté stavy pred odhalením (platia len s JS) -------------------- */
+.js-reveal [data-reveal]:not(.is-in) .brush-mark {
+  clip-path: inset(0 100% 0 0);
+  transition: none;
+}
+.js-reveal .welcome-head,
+.js-reveal .section-head[data-reveal],
+.js-reveal .pricing-intro {
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+.js-reveal .welcome-head:not(.is-in),
+.js-reveal .section-head[data-reveal]:not(.is-in),
+.js-reveal .pricing-intro:not(.is-in) {
+  opacity: 0;
+  transform: translateY(18px);
+}
+.js-reveal .welcome-film:not(.is-in)::after {
+  transform: scaleX(1);
+  transition: none;
+}
+.js-reveal .welcome-film:not(.is-in) video {
+  transform: scale(1.12);
+  transition: none;
+}
+.js-reveal .team:not(.is-in) .member {
+  opacity: 0;
+  transform: translateY(40px);
 }
 
 /* --- služby ----------------------------------------------------------- */
@@ -722,7 +1030,7 @@ section {
   position: relative;
   z-index: 0;
   overflow: hidden;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   aspect-ratio: 4/3;
   transform: scale(calc(0.86 + 0.14 * var(--zoom)));
   opacity: calc(0.45 + 0.55 * var(--zoom));
@@ -746,7 +1054,7 @@ section {
   margin-bottom: 0.7rem;
 }
 .service-text p {
-  color: var(--mute);
+  color: var(--ink);
   margin-bottom: 0;
 }
 .service-text .service-link {
@@ -762,8 +1070,7 @@ section {
 }
 
 /* --- cenník ----------------------------------------------------------- */
-.price-switch,
-.gallery-switch {
+.price-switch {
   display: inline-flex;
   flex-wrap: wrap;
   gap: 0.35rem;
@@ -773,8 +1080,7 @@ section {
   padding: 0.3rem;
   margin-bottom: 1.75rem;
 }
-.price-switch button,
-.gallery-switch button {
+.price-switch button {
   font-family: var(--display);
   font-size: 0.78rem;
   font-weight: 600;
@@ -788,12 +1094,10 @@ section {
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
-.price-switch button:hover,
-.gallery-switch button:hover {
+.price-switch button:hover {
   color: var(--ink);
 }
-.price-switch button[aria-pressed=true],
-.gallery-switch button[aria-pressed=true] {
+.price-switch button[aria-pressed=true] {
   background: var(--ink);
   color: var(--shell);
 }
@@ -857,101 +1161,188 @@ section {
 
 .price-note {
   font-size: 0.92rem;
-  color: var(--mute);
+  color: var(--ink);
   margin: 1.25rem 0 0;
 }
 
-/* --- steps ----------------------------------------------------------- */
-.steps {
+/*
+ * Cenník na domovskej stránke: prepínač kategórií a panely s riadkami.
+ * Bloky .price-switch a .price-table-wrap nad tým zostávajú — stavia na nich
+ * samostatná stránka cenik.html.
+ */
+/*
+ * Pod cenníkom je fotka pracovného stola. Je to len textúra, nie obraz —
+ * krémový závoj z nej nechá toľko, aby biely panel aj čierny text zostali
+ * čitateľné. Záber je prevrátený, takže tmavý kartáč padne vpravo pod
+ * prepínač a nadpis vľavo hore sedí na svetlom dreve.
+ */
+.pricing {
+  position: relative;
+  isolation: isolate;
+  background: var(--cream) url("img/cenik-pozadie.webp") center/cover no-repeat;
+}
+.pricing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--cream);
+  opacity: 0.78;
+}
+
+.pricing-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.pricing-intro {
+  max-width: 35rem;
+}
+.pricing-intro p {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+/*
+ * Prepínač v sekcii — cenník aj galéria. Je to tá istá pilulka ako navigácia
+ * v hlavičke: biele pozadie, čierna plocha pod aktívnou položkou, to isté
+ * písmo aj preloženie. Len nižšia a s menším rezom, aby v sekcii nekričala.
+ * Čiernu plochu posúva lume.js, bez JS ju dostane priamo aktívne tlačidlo.
+ * Cenník drží stav v aria-selected (tablist), galéria v aria-pressed.
+ */
+.pill-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  min-height: var(--switch-h);
+  gap: 0.15rem;
+  padding: 0.25rem;
+  background: var(--shell);
+  color: var(--ink);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  /* so skriptom čiernu plochu kreslí posuvná pilulka, nie samo tlačidlo */
+}
+.pill-switch button {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--switch-item-h);
+  padding: 0 0.9rem;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: inherit;
+  font-family: var(--display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  /* na hover sa z položky stane tá istá čierna pilulka ako v navigácii */
+}
+.pill-switch button:hover, .pill-switch button:focus-visible {
+  background: var(--ink);
+  color: #fff;
+}
+.pill-switch button[aria-selected=true], .pill-switch button[aria-pressed=true] {
+  color: #fff;
+  background: var(--ink);
+}
+.pill-switch.is-live button[aria-selected=true],
+.pill-switch.is-live button[aria-pressed=true] {
+  background: none;
+}
+.pill-switch.is-live .pill-switch-ind {
+  opacity: 1;
+}
+
+.pill-switch-ind {
+  position: absolute;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  left: 0;
+  width: 0;
+  background: var(--ink);
+  border-radius: 999px;
+  opacity: 0;
+  transition: transform 0.5s var(--ease), width 0.5s var(--ease);
+}
+
+.price-panels {
+  background: var(--shell);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.price-list {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.price-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.75rem;
-  counter-reset: krok;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid var(--rule);
+  animation: price-in 0.55s var(--ease-out) both;
+  animation-delay: calc(var(--n, 0) * 45ms);
+}
+.price-row:last-child {
+  border-bottom: 0;
 }
 
-.step {
-  border-top: 2px solid var(--ink);
-  padding-top: 1.25rem;
+.price-name {
+  font-weight: 500;
 }
-.step p {
+.price-name small {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 400;
   color: var(--mute);
-  font-size: 0.95rem;
-  margin-bottom: 0;
-}
-.step h3 {
-  margin-bottom: 0.45rem;
 }
 
-.step-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 50%;
-  border: 1px solid var(--rose);
-  color: var(--rose);
+.price-time {
+  font-size: 0.92rem;
+  color: var(--mute);
+  white-space: nowrap;
+}
+
+.price-amount {
+  min-width: 7.5rem;
+  text-align: right;
   font-family: var(--display);
   font-weight: 600;
-  margin-bottom: 1rem;
+  white-space: nowrap;
 }
 
-/* --- štúdio ----------------------------------------------------------- */
-.section-studio {
-  background: var(--shell);
+@keyframes price-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
 }
-
-.studio-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: clamp(2rem, 5vw, 4rem);
+.pricing-foot {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-top: 1.75rem;
 }
-.studio-grid > * {
-  min-width: 0;
-}
-
-.studio-photo {
-  position: relative;
-  z-index: 0;
-}
-.studio-photo img {
-  width: 100%;
-  border-radius: var(--radius-lg);
-}
-.studio-photo::after {
-  content: "";
-  position: absolute;
-  inset: 1.25rem -1.25rem -1.25rem 1.25rem;
-  border: 1px solid var(--sand);
-  border-radius: var(--radius-lg);
-  z-index: -1;
-}
-
-.studio-copy p {
-  color: var(--mute);
-}
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: 2rem;
-  margin: 2rem 0 0;
-  justify-content: start;
-}
-.stats dt {
-  font-family: var(--display);
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 1;
-}
-.stats dd {
-  margin: 0.35rem 0 0;
-  font-size: 0.85rem;
-  color: var(--mute);
+.pricing-foot .price-note {
+  margin: 0;
+  max-width: 35rem;
 }
 
 /* --- galéria ---------------------------------------------------------- */
@@ -997,7 +1388,7 @@ section {
   aspect-ratio: 1;
   margin: 0;
   overflow: hidden;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   background: var(--sand);
   box-shadow: 0 18px 40px rgba(28, 25, 23, 0.18);
   scroll-snap-align: center;
@@ -1123,33 +1514,6 @@ section {
   opacity: 1;
 }
 
-/* --- reviews --------------------------------------------------------- */
-.reviews {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
-  gap: 1.25rem;
-}
-
-.review {
-  margin: 0;
-  background: var(--cream);
-  border-radius: var(--radius-lg);
-  padding: 1.75rem 1.6rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.review blockquote {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-.review figcaption {
-  margin-top: auto;
-  font-size: 0.85rem;
-  color: var(--mute);
-}
-
 /* --- booking ------------------------------------------------------- */
 .booking-grid {
   display: grid;
@@ -1176,7 +1540,7 @@ section {
   display: flex;
   gap: 0.85rem;
   font-size: 0.95rem;
-  color: var(--mute);
+  color: var(--ink);
 }
 .contact-list .icon {
   color: var(--rose);
@@ -1200,8 +1564,7 @@ section {
 
 form {
   background: var(--shell);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   padding: clamp(1.5rem, 3vw, 2.25rem);
 }
 
@@ -1236,17 +1599,17 @@ textarea {
   font: inherit;
   font-size: 1rem;
   color: inherit;
-  background: var(--shell);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius);
-  padding: 0.75rem 0.85rem;
+  /* bez rámčeka ich od bielej karty odlíši vlastná plocha */
+  background: var(--cream);
+  border: 0;
+  border-radius: var(--radius-xl);
+  padding: 0.75rem 1.1rem;
 }
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
   outline: 2px solid var(--rose);
   outline-offset: 1px;
-  border-color: var(--rose);
 }
 
 textarea {
@@ -1309,7 +1672,7 @@ textarea {
   overflow: hidden;
 }
 .faq .faq-body p {
-  color: var(--mute);
+  color: var(--ink);
   font-size: 0.97rem;
   margin: 0 0 1.15rem;
 }
@@ -1389,15 +1752,8 @@ textarea {
 
 /* --- responzívne ------------------------------------------------------ */
 @media (max-width: 1040px) {
-  .studio-grid,
   .booking-grid {
     grid-template-columns: 1fr;
-  }
-  .studio-photo::after {
-    display: none;
-  }
-  .steps {
-    grid-template-columns: repeat(2, 1fr);
   }
   .service {
     grid-template-columns: 1fr;
@@ -1415,6 +1771,24 @@ textarea {
   }
   .container {
     width: min(1180px, 100% - 2.5rem);
+  }
+  /* trojica na jeden stĺpec — fotka vedľa textu, bez posunutej karty */
+  .team {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-bottom: 0;
+  }
+  .member {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .member:nth-child(2) {
+    translate: none;
+  }
+  .member-photo {
+    margin: 0;
   }
 }
 /*
@@ -1435,12 +1809,15 @@ textarea {
   .hero-bottom {
     justify-content: space-between;
   }
+  .pricing-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 @media (max-width: 640px) {
   body {
     font-size: 1rem;
   }
-  .steps,
   .field-row,
   .site-footer .container {
     grid-template-columns: 1fr;
@@ -1452,14 +1829,27 @@ textarea {
   .price-table-wrap .duration {
     display: none;
   }
-  .stats {
-    gap: 1.5rem;
+  /* na mobile sa trvanie nezmestí, zostane názov a cena */
+  .price-time {
+    display: none;
+  }
+  .price-row {
+    gap: 0.9rem;
+    padding: 1rem;
+  }
+  .pill-switch button {
+    padding: 0 0.75rem;
   }
   .btn {
     width: 100%;
   }
   .nav-panel .btn {
     width: auto;
+  }
+}
+@media (max-width: 560px) {
+  .member {
+    grid-template-columns: 1fr;
   }
 }
 @media (prefers-reduced-motion: reduce) {

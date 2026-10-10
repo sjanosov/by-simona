@@ -28,6 +28,13 @@
     <link href="style.css" rel="stylesheet" />
   </head>
   <body>
+    <!--
+      Zdieľané definície ťahu štetca pre nadpisy Vítejte a Ceník.
+      Nesmie ísť do SVG so symbolmi ikon nižšie — to má display:none a
+      prehliadač by filter ani masku nevykreslil, ťah by stratil štetiny.
+    -->
+    <svg class="brush-defs" width="0" height="0" aria-hidden="true" focusable="false"><defs><filter id="brush-rough" x="-4%" y="-30%" width="108%" height="160%"><feTurbulence type="fractalNoise" baseFrequency="0.035 0.6" numOctaves="2" seed="7" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap></filter><mask id="brush-bristles" maskUnits="userSpaceOnUse" x="-10" y="-10" width="330" height="80"><rect x="-10" y="-10" width="330" height="80" fill="#fff"></rect><g fill="none" stroke="#000" stroke-linecap="round"><path d="M118 17.5H296" stroke-width="0.8" stroke-opacity="0.75"></path><path d="M230 21H300" stroke-width="1.1" stroke-opacity="0.9"></path><path d="M60 23.5H240" stroke-width="0.5" stroke-opacity="0.5"></path><path d="M176 27H300" stroke-width="1.3" stroke-opacity="0.85"></path><path d="M8 32H92" stroke-width="0.6" stroke-opacity="0.45"></path><path d="M146 35.5H300" stroke-width="0.9" stroke-opacity="0.8"></path><path d="M36 39.5H204" stroke-width="0.5" stroke-opacity="0.45"></path><path d="M206 43H300" stroke-width="1.5" stroke-opacity="0.95"></path><path d="M88 46.5H262" stroke-width="0.6" stroke-opacity="0.55"></path><path d="M250 31H300" stroke-width="0.8" stroke-opacity="0.9"></path></g></mask></defs></svg>
+
     <svg
       aria-hidden="true"
       style="display: none"
@@ -279,9 +286,9 @@
 
         <div class="nav-pill">
           <nav class="main-nav" aria-label="Hlavní menu">
-            <a class="nav-link" href="#studio">O nás</a>
+            <a class="nav-link" href="#vitejte">O nás</a>
             <a class="nav-link" href="#services">Služby</a>
-            <a class="nav-link" href="cenik.html">Ceník</a>
+            <a class="nav-link" href="#cenik">Ceník</a>
             <a class="nav-link" href="#gallery">Galerie</a>
             <a class="nav-link" href="#booking">Kontakt</a>
           </nav>
@@ -331,9 +338,9 @@
       </div>
       <nav aria-label="Menu">
         <ul>
-          <li><a class="nav-link" href="#studio">O nás</a></li>
+          <li><a class="nav-link" href="#vitejte">O nás</a></li>
           <li><a class="nav-link" href="#services">Služby</a></li>
-          <li><a class="nav-link" href="cenik.html">Ceník</a></li>
+          <li><a class="nav-link" href="#cenik">Ceník</a></li>
           <li><a class="nav-link" href="#gallery">Galerie</a></li>
           <li><a class="nav-link" href="#booking">Kontakt</a></li>
         </ul>
@@ -430,10 +437,157 @@
         </div>
       </div>
 
-      <section id="services">
+      <section aria-labelledby="welcome-title" class="welcome" id="vitejte">
         <div class="container">
-          <div class="section-head">
-            <h2>Co u nás vlasy čeká</h2>
+          <div class="welcome-intro">
+            <div class="welcome-head" data-reveal>
+              <h2 class="brush-title" id="welcome-title">
+                Vítejte
+                <svg class="brush-mark" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><g mask="url(#brush-bristles)"><g filter="url(#brush-rough)" fill="currentColor"><path fill-opacity="0.88" d="M7 21C42 11 92 8 150 10c56 2 106-1 144 5l-6 9 8 7-9 9c-47 7-98 10-148 9-45-1-90 2-130-3l5-8-10-7 9-6Z"></path><path fill-opacity="0.25" d="M4 24c4-6 14-9 22-8l-4 30c-8 0-15-3-18-8Z"></path></g></g><g fill="none" stroke="currentColor" stroke-linecap="round" filter="url(#brush-rough)"><path d="M288 18c8 0 16 1 22 3" stroke-width="1.2" stroke-opacity="0.7"></path><path d="M290 29c9 0 18 1 25 2" stroke-width="0.8" stroke-opacity="0.55"></path><path d="M286 39c8 1 15 1 21 0" stroke-width="1.4" stroke-opacity="0.65"></path><path d="M20 14c70-6 150-7 236-3" stroke-width="0.7" stroke-opacity="0.45"></path><path d="M28 50c74 3 154 3 240-3" stroke-width="0.8" stroke-opacity="0.5"></path></g></svg>
+              </h2>
+              <p>
+                Lumé je malé kadeřnické studio v Jánské ulici. Tři křesla,
+                jedna velká lampa a čas na to, abychom vás nejdřív poslouchali
+                — a teprve potom stříhali.
+              </p>
+              <p>
+                Studio jsme otevřeli v roce 2019 s jednoduchou myšlenkou: žádný
+                spěch na pásu, žádné překvapení u kasy. Barvíme veganskými
+                barvami, ke každé návštěvě patří konzultace a káva z pražírny o
+                dva domy vedle.
+              </p>
+            </div>
+          </div>
+
+          <figure class="welcome-film" data-reveal>
+            <video
+              aria-label="Krátké video z běžného dne ve studiu Lumé"
+              autoplay
+              loop
+              muted
+              playsinline
+              poster="img/studio-video.webp"
+              preload="metadata"
+            >
+              <source src="video/studio.webm" type="video/webm" />
+              <source src="video/studio.mp4" type="video/mp4" />
+            </video>
+            <figcaption class="welcome-film-caption">
+              <button
+                aria-label="Pozastavit video"
+                aria-pressed="false"
+                class="welcome-film-toggle"
+                type="button"
+              >
+                <svg class="icon icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13M16 5.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+                <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.2v13.6L18.6 12 8 5.2Z" fill="currentColor" /></svg>
+              </button>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section aria-labelledby="team-title" class="welcome-team" id="tym">
+        <div class="container">
+          <div class="section-head team-head" data-reveal>
+            <h2 class="brush-title" id="team-title">
+              Kdo se o vás postará
+              <svg class="brush-mark" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><g mask="url(#brush-bristles)"><g filter="url(#brush-rough)" fill="currentColor"><path fill-opacity="0.88" d="M7 21C42 11 92 8 150 10c56 2 106-1 144 5l-6 9 8 7-9 9c-47 7-98 10-148 9-45-1-90 2-130-3l5-8-10-7 9-6Z"></path><path fill-opacity="0.25" d="M4 24c4-6 14-9 22-8l-4 30c-8 0-15-3-18-8Z"></path></g></g><g fill="none" stroke="currentColor" stroke-linecap="round" filter="url(#brush-rough)"><path d="M288 18c8 0 16 1 22 3" stroke-width="1.2" stroke-opacity="0.7"></path><path d="M290 29c9 0 18 1 25 2" stroke-width="0.8" stroke-opacity="0.55"></path><path d="M286 39c8 1 15 1 21 0" stroke-width="1.4" stroke-opacity="0.65"></path><path d="M20 14c70-6 150-7 236-3" stroke-width="0.7" stroke-opacity="0.45"></path><path d="M28 50c74 3 154 3 240-3" stroke-width="0.8" stroke-opacity="0.5"></path></g></svg>
+            </h2>
+            <p>
+              Jsme tři. Každý má svou parketu, ale klientky i klienty si
+              navzájem rádi předáváme — aby na vás vždycky čekal ten pravý.
+            </p>
+          </div>
+
+          <ul class="team" data-reveal>
+            <li class="member" style="--i: 0">
+              <figure
+                class="member-photo"
+                style="--focus-x: 62%; --focus-y: 30%"
+              >
+                <img
+                  alt="Klára Novotná upravuje klientce vlasy v křesle studia"
+                  height="1000"
+                  loading="lazy"
+                  src="img/tim-klara.webp"
+                  width="800"
+                />
+                <span class="member-years">14 let praxe</span>
+              </figure>
+              <div class="member-body">
+                <h3>Klára Novotná</h3>
+                <p class="member-role">Majitelka a koloristka</p>
+                <p>
+                  Barvu míchám od oka i na gram. Nejvíc mě baví balayage a
+                  korekce po jiných salonech — nejradši mám, když nikdo
+                  nepozná, že jste byla u kadeřnice.
+                </p>
+              </div>
+            </li>
+            <li class="member" style="--i: 1">
+              <figure
+                class="member-photo"
+                style="--focus-x: 74%; --focus-y: 38%"
+              >
+                <img
+                  alt="Tereza Dvořáková česká klientce blond mikádo"
+                  height="1000"
+                  loading="lazy"
+                  src="img/tim-tereza.webp"
+                  width="800"
+                />
+                <span class="member-years">8 let praxe</span>
+              </figure>
+              <div class="member-body">
+                <h3>Tereza Dvořáková</h3>
+                <p class="member-role">Stylistka, dámské střihy</p>
+                <p>
+                  Střih stavím tak, aby fungoval i doma bez fénu a kartáče. Na
+                  svatební a společenské účesy si beru celé dopoledne, aby
+                  nikdo nespěchal.
+                </p>
+              </div>
+            </li>
+            <li class="member" style="--i: 2">
+              <figure
+                class="member-photo"
+                style="--focus-x: 74%; --focus-y: 32%"
+              >
+                <img
+                  alt="Marek Svoboda nanáší klientce štětcem barvu"
+                  height="1000"
+                  loading="lazy"
+                  src="img/tim-marek.webp"
+                  width="800"
+                />
+                <span class="member-years">6 let praxe</span>
+              </figure>
+              <div class="member-body">
+                <h3>Marek Svoboda</h3>
+                <p class="member-role">Kolorista, zesvětlování a péče</p>
+                <p>
+                  Dělám melíry a přechody do světlé — a hlídám, kolik toho vlasy
+                  unesou. Ke každému barvení dostanete plán péče, který se dá
+                  zvládnout doma, ne jen v salonu.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="services-title"
+        class="section-wash"
+        id="services"
+      >
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <h2 class="brush-title" id="services-title">
+              Co u nás vlasy čeká
+              <svg class="brush-mark" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><g mask="url(#brush-bristles)"><g filter="url(#brush-rough)" fill="currentColor"><path fill-opacity="0.88" d="M7 21C42 11 92 8 150 10c56 2 106-1 144 5l-6 9 8 7-9 9c-47 7-98 10-148 9-45-1-90 2-130-3l5-8-10-7 9-6Z"></path><path fill-opacity="0.25" d="M4 24c4-6 14-9 22-8l-4 30c-8 0-15-3-18-8Z"></path></g></g><g fill="none" stroke="currentColor" stroke-linecap="round" filter="url(#brush-rough)"><path d="M288 18c8 0 16 1 22 3" stroke-width="1.2" stroke-opacity="0.7"></path><path d="M290 29c9 0 18 1 25 2" stroke-width="0.8" stroke-opacity="0.55"></path><path d="M286 39c8 1 15 1 21 0" stroke-width="1.4" stroke-opacity="0.65"></path><path d="M20 14c70-6 150-7 236-3" stroke-width="0.7" stroke-opacity="0.45"></path><path d="M28 50c74 3 154 3 240-3" stroke-width="0.8" stroke-opacity="0.5"></path></g></svg>
+            </h2>
           </div>
 
           <div class="services">
@@ -456,7 +610,10 @@
                   vznikne plán: co uděláme dnes, co počká na další termín a co
                   by vlasům jen uškodilo.
                 </p>
-                <a class="service-link" href="cenik.html#cuts"
+                <a
+                  class="service-link"
+                  data-price-tab="tab-damy"
+                  href="#cenik"
                   >Co stojí konzultace</a
                 >
               </div>
@@ -481,7 +638,10 @@
                   strukturou, ne proti ní — proto účes drží i ve třetím týdnu,
                   kdy už se nikdo nefouká do zrcadla.
                 </p>
-                <a class="service-link" href="cenik.html#cuts"
+                <a
+                  class="service-link"
+                  data-price-tab="tab-damy"
+                  href="#cenik"
                   >Ceny střihů a foukané</a
                 >
               </div>
@@ -505,7 +665,10 @@
                   barvením, teplem a létem. K tomu dostanete postup na doma —
                   konkrétní, ne obecné rady z internetu.
                 </p>
-                <a class="service-link" href="cenik.html#care"
+                <a
+                  class="service-link"
+                  data-price-tab="tab-ritualy"
+                  href="#cenik"
                   >Ceny péče a stylingu</a
                 >
               </div>
@@ -514,99 +677,13 @@
         </div>
       </section>
 
-      <section id="steps">
-        <div class="container">
-          <div class="section-head">
-            <h2>Jak probíhá první návštěva</h2>
-            <p>
-              Abyste věděli, do čeho jdete — i když jste u kadeřnice poprvé v
-              životě.
-            </p>
-          </div>
-
-          <ol class="steps">
-            <li class="step">
-              <span class="step-number">1</span>
-              <h3>Konzultace</h3>
-              <p>
-                Dvacet minut zdarma. Podíváme se na stav vlasů a na barvu,
-                zeptám se, co jste zkoušela doma a co od změny čekáte.
-              </p>
-            </li>
-            <li class="step">
-              <span class="step-number">2</span>
-              <h3>Plán, ne balíček</h3>
-              <p>
-                Řeknu, co má smysl udělat hned, co klidně počká a co by vlasům
-                uškodilo. Cenu znáte před začátkem práce.
-              </p>
-            </li>
-            <li class="step">
-              <span class="step-number">3</span>
-              <h3>Samotná práce</h3>
-              <p>
-                V klidu, bez telefonátů a bez střídání kadeřnic. Při každém
-                kroku víte, co právě dělám a proč.
-              </p>
-            </li>
-            <li class="step">
-              <span class="step-number">4</span>
-              <h3>Domácí péče</h3>
-              <p>
-                Dostanete vzorky a napsaný postup na mytí i styling. Za čtyři
-                týdny se ozvu, jestli barva drží tak, jak jsme čekaly.
-              </p>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="section-studio" id="studio">
-        <div class="container studio-grid">
-          <div class="studio-photo">
-            <img
-              alt="Pracoviště v kadeřnickém studiu Lumé"
-              height="600"
-              loading="lazy"
-              src="/assets/kozmetika-detail.webp"
-              width="600"
-            />
-          </div>
-          <div class="studio-copy">
-            <p class="eyebrow">O studiu</p>
-            <h2>Malé studio, ve kterém nikam nespěcháme.</h2>
-            <p>
-              Lumé vedu sama a objednávám si jen tolik klientek, kolik stihnu
-              bez koukání na hodiny. Pracuji s profesionální vlasovou
-              kosmetikou, kterou si můžete doobjednat i domů — ale nikdy vám ji
-              nebudu tlačit k účesu.
-            </p>
-            <p>
-              Pokud nevíte, co si vybrat, přijďte na konzultaci. Je zdarma a
-              nezavazuje vás k ničemu.
-            </p>
-            <dl class="stats">
-              <div>
-                <dt><span data-count="12" data-suffix="">0</span></dt>
-                <dd>let praxe</dd>
-              </div>
-              <div>
-                <dt><span data-count="900" data-suffix="+">0</span></dt>
-                <dd>účesů ročně</dd>
-              </div>
-              <div>
-                <dt>4,9</dt>
-                <dd>hodnocení na Google</dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-      </section>
-
       <section class="section-alt" id="gallery">
         <div class="container">
-          <div class="section-head">
-            <h2>Galerie</h2>
+          <div class="section-head" data-reveal>
+            <h2 class="brush-title" id="gallery-title">
+              Galerie
+              <svg class="brush-mark" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><g mask="url(#brush-bristles)"><g filter="url(#brush-rough)" fill="currentColor"><path fill-opacity="0.88" d="M7 21C42 11 92 8 150 10c56 2 106-1 144 5l-6 9 8 7-9 9c-47 7-98 10-148 9-45-1-90 2-130-3l5-8-10-7 9-6Z"></path><path fill-opacity="0.25" d="M4 24c4-6 14-9 22-8l-4 30c-8 0-15-3-18-8Z"></path></g></g><g fill="none" stroke="currentColor" stroke-linecap="round" filter="url(#brush-rough)"><path d="M288 18c8 0 16 1 22 3" stroke-width="1.2" stroke-opacity="0.7"></path><path d="M290 29c9 0 18 1 25 2" stroke-width="0.8" stroke-opacity="0.55"></path><path d="M286 39c8 1 15 1 21 0" stroke-width="1.4" stroke-opacity="0.65"></path><path d="M20 14c70-6 150-7 236-3" stroke-width="0.7" stroke-opacity="0.45"></path><path d="M28 50c74 3 154 3 240-3" stroke-width="0.8" stroke-opacity="0.5"></path></g></svg>
+            </h2>
             <p>
               Přepněte si mezi prostorem studia a pracemi, které z něj
               odcházejí. Fotky se dají potáhnout myší i prstem, případně
@@ -616,9 +693,10 @@
 
           <div
             aria-label="Co zobrazit v galerii"
-            class="gallery-switch"
+            class="pill-switch gallery-switch"
             role="group"
           >
+            <span class="pill-switch-ind" aria-hidden="true"></span>
             <button aria-pressed="true" data-gallery="studio" type="button">
               Studio
             </button>
@@ -748,92 +826,69 @@
         </div>
       </section>
 
-      <section id="reviews">
+      <section aria-labelledby="pricing-title" class="section-alt pricing" id="cenik">
         <div class="container">
-          <div class="section-head">
-            <h2>Co říkají klientky</h2>
-            <p>
-              Tři z hodnocení, která nám nejvíc pomohla — i proto, že jsou
-              konkrétní.
-            </p>
+          <div class="pricing-head">
+            <div class="pricing-intro" data-reveal>
+              <h2 class="brush-title" id="pricing-title">
+                Ceník
+                <svg class="brush-mark" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><g mask="url(#brush-bristles)"><g filter="url(#brush-rough)" fill="currentColor"><path fill-opacity="0.88" d="M7 21C42 11 92 8 150 10c56 2 106-1 144 5l-6 9 8 7-9 9c-47 7-98 10-148 9-45-1-90 2-130-3l5-8-10-7 9-6Z"></path><path fill-opacity="0.25" d="M4 24c4-6 14-9 22-8l-4 30c-8 0-15-3-18-8Z"></path></g></g><g fill="none" stroke="currentColor" stroke-linecap="round" filter="url(#brush-rough)"><path d="M288 18c8 0 16 1 22 3" stroke-width="1.2" stroke-opacity="0.7"></path><path d="M290 29c9 0 18 1 25 2" stroke-width="0.8" stroke-opacity="0.55"></path><path d="M286 39c8 1 15 1 21 0" stroke-width="1.4" stroke-opacity="0.65"></path><path d="M20 14c70-6 150-7 236-3" stroke-width="0.7" stroke-opacity="0.45"></path><path d="M28 50c74 3 154 3 240-3" stroke-width="0.8" stroke-opacity="0.5"></path></g></svg>
+              </h2>
+              <p>
+                Ceny platí od 1. ledna 2026. U barvení a melíru řekneme
+                konečnou cenu po konzultaci — podle délky a hustoty vlasů,
+                nikdy ne až u kasy.
+              </p>
+            </div>
+
+            <!-- menšia verzia pilulky z hlavičky; čierna plocha (.pill-switch-ind) sa posúva pod aktívnu položku -->
+            <div class="pill-switch" role="tablist" aria-label="Kategorie ceníku">
+              <span class="pill-switch-ind" aria-hidden="true"></span>
+              <button role="tab" type="button" id="tab-damy" aria-controls="panel-damy" aria-selected="true" tabindex="0">Dámy</button>
+              <button role="tab" type="button" id="tab-pani" aria-controls="panel-pani" aria-selected="false" tabindex="-1">Páni</button>
+              <button role="tab" type="button" id="tab-deti" aria-controls="panel-deti" aria-selected="false" tabindex="-1">Děti</button>
+              <button role="tab" type="button" id="tab-ritualy" aria-controls="panel-ritualy" aria-selected="false" tabindex="-1">Rituály</button>
+            </div>
           </div>
 
-          <div class="reviews">
-            <figure class="review">
-              <span class="stars" aria-label="Pět hvězdiček z pěti">
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-star" />
-                </svg>
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-star" />
-                </svg>
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-star" />
-                </svg>
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-star" />
-                </svg>
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-star" />
-                </svg>
-              </span>
-              <blockquote>
-                Poprvé mi někdo vysvětlil, proč mám vlasy po barvení suché a
-                lámavé. Polovinu věcí, co jsem používala, jsem po konzultaci
-                odložila — a za měsíc byl pokoj.
-              </blockquote>
-              <figcaption>Kateřina M. · klientka od roku 2024</figcaption>
-            </figure>
+          <div class="price-panels">
+            <ul class="price-list" role="tabpanel" id="panel-damy" aria-labelledby="tab-damy">
+              <li class="price-row" style="--n: 0"><span class="price-name">Konzultace a diagnostika vlasů<small>I bez následné služby</small></span><span class="price-time">20 min</span><span class="price-amount">zdarma</span></li>
+              <li class="price-row" style="--n: 1"><span class="price-name">Dámský střih s foukanou<small>Mytí, střih, foukaná, finish</small></span><span class="price-time">60 min</span><span class="price-amount">790 Kč</span></li>
+              <li class="price-row" style="--n: 2"><span class="price-name">Dámský střih bez foukané</span><span class="price-time">45 min</span><span class="price-amount">590 Kč</span></li>
+              <li class="price-row" style="--n: 3"><span class="price-name">Foukaná a styling<small>Kulma nebo žehlička podle dohody</small></span><span class="price-time">45 min</span><span class="price-amount">490 Kč</span></li>
+              <li class="price-row" style="--n: 4"><span class="price-name">Zastřižení konců<small>Pro délku, kterou si pěstujete</small></span><span class="price-time">30 min</span><span class="price-amount">390 Kč</span></li>
+              <li class="price-row" style="--n: 5"><span class="price-name">Barvení odrostů<small>Do 3 cm, včetně foukané</small></span><span class="price-time">90 min</span><span class="price-amount">od 1 290 Kč</span></li>
+              <li class="price-row" style="--n: 6"><span class="price-name">Barvení celé délky</span><span class="price-time">120 min</span><span class="price-amount">od 1 690 Kč</span></li>
+              <li class="price-row" style="--n: 7"><span class="price-name">Tónování a oživení barvy</span><span class="price-time">60 min</span><span class="price-amount">od 890 Kč</span></li>
+              <li class="price-row" style="--n: 8"><span class="price-name">Melír fólií<small>Podle hustoty a délky vlasů</small></span><span class="price-time">150 min</span><span class="price-amount">od 2 490 Kč</span></li>
+              <li class="price-row" style="--n: 9"><span class="price-name">AirTouch nebo balayage<small>Plynulý přechod bez ostré hranice</small></span><span class="price-time">180 – 240 min</span><span class="price-amount">od 3 490 Kč</span></li>
+              <li class="price-row" style="--n: 10"><span class="price-name">Korekce barvy po jiném salonu<small>Dohodneme plán na dva – tři měsíce</small></span><span class="price-time">30 min</span><span class="price-amount">390 Kč</span></li>
+              <li class="price-row" style="--n: 11"><span class="price-name">Společenský účes</span><span class="price-time">60 min</span><span class="price-amount">od 990 Kč</span></li>
+              <li class="price-row" style="--n: 12"><span class="price-name">Svatební účes<small>Včetně zkoušky předem</small></span><span class="price-time">90 min</span><span class="price-amount">od 1 490 Kč</span></li>
+            </ul>
+            <ul class="price-list" role="tabpanel" id="panel-pani" aria-labelledby="tab-pani" hidden>
+              <li class="price-row" style="--n: 0"><span class="price-name">Konzultace a diagnostika vlasů<small>I bez následné služby</small></span><span class="price-time">20 min</span><span class="price-amount">zdarma</span></li>
+              <li class="price-row" style="--n: 1"><span class="price-name">Pánský střih<small>Strojek i nůžky, úprava kontur</small></span><span class="price-time">30 min</span><span class="price-amount">390 Kč</span></li>
+              <li class="price-row" style="--n: 2"><span class="price-name">Pánský střih s úpravou bradky</span><span class="price-time">45 min</span><span class="price-amount">490 Kč</span></li>
+            </ul>
+            <ul class="price-list" role="tabpanel" id="panel-deti" aria-labelledby="tab-deti" hidden>
+              <li class="price-row" style="--n: 0"><span class="price-name">Dětský střih do 12 let</span><span class="price-time">30 min</span><span class="price-amount">290 Kč</span></li>
+            </ul>
+            <ul class="price-list" role="tabpanel" id="panel-ritualy" aria-labelledby="tab-ritualy" hidden>
+              <li class="price-row" style="--n: 0"><span class="price-name">Hloubková regenerace<small>Maska a masáž hlavy</small></span><span class="price-time">45 min</span><span class="price-amount">od 590 Kč</span></li>
+              <li class="price-row" style="--n: 1"><span class="price-name">Keratinové vyhlazení<small>Vydrží 3 – 5 měsíců</small></span><span class="price-time">120 – 180 min</span><span class="price-amount">od 2 490 Kč</span></li>
+              <li class="price-row" style="--n: 2"><span class="price-name">Botox na vlasy<small>Pro jemné a lámavé vlasy</small></span><span class="price-time">90 min</span><span class="price-amount">od 1 890 Kč</span></li>
+              <li class="price-row" style="--n: 3"><span class="price-name">Masáž hlavy s olejem</span><span class="price-time">20 min</span><span class="price-amount">290 Kč</span></li>
+            </ul>
+          </div>
 
-            <figure class="review">
-              <span class="stars" aria-label="Pět hvězdiček z pěti">
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-star" />
-                </svg>
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-star" />
-                </svg>
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-star" />
-                </svg>
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-star" />
-                </svg>
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-star" />
-                </svg>
-              </span>
-              <blockquote>
-                Chodím na melír každé tři měsíce. Cenu jsem znala dopředu,
-                termíny dostávám SMS a nikdy jsem nečekala víc než pět minut.
-              </blockquote>
-              <figcaption>Lucie B. · Žabovřesky</figcaption>
-            </figure>
-
-            <figure class="review">
-              <span class="stars" aria-label="Pět hvězdiček z pěti">
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-star" />
-                </svg>
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-star" />
-                </svg>
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-star" />
-                </svg>
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-star" />
-                </svg>
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-star" />
-                </svg>
-              </span>
-              <blockquote>
-                Objednala jsem se přes web v jedenáct večer, ráno mi přišlo
-                potvrzení termínu. Přesně tohle jsem u kadeřnice vždy hledala.
-              </blockquote>
-              <figcaption>Zuzana H. · Brno-střed</figcaption>
-            </figure>
+          <div class="pricing-foot">
+            <p class="price-note">
+              Dárkový poukaz vystavíme na libovolnou částku i na konkrétní
+              službu. Platit můžete kartou i v hotovosti.
+            </p>
+            <a class="btn btn-primary" href="#booking">Objednat se</a>
           </div>
         </div>
       </section>
@@ -841,8 +896,11 @@
       <section class="section-alt" id="booking">
         <div class="container booking-grid">
           <div class="booking-info">
-            <div class="section-head">
-              <h2>Objednejte se</h2>
+            <div class="section-head" data-reveal>
+              <h2 class="brush-title" id="booking-title">
+                Objednejte se
+                <svg class="brush-mark" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><g mask="url(#brush-bristles)"><g filter="url(#brush-rough)" fill="currentColor"><path fill-opacity="0.88" d="M7 21C42 11 92 8 150 10c56 2 106-1 144 5l-6 9 8 7-9 9c-47 7-98 10-148 9-45-1-90 2-130-3l5-8-10-7 9-6Z"></path><path fill-opacity="0.25" d="M4 24c4-6 14-9 22-8l-4 30c-8 0-15-3-18-8Z"></path></g></g><g fill="none" stroke="currentColor" stroke-linecap="round" filter="url(#brush-rough)"><path d="M288 18c8 0 16 1 22 3" stroke-width="1.2" stroke-opacity="0.7"></path><path d="M290 29c9 0 18 1 25 2" stroke-width="0.8" stroke-opacity="0.55"></path><path d="M286 39c8 1 15 1 21 0" stroke-width="1.4" stroke-opacity="0.65"></path><path d="M20 14c70-6 150-7 236-3" stroke-width="0.7" stroke-opacity="0.45"></path><path d="M28 50c74 3 154 3 240-3" stroke-width="0.8" stroke-opacity="0.5"></path></g></svg>
+              </h2>
               <p>
                 Napište, co byste chtěli řešit, a ozvu se do jednoho pracovního
                 dne s volnými termíny.
@@ -977,8 +1035,11 @@
 
       <section id="faq">
         <div class="container">
-          <div class="section-head">
-            <h2>Časté otázky</h2>
+          <div class="section-head" data-reveal>
+            <h2 class="brush-title" id="faq-title">
+              Časté otázky
+              <svg class="brush-mark" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><g mask="url(#brush-bristles)"><g filter="url(#brush-rough)" fill="currentColor"><path fill-opacity="0.88" d="M7 21C42 11 92 8 150 10c56 2 106-1 144 5l-6 9 8 7-9 9c-47 7-98 10-148 9-45-1-90 2-130-3l5-8-10-7 9-6Z"></path><path fill-opacity="0.25" d="M4 24c4-6 14-9 22-8l-4 30c-8 0-15-3-18-8Z"></path></g></g><g fill="none" stroke="currentColor" stroke-linecap="round" filter="url(#brush-rough)"><path d="M288 18c8 0 16 1 22 3" stroke-width="1.2" stroke-opacity="0.7"></path><path d="M290 29c9 0 18 1 25 2" stroke-width="0.8" stroke-opacity="0.55"></path><path d="M286 39c8 1 15 1 21 0" stroke-width="1.4" stroke-opacity="0.65"></path><path d="M20 14c70-6 150-7 236-3" stroke-width="0.7" stroke-opacity="0.45"></path><path d="M28 50c74 3 154 3 240-3" stroke-width="0.8" stroke-opacity="0.5"></path></g></svg>
+            </h2>
             <p>Pokud tu něco chybí, napište — doplním to sem.</p>
           </div>
 
@@ -1087,6 +1148,7 @@
 
     <script src="script.js"></script>
     <script defer src="gallery.js"></script>
+    <script defer src="lume.js"></script>
     <script defer src="/cookies.js"></script>
 
     <!-- DOČASNÉ: skúšanie Google Fonts z konzoly, pred ostrým webom zmazať -->
