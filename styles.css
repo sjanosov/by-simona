@@ -1537,10 +1537,14 @@ a:hover {
   text-decoration: none;
   border: 1px solid var(--ink);
   color: var(--ink);
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.12s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .btn:hover {
   background: var(--ink);
   color: var(--panel);
+}
+.btn:active:not(:disabled) {
+  transform: scale(0.97);
 }
 
 .btn-solid {
@@ -1868,11 +1872,25 @@ a:hover {
     order: -1;
     margin-top: clamp(24px, 7vw, 44px);
   }
+  .hero-latest {
+    flex: 1 1 100%;
+    text-align: left;
+  }
   .addon {
     padding: 24px 0;
   }
   .addon:last-child {
     padding: 24px 0;
+  }
+  .contact-form {
+    gap: 10px 32px;
+  }
+  .form-foot {
+    gap: 20px;
+  }
+  .send {
+    width: 100%;
+    margin-left: 0;
   }
 }
 @media (max-width: 900px) {
@@ -1913,6 +1931,7 @@ a:hover {
     scroll-behavior: auto;
   }
   .send:active:not(:disabled),
+  .btn:active:not(:disabled),
   .copy-mail-button:active,
   .nav-toggle:active,
   .mobile-nav-close:active {

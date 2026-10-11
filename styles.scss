@@ -1683,10 +1683,18 @@ a {
   text-decoration: none;
   border: 1px solid var(--ink);
   color: var(--ink);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.12s $ease-out;
 
   &:hover {
     background: var(--ink);
     color: var(--panel);
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.97);
   }
 }
 
@@ -2047,12 +2055,30 @@ a {
     margin-top: clamp(24px, 7vw, 44px);
   }
 
+  .hero-latest {
+    flex: 1 1 100%;
+    text-align: left;
+  }
+
   .addon {
     padding: 24px 0;
 
     &:last-child {
       padding: 24px 0;
     }
+  }
+
+  .contact-form {
+    gap: 10px 32px;
+  }
+
+  .form-foot {
+    gap: 20px;
+  }
+
+  .send {
+    width: 100%;
+    margin-left: 0;
   }
 }
 
@@ -2084,6 +2110,7 @@ a {
   }
 
   .send:active:not(:disabled),
+  .btn:active:not(:disabled),
   .copy-mail-button:active,
   .nav-toggle:active,
   .mobile-nav-close:active {
