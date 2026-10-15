@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>Stránka sa nenašla | Autoservis Búchal</title>
+    <meta content="noindex, nofollow" name="robots" />
+    <meta
+      content="Táto stránka na webe autoservisu neexistuje. Vráťte sa na úvod alebo nám zavolajte."
+      name="description"
+    />
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="/ukazky/autoservis-buchal/fonts/roboto-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/ukazky/autoservis-buchal/fonts/outfit-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link href="/ukazky/autoservis-buchal/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <svg
+      aria-hidden="true"
+      style="display: none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <symbol
+        id="i-hodiny"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 6.8V12l3.4 2" />
+      </symbol>
+      <symbol
+        id="i-mail"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <rect height="14" rx="2" width="18" x="3" y="5" />
+        <path d="m3.5 6.5 8.5 6 8.5-6" />
+      </symbol>
+      <symbol
+        id="i-telefon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M6.2 3.5h3l1.6 4-2 1.4a12 12 0 0 0 5.6 5.6l1.4-2 4 1.6v3a1.8 1.8 0 0 1-2 1.8C10.4 18.2 5.8 13.6 4.4 5.5a1.8 1.8 0 0 1 1.8-2Z"
+        />
+      </symbol>
+      <symbol
+        id="i-menu"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+      >
+        <path d="M3.5 7h17M3.5 12h17M3.5 17h17" />
+      </symbol>
+      <symbol
+        id="i-zavriet"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+      >
+        <path d="m5.5 5.5 13 13M18.5 5.5l-13 13" />
+      </symbol>
+    </svg>
+
+    <header class="site-header">
+      <div class="header-utility">
+        <div class="container">
+          <span class="utility-item">
+            <svg class="icon" aria-hidden="true"><use href="#i-hodiny" /></svg>
+            <span class="hours">Po – Pi 7.00 – 17.00 · So 8.00 – 12.00</span>
+          </span>
+          <a class="utility-item" href="mailto:servis@buchal.sk">
+            <svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg>
+            servis@buchal.sk
+          </a>
+          <a class="utility-item" href="tel:+421905000000">
+            <svg class="icon" aria-hidden="true"><use href="#i-telefon" /></svg>
+            0905 000 000
+          </a>
+        </div>
+      </div>
+
+      <div class="header-main">
+        <div class="container">
+          <a class="logo" href="/ukazky/autoservis-buchal/"
+            >AUTOSERVIS <em>BÚCHAL</em></a
+          >
+          <nav class="main-nav" aria-label="Hlavné menu">
+            <a
+              class="nav-link"
+              data-text="Služby"
+              href="/ukazky/autoservis-buchal/#sluzby"
+              >Služby</a
+            >
+            <a
+              class="nav-link"
+              data-text="Cenník"
+              href="/ukazky/autoservis-buchal/#cennik"
+              >Cenník</a
+            >
+            <a
+              class="nav-link"
+              data-text="Ako to prebieha"
+              href="/ukazky/autoservis-buchal/#postup"
+              >Ako to prebieha</a
+            >
+            <a
+              class="nav-link"
+              data-text="Otázky"
+              href="/ukazky/autoservis-buchal/#otazky"
+              >Otázky</a
+            >
+          </nav>
+          <a
+            class="btn btn-primary"
+            href="/ukazky/autoservis-buchal/#objednanie"
+            >Objednať sa</a
+          >
+          <button
+            aria-controls="mobilne-menu"
+            aria-expanded="false"
+            aria-label="Otvoriť menu"
+            class="nav-toggle"
+            id="otvorit-menu"
+            type="button"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div
+      aria-label="Mobilné menu"
+      class="nav-panel"
+      id="mobilne-menu"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="nav-panel-head">
+        <span class="logo">AUTOSERVIS <em>BÚCHAL</em></span>
+        <button
+          aria-label="Zavrieť menu"
+          class="nav-close"
+          id="zavriet-menu"
+          type="button"
+        >
+          <svg class="icon" aria-hidden="true"><use href="#i-zavriet" /></svg>
+        </button>
+      </div>
+      <nav aria-label="Menu">
+        <ul>
+          <li>
+            <a
+              class="nav-link"
+              data-text="Služby"
+              href="/ukazky/autoservis-buchal/#sluzby"
+              >Služby</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link"
+              data-text="Cenník"
+              href="/ukazky/autoservis-buchal/#cennik"
+              >Cenník</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link"
+              data-text="Ako to prebieha"
+              href="/ukazky/autoservis-buchal/#postup"
+              >Ako to prebieha</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link"
+              data-text="Otázky"
+              href="/ukazky/autoservis-buchal/#otazky"
+              >Otázky</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <div class="nav-panel-foot">
+        <span class="utility-item">
+          <svg class="icon" aria-hidden="true"><use href="#i-hodiny" /></svg>
+          <span class="hours">Po – Pi 7.00 – 17.00 · So 8.00 – 12.00</span>
+        </span>
+        <a class="utility-item" href="mailto:servis@buchal.sk">
+          <svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg>
+          servis@buchal.sk
+        </a>
+        <a class="header-phone" href="tel:+421905000000">
+          <svg class="icon" aria-hidden="true"><use href="#i-telefon" /></svg>
+          0905 000 000
+        </a>
+        <a class="btn btn-primary" href="/ukazky/autoservis-buchal/#objednanie"
+          >Objednať sa</a
+        >
+      </div>
+    </div>
+
+    <main>
+      <div class="hero">
+        <svg
+          aria-hidden="true"
+          class="hero-art"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 320 320"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g class="disc" stroke-width="3.5">
+            <circle cx="160" cy="160" r="150" />
+            <circle cx="160" cy="160" r="138" />
+            <circle cx="160" cy="160" r="96" />
+            <circle cx="160" cy="160" r="58" />
+            <circle cx="280" cy="160" r="6" />
+            <circle cx="263.9" cy="220" r="6" />
+            <circle cx="220" cy="263.9" r="6" />
+            <circle cx="160" cy="280" r="6" />
+            <circle cx="100" cy="263.9" r="6" />
+            <circle cx="56.1" cy="220" r="6" />
+            <circle cx="40" cy="160" r="6" />
+            <circle cx="56.1" cy="100" r="6" />
+            <circle cx="100" cy="56.1" r="6" />
+            <circle cx="160" cy="40" r="6" />
+            <circle cx="220" cy="56.1" r="6" />
+            <circle cx="263.9" cy="100" r="6" />
+            <circle cx="160" cy="205" r="7" />
+            <circle cx="117.2" cy="173.9" r="7" />
+            <circle cx="133.6" cy="123.6" r="7" />
+            <circle cx="186.4" cy="123.6" r="7" />
+            <circle cx="202.8" cy="173.9" r="7" />
+          </g>
+          <g class="disc disc-small" stroke-width="4">
+            <circle cx="52" cy="264" r="46" />
+            <circle cx="52" cy="264" r="18" />
+            <path d="M52 218v12M52 298v12M6 264h12M86 264h12" />
+          </g>
+        </svg>
+
+        <div class="container">
+          <div class="hero-content">
+            <h1>404. Stránka <span class="accent">zapadla pod zdvihák.</span></h1>
+            <p class="hero-lead">
+              Adresa, ktorú ste otvorili, u nás neexistuje. Vráťte sa na úvod
+              alebo nám rovno zavolajte, termín dohodneme aj po telefóne.
+            </p>
+            <div class="actions">
+              <a class="btn btn-primary" href="/ukazky/autoservis-buchal/"
+                >Späť na úvod</a
+              >
+              <a class="btn btn-secondary" href="tel:+421905000000"
+                >0905 000 000</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>
+          <div class="footer-logo">AUTOSERVIS <em>BÚCHAL</em></div>
+          <p>
+            Značkový servis pre autá po záruke.<br />
+            Vajnorská 138, Bratislava-Nové Mesto.
+          </p>
+        </div>
+        <div>
+          <h3>Kontakt</h3>
+          <ul>
+            <li><a href="tel:+421905000000">0905 000 000</a></li>
+            <li><a href="mailto:servis@buchal.sk">servis@buchal.sk</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Otváracie hodiny</h3>
+          <ul class="hours">
+            <li>Po – Pi 7.00 – 17.00</li>
+            <li>So 8.00 – 12.00</li>
+            <li>Ne zatvorené</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <p class="credit">
+      Ukážkový web. Podnik aj údaje sú vymyslené. Návrh a realizácia
+      <a href="https://by-simona.eu">by simona</a>.
+    </p>
+
+    <script src="/ukazky/autoservis-buchal/script.js"></script>
+    <script defer src="/cookies.js"></script>
+  </body>
+</html>
