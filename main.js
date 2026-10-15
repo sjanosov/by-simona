@@ -632,13 +632,24 @@ const imageReady = (image) => {
   });
 };
 
+const holdGroup = (host) => {
+  const link = host.closest(".nav-link");
+  if (!link) return [host];
+  return [host, ...link.querySelectorAll(".nav-bracket")];
+};
+
 if (hero && !reduceMotion) {
   const texts = [];
   HERO_TEXT.forEach((item) => {
     Array.from(hero.querySelectorAll(item.selector)).forEach((host, index) => {
       if (!host.getClientRects().length) return;
-      host.classList.add("is-scramble-hold");
-      texts.push({ host, delay: item.delay + (item.stagger || 0) * index });
+      const group = holdGroup(host);
+      group.forEach((node) => node.classList.add("is-scramble-hold"));
+      texts.push({
+        host,
+        group,
+        delay: item.delay + (item.stagger || 0) * index
+      });
     });
   });
 
@@ -647,10 +658,10 @@ if (hero && !reduceMotion) {
   if (image) photo.classList.add("is-pixel-hold");
 
   fontsReady().then(() => {
-    texts.forEach(({ host, delay }) => {
+    texts.forEach(({ host, group, delay }) => {
       const letters = getScramble(host);
       window.setTimeout(() => {
-        host.classList.remove("is-scramble-hold");
+        group.forEach((node) => node.classList.remove("is-scramble-hold"));
         runScramble(letters);
       }, delay);
     });
@@ -681,6 +692,214 @@ if (!reduceMotion) {
     trigger.addEventListener("pointerenter", play);
     trigger.addEventListener("focus", play);
   });
+}
+
+const NOTFOUND_CELL = 13;
+const NOTFOUND_REVEAL = 1500;
+const NOTFOUND_FEATHER = 0.28;
+const NOTFOUND_GAP = 2400;
+const NOTFOUND_BURST = 420;
+const NOTFOUND_RADIUS = 3.4;
+
+const notfound = document.querySelector("[data-notfound-pixels]");
+if (notfound) {
+  const context = notfound.getContext("2d");
+  const palette = getComputedStyle(document.documentElement);
+  const light = palette.getPropertyValue("--light").trim() || "#f4f2ec";
+  const accent = palette.getPropertyValue("--accent").trim() || "#4c1d95";
+  const accentSoft =
+    palette.getPropertyValue("--accent-soft").trim() || "#c3b2ec";
+
+  let ratio = 1;
+  let cell = 0;
+  let cols = 0;
+  let rows = 0;
+  let coverage = null;
+  let bands = null;
+  let burstUntil = 0;
+  let nextBurst = 0;
+  let started = 0;
+  let pointer = null;
+  let moved = true;
+  let visible = true;
+  let raf = null;
+
+  const setFont = (paint, size) => {
+    paint.font = `800 ${size}px "Archivo", "Arial Narrow", sans-serif`;
+    return paint.measureText("404");
+  };
+
+  const sample = () => {
+    const scale = 4;
+    const source = document.createElement("canvas");
+    source.width = cols * scale;
+    source.height = rows * scale;
+    const paint = source.getContext("2d");
+    if ("fontStretch" in paint) paint.fontStretch = "semi-condensed";
+    paint.textAlign = "center";
+    paint.textBaseline = "alphabetic";
+
+    let size = source.height;
+    let metrics = setFont(paint, size);
+    const span =
+      metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent;
+    const fit = Math.min(
+      (source.height * 0.84) / span,
+      (source.width * 0.88) / metrics.width
+    );
+    size = Math.max(8, Math.floor(size * fit));
+    metrics = setFont(paint, size);
+
+    const tall =
+      metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent;
+    paint.fillStyle = "#fff";
+    paint.fillText(
+      "404",
+      source.width / 2,
+      (source.height - tall) / 2 + metrics.actualBoundingBoxAscent
+    );
+
+    const grid = document.createElement("canvas");
+    grid.width = cols;
+    grid.height = rows;
+    const shrink = grid.getContext("2d");
+    shrink.drawImage(source, 0, 0, cols, rows);
+    const data = shrink.getImageData(0, 0, cols, rows).data;
+    coverage = new Float32Array(cols * rows);
+    for (let i = 0; i < coverage.length; i += 1) {
+      coverage[i] = data[i * 4 + 3] / 255;
+    }
+  };
+
+  const makeBands = () => {
+    bands = new Int16Array(rows);
+    const count = 2 + Math.floor(Math.random() * 3);
+    for (let i = 0; i < count; i += 1) {
+      const start = Math.floor(Math.random() * rows);
+      const height = 1 + Math.floor(Math.random() * 3);
+      const offset = (2 + Math.floor(Math.random() * 4)) * (Math.random() < 0.5 ? -1 : 1);
+      for (let row = start; row < Math.min(rows, start + height); row += 1) {
+        bands[row] = offset;
+      }
+    }
+  };
+
+  const draw = (now) => {
+    if (!coverage) return;
+    const progress = Math.min((now - started) / NOTFOUND_REVEAL, 1);
+    const reveal = progress * (1 + NOTFOUND_FEATHER);
+    const tearing = now < burstUntil && bands;
+    const edge = Math.max(1, Math.round(ratio));
+    context.clearRect(0, 0, notfound.width, notfound.height);
+    for (let row = 0; row < rows; row += 1) {
+      const shift = tearing ? bands[row] : 0;
+      for (let col = 0; col < cols; col += 1) {
+        const read = col - shift;
+        if (read < 0 || read >= cols) continue;
+        const ink = coverage[row * cols + read];
+        if (ink < 0.08) continue;
+        const alpha = (reveal - pixelOrder(col, row, rows)) / NOTFOUND_FEATHER;
+        if (alpha <= 0) continue;
+        let fill = light;
+        if (shift) {
+          fill = accent;
+        } else if (pointer) {
+          const dx = col - pointer.col;
+          const dy = row - pointer.row;
+          if (dx * dx + dy * dy < NOTFOUND_RADIUS * NOTFOUND_RADIUS) {
+            fill = accentSoft;
+          }
+        }
+        context.globalAlpha = Math.min(alpha, 1) * Math.min(ink * 1.4, 1);
+        context.fillStyle = fill;
+        context.fillRect(col * cell, row * cell, cell - edge, cell - edge);
+      }
+    }
+    context.globalAlpha = 1;
+  };
+
+  const tick = (now) => {
+    raf = null;
+    if (!started) started = now;
+    if (!nextBurst) nextBurst = now + NOTFOUND_REVEAL + NOTFOUND_GAP;
+    if (now >= nextBurst) {
+      makeBands();
+      burstUntil = now + NOTFOUND_BURST;
+      nextBurst = now + NOTFOUND_GAP + Math.random() * 2200;
+    }
+    if (
+      moved ||
+      now - started < NOTFOUND_REVEAL + 32 ||
+      now < burstUntil + 32
+    ) {
+      draw(now);
+      moved = false;
+    }
+    if (visible) raf = requestAnimationFrame(tick);
+  };
+
+  const start = () => {
+    if (raf || reduceMotion || !visible || !coverage) return;
+    raf = requestAnimationFrame(tick);
+  };
+
+  const stop = () => {
+    cancelAnimationFrame(raf);
+    raf = null;
+  };
+
+  const resize = () => {
+    const width = notfound.clientWidth;
+    const height = notfound.clientHeight;
+    if (!width || !height) return;
+    ratio = Math.min(window.devicePixelRatio || 1, 2);
+    notfound.width = Math.round(width * ratio);
+    notfound.height = Math.round(height * ratio);
+    cell = Math.max(4, Math.round(NOTFOUND_CELL * ratio));
+    cols = Math.ceil(notfound.width / cell);
+    rows = Math.ceil(notfound.height / cell);
+    bands = null;
+    moved = true;
+    sample();
+    if (reduceMotion) {
+      started = performance.now() - NOTFOUND_REVEAL;
+      draw(performance.now());
+    }
+  };
+
+  fontsReady().then(() => {
+    resize();
+    start();
+  });
+
+  window.addEventListener("resize", () => {
+    resize();
+    if (!reduceMotion && !raf) start();
+  });
+
+  if (window.IntersectionObserver) {
+    const observer = new IntersectionObserver((entries) => {
+      visible = entries[0].isIntersecting;
+      if (visible) start();
+      else stop();
+    });
+    observer.observe(notfound);
+  }
+
+  if (!reduceMotion) {
+    notfound.addEventListener("pointermove", (event) => {
+      const box = notfound.getBoundingClientRect();
+      pointer = {
+        col: ((event.clientX - box.left) * ratio) / cell,
+        row: ((event.clientY - box.top) * ratio) / cell
+      };
+      moved = true;
+    });
+    notfound.addEventListener("pointerleave", () => {
+      pointer = null;
+      moved = true;
+    });
+  }
 }
 
 const navToggle = document.querySelector("[data-nav-toggle]");
