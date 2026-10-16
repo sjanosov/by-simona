@@ -12,7 +12,7 @@ npx sass style.scss style.css --no-source-map
 
 ## Obsah
 
-Štyri projekty: Shades Lounge Bar, Ubytovanie Sološnica, Astrokareta a Hair Salon (demo). `script.js` zachováva animácie pri scrollovaní, postupnú animáciu časovej osi, mobilnú navigáciu a kopírovanie e-mailu. Obrázky sú v `assets/`.
+Tri projekty: Autoservis Búchal, Shades Lounge Bar a Astrokareta. `script.js` zachováva animácie pri scrollovaní, postupnú animáciu časovej osi, mobilnú navigáciu a kopírovanie e-mailu. Obrázky sú v `assets/`.
 
 Písmo DM Sans je hosťované lokálne v `fonts/` (bez Google Fonts). `robots.txt` a `sitemap.xml` sú v koreni – pri pridaní novej stránky ju doplň do sitemap.
 
